@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { margin:0; font-family:Roboto,sans-serif; background:rgb(255,255,255); }
+  #hours { font-size:2.5em; padding:30px; color:#000; }
+  h2 { background:rgb(200,170,100); margin:0; padding:20px; font-size:1.8em; }
+</style>
+</head>
+<body>
+<h2>Today's Hours</h2>
+<div id="hours">Loading...</div>
+<script>
+function handleHours(data) {
+  var loc = data.locations[0];
+  document.getElementById('hours').innerHTML = loc.rendered;
+}
+var s = document.createElement('script');
+s.src = 'https://usma.libcal.com/api_hours_today.php?iid=4846&lid=0&format=json&systemTime=1&callback=handleHours';
+document.head.appendChild(s);
+</script>
+</body>
+</html>
