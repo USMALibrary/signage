@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>USMA Library Hours</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif;
+    background: #0a0a0a;
+    color: #f0f0f0;
+  }
+
+  /* ── HEADER ── */
+  #header {
+    width: 100%;
+    height: 130px;
+    background: #111;
+    border-bottom: 4px solid rgb(200,170,100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+  }
+
+  #header-left {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  #logo {
+    height: 80px;
+    width: auto;
+    filter: brightness(1.1);
+  }
+
+  #header-title {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #header-title .lib-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: rgb(200,170,100);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  #header-title .lib-sub {
+    font-size: 18px;
+    color: #aaa;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: 2px;
+  }
+
+  #header-right {
+    text-align: right;
+  }
+
+  #clock {
+    font-family: 'Oswald', sans-serif;
+    font-size: 56px;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  #date {
+    font-size: 18px;
+    color: #999;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ── STATUS BAR ── */
+  #status-bar {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    background: #1a4d1a;
+    border-bottom: 3px solid #2d7a2d;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #status-bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 50%, transparent 100%);
+  }
+
+  #status-bar.closed {
+    background: #4d1a1a;
+    border-bottom-color: #8b0000;
+  }
+
+  #status-icon {
+    font-size: 90px;
+    line-height: 1;
+  }
+
+  #status-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 110px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    text-shadow: 0 0 40px rgba(255,255,255,0.2);
+  }
+
+  #status-bar.closed #status-text {
+    color: #ff6b6b;
+  }
+
+  /* ── TODAY STRIP ── */
+  #today-strip {
+    width: 100%;
+    background: #1a1a1a;
+    border-bottom: 1px solid #333;
+    padding: 18px 60px;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+
+  #today-strip .strip-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgb(200,170,100);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  #today-strip .strip-divider {
+    width: 2px;
+    height: 36px;
+    background: #444;
+    flex-shrink: 0;
+  }
+
+  #today-locations {
+    display: flex;
+    gap: 60px;
+    flex: 1;
+  }
+
+  .today-loc {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .today-loc .loc-name {
+    font-size: 20px;
+    color: #bbb;
+    font-weight: 300;
+  }
+
+  .today-loc .loc-hours {
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .today-loc .loc-hours.open   { color: #6fcf6f; }
+  .today-loc .loc-hours.closed { color: #cf6f6f; }
+
+  .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot.open   { background: #6fcf6f; box-shadow: 0 0 8px #6fcf6f; }
+  .dot.closed { background: #cf6f6f; }
+
+  /* ── WEEKLY GRID ── */
+  #week-section {
+    width: 100%;
+    height: calc(1080px - 130px - 200px - 74px);
+    background: #0f0f0f;
+    padding: 20px 60px 16px;
+    overflow: hidden;
+  }
+
+  #week-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 14px;
+  }
+
+  #week-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+  }
+
+  #week-table th {
+    background: #1e1e1e;
+    color: #999;
+    padding: 10px 6px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #333;
+    border-right: 1px solid #2a2a2a;
+  }
+
+  #week-table th.today-col {
+    color: rgb(200,170,100);
+    border-bottom-color: rgb(200,170,100);
+  }
+
+  #week-table th.row-label { text-align: left; padding-left: 12px; color: #666; }
+
+  #week-table td {
+    padding: 12px 8px;
+    text-align: center;
+    border-bottom: 1px solid #1e1e1e;
+    border-right: 1px solid #1a1a1a;
+    color: #ccc;
+    vertical-align: middle;
+  }
+
+  #week-table td.row-label {
+    text-align: left;
+    padding-left: 12px;
+    color: #888;
+    font-size: 18px;
+    font-weight: 300;
+    white-space: nowrap;
+    border-right: 2px solid #333;
+  }
+
+  #week-table td.today-col {
+    background: #1a1800;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  #week-table tr:hover td { background: #161616; }
+  #week-table tr:hover td.today-col { background: #1f1c00; }
+
+  #footnote {
+    font-size: 13px;
+    color: #444;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header">
+  <div id="header-left">
+    <img id="logo"
+      src="https://libapps.s3.amazonaws.com/accounts/87070/images/USMALibraryLogo.png"
+      alt="USMA Library"
+      onerror="this.style.display='none'">
+    <div id="header-title">
+      <span class="lib-name">Jefferson Hall Library</span>
+      <span class="lib-sub">United States Military Academy · West Point</span>
+    </div>
+  </div>
+  <div id="header-right">
+    <div id="clock">--:-- --</div>
+    <div id="date">--</div>
+  </div>
+</div>
+
+<!-- STATUS BAR -->
+<div id="status-bar">
+  <div id="status-icon">⬤</div>
+  <div id="status-text">CHECKING HOURS</div>
+</div>
+
+<!-- TODAY STRIP -->
+<div id="today-strip">
+  <div class="strip-label">Today's Hours</div>
+  <div class="strip-divider"></div>
+  <div id="today-locations">Loading...</div>
+</div>
+
+<!-- WEEKLY GRID -->
+<div id="week-section">
+  <div id="week-label">This Week</div>
+  <table id="week-table">
+    <thead id="week-head"><tr><th class="row-label">Location</th></tr></thead>
+    <tbody id="week-body">
+      <tr><td colspan="8" style="color:#555;padding:20px 12px">Loading weekly hours...</td></tr>
+    </tbody>
+  </table>
+  <div id="footnote"></div>
+</div>
+
+<script>
+  /* ── CLOCK ── */
+  function updateClock() {
+    var now = new Date();
+    var h = now.getHours(), m = now.getMinutes().toString().padStart(2,'0');
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    document.getElementById('clock').textContent = h + ':' + m + ' ' + ampm;
+    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    document.getElementById('date').textContent =
+      days[now.getDay()].toUpperCase() + ' · ' + months[now.getMonth()].toUpperCase() + ' ' + now.getDate();
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
+
+  /* ── FORMAT TIME ── */
+  function fmtRendered(r) {
+    if (!r || r === 'Closed') return 'Closed';
+    return r.replace(/(\d{1,2}):(\d{2})/g, function(_, hh, mm) {
+      var h = parseInt(hh), ampm = h >= 12 ? 'PM' : 'AM';
+      h = h % 12 || 12;
+      return h + ':' + mm + ' ' + ampm;
+    }).replace(' - ', ' – ');
+  }
+
+  /* ── RENDER TODAY ── */
+  function renderToday(data) {
+    var locs = data.locations, html = '', anyOpen = false;
+    locs.forEach(function(loc) {
+      var open = loc.times && loc.times.currently_open;
+      if (open) anyOpen = true;
+      html += '<div class="today-loc">' +
+        '<div class="dot ' + (open?'open':'closed') + '"></div>' +
+        '<span class="loc-name">' + loc.name + '</span>' +
+        '<span class="loc-hours ' + (open?'open':'closed') + '">' + fmtRendered(loc.rendered) + '</span>' +
+        '</div>';
+    });
+    document.getElementById('today-locations').innerHTML = html;
+
+    var bar = document.getElementById('status-bar');
+    var icon = document.getElementById('status-icon');
+    var text = document.getElementById('status-text');
+    if (anyOpen) {
+      bar.className = '';
+      icon.textContent = '✓';
+      text.textContent = 'OPEN';
+    } else {
+      bar.className = 'closed';
+      icon.textContent = '✕';
+      text.textContent = 'CLOSED';
+    }
+  }
+
+  /* ── RENDER WEEKLY ── */
+  function renderWeekly(data) {
+    var locs = data.locations;
+    if (!locs || !locs.length || !locs[0].weeks || !locs[0].weeks.length) return;
+    var week = locs[0].weeks[0];
+    var dayKeys = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var todayName = dayKeys[new Date().getDay()];
+
+    var headRow = '<tr><th class="row-label">Location</th>';
+    dayKeys.forEach(function(d) {
+      var dd = week[d];
+      var label = d.substring(0,3).toUpperCase();
+      if (dd && dd.date) {
+        var p = dd.date.split('-');
+        if (p.length === 3) label += '<br><span style="font-size:14px;font-weight:300;opacity:0.6">' + parseInt(p[1]) + '/' + parseInt(p[2]) + '</span>';
+      }
+      headRow += '<th' + (d===todayName?' class="today-col"':'') + '>' + label + '</th>';
+    });
+    headRow += '</tr>';
+    document.getElementById('week-head').innerHTML = headRow;
+
+    var bodyHTML = '', footnotes = [];
+    locs.forEach(function(loc) {
+      if (!loc.weeks || !loc.weeks.length) return;
+      var w = loc.weeks[0];
+      bodyHTML += '<tr><td class="row-label">' + loc.name + '</td>';
+      dayKeys.forEach(function(d) {
+        var dd = w[d];
+        var rendered = dd ? fmtRendered(dd.rendered) : '--';
+        var isClosed = rendered === 'Closed';
+        var style = isClosed ? ' style="color:#555"' : '';
+        bodyHTML += '<td' + (d===todayName?' class="today-col"':'') + style + '>' + rendered + '</td>';
+      });
+      bodyHTML += '</tr>';
+      if (loc.fn) footnotes.push(loc.fn);
+    });
+    document.getElementById('week-body').innerHTML = bodyHTML;
+    if (footnotes.length) document.getElementById('footnote').textContent = footnotes[0];
+  }
+
+  /* ── FETCH VIA CORS PROXY ── */
+  var PROXY = 'https://corsproxy.io/?url=';
+  var TODAY_URL  = 'https://usma.libcal.com/api_hours_today.php?iid=4846&lid=0&format=json&systemTime=1';
+  var WEEKLY_URL = 'https://usma.libcal.com/api_hours_grid.php?iid=4846&lid=0&format=json&weeks=1&systemTime=0';
+
+  function loadData() {
+    fetch(PROXY + encodeURIComponent(TODAY_URL))
+      .then(function(r){ return r.json(); })
+      .then(renderToday)
+      .catch(function(){ 
+        document.getElementById('today-locations').textContent = 'Hours unavailable';
+        document.getElementById('status-text').textContent = 'SEE STAFF';
+      });
+
+    fetch(PROXY + encodeURIComponent(WEEKLY_URL))
+      .then(function(r){ return r.json(); })
+      .then(renderWeekly)
+      .catch(function(){
+        document.getElementById('week-body').innerHTML = '<tr><td colspan="8" style="color:#555;padding:20px">Weekly hours unavailable</td></tr>';
+      });
+  }
+
+  loadData();
+  setInterval(loadData, 900000);
+</script>
+</body>
+</html>
