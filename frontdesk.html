@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>USMA Library – Front Desk</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold:      rgb(200, 170, 100);
+    --gold-dark: rgb(155, 125, 55);
+    --black:     #0a0a0a;
+    --dark:      #111111;
+    --mid:       #1a1a1a;
+    --border:    #2a2a2a;
+    --text:      #f0f0f0;
+    --muted:     #888;
+  }
+
+  body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: var(--black);
+    font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif;
+    color: var(--text);
+  }
+
+  /* ── HEADER ── */
+  #header {
+    width: 100%;
+    height: 160px;
+    background: var(--dark);
+    border-bottom: 4px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    flex-shrink: 0;
+  }
+
+  #header-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  #logo {
+    height: 90px;
+    width: auto;
+  }
+
+  #header-title .lib-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  #header-title .lib-sub {
+    font-size: 15px;
+    color: var(--muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: 4px;
+    display: block;
+  }
+
+  #header-right { text-align: right; }
+
+  #clock {
+    font-family: 'Oswald', sans-serif;
+    font-size: 52px;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  #date {
+    font-size: 15px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* ── SECTION LABELS ── */
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 20px 48px 14px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
+  }
+
+  /* ── IMAGE ZONES ── */
+  .image-zone {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: var(--mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image-zone img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.8s ease;
+  }
+
+  .image-zone .placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #333;
+    gap: 16px;
+  }
+
+  .image-zone .placeholder-icon {
+    font-size: 64px;
+    opacity: 0.3;
+  }
+
+  .image-zone .placeholder-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.3;
+  }
+
+  /* Gold corner accent on image zones */
+  .image-zone::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 40px; height: 4px;
+    background: var(--gold);
+    z-index: 2;
+  }
+
+  .image-zone::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 40px;
+    background: var(--gold);
+    z-index: 2;
+  }
+
+  #zone-top    { height: 640px; }
+  #zone-bottom { height: 640px; }
+
+  /* ── DIVIDER ── */
+  .zone-divider {
+    width: calc(100% - 96px);
+    margin: 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  /* ── FOOTER ── */
+  #footer {
+    height: 116px;
+    background: var(--dark);
+    border-top: 4px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    margin-top: auto;
+  }
+
+  #footer-left {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  #footer-left span {
+    color: var(--gold);
+    display: block;
+    font-size: 20px;
+    margin-bottom: 2px;
+  }
+
+  #footer-right {
+    text-align: right;
+    font-size: 14px;
+    color: #444;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header">
+  <div id="header-left">
+    <img id="logo"
+      src="https://libapps.s3.amazonaws.com/accounts/87070/images/USMALibraryLogo.png"
+      alt="USMA Library"
+      onerror="this.style.display='none'">
+    <div id="header-title">
+      <span class="lib-name">Jefferson Hall Library</span>
+      <span class="lib-sub">United States Military Academy</span>
+    </div>
+  </div>
+  <div id="header-right">
+    <div id="clock">--:-- --</div>
+    <div id="date">--</div>
+  </div>
+</div>
+
+<!-- TOP IMAGE ZONE -->
+<div class="section-label">News &amp; Announcements</div>
+<div class="image-zone" id="zone-top">
+  <div class="placeholder">
+    <div class="placeholder-icon">🖼</div>
+    <div class="placeholder-text">Upload Image</div>
+  </div>
+</div>
+
+<div class="zone-divider"></div>
+
+<!-- BOTTOM IMAGE ZONE -->
+<div class="section-label">Events &amp; Flyers</div>
+<div class="image-zone" id="zone-bottom">
+  <div class="placeholder">
+    <div class="placeholder-icon">📌</div>
+    <div class="placeholder-text">Upload Flyer</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div id="footer">
+  <div id="footer-left">
+    <span>Jefferson Hall</span>
+    West Point, NY 10996
+  </div>
+  <div id="footer-right">
+    library.westpoint.edu<br>
+    Help Desk · 2nd Floor
+  </div>
+</div>
+
+<script>
+  /* ── CLOCK ── */
+  function updateClock() {
+    var now = new Date();
+    var h = now.getHours(), m = now.getMinutes().toString().padStart(2,'0');
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    document.getElementById('clock').textContent = h + ':' + m + ' ' + ampm;
+    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var d = new Date();
+    document.getElementById('date').textContent =
+      days[d.getDay()].toUpperCase() + ' · ' + months[d.getMonth()].toUpperCase() + ' ' + d.getDate();
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
+</script>
+</body>
+</html>
