@@ -412,21 +412,19 @@
     if (footnotes.length) document.getElementById('footnote').textContent = footnotes[0];
   }
 
-  /* ── FETCH VIA CORS PROXY ── */
-  var PROXY = 'https://corsproxy.org/?url=';
-  var TODAY_URL  = 'https://usma.libcal.com/api_hours_today.php?iid=4846&lid=0&format=json&systemTime=1';
-  var WEEKLY_URL = 'https://usma.libcal.com/api_hours_grid.php?iid=4846&lid=0&format=json&weeks=1&systemTime=0';
+  /* ── FETCH FROM STATIC JSON (updated every 15 min by GitHub Actions) ── */
+  var BASE = 'https://usmalibrary.github.io/signage/data/';
 
   function loadData() {
-    fetch(PROXY + encodeURIComponent(TODAY_URL))
+    fetch(BASE + 'hours-today.json?v=' + Date.now())
       .then(function(r){ return r.json(); })
       .then(renderToday)
-      .catch(function(){ 
+      .catch(function(){
         document.getElementById('today-locations').textContent = 'Hours unavailable';
         document.getElementById('status-text').textContent = 'SEE STAFF';
       });
 
-    fetch(PROXY + encodeURIComponent(WEEKLY_URL))
+    fetch(BASE + 'hours-weekly.json?v=' + Date.now())
       .then(function(r){ return r.json(); })
       .then(renderWeekly)
       .catch(function(){
