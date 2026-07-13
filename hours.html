@@ -6,168 +6,66 @@
 <title>USMA Library Hours</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
-    width: 1920px;
-    height: 1080px;
-    overflow: hidden;
+    width: 1920px; height: 1080px; overflow: hidden;
     font-family: 'Segoe UI', Arial, sans-serif;
     background: #fff;
   }
-
-  /* ── TOP HALF: gray gradient ── */
   #top {
-    display: flex;
-    width: 100%;
-    height: 400px;
+    display: flex; width: 100%; height: 400px;
     background: linear-gradient(160deg, #d0cece 0%, #8a8484 60%, #6e6868 100%);
-    position: relative;
   }
-
   #today-block {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 40px 60px;
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center; padding: 40px 60px;
   }
-
-  #today-label {
-    font-size: 32px;
-    color: #222;
-    margin-bottom: 24px;
-    font-weight: 400;
-  }
-
-  #today-hours {
-    font-size: 38px;
-    color: #111;
-    line-height: 1.7;
-  }
-
-  #today-hours .loc-name {
-    font-weight: 700;
-    display: inline-block;
-    width: 520px;
-  }
-
-  #today-hours .loc-time {
-    font-weight: 400;
-  }
-
-  /* Clock + logo panel */
+  #today-label { font-size: 32px; color: #222; margin-bottom: 24px; font-weight: 400; }
+  #today-hours { font-size: 36px; color: #111; line-height: 1.8; }
+  #today-hours .loc-name { font-weight: 700; display: inline-block; width: 540px; }
+  #today-hours .open   { color: #1a5c1a; }
+  #today-hours .closed { color: #8b0000; }
   #right-panel {
-    width: 340px;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    width: 340px; background: #fff;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-start;
     padding: 30px 20px 20px;
   }
-
-  #clock {
-    font-size: 72px;
-    font-weight: 300;
-    color: #111;
-    letter-spacing: -2px;
-    line-height: 1;
-  }
-
-  #date {
-    font-size: 26px;
-    color: #444;
-    margin-top: 8px;
-    margin-bottom: 24px;
-  }
-
-  #logo {
-    width: 200px;
-    height: auto;
-  }
-
-  /* ── STATUS BAR ── */
+  #clock { font-size: 68px; font-weight: 300; color: #111; letter-spacing: -2px; line-height: 1; }
+  #date  { font-size: 24px; color: #444; margin-top: 8px; margin-bottom: 24px; }
+  #logo  { width: 200px; height: auto; }
   #status-bar {
-    width: 100%;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    font-weight: 600;
-    color: #fff;
-    letter-spacing: 1px;
+    width: 100%; height: 64px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; font-weight: 600; color: #fff; letter-spacing: 1px;
     background: #2d7a2d;
   }
-
-  #status-bar.closed {
-    background: #8b0000;
-  }
-
-  /* ── BOTTOM HALF: weekly grid ── */
+  #status-bar.closed { background: #8b0000; }
   #bottom {
     width: 100%;
     height: calc(1080px - 400px - 64px);
-    background: #f5f5f5;
-    padding: 28px 48px 20px;
-    overflow: hidden;
+    background: #f5f5f5; padding: 24px 48px 16px; overflow: hidden;
   }
-
-  #week-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 22px;
-  }
-
+  #week-table { width: 100%; border-collapse: collapse; font-size: 21px; }
   #week-table th {
-    background: rgb(200, 170, 100);
-    color: #fff;
-    padding: 10px 8px;
-    text-align: center;
-    font-weight: 600;
-    border: 1px solid #c8a84a;
+    background: rgb(200,170,100); color: #fff;
+    padding: 10px 8px; text-align: center;
+    font-weight: 600; border: 1px solid #c8a84a;
   }
-
-  #week-table th.today-col {
-    background: rgb(160, 130, 70);
-  }
-
+  #week-table th.today-col { background: rgb(155,125,55); }
   #week-table td {
-    padding: 10px 12px;
-    border: 1px solid #ddd;
-    text-align: center;
-    background: #fff;
-    color: #222;
-    vertical-align: middle;
+    padding: 10px 12px; border: 1px solid #ddd;
+    text-align: center; background: #fff; color: #222; vertical-align: middle;
   }
-
   #week-table td.row-label {
-    text-align: left;
-    font-weight: 600;
-    background: #f0f0f0;
-    width: 260px;
-    padding-left: 16px;
+    text-align: left; font-weight: 600;
+    background: #f0f0f0; width: 280px; padding-left: 16px;
   }
-
-  #week-table td.today-col {
-    background: #fdf6e3;
-    font-weight: 600;
-  }
-
-  #footnote {
-    font-size: 16px;
-    color: #777;
-    margin-top: 12px;
-    padding-left: 4px;
-  }
-
-  .status-closed { color: #8b0000; }
-  .status-open   { color: #2d7a2d; }
+  #week-table td.today-col { background: #fdf6e3; font-weight: 600; }
+  #footnote { font-size: 15px; color: #777; margin-top: 10px; padding-left: 4px; }
 </style>
 </head>
 <body>
 
-<!-- TOP SECTION -->
 <div id="top">
   <div id="today-block">
     <div id="today-label">Today's Hours:</div>
@@ -178,15 +76,12 @@
     <div id="date">--</div>
     <img id="logo"
       src="https://usmalib.org/images/Logo/USMALibrary%20no%20background%20black%20letters500x411.png"
-      alt="USMA Library"
-      onerror="this.style.display='none'">
+      alt="USMA Library" onerror="this.style.display='none'">
   </div>
 </div>
 
-<!-- STATUS BAR -->
 <div id="status-bar">--</div>
 
-<!-- BOTTOM: WEEKLY GRID -->
 <div id="bottom">
   <table id="week-table">
     <thead id="week-head"><tr><th>Location</th></tr></thead>
@@ -199,147 +94,101 @@
   /* ── CLOCK ── */
   function updateClock() {
     var now = new Date();
-    var h = now.getHours();
-    var m = now.getMinutes().toString().padStart(2, '0');
+    var h = now.getHours(), m = now.getMinutes().toString().padStart(2,'0');
     var ampm = h >= 12 ? 'PM' : 'AM';
     h = h % 12 || 12;
     document.getElementById('clock').textContent = h + ':' + m + ' ' + ampm;
-
     var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var now2 = new Date();
     document.getElementById('date').textContent =
-      days[now.getDay()] + ' ' + months[now.getMonth()] + ' ' + now.getDate();
+      days[now2.getDay()] + ' ' + months[now2.getMonth()] + ' ' + now2.getDate();
   }
   updateClock();
   setInterval(updateClock, 30000);
 
-  /* ── FORMAT TIME 24hr → 12hr ── */
-  function fmt(t) {
-    if (!t) return '';
-    var parts = t.split(':');
-    var h = parseInt(parts[0]);
-    var m = parts[1];
-    var ampm = h >= 12 ? 'PM' : 'AM';
-    h = h % 12 || 12;
-    return h + ':' + m + ' ' + ampm;
-  }
-
+  /* ── FORMAT TIME ── */
   function fmtRendered(r) {
     if (!r || r === 'Closed') return 'Closed';
-    return r.replace(/(\d{2}):(\d{2})/g, function(_, hh, mm) {
+    return r.replace(/(\d{1,2}):(\d{2})/g, function(_, hh, mm) {
       var h = parseInt(hh), ampm = h >= 12 ? 'PM' : 'AM';
       h = h % 12 || 12;
       return h + ':' + mm + ' ' + ampm;
     }).replace(' - ', ' \u2013 ');
   }
 
-  /* ── TODAY'S HOURS ── */
-  function handleToday(data) {
-    var locs = data.locations;
-    var html = '';
-    var anyOpen = false;
+  /* ── RENDER TODAY ── */
+  function renderToday(data) {
+    var locs = data.locations, html = '', anyOpen = false;
     locs.forEach(function(loc) {
       var open = loc.times && loc.times.currently_open;
       if (open) anyOpen = true;
-      var timeStr = fmtRendered(loc.rendered);
-      html += '<div>' +
-        '<span class="loc-name">' + loc.name + '</span>' +
-        '<span class="loc-time ' + (open ? 'status-open' : 'status-closed') + '">' + timeStr + '</span>' +
-        '</div>';
+      html += '<div><span class="loc-name">' + loc.name + '</span>' +
+        '<span class="' + (open ? 'open' : 'closed') + '">' + fmtRendered(loc.rendered) + '</span></div>';
     });
     document.getElementById('today-hours').innerHTML = html;
-
     var bar = document.getElementById('status-bar');
-    if (anyOpen) {
-      bar.textContent = 'Open Now';
-      bar.className = '';
-    } else {
-      bar.textContent = 'Closed';
-      bar.className = 'closed';
-    }
+    bar.textContent = anyOpen ? 'Open Now' : 'Closed';
+    bar.className = anyOpen ? '' : 'closed';
   }
 
-  /* ── WEEKLY HOURS ── */
-  function handleWeekly(data) {
+  /* ── RENDER WEEKLY ── */
+  function renderWeekly(data) {
     var locs = data.locations;
-    if (!locs || !locs.length) return;
-
-    var weeks = locs[0].weeks;
-    if (!weeks || !weeks.length) return;
-    var week = weeks[0];
-
+    if (!locs || !locs.length || !locs[0].weeks || !locs[0].weeks.length) return;
+    var week = locs[0].weeks[0];
     var dayKeys = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    var today = new Date().getDay();
-    var todayName = dayKeys[today];
+    var todayName = dayKeys[new Date().getDay()];
 
-    // Build date labels from first location's week data
     var headRow = '<tr><th class="row-label">Location</th>';
     dayKeys.forEach(function(d) {
-      var dayData = week[d];
-      var dateStr = dayData ? (dayData.date || d) : d;
-      // Parse date for display
+      var dd = week[d];
       var label = d.substring(0,3);
-      if (dayData && dayData.date) {
-        var parts = dayData.date.split('-');
-        if (parts.length === 3) label = d.substring(0,3) + '<br><span style="font-size:18px;font-weight:400">' + parseInt(parts[1]) + '/' + parseInt(parts[2]) + '</span>';
+      if (dd && dd.date) {
+        var p = dd.date.split('-');
+        if (p.length === 3) label = d.substring(0,3) + '<br><span style="font-size:17px;font-weight:400">' + parseInt(p[1]) + '/' + parseInt(p[2]) + '</span>';
       }
-      var cls = d === todayName ? ' class="today-col"' : '';
-      headRow += '<th' + cls + '>' + label + '</th>';
+      headRow += '<th' + (d===todayName?' class="today-col"':'') + '>' + label + '</th>';
     });
     headRow += '</tr>';
     document.getElementById('week-head').innerHTML = headRow;
 
-    var bodyHTML = '';
-    var footnotes = [];
-
+    var bodyHTML = '', footnotes = [];
     locs.forEach(function(loc) {
       if (!loc.weeks || !loc.weeks.length) return;
       var w = loc.weeks[0];
       bodyHTML += '<tr><td class="row-label">' + loc.name + '</td>';
       dayKeys.forEach(function(d) {
-        var dayData = w[d];
-        var rendered = dayData ? fmtRendered(dayData.rendered) : '--';
-        var cls = d === todayName ? ' class="today-col"' : '';
-        bodyHTML += '<td' + cls + '>' + rendered + '</td>';
+        var dd = w[d];
+        var rendered = dd ? fmtRendered(dd.rendered) : '--';
+        bodyHTML += '<td' + (d===todayName?' class="today-col"':'') + '>' + rendered + '</td>';
       });
       bodyHTML += '</tr>';
-      if (loc.fn) footnotes.push(loc.name + ': ' + loc.fn);
+      if (loc.fn) footnotes.push(loc.fn);
     });
-
     document.getElementById('week-body').innerHTML = bodyHTML;
-    if (footnotes.length) {
-      document.getElementById('footnote').textContent = footnotes[0];
-    }
+    if (footnotes.length) document.getElementById('footnote').textContent = footnotes[0];
   }
 
-  /* ── JSONP LOADER ── */
-  function loadJSONP(url, callback) {
-    window[callback] = function(data) {
-      delete window[callback];
-      var s = document.getElementById('jsonp-' + callback);
-      if (s) s.parentNode.removeChild(s);
-      try { callback === 'handleToday' ? handleToday(data) : handleWeekly(data); } catch(e) {}
-    };
-    var s = document.createElement('script');
-    s.id = 'jsonp-' + callback;
-    s.src = url + '&callback=' + callback;
-    document.head.appendChild(s);
+  /* ── FETCH VIA CORS PROXY ── */
+  var PROXY = 'https://corsproxy.io/?url=';
+  var TODAY_URL = 'https://usma.libcal.com/api_hours_today.php?iid=4846&lid=0&format=json&systemTime=1';
+  var WEEKLY_URL = 'https://usma.libcal.com/api_hours_grid.php?iid=4846&lid=0&format=json&weeks=1&systemTime=0';
+
+  function loadData() {
+    fetch(PROXY + encodeURIComponent(TODAY_URL))
+      .then(function(r){ return r.json(); })
+      .then(renderToday)
+      .catch(function(e){ document.getElementById('today-hours').textContent = 'Hours unavailable'; });
+
+    fetch(PROXY + encodeURIComponent(WEEKLY_URL))
+      .then(function(r){ return r.json(); })
+      .then(renderWeekly)
+      .catch(function(e){ document.getElementById('week-body').innerHTML = '<tr><td colspan="8">Weekly hours unavailable</td></tr>'; });
   }
 
-  function loadAll() {
-    loadJSONP(
-      'https://usma.libcal.com/api_hours_today.php?iid=4846&lid=0&format=json&systemTime=1',
-      'handleToday'
-    );
-    loadJSONP(
-      'https://usma.libcal.com/api_hours_grid.php?iid=4846&lid=0&format=json&weeks=1&systemTime=0',
-      'handleWeekly'
-    );
-  }
-
-  loadAll();
-  // Refresh every 15 minutes
-  setInterval(loadAll, 900000);
+  loadData();
+  setInterval(loadData, 900000);
 </script>
 </body>
 </html>
