@@ -27,6 +27,8 @@
     background: var(--black);
     font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif;
     color: var(--text);
+    display: flex;
+    flex-direction: column;
   }
 
   /* ── HEADER ── */
@@ -100,11 +102,12 @@
     letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--gold);
-    padding: 20px 48px 14px;
+    padding: 18px 48px 14px;
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
     gap: 16px;
+    flex-shrink: 0;
   }
 
   .section-label::after {
@@ -117,6 +120,7 @@
   /* ── IMAGE ZONES ── */
   .image-zone {
     width: 100%;
+    flex: 1;
     position: relative;
     overflow: hidden;
     background: var(--mid);
@@ -125,15 +129,14 @@
     justify-content: center;
   }
 
-  .image-zone img {
+  .image-zone img.zone-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
-    transition: opacity 0.8s ease;
   }
 
-  .image-zone .placeholder {
+  .placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -142,14 +145,16 @@
     height: 100%;
     color: #333;
     gap: 16px;
+    position: absolute;
+    inset: 0;
   }
 
-  .image-zone .placeholder-icon {
+  .placeholder-icon {
     font-size: 64px;
     opacity: 0.3;
   }
 
-  .image-zone .placeholder-text {
+  .placeholder-text {
     font-family: 'Oswald', sans-serif;
     font-size: 20px;
     letter-spacing: 3px;
@@ -157,7 +162,7 @@
     opacity: 0.3;
   }
 
-  /* Gold corner accent on image zones */
+  /* Gold corner accent */
   .image-zone::before {
     content: '';
     position: absolute;
@@ -176,49 +181,38 @@
     z-index: 2;
   }
 
-  #zone-top    { height: 640px; }
-  #zone-bottom { height: 640px; }
-
-  /* ── DIVIDER ── */
-  .zone-divider {
-    width: calc(100% - 96px);
-    margin: 0 auto;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
-  }
-
   /* ── FOOTER ── */
   #footer {
-    height: 116px;
+    height: 100px;
     background: var(--dark);
     border-top: 4px solid var(--gold);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 48px;
-    margin-top: auto;
+    flex-shrink: 0;
   }
 
-  #footer-left {
+  #footer-url {
     font-family: 'Oswald', sans-serif;
-    font-size: 16px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  #footer-left span {
+    font-size: 26px;
+    font-weight: 400;
     color: var(--gold);
-    display: block;
-    font-size: 20px;
-    margin-bottom: 2px;
+    letter-spacing: 2px;
   }
 
-  #footer-right {
+  #footer-helpdesk {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: #ccc;
+    letter-spacing: 2px;
     text-align: right;
-    font-size: 14px;
-    color: #444;
-    letter-spacing: 1px;
+  }
+
+  #footer-helpdesk span {
+    color: var(--gold);
+    font-weight: 600;
   }
 </style>
 </head>
@@ -245,36 +239,54 @@
 <!-- TOP IMAGE ZONE -->
 <div class="section-label">News &amp; Announcements</div>
 <div class="image-zone" id="zone-top">
-  <div class="placeholder">
+  <div class="placeholder" id="placeholder-top">
     <div class="placeholder-icon">🖼</div>
-    <div class="placeholder-text">Upload Image</div>
+    <div class="placeholder-text">Upload Image to GitHub</div>
   </div>
+  <img class="zone-img" id="img-top" src="" alt="" style="display:none"
+    onload="document.getElementById('placeholder-top').style.display='none';this.style.display='block';"
+    onerror="this.style.display='none';document.getElementById('placeholder-top').style.display='flex';">
 </div>
-
-<div class="zone-divider"></div>
 
 <!-- BOTTOM IMAGE ZONE -->
 <div class="section-label">Events &amp; Flyers</div>
 <div class="image-zone" id="zone-bottom">
-  <div class="placeholder">
+  <div class="placeholder" id="placeholder-bottom">
     <div class="placeholder-icon">📌</div>
-    <div class="placeholder-text">Upload Flyer</div>
+    <div class="placeholder-text">Upload Flyer to GitHub</div>
   </div>
+  <img class="zone-img" id="img-bottom" src="" alt="" style="display:none"
+    onload="document.getElementById('placeholder-bottom').style.display='none';this.style.display='block';"
+    onerror="this.style.display='none';document.getElementById('placeholder-bottom').style.display='flex';">
 </div>
 
 <!-- FOOTER -->
 <div id="footer">
-  <div id="footer-left">
-    <span>Jefferson Hall</span>
-    West Point, NY 10996
-  </div>
-  <div id="footer-right">
-    library.westpoint.edu<br>
-    Help Desk · 2nd Floor
-  </div>
+  <div id="footer-url">library.westpoint.edu</div>
+  <div id="footer-helpdesk">Help Desk &nbsp;·&nbsp; <span>2nd Floor</span></div>
 </div>
 
 <script>
+  /* =====================================================
+     IMAGE CONFIGURATION
+     To change images, update the URLs below and
+     commit the change to GitHub. The sign will update
+     automatically within a few minutes.
+     Use direct image URLs (jpg, png, gif).
+     Leave as empty string "" to show placeholder.
+  ===================================================== */
+
+  var TOP_IMAGE_URL    = "";  // e.g. "https://usmalibrary.github.io/signage/images/announcement.jpg"
+  var BOTTOM_IMAGE_URL = "";  // e.g. "https://usmalibrary.github.io/signage/images/flyer.jpg"
+
+  /* ── LOAD IMAGES ── */
+  if (TOP_IMAGE_URL) {
+    document.getElementById('img-top').src = TOP_IMAGE_URL;
+  }
+  if (BOTTOM_IMAGE_URL) {
+    document.getElementById('img-bottom').src = BOTTOM_IMAGE_URL;
+  }
+
   /* ── CLOCK ── */
   function updateClock() {
     var now = new Date();
