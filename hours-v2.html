@@ -412,24 +412,34 @@
     if (footnotes.length) document.getElementById('footnote').textContent = footnotes[0];
   }
 
-  /* ── FETCH FROM STATIC JSON (updated every 15 min by GitHub Actions) ── */
+  /* ── LOAD DATA VIA XHR (broad Android compatibility) ── */
   var BASE = 'https://usmalibrary.github.io/signage/data/';
 
-  function loadData() {
-    fetch(BASE + 'hours-today.json?v=' + Date.now())
-      .then(function(r){ return r.json(); })
-      .then(renderToday)
-      .catch(function(){
-        document.getElementById('today-locations').textContent = 'Hours unavailable';
-        document.getElementById('status-text').textContent = 'SEE STAFF';
-      });
+  function loadJSON(url, callback, errCallback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url + '?v=' + Date.now(), true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          try { callback(JSON.parse(xhr.responseText)); }
+          catch(e) { if (errCallback) errCallback(); }
+        } else {
+          if (errCallback) errCallback();
+        }
+      }
+    };
+    xhr.onerror = function() { if (errCallback) errCallback(); };
+    xhr.send();
+  }
 
-    fetch(BASE + 'hours-weekly.json?v=' + Date.now())
-      .then(function(r){ return r.json(); })
-      .then(renderWeekly)
-      .catch(function(){
-        document.getElementById('week-body').innerHTML = '<tr><td colspan="8" style="color:#555;padding:20px">Weekly hours unavailable</td></tr>';
-      });
+  function loadData() {
+    loadJSON(BASE + 'hours-today.json', renderToday, function() {
+      document.getElementById('today-locations').textContent = 'Hours unavailable';
+      document.getElementById('status-text').textContent = 'SEE STAFF';
+    });
+    loadJSON(BASE + 'hours-weekly.json', renderWeekly, function() {
+      document.getElementById('week-body').innerHTML = '<tr><td colspan="8" style="color:#555;padding:20px">Weekly hours unavailable</td></tr>';
+    });
   }
 
   loadData();
