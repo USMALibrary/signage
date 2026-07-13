@@ -50,10 +50,7 @@
     gap: 24px;
   }
 
-  #logo {
-    height: 90px;
-    width: auto;
-  }
+  #logo { height: 90px; width: auto; }
 
   #header-title .lib-name {
     font-family: 'Oswald', sans-serif;
@@ -124,29 +121,32 @@
     position: relative;
     overflow: hidden;
     background: var(--mid);
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
-  .image-zone img.zone-img {
+  /* Two image slots per zone for crossfade */
+  .zone-img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: contain;
-    display: block;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .zone-img.active {
+    opacity: 1;
   }
 
   .placeholder {
+    position: absolute;
+    inset: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
     color: #333;
     gap: 16px;
-    position: absolute;
-    inset: 0;
   }
 
   .placeholder-icon {
@@ -169,7 +169,7 @@
     top: 0; left: 0;
     width: 40px; height: 4px;
     background: var(--gold);
-    z-index: 2;
+    z-index: 3;
   }
 
   .image-zone::after {
@@ -178,7 +178,7 @@
     top: 0; left: 0;
     width: 4px; height: 40px;
     background: var(--gold);
-    z-index: 2;
+    z-index: 3;
   }
 
   /* ── FOOTER ── */
@@ -241,11 +241,10 @@
 <div class="image-zone" id="zone-top">
   <div class="placeholder" id="placeholder-top">
     <div class="placeholder-icon">🖼</div>
-    <div class="placeholder-text">Upload Image to GitHub</div>
+    <div class="placeholder-text">Add images to announcements folder</div>
   </div>
-  <img class="zone-img" id="img-top" src="" alt="" style="display:none"
-    onload="document.getElementById('placeholder-top').style.display='none';this.style.display='block';"
-    onerror="this.style.display='none';document.getElementById('placeholder-top').style.display='flex';">
+  <img class="zone-img" id="top-img-a" src="" alt="">
+  <img class="zone-img" id="top-img-b" src="" alt="">
 </div>
 
 <!-- BOTTOM IMAGE ZONE -->
@@ -253,39 +252,99 @@
 <div class="image-zone" id="zone-bottom">
   <div class="placeholder" id="placeholder-bottom">
     <div class="placeholder-icon">📌</div>
-    <div class="placeholder-text">Upload Flyer to GitHub</div>
+    <div class="placeholder-text">Add images to flyers folder</div>
   </div>
-  <img class="zone-img" id="img-bottom" src="" alt="" style="display:none"
-    onload="document.getElementById('placeholder-bottom').style.display='none';this.style.display='block';"
-    onerror="this.style.display='none';document.getElementById('placeholder-bottom').style.display='flex';">
+  <img class="zone-img" id="bottom-img-a" src="" alt="">
+  <img class="zone-img" id="bottom-img-b" src="" alt="">
 </div>
 
 <!-- FOOTER -->
 <div id="footer">
   <div id="footer-url">library.westpoint.edu</div>
-  <div id="footer-helpdesk">Help Kiosk &nbsp;·&nbsp; <span>2nd Floor</span></div>
+  <div id="footer-helpdesk">Help Desk &nbsp;·&nbsp; <span>2nd Floor</span></div>
 </div>
 
 <script>
   /* =====================================================
      IMAGE CONFIGURATION
-     To change images, update the URLs below and
-     commit the change to GitHub. The sign will update
-     automatically within a few minutes.
-     Use direct image URLs (jpg, png, gif).
-     Leave as empty string "" to show placeholder.
+     =====================================================
+     Add filenames to each array below.
+     Files must be uploaded to the matching GitHub folder:
+       images/announcements/  →  TOP_IMAGES
+       images/flyers/         →  BOTTOM_IMAGES
+
+     ROTATION_SECONDS: how long each image shows
+     Use any image format: jpg, png, gif
+
+     Example:
+       var TOP_IMAGES = ["01.jpg", "02.jpg", "03.jpg"];
   ===================================================== */
 
-var TOP_IMAGE_URL    = "https://usmalibrary.github.io/signage/images/announcements/current.jpg";
-var BOTTOM_IMAGE_URL = "https://usmalibrary.github.io/signage/images/flyers/current.jpg";
+  var TOP_IMAGES    = ["current.jpg"];
+  var BOTTOM_IMAGES = ["current.jpg"];
 
-  /* ── LOAD IMAGES ── */
-  if (TOP_IMAGE_URL) {
-    document.getElementById('img-top').src = TOP_IMAGE_URL;
+  var ROTATION_SECONDS = 10;  // seconds per image
+
+  /* ── BASE PATHS (do not edit) ── */
+  var BASE = 'https://usmalibrary.github.io/signage/images/';
+  var TOP_BASE    = BASE + 'announcements/';
+  var BOTTOM_BASE = BASE + 'flyers/';
+
+  /* ── ROTATOR ── */
+  function makeRotator(images, basePath, imgA, imgB, placeholder) {
+    if (!images || images.length === 0) return;
+
+    var index   = 0;
+    var current = imgA;  // currently visible
+    var next    = imgB;  // preloading / fading in
+
+    function showImage(idx) {
+      var url = basePath + images[idx] + '?v=' + Date.now();
+      next.src = url;
+      next.onload = function() {
+        placeholder.style.display = 'none';
+        next.classList.add('active');
+        current.classList.remove('active');
+        // swap roles
+        var tmp = current;
+        current = next;
+        next = tmp;
+      };
+      next.onerror = function() {
+        // skip missing image, try next
+        index = (index + 1) % images.length;
+        showImage(index);
+      };
+    }
+
+    // Show first image immediately
+    showImage(index);
+
+    // Only rotate if more than one image
+    if (images.length > 1) {
+      setInterval(function() {
+        index = (index + 1) % images.length;
+        showImage(index);
+      }, ROTATION_SECONDS * 1000);
+    }
   }
-  if (BOTTOM_IMAGE_URL) {
-    document.getElementById('img-bottom').src = BOTTOM_IMAGE_URL;
-  }
+
+  // Start both rotators with a slight offset so they're not in sync
+  makeRotator(
+    TOP_IMAGES, TOP_BASE,
+    document.getElementById('top-img-a'),
+    document.getElementById('top-img-b'),
+    document.getElementById('placeholder-top')
+  );
+
+  setTimeout(function() {
+    makeRotator(
+      BOTTOM_IMAGES, BOTTOM_BASE,
+      document.getElementById('bottom-img-a'),
+      document.getElementById('bottom-img-b'),
+      document.getElementById('placeholder-bottom')
+    );
+  }, ROTATION_SECONDS * 500);  // offset by half an interval
 
   /* ── CLOCK ── */
   function updateClock() {
