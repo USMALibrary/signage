@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0f0f0f;
+    color: #fff;
+    font-family: 'Open Sans', Arial, sans-serif;
+    padding: 20px;
+    overflow: hidden;
+  }
+  /* Hide LibCal chrome */
+  .s-lc-w-head,
+  .s-lc-w-previous,
+  .s-lc-w-next,
+  .s-lc-w-today-view-all,
+  .s-lc-w-today-view-link,
+  .s-lc-w-loading { display: none !important; }
+
+  /* Table */
+  .s-lc-w-grid-header { display: none !important; }
+  table { width: 100% !important; border-collapse: collapse !important; }
+  table th {
+    background: #1e1e1e !important;
+    color: rgb(200,170,100) !important;
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    padding: 10px 8px !important;
+    text-align: center !important;
+    border-bottom: 2px solid rgb(200,170,100) !important;
+    border-right: 1px solid #2a2a2a !important;
+  }
+  table td {
+    color: #ccc !important;
+    font-size: 20px !important;
+    padding: 10px 12px !important;
+    text-align: center !important;
+    border-bottom: 1px solid #1e1e1e !important;
+    border-right: 1px solid #1a1a1a !important;
+    background: #0f0f0f !important;
+  }
+  table td:first-child {
+    text-align: left !important;
+    font-weight: 600 !important;
+    color: #aaa !important;
+    font-size: 18px !important;
+    border-right: 2px solid #333 !important;
+  }
+  /* Highlight today */
+  .s-lc-w-td-today {
+    background: #1a1800 !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+  }
+  .s-lc-w-th-today {
+    background: rgb(155,125,55) !important;
+    color: #fff !important;
+  }
+  ::-webkit-scrollbar { display: none; }
+</style>
+</head>
+<body>
+<div id="s_lc_wgh_4846_0"></div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://usma.libcal.com/js/hours_grid.js"></script>
+<script>
+  $(function() {
+    new $.LibCalWeeklyGrid($('#s_lc_wgh_4846_0'), { iid: 4846, lid: 0 });
+  });
+</script>
+</body>
+</html>
