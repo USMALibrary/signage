@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1920">
-<title>USMA Library – Admin Office</title>
+<title>USMA Library – Staff Dashboard</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
 
@@ -17,6 +17,9 @@
     --border: #2a2a2a;
     --text:   #f0f0f0;
     --muted:  #888;
+    --green:  #2d7a2d;
+    --red:    #8b0000;
+    --alert:  #ff4444;
   }
 
   body {
@@ -67,29 +70,43 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 300;
-    margin-top: 2px;
     display: block;
+    margin-top: 2px;
+  }
+
+  #header-center {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
   }
 
   #header-right {
+    text-align: right;
+  }
+
+  #clock {
     font-family: 'Oswald', sans-serif;
-    font-size: 28px;
-    color: var(--gold);
+    font-size: 48px;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  #date {
+    font-size: 13px;
+    color: var(--muted);
     letter-spacing: 2px;
     text-transform: uppercase;
+    margin-top: 4px;
   }
 
-  /* ── MAIN CONTENT ── */
-  #main {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
-  }
-
-  /* ── CALENDAR GRID ── */
-  #calendar-grid {
+  /* ── GRID ── */
+  #grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 3px;
     flex: 1;
@@ -97,127 +114,172 @@
     overflow: hidden;
   }
 
-  .cal-cell {
-    background: #fff;
+  /* ── PANEL ── */
+  .panel {
+    background: var(--dark);
     display: flex;
     flex-direction: column;
     overflow: hidden;
     position: relative;
   }
 
-  .cal-label {
-    font-family: 'Oswald', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #fff;
-    background: var(--dark);
-    padding: 6px 12px;
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
     border-bottom: 2px solid var(--gold);
     flex-shrink: 0;
   }
 
-  .cal-cell iframe {
-    width: 100%;
-    flex: 1;
-    border: none;
-    transform-origin: top left;
-  }
-
-  /* ── RIGHT SIDEBAR ── */
-  #sidebar {
-    width: 340px;
-    flex-shrink: 0;
-    background: var(--dark);
-    border-left: 4px solid var(--gold);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 32px 24px;
-    gap: 24px;
-  }
-
-  #clock {
+  .panel-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 72px;
-    font-weight: 300;
-    color: #fff;
-    letter-spacing: 2px;
-    line-height: 1;
-    text-align: center;
-  }
-
-  #date {
-    font-size: 16px;
-    color: var(--muted);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-align: center;
-    margin-top: -16px;
-  }
-
-  .sidebar-divider {
-    width: 100%;
-    height: 1px;
-    background: var(--border);
-  }
-
-  #on-call-label {
-    font-family: 'Oswald', sans-serif;
-    font-size: 14px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-align: center;
-  }
-
-  #on-call-status {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #6fcf6f;
-    box-shadow: 0 0 8px #6fcf6f;
-    flex-shrink: 0;
-  }
-
-  #on-call-name {
-    font-family: 'Oswald', sans-serif;
-    font-size: 28px;
-    font-weight: 600;
-    color: #fff;
-    text-align: center;
-    line-height: 1.3;
-  }
-
-  #on-call-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-    background: var(--mid);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px 16px;
-  }
-
-  #on-call-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .sidebar-section-label {
-    font-family: 'Oswald', sans-serif;
-    font-size: 13px;
+    font-size: 15px;
+    font-weight: 400;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--gold);
+  }
+
+  .panel-icon {
+    font-size: 18px;
+    opacity: 0.6;
+  }
+
+  .panel-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 8px;
+  }
+
+  /* ── ON CALL PANEL ── */
+  .on-call-status {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #6fcf6f;
+    box-shadow: 0 0 10px #6fcf6f;
+    flex-shrink: 0;
+  }
+
+  .on-call-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .on-call-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px;
+    font-weight: 600;
+    color: #fff;
     text-align: center;
+    line-height: 1.2;
+  }
+
+  /* ── HELP NEEDED PANEL ── */
+  .help-status {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 4px;
+  }
+
+  .help-status.clear { color: #6fcf6f; }
+  .help-status.alert { color: var(--alert); animation: pulse 1.5s infinite; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .help-detail {
+    font-size: 16px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .help-detail.active { color: #ffaa44; }
+
+  /* ── HOURS PANEL ── */
+  .hours-row {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 8px;
+  }
+
+  .hours-loc {
+    font-size: 18px;
+    color: #bbb;
+    font-weight: 300;
+  }
+
+  .hours-time {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .hours-time.open { color: #6fcf6f; }
+  .hours-time.closed { color: #cf6f6f; }
+
+  /* ── EVENTS PANEL ── */
+  .event-item {
+    width: 100%;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .event-time {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: var(--gold);
+    margin-bottom: 2px;
+  }
+
+  .event-title {
+    font-size: 16px;
+    color: #ddd;
+  }
+
+  .no-events {
+    font-size: 20px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* ── PLACEHOLDER PANEL ── */
+  .placeholder-icon {
+    font-size: 48px;
+    opacity: 0.2;
+  }
+
+  .placeholder-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.4;
+    text-align: center;
+  }
+
+  /* Gold corner accent on panels */
+  .panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 30px; height: 3px;
+    background: var(--gold);
+    z-index: 2;
   }
 </style>
 </head>
@@ -228,72 +290,113 @@
   <div id="header-left">
     <img id="logo"
       src="https://libapps.s3.amazonaws.com/accounts/87070/images/USMALibraryLogo.png"
-      alt="USMA Library"
-      onerror="this.style.display='none'">
+      alt="USMA Library" onerror="this.style.display='none'">
     <div id="header-title">
-      <span class="lib-name">Jefferson Hall Library – Room Bookings</span>
+      <span class="lib-name">Jefferson Hall Library</span>
       <span class="lib-sub">United States Military Academy · West Point</span>
     </div>
   </div>
-  <div id="header-right">Staff Dashboard</div>
+  <div id="header-center">Staff Operations Dashboard</div>
+  <div id="header-right">
+    <div id="clock">--:-- --</div>
+    <div id="date">--</div>
+  </div>
 </div>
 
-<!-- MAIN -->
-<div id="main">
+<!-- DASHBOARD GRID -->
+<div id="grid">
 
-  <!-- 2x2 CALENDAR GRID -->
-  <div id="calendar-grid">
-
-    <div class="cal-cell">
-      <div class="cal-label">Collaborative Rooms</div>
-      <iframe src="https://usma.libcal.com/widget/equipment?gid=12559"
-        title="Collaborative Rooms" scrolling="no"></iframe>
+  <!-- 1. NOW ON CALL -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="panel-title">Now on Call</span>
+      <span class="panel-icon">👤</span>
     </div>
-
-    <div class="cal-cell">
-      <div class="cal-label">Classrooms</div>
-      <iframe src="https://usma.libcal.com/widget/equipment?gid=44650"
-        title="Classrooms" scrolling="no"></iframe>
-    </div>
-
-    <div class="cal-cell">
-      <div class="cal-label">Sixth Floor &amp; Haig Room</div>
-      <iframe src="https://usma.libcal.com/widget/equipment?gid=15193"
-        title="Sixth Floor and Haig Room" scrolling="no"></iframe>
-    </div>
-
-    <div class="cal-cell">
-      <div class="cal-label">Library Staff Rooms</div>
-      <iframe src="https://usma.libcal.com/widget/equipment?gid=15194"
-        title="Library Staff Rooms" scrolling="no"></iframe>
-    </div>
-
-  </div>
-
-  <!-- RIGHT SIDEBAR -->
-  <div id="sidebar">
-    <div id="clock">--:--</div>
-    <div id="date">--</div>
-
-    <div class="sidebar-divider"></div>
-
-    <div id="on-call-box">
-      <div class="sidebar-section-label">Now on Call</div>
-      <div id="on-call-row">
-        <div id="on-call-status"></div>
-        <div id="on-call-name">Loading...</div>
+    <div class="panel-body">
+      <div class="on-call-row">
+        <div class="on-call-status"></div>
+        <div class="on-call-name" id="on-call-name">Loading...</div>
       </div>
     </div>
+  </div>
 
-    <div class="sidebar-divider"></div>
+  <!-- 2. HELP NEEDED — FRONT DESK -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="panel-title">Front Desk</span>
+      <span class="panel-icon">🖥</span>
+    </div>
+    <div class="panel-body">
+      <div class="help-status clear" id="frontdesk-status">ALL CLEAR</div>
+      <div class="help-detail" id="frontdesk-detail">No assistance needed</div>
+    </div>
+  </div>
 
-    <div id="on-call-label">Help Kiosk · 2nd Floor</div>
-    <div style="font-size:13px;color:var(--muted);text-align:center;letter-spacing:1px;">library.westpoint.edu</div>
+  <!-- 3. HELP NEEDED — HELP KIOSK -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="panel-title">Help Kiosk</span>
+      <span class="panel-icon">🆘</span>
+    </div>
+    <div class="panel-body">
+      <div class="help-status clear" id="kiosk-status">ALL CLEAR</div>
+      <div class="help-detail" id="kiosk-detail">No assistance needed</div>
+    </div>
+  </div>
+
+  <!-- 4. TODAY'S HOURS -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="panel-title">Today's Hours</span>
+      <span class="panel-icon">🕐</span>
+    </div>
+    <div class="panel-body" id="hours-body" style="align-items:stretch;">
+      <div style="color:var(--muted);text-align:center">Loading...</div>
+    </div>
+  </div>
+
+  <!-- 5. TODAY'S EVENTS -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="panel-title">Today's Events</span>
+      <span class="panel-icon">📅</span>
+    </div>
+    <div class="panel-body" id="events-body" style="align-items:stretch;">
+      <div class="no-events">Loading events...</div>
+    </div>
+  </div>
+
+  <!-- 6. PLACEHOLDER ROW — PaperCut / Sensource / EZProxy -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="panel-title">Operational</span>
+      <span class="panel-icon">📊</span>
+    </div>
+    <div class="panel-body" style="gap:24px;">
+      <div style="text-align:center;width:100%;padding:8px 0;border-bottom:1px solid var(--border);">
+        <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Print Queue</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:28px;color:#555;letter-spacing:2px;">PaperCut</div>
+        <div style="font-size:12px;color:#444;margin-top:2px;">Integration pending</div>
+      </div>
+      <div style="text-align:center;width:100%;padding:8px 0;border-bottom:1px solid var(--border);">
+        <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Visitor Count</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:28px;color:#555;letter-spacing:2px;">Sensource</div>
+        <div style="font-size:12px;color:#444;margin-top:2px;">Integration pending</div>
+      </div>
+      <div style="text-align:center;width:100%;">
+        <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Database Usage</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:28px;color:#555;letter-spacing:2px;">EZProxy</div>
+        <div style="font-size:12px;color:#444;margin-top:2px;">Integration pending</div>
+      </div>
+    </div>
   </div>
 
 </div>
 
 <script>
+  var BASE = 'https://usmalibrary.github.io/signage/data/';
+  var ALERT_MINUTES = 15;
+
   /* ── CLOCK ── */
   function updateClock() {
     var now = new Date();
@@ -310,32 +413,123 @@
   updateClock();
   setInterval(updateClock, 30000);
 
-  /* ── NOW ON CALL ── */
-  /* 
-    Reads from GitHub Pages JSON file updated by Power Automate.
-    File: https://usmalibrary.github.io/signage/data/on-call.json
-    Format: { "name": "Susan Lintelmann", "updated": "2026-07-15T09:00:00" }
-  */
-  function loadOnCall() {
+  /* ── XHR HELPER ── */
+  function loadJSON(url, callback) {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://usmalibrary.github.io/signage/data/on-call.json?v=' + Date.now(), true);
+    xhr.open('GET', url + '?v=' + Date.now(), true);
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
-        try {
-          var data = JSON.parse(xhr.responseText);
-          document.getElementById('on-call-name').textContent = data.name || 'Not set';
-        } catch(e) {
-          document.getElementById('on-call-name').textContent = 'Unavailable';
-        }
-      } else if (xhr.readyState === 4) {
-        document.getElementById('on-call-name').textContent = 'See Staff App';
+        try { callback(JSON.parse(xhr.responseText)); } catch(e) {}
       }
     };
     xhr.send();
   }
 
-  loadOnCall();
-  setInterval(loadOnCall, 120000); // refresh every 2 minutes
+  /* ── IS ALERT ACTIVE (within 15 min) ── */
+  function isActive(timeStr) {
+    if (!timeStr) return false;
+    var then = new Date(timeStr);
+    var now = new Date();
+    return (now - then) < (ALERT_MINUTES * 60 * 1000);
+  }
+
+  /* ── FORMAT TIME ── */
+  function fmtTime(timeStr) {
+    if (!timeStr) return '';
+    var d = new Date(timeStr);
+    var h = d.getHours(), m = d.getMinutes().toString().padStart(2,'0');
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    return h + ':' + m + ' ' + ampm;
+  }
+
+  function fmtRendered(r) {
+    if (!r || r === 'Closed') return 'Closed';
+    return r.replace(/(\d{1,2}):(\d{2})/g, function(_, hh, mm) {
+      var h = parseInt(hh), ampm = h >= 12 ? 'PM' : 'AM';
+      h = h % 12 || 12;
+      return h + ':' + mm + ' ' + ampm;
+    }).replace(' - ', ' – ');
+  }
+
+  /* ── ON CALL ── */
+  function loadOnCall() {
+    loadJSON(BASE + 'on-call.json', function(data) {
+      document.getElementById('on-call-name').textContent = data.name || 'Not set';
+    });
+  }
+
+  /* ── HELP NEEDED ── */
+  function loadHelpStatus(file, statusId, detailId) {
+    loadJSON(BASE + file, function(data) {
+      var active = isActive(data.time) && data.location;
+      var statusEl = document.getElementById(statusId);
+      var detailEl = document.getElementById(detailId);
+      if (active) {
+        statusEl.textContent = 'HELP NEEDED';
+        statusEl.className = 'help-status alert';
+        detailEl.textContent = 'Requested by ' + data.requestedBy + ' at ' + fmtTime(data.time);
+        detailEl.className = 'help-detail active';
+      } else {
+        statusEl.textContent = 'ALL CLEAR';
+        statusEl.className = 'help-status clear';
+        detailEl.textContent = 'No assistance needed';
+        detailEl.className = 'help-detail';
+      }
+    });
+  }
+
+  /* ── TODAY'S HOURS ── */
+  function loadHours() {
+    loadJSON(BASE + 'hours-today.json', function(data) {
+      if (!data.locations) return;
+      var html = '';
+      data.locations.forEach(function(loc) {
+        var open = loc.times && loc.times.currently_open;
+        var timeStr = fmtRendered(loc.rendered);
+        html += '<div class="hours-row">' +
+          '<span class="hours-loc">' + loc.name + '</span>' +
+          '<span class="hours-time ' + (open ? 'open' : 'closed') + '">' + timeStr + '</span>' +
+          '</div>';
+      });
+      document.getElementById('hours-body').innerHTML = html;
+    });
+  }
+
+  /* ── TODAY'S EVENTS ── */
+  function loadEvents() {
+    var today = new Date().toISOString().split('T')[0];
+    var url = 'https://usma.libcal.com/api/1.0/events?iid=4846&cal_id=17422&date=' + today + '&format=json&limit=5';
+    loadJSON(url, function(data) {
+      var body = document.getElementById('events-body');
+      if (!data.events || data.events.length === 0) {
+        body.innerHTML = '<div class="no-events">No events today</div>';
+        return;
+      }
+      var html = '';
+      data.events.slice(0, 4).forEach(function(ev) {
+        var start = ev.start ? new Date(ev.start) : null;
+        var timeStr = start ? fmtTime(start.toISOString()) : '';
+        html += '<div class="event-item">' +
+          '<div class="event-time">' + timeStr + '</div>' +
+          '<div class="event-title">' + ev.title + '</div>' +
+          '</div>';
+      });
+      body.innerHTML = html;
+    });
+  }
+
+  /* ── LOAD ALL ── */
+  function loadAll() {
+    loadOnCall();
+    loadHelpStatus('help-needed-frontdesk.json', 'frontdesk-status', 'frontdesk-detail');
+    loadHelpStatus('help-needed.json', 'kiosk-status', 'kiosk-detail');
+    loadHours();
+    loadEvents();
+  }
+
+  loadAll();
+  setInterval(loadAll, 60000); // refresh every minute
 </script>
 </body>
 </html>
