@@ -18,7 +18,6 @@
     --text:   #f0f0f0;
     --muted:  #888;
     --green:  #2d7a2d;
-    --red:    #8b0000;
     --alert:  #ff4444;
   }
 
@@ -46,61 +45,39 @@
     flex-shrink: 0;
   }
 
-  #header-left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
+  #header-left { display: flex; align-items: center; gap: 20px; }
   #logo { height: 64px; width: auto; }
 
   #header-title .lib-name {
     font-family: 'Oswald', sans-serif;
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--gold);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    display: block;
+    font-size: 28px; font-weight: 600;
+    color: var(--gold); letter-spacing: 2px;
+    text-transform: uppercase; display: block;
   }
 
   #header-title .lib-sub {
-    font-size: 13px;
-    color: var(--muted);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-weight: 300;
-    display: block;
-    margin-top: 2px;
+    font-size: 13px; color: var(--muted);
+    letter-spacing: 3px; text-transform: uppercase;
+    font-weight: 300; display: block; margin-top: 2px;
   }
 
   #header-center {
     font-family: 'Oswald', sans-serif;
-    font-size: 18px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
+    font-size: 18px; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--gold);
   }
 
-  #header-right {
-    text-align: right;
-  }
+  #header-right { text-align: right; }
 
   #clock {
     font-family: 'Oswald', sans-serif;
-    font-size: 48px;
-    font-weight: 300;
-    color: #fff;
-    letter-spacing: 2px;
-    line-height: 1;
+    font-size: 48px; font-weight: 300;
+    color: #fff; letter-spacing: 2px; line-height: 1;
   }
 
   #date {
-    font-size: 13px;
-    color: var(--muted);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: 4px;
+    font-size: 13px; color: var(--muted);
+    letter-spacing: 2px; text-transform: uppercase; margin-top: 4px;
   }
 
   /* ── GRID ── */
@@ -123,6 +100,15 @@
     position: relative;
   }
 
+  .panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 30px; height: 3px;
+    background: var(--gold);
+    z-index: 2;
+  }
+
   .panel-header {
     display: flex;
     align-items: center;
@@ -134,98 +120,97 @@
 
   .panel-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    font-size: 15px; font-weight: 400;
+    letter-spacing: 3px; text-transform: uppercase;
     color: var(--gold);
   }
 
-  .panel-icon {
-    font-size: 18px;
-    opacity: 0.6;
-  }
+  .panel-icon { font-size: 18px; opacity: 0.6; }
 
   .panel-body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    gap: 8px;
+    padding: 16px 20px;
+    gap: 0;
+    overflow: hidden;
   }
 
-  /* ── ON CALL PANEL ── */
-  .on-call-status {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #6fcf6f;
-    box-shadow: 0 0 10px #6fcf6f;
-    flex-shrink: 0;
-  }
-
-  .on-call-row {
+  /* ── STAFF STATUS PANEL ── */
+  .staff-row {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    flex: 1;
   }
 
-  .on-call-name {
+  .staff-row:last-child { border-bottom: none; }
+
+  .staff-label {
     font-family: 'Oswald', sans-serif;
-    font-size: 42px;
-    font-weight: 600;
-    color: #fff;
-    text-align: center;
+    font-size: 16px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted);
+    flex-shrink: 0; width: 140px;
+  }
+
+  .staff-value {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px; font-weight: 600;
+    color: #fff; text-align: right;
     line-height: 1.2;
   }
 
-  /* ── HELP NEEDED PANEL ── */
-  .help-status {
+  .help-badge {
     font-family: 'Oswald', sans-serif;
-    font-size: 48px;
-    font-weight: 700;
-    text-align: center;
-    letter-spacing: 4px;
+    font-size: 22px; font-weight: 700;
+    letter-spacing: 2px; padding: 4px 16px;
+    border-radius: 4px;
   }
 
-  .help-status.clear { color: #6fcf6f; }
-  .help-status.alert { color: var(--alert); animation: pulse 1.5s infinite; }
+  .help-badge.clear {
+    color: #6fcf6f;
+    background: rgba(111, 207, 111, 0.1);
+  }
+
+  .help-badge.alert {
+    color: var(--alert);
+    background: rgba(255, 68, 68, 0.15);
+    animation: pulse 1.5s infinite;
+  }
 
   @keyframes pulse {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+    50% { opacity: 0.4; }
   }
 
-  .help-detail {
-    font-size: 16px;
-    color: var(--muted);
-    text-align: center;
+  .on-call-dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #6fcf6f;
+    box-shadow: 0 0 8px #6fcf6f;
+    margin-right: 10px;
+    flex-shrink: 0;
   }
-
-  .help-detail.active { color: #ffaa44; }
 
   /* ── HOURS PANEL ── */
   .hours-row {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--border);
+    flex: 1;
   }
 
-  .hours-loc {
-    font-size: 18px;
-    color: #bbb;
-    font-weight: 300;
-  }
+  .hours-row:last-child { border-bottom: none; }
+  .hours-loc { font-size: 17px; color: #bbb; font-weight: 300; }
 
   .hours-time {
     font-family: 'Oswald', sans-serif;
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 24px; font-weight: 600;
   }
 
   .hours-time.open { color: #6fcf6f; }
@@ -233,53 +218,43 @@
 
   /* ── EVENTS PANEL ── */
   .event-item {
-    width: 100%;
-    padding: 8px 0;
+    padding: 10px 0;
     border-bottom: 1px solid var(--border);
+    flex: 1;
   }
+
+  .event-item:last-child { border-bottom: none; }
 
   .event-time {
     font-family: 'Oswald', sans-serif;
-    font-size: 16px;
-    color: var(--gold);
-    margin-bottom: 2px;
+    font-size: 15px; color: var(--gold); margin-bottom: 3px;
   }
 
-  .event-title {
-    font-size: 16px;
-    color: #ddd;
+  .event-title { font-size: 16px; color: #ddd; }
+  .no-events { font-size: 20px; color: var(--muted); text-align: center; margin: auto; }
+
+  /* ── PLACEHOLDER PANELS ── */
+  .placeholder-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
   }
 
-  .no-events {
-    font-size: 20px;
-    color: var(--muted);
-    text-align: center;
-  }
+  .placeholder-icon { font-size: 52px; opacity: 0.15; }
 
-  /* ── PLACEHOLDER PANEL ── */
-  .placeholder-icon {
-    font-size: 48px;
-    opacity: 0.2;
-  }
-
-  .placeholder-label {
+  .placeholder-name {
     font-family: 'Oswald', sans-serif;
-    font-size: 16px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--muted);
-    opacity: 0.4;
-    text-align: center;
+    font-size: 32px; color: #444;
+    letter-spacing: 3px; text-transform: uppercase;
   }
 
-  /* Gold corner accent on panels */
-  .panel::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 30px; height: 3px;
-    background: var(--gold);
-    z-index: 2;
+  .placeholder-status {
+    font-size: 13px; color: #333;
+    letter-spacing: 2px; text-transform: uppercase;
   }
 </style>
 </head>
@@ -303,91 +278,92 @@
   </div>
 </div>
 
-<!-- DASHBOARD GRID -->
+<!-- GRID -->
 <div id="grid">
 
-  <!-- 1. NOW ON CALL -->
+  <!-- 1. STAFF STATUS -->
   <div class="panel">
     <div class="panel-header">
-      <span class="panel-title">Now on Call</span>
-      <span class="panel-icon">👤</span>
+      <span class="panel-title">Staff Status</span>
+      <span class="panel-icon">👥</span>
     </div>
     <div class="panel-body">
-      <div class="on-call-row">
-        <div class="on-call-status"></div>
-        <div class="on-call-name" id="on-call-name">Loading...</div>
+      <div class="staff-row">
+        <span class="staff-label">On Call</span>
+        <span class="staff-value">
+          <span class="on-call-dot"></span>
+          <span id="on-call-name">Loading...</span>
+        </span>
+      </div>
+      <div class="staff-row">
+        <span class="staff-label">Front Desk</span>
+        <span class="help-badge clear" id="frontdesk-status">ALL CLEAR</span>
+      </div>
+      <div class="staff-row">
+        <span class="staff-label">Help Kiosk</span>
+        <span class="help-badge clear" id="kiosk-status">ALL CLEAR</span>
       </div>
     </div>
   </div>
 
-  <!-- 2. HELP NEEDED — FRONT DESK -->
-  <div class="panel">
-    <div class="panel-header">
-      <span class="panel-title">Front Desk</span>
-      <span class="panel-icon">🖥</span>
-    </div>
-    <div class="panel-body">
-      <div class="help-status clear" id="frontdesk-status">ALL CLEAR</div>
-      <div class="help-detail" id="frontdesk-detail">No assistance needed</div>
-    </div>
-  </div>
-
-  <!-- 3. HELP NEEDED — HELP KIOSK -->
-  <div class="panel">
-    <div class="panel-header">
-      <span class="panel-title">Help Kiosk</span>
-      <span class="panel-icon">🆘</span>
-    </div>
-    <div class="panel-body">
-      <div class="help-status clear" id="kiosk-status">ALL CLEAR</div>
-      <div class="help-detail" id="kiosk-detail">No assistance needed</div>
-    </div>
-  </div>
-
-  <!-- 4. TODAY'S HOURS -->
+  <!-- 2. TODAY'S HOURS -->
   <div class="panel">
     <div class="panel-header">
       <span class="panel-title">Today's Hours</span>
       <span class="panel-icon">🕐</span>
     </div>
-    <div class="panel-body" id="hours-body" style="align-items:stretch;">
-      <div style="color:var(--muted);text-align:center">Loading...</div>
+    <div class="panel-body" id="hours-body">
+      <div class="no-events">Loading...</div>
     </div>
   </div>
 
-  <!-- 5. TODAY'S EVENTS -->
+  <!-- 3. TODAY'S EVENTS -->
   <div class="panel">
     <div class="panel-header">
       <span class="panel-title">Today's Events</span>
       <span class="panel-icon">📅</span>
     </div>
-    <div class="panel-body" id="events-body" style="align-items:stretch;">
+    <div class="panel-body" id="events-body">
       <div class="no-events">Loading events...</div>
     </div>
   </div>
 
-  <!-- 6. PLACEHOLDER ROW — PaperCut / Sensource / EZProxy -->
+  <!-- 4. PRINT QUEUE -->
   <div class="panel">
     <div class="panel-header">
-      <span class="panel-title">Operational</span>
+      <span class="panel-title">Print Queue</span>
+      <span class="panel-icon">🖨</span>
+    </div>
+    <div class="placeholder-body">
+      <div class="placeholder-icon">🖨</div>
+      <div class="placeholder-name">PaperCut NG</div>
+      <div class="placeholder-status">Integration Pending</div>
+    </div>
+  </div>
+
+  <!-- 5. VISITOR COUNT -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="panel-title">Visitor Count</span>
+      <span class="panel-icon">🚶</span>
+    </div>
+    <div class="placeholder-body">
+      <div class="placeholder-icon">📡</div>
+      <div class="placeholder-name">Sensource Vea</div>
+      <div class="placeholder-status">Integration Pending</div>
+    </div>
+  </div>
+
+  <!-- 6. DATABASE USAGE -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="panel-title">Database Usage</span>
       <span class="panel-icon">📊</span>
     </div>
-    <div class="panel-body" style="gap:24px;">
-      <div style="text-align:center;width:100%;padding:8px 0;border-bottom:1px solid var(--border);">
-        <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Print Queue</div>
-        <div style="font-family:'Oswald',sans-serif;font-size:28px;color:#555;letter-spacing:2px;">PaperCut</div>
-        <div style="font-size:12px;color:#444;margin-top:2px;">Integration pending</div>
-      </div>
-      <div style="text-align:center;width:100%;padding:8px 0;border-bottom:1px solid var(--border);">
-        <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Visitor Count</div>
-        <div style="font-family:'Oswald',sans-serif;font-size:28px;color:#555;letter-spacing:2px;">Sensource</div>
-        <div style="font-size:12px;color:#444;margin-top:2px;">Integration pending</div>
-      </div>
-      <div style="text-align:center;width:100%;">
-        <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Database Usage</div>
-        <div style="font-family:'Oswald',sans-serif;font-size:28px;color:#555;letter-spacing:2px;">EZProxy</div>
-        <div style="font-size:12px;color:#444;margin-top:2px;">Integration pending</div>
-      </div>
+    <div class="placeholder-body">
+      <div class="placeholder-icon">🔐</div>
+      <div class="placeholder-name">EZProxy</div>
+      <div class="placeholder-status">Integration Pending</div>
     </div>
   </div>
 
@@ -425,7 +401,7 @@
     xhr.send();
   }
 
-  /* ── IS ALERT ACTIVE (within 15 min) ── */
+  /* ── IS ALERT ACTIVE ── */
   function isActive(timeStr) {
     if (!timeStr) return false;
     var then = new Date(timeStr);
@@ -459,22 +435,17 @@
     });
   }
 
-  /* ── HELP NEEDED ── */
-  function loadHelpStatus(file, statusId, detailId) {
+  /* ── HELP STATUS ── */
+  function loadHelpStatus(file, statusId) {
     loadJSON(BASE + file, function(data) {
       var active = isActive(data.time) && data.location;
-      var statusEl = document.getElementById(statusId);
-      var detailEl = document.getElementById(detailId);
+      var el = document.getElementById(statusId);
       if (active) {
-        statusEl.textContent = 'HELP NEEDED';
-        statusEl.className = 'help-status alert';
-        detailEl.textContent = 'Requested by ' + data.requestedBy + ' at ' + fmtTime(data.time);
-        detailEl.className = 'help-detail active';
+        el.textContent = 'HELP NEEDED';
+        el.className = 'help-badge alert';
       } else {
-        statusEl.textContent = 'ALL CLEAR';
-        statusEl.className = 'help-status clear';
-        detailEl.textContent = 'No assistance needed';
-        detailEl.className = 'help-detail';
+        el.textContent = 'ALL CLEAR';
+        el.className = 'help-badge clear';
       }
     });
   }
@@ -486,10 +457,9 @@
       var html = '';
       data.locations.forEach(function(loc) {
         var open = loc.times && loc.times.currently_open;
-        var timeStr = fmtRendered(loc.rendered);
         html += '<div class="hours-row">' +
           '<span class="hours-loc">' + loc.name + '</span>' +
-          '<span class="hours-time ' + (open ? 'open' : 'closed') + '">' + timeStr + '</span>' +
+          '<span class="hours-time ' + (open ? 'open' : 'closed') + '">' + fmtRendered(loc.rendered) + '</span>' +
           '</div>';
       });
       document.getElementById('hours-body').innerHTML = html;
@@ -499,8 +469,7 @@
   /* ── TODAY'S EVENTS ── */
   function loadEvents() {
     var today = new Date().toISOString().split('T')[0];
-    var url = 'https://usma.libcal.com/api/1.0/events?iid=4846&cal_id=17422&date=' + today + '&format=json&limit=5';
-    loadJSON(url, function(data) {
+    loadJSON('https://usma.libcal.com/api/1.0/events?iid=4846&cal_id=17422&date=' + today + '&format=json&limit=5', function(data) {
       var body = document.getElementById('events-body');
       if (!data.events || data.events.length === 0) {
         body.innerHTML = '<div class="no-events">No events today</div>';
@@ -522,14 +491,14 @@
   /* ── LOAD ALL ── */
   function loadAll() {
     loadOnCall();
-    loadHelpStatus('help-needed-frontdesk.json', 'frontdesk-status', 'frontdesk-detail');
-    loadHelpStatus('help-needed.json', 'kiosk-status', 'kiosk-detail');
+    loadHelpStatus('help-needed-frontdesk.json', 'frontdesk-status');
+    loadHelpStatus('help-needed.json', 'kiosk-status');
     loadHours();
     loadEvents();
   }
 
   loadAll();
-  setInterval(loadAll, 60000); // refresh every minute
+  setInterval(loadAll, 60000);
 </script>
 </body>
 </html>
