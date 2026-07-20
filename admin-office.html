@@ -347,10 +347,19 @@
       <span class="panel-title">Visitor Count</span>
       <span class="panel-icon">🚶</span>
     </div>
-    <div class="placeholder-body">
-      <div class="placeholder-icon">📡</div>
-      <div class="placeholder-name">Sensource Vea</div>
-      <div class="placeholder-status">Integration Pending</div>
+    <div class="panel-body">
+      <div class="staff-row" style="flex:2;">
+        <span class="staff-label">Today</span>
+        <span class="staff-value" id="visitor-count" style="font-size:48px; color:#60a5fa;">--</span>
+      </div>
+      <div class="staff-row" style="flex:2;">
+        <span class="staff-label">In Building</span>
+        <span class="staff-value" id="occupancy-count" style="font-size:48px; color:#6fcf6f;">--</span>
+      </div>
+      <div class="staff-row" style="flex:1;">
+        <span class="staff-label">Updated</span>
+        <span class="staff-value" id="visitor-updated" style="font-size:16px; color:var(--muted); font-weight:300;">Loading...</span>
+      </div>
     </div>
   </div>
 
@@ -488,6 +497,31 @@
     });
   }
 
+  /* ── VISITOR COUNT ── */
+  function loadVisitorCount() {
+    loadJSON(BASE + 'visitor-count.json', function(data) {
+      var countEl = document.getElementById('visitor-count');
+      var occEl = document.getElementById('occupancy-count');
+      var updEl = document.getElementById('visitor-updated');
+
+      if (data.count != null) countEl.textContent = data.count.toLocaleString();
+      if (data.occupancy != null) occEl.textContent = data.occupancy.toLocaleString();
+
+      if (data.updated) {
+        var updated = new Date(data.updated);
+        var age = Date.now() - updated.getTime();
+        var timeStr = fmtTime(data.updated);
+        if (age > 30 * 60 * 1000) {
+          updEl.textContent = timeStr + ' (STALE)';
+          updEl.style.color = '#f59e0b';
+        } else {
+          updEl.textContent = timeStr;
+          updEl.style.color = '';
+        }
+      }
+    });
+  }
+
   /* ── LOAD ALL ── */
   function loadAll() {
     loadOnCall();
@@ -495,6 +529,7 @@
     loadHelpStatus('help-needed.json', 'kiosk-status');
     loadHours();
     loadEvents();
+    loadVisitorCount();
   }
 
   loadAll();
