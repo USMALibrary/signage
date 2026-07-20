@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>USMA Library – Coming Soon</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: #0a0a0a;
+    font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── GOLD BORDER FRAME ── */
+  #frame {
+    position: absolute;
+    inset: 40px;
+    border: 2px solid rgba(200, 170, 100, 0.2);
+  }
+
+  #frame::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px;
+    width: 60px; height: 4px;
+    background: rgb(200, 170, 100);
+  }
+
+  #frame::after {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px;
+    width: 4px; height: 60px;
+    background: rgb(200, 170, 100);
+  }
+
+  .corner-br {
+    position: absolute;
+    bottom: -2px; right: -2px;
+    width: 60px; height: 4px;
+    background: rgb(200, 170, 100);
+  }
+
+  .corner-br::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 4px; height: 60px;
+    background: rgb(200, 170, 100);
+  }
+
+  /* ── CONTENT ── */
+  #content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    z-index: 1;
+    text-align: center;
+    padding: 0 80px;
+  }
+
+  #logo {
+    width: 220px;
+    height: auto;
+    opacity: 0.85;
+  }
+
+  #divider {
+    width: 120px;
+    height: 2px;
+    background: rgb(200, 170, 100);
+    opacity: 0.6;
+  }
+
+  #headline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 96px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  #headline span {
+    color: rgb(200, 170, 100);
+  }
+
+  #sub {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+    color: #888;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  #tagline {
+    font-size: 20px;
+    color: #555;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: -16px;
+  }
+
+  /* ── FOOTER ── */
+  #footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: #111;
+    border-top: 3px solid rgb(200, 170, 100);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  #footer-url {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: rgb(200, 170, 100);
+    letter-spacing: 2px;
+  }
+
+  #footer-sub {
+    font-size: 15px;
+    color: #555;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── BACKGROUND ── */
+  #bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 40%, rgba(200,170,100,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 80%, rgba(200,170,100,0.03) 0%, transparent 50%);
+  }
+</style>
+</head>
+<body>
+
+<div id="bg"></div>
+<div id="frame"><div class="corner-br"></div></div>
+
+<div id="content">
+  <img id="logo"
+    src="https://libapps.s3.amazonaws.com/accounts/87070/images/USMALibraryLogo.png"
+    alt="USMA Library">
+  <div id="divider"></div>
+  <div id="headline">COMING<br><span>SOON</span></div>
+  <div id="sub">Digital Signage<br>Update in Progress</div>
+  <div id="tagline">Jefferson Hall Library · West Point</div>
+</div>
+
+<div id="footer">
+  <div id="footer-url">library.westpoint.edu</div>
+  <div id="footer-sub">United States Military Academy Library</div>
+</div>
+
+</body>
+</html>
