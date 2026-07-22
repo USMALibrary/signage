@@ -1,0 +1,33 @@
+{
+  "updated": "2026-07-22T12:13:59Z",
+  "pagesLast60Min": {
+    "recentPagesCount": 32,
+    "comment": "The number of pages printed in the last 60 minutes."
+  },
+  "printers": [
+    {
+      "name": "wppss6print\\WPPRLIBADM",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "wppss6print\\WPPRLIBREF01",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "wppss6print\\WPPRLIBREF02",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "wppss6print\\WPPRLIBREF03",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    }
+  ]
+}
