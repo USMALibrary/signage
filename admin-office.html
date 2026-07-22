@@ -233,6 +233,70 @@
   .event-title { font-size: 16px; color: #ddd; }
   .no-events { font-size: 20px; color: var(--muted); text-align: center; margin: auto; }
 
+  /* ── PRINT QUEUE PANEL ── */
+  .print-summary-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 14px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .print-summary-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  .print-queue-count {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px; font-weight: 600; color: #fff;
+  }
+
+  .print-issue-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-top: 8px;
+  }
+
+  .print-issue-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .print-issue-row:last-child { border-bottom: none; }
+
+  .print-issue-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .print-issue-dot.warning { background: #f5a623; box-shadow: 0 0 8px #f5a623; }
+  .print-issue-dot.error   { background: var(--alert); box-shadow: 0 0 8px var(--alert); }
+
+  .print-issue-name {
+    font-size: 15px; color: #ddd; flex: 1;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
+  .print-issue-detail {
+    font-size: 14px; font-weight: 600; flex-shrink: 0;
+  }
+
+  .print-issue-detail.warning { color: #f5a623; }
+  .print-issue-detail.error   { color: var(--alert); }
+
+  .print-stale {
+    font-size: 12px; color: var(--muted); margin-top: auto; padding-top: 8px; text-align: right;
+  }
+
   /* ── PLACEHOLDER PANELS ── */
   .placeholder-body {
     flex: 1;
@@ -334,10 +398,19 @@
       <span class="panel-title">Print Queue</span>
       <span class="panel-icon">🖨</span>
     </div>
-    <div class="placeholder-body">
-      <div class="placeholder-icon">🖨</div>
-      <div class="placeholder-name">PaperCut NG</div>
-      <div class="placeholder-status">Integration Pending</div>
+    <div class="panel-body">
+      <div class="print-summary-row">
+        <span class="print-summary-label">Printers</span>
+        <span class="help-badge clear" id="print-status-badge">LOADING</span>
+      </div>
+      <div class="print-summary-row">
+        <span class="print-summary-label">Jobs in Queue</span>
+        <span class="print-queue-count" id="print-queue-count">--</span>
+      </div>
+      <div class="print-issue-list" id="print-issue-list">
+        <div class="no-events" style="font-size:15px;">Loading...</div>
+      </div>
+      <div class="print-stale" id="print-updated"></div>
     </div>
   </div>
 
@@ -399,14 +472,20 @@
   setInterval(updateClock, 30000);
 
   /* ── XHR HELPER ── */
-  function loadJSON(url, callback) {
+  function loadJSON(url, callback, errCallback) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url + '?v=' + Date.now(), true);
     xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        try { callback(JSON.parse(xhr.responseText)); } catch(e) {}
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          try { callback(JSON.parse(xhr.responseText)); }
+          catch(e) { if (errCallback) errCallback(); }
+        } else if (errCallback) {
+          errCallback();
+        }
       }
     };
+    xhr.onerror = function() { if (errCallback) errCallback(); };
     xhr.send();
   }
 
@@ -522,6 +601,54 @@
     });
   }
 
+  /* ── PRINT QUEUE (PaperCut) ── */
+  function loadPrintQueue() {
+    loadJSON(BASE + 'papercut-status.json', function(data) {
+      var printers = data.printers || [];
+      var issues = printers.filter(function(p) { return p.status !== 'OK'; });
+      var totalHeld = printers.reduce(function(sum, p) { return sum + (p.heldJobsCount || 0); }, 0);
+
+      var badge = document.getElementById('print-status-badge');
+      if (issues.length === 0) {
+        badge.textContent = 'ALL CLEAR';
+        badge.className = 'help-badge clear';
+      } else {
+        badge.textContent = issues.length + (issues.length === 1 ? ' ISSUE' : ' ISSUES');
+        badge.className = 'help-badge alert';
+      }
+
+      document.getElementById('print-queue-count').textContent = totalHeld;
+
+      var listEl = document.getElementById('print-issue-list');
+      if (issues.length === 0) {
+        listEl.innerHTML = '<div class="no-events" style="font-size:15px;">All ' + printers.length + ' printers OK</div>';
+      } else {
+        var html = '';
+        issues.slice(0, 4).forEach(function(p) {
+          var level = p.status === 'ERROR' ? 'error' : 'warning';
+          html += '<div class="print-issue-row">' +
+            '<div class="print-issue-dot ' + level + '"></div>' +
+            '<span class="print-issue-name">' + p.name + '</span>' +
+            '<span class="print-issue-detail ' + level + '">' + (p.detail || p.status) + '</span>' +
+            '</div>';
+        });
+        listEl.innerHTML = html;
+      }
+
+      if (data.updated) {
+        var age = Date.now() - new Date(data.updated).getTime();
+        var stale = age > 15 * 60 * 1000;
+        document.getElementById('print-updated').textContent =
+          'Updated ' + fmtTime(data.updated) + (stale ? ' (STALE)' : '');
+        document.getElementById('print-updated').style.color = stale ? '#f59e0b' : '';
+      }
+    }, function() {
+      document.getElementById('print-status-badge').textContent = 'NO DATA';
+      document.getElementById('print-status-badge').className = 'help-badge alert';
+      document.getElementById('print-issue-list').innerHTML = '<div class="no-events" style="font-size:15px;">Feed unavailable</div>';
+    });
+  }
+
   /* ── LOAD ALL ── */
   function loadAll() {
     loadOnCall();
@@ -530,6 +657,7 @@
     loadHours();
     loadEvents();
     loadVisitorCount();
+    loadPrintQueue();
   }
 
   loadAll();
