@@ -388,8 +388,10 @@
       <span class="panel-title">Today's Events</span>
       <span class="panel-icon">📅</span>
     </div>
-    <div class="panel-body" id="events-body" style="overflow-y:auto;">
-      <div id="lc_e28829ccf912"></div>
+    <div class="panel-body" id="events-body" style="overflow:hidden; position:relative;">
+      <div id="events-scroller">
+        <div id="lc_e28829ccf912"></div>
+      </div>
     </div>
   </div>
 
@@ -605,6 +607,9 @@
 
       document.getElementById('print-queue-count').textContent = totalHeld;
       var pages60 = data.pagesLast60Min;
+      if (pages60 !== null && pages60 !== undefined && typeof pages60 === 'object') {
+        pages60 = pages60.value || pages60.count || pages60.pagesPrinted || pages60.pages || JSON.stringify(pages60);
+      }
       document.getElementById('print-pages-60min').textContent =
         (pages60 === null || pages60 === undefined) ? 'N/A' : pages60;
 
@@ -650,6 +655,37 @@
 
   loadAll();
   setInterval(loadAll, 60000);
+
+  /* ── AUTO-SCROLL EVENTS PANEL ── */
+  (function() {
+    var container = document.getElementById('events-body');
+    var scroller = document.getElementById('events-scroller');
+    var scrollSpeed = 0.5; // pixels per frame
+    var pauseAtTop = 3000; // ms to pause when resetting to top
+    var scrollPos = 0;
+    var paused = false;
+
+    function tick() {
+      if (!paused && scroller.scrollHeight > container.clientHeight) {
+        scrollPos += scrollSpeed;
+        var maxScroll = scroller.scrollHeight - container.clientHeight;
+        if (scrollPos >= maxScroll) {
+          scrollPos = maxScroll;
+          paused = true;
+          setTimeout(function() {
+            scrollPos = 0;
+            scroller.style.transform = 'translateY(0px)';
+            setTimeout(function() { paused = false; }, pauseAtTop);
+          }, 2000);
+        }
+        scroller.style.transform = 'translateY(-' + scrollPos + 'px)';
+      }
+      requestAnimationFrame(tick);
+    }
+
+    // Wait for the widget to load before starting scroll
+    setTimeout(function() { requestAnimationFrame(tick); }, 5000);
+  })();
 </script>
 </body>
 </html>
