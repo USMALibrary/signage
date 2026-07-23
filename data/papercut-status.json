@@ -1,9 +1,6 @@
 {
-  "updated": "2026-07-23T13:57:10Z",
-  "pagesLast60Min": {
-    "recentPagesCount": 0,
-    "comment": "The number of pages printed in the last 60 minutes."
-  },
+  "updated": "2026-07-23T14:34:42Z",
+  "pagesLast60Min": 0,
   "printers": [
     {
       "name": "wppss6print\\WPPRLIBADM",
