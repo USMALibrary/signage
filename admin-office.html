@@ -233,6 +233,19 @@
   .event-title { font-size: 16px; color: #ddd; }
   .no-events { font-size: 20px; color: var(--muted); text-align: center; margin: auto; }
 
+  /* ── LIBCAL WIDGET OVERRIDES (force readable text on dark bg) ── */
+  #events-body, #events-body * {
+    color: #ddd !important;
+    background: transparent !important;
+    border-color: var(--border) !important;
+  }
+  #events-body a { color: var(--gold) !important; }
+  #events-body hr { border-color: var(--border) !important; opacity: 0.4; }
+
+  #events-scroller {
+    will-change: transform;
+  }
+
   /* ── PRINT QUEUE PANEL ── */
   .print-summary-row {
     display: flex;
@@ -608,7 +621,12 @@
       document.getElementById('print-queue-count').textContent = totalHeld;
       var pages60 = data.pagesLast60Min;
       if (pages60 !== null && pages60 !== undefined && typeof pages60 === 'object') {
-        pages60 = pages60.value || pages60.count || pages60.pagesPrinted || pages60.pages || JSON.stringify(pages60);
+        var keys = ['recentPagesCount', 'value', 'count', 'pagesPrinted', 'pages'];
+        var found = false;
+        for (var i = 0; i < keys.length; i++) {
+          if (keys[i] in pages60) { pages60 = pages60[keys[i]]; found = true; break; }
+        }
+        if (!found) pages60 = 'N/A';
       }
       document.getElementById('print-pages-60min').textContent =
         (pages60 === null || pages60 === undefined) ? 'N/A' : pages60;
