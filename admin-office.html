@@ -233,19 +233,6 @@
   .event-title { font-size: 16px; color: #ddd; }
   .no-events { font-size: 20px; color: var(--muted); text-align: center; margin: auto; }
 
-  /* ── LIBCAL WIDGET OVERRIDES (force readable text on dark bg) ── */
-  #events-body, #events-body * {
-    color: #ddd !important;
-    background: transparent !important;
-    border-color: var(--border) !important;
-  }
-  #events-body a { color: var(--gold) !important; }
-  #events-body hr { border-color: var(--border) !important; opacity: 0.4; }
-
-  #events-scroller {
-    will-change: transform;
-  }
-
   /* ── PRINT QUEUE PANEL ── */
   .print-summary-row {
     display: flex;
@@ -335,6 +322,15 @@
   }
 </style>
 <script src="https://usma.libcal.com/widgets/e28829ccf912"></script>
+<style>
+  /* ── LIBCAL EVENTS IFRAME ── */
+  #events-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: invert(0.88) hue-rotate(180deg);
+  }
+</style>
 </head>
 <body>
 
@@ -401,10 +397,8 @@
       <span class="panel-title">Today's Events</span>
       <span class="panel-icon">📅</span>
     </div>
-    <div class="panel-body" id="events-body" style="overflow:hidden; position:relative;">
-      <div id="events-scroller">
-        <div id="lc_e28829ccf912"></div>
-      </div>
+    <div class="panel-body" id="events-body" style="overflow:hidden; padding:0;">
+      <iframe id="events-frame" src="https://usma.libcal.com/widgets/direct/e28829ccf912"></iframe>
     </div>
   </div>
 
@@ -673,37 +667,6 @@
 
   loadAll();
   setInterval(loadAll, 60000);
-
-  /* ── AUTO-SCROLL EVENTS PANEL ── */
-  (function() {
-    var container = document.getElementById('events-body');
-    var scroller = document.getElementById('events-scroller');
-    var scrollSpeed = 0.5; // pixels per frame
-    var pauseAtTop = 3000; // ms to pause when resetting to top
-    var scrollPos = 0;
-    var paused = false;
-
-    function tick() {
-      if (!paused && scroller.scrollHeight > container.clientHeight) {
-        scrollPos += scrollSpeed;
-        var maxScroll = scroller.scrollHeight - container.clientHeight;
-        if (scrollPos >= maxScroll) {
-          scrollPos = maxScroll;
-          paused = true;
-          setTimeout(function() {
-            scrollPos = 0;
-            scroller.style.transform = 'translateY(0px)';
-            setTimeout(function() { paused = false; }, pauseAtTop);
-          }, 2000);
-        }
-        scroller.style.transform = 'translateY(-' + scrollPos + 'px)';
-      }
-      requestAnimationFrame(tick);
-    }
-
-    // Wait for the widget to load before starting scroll
-    setTimeout(function() { requestAnimationFrame(tick); }, 5000);
-  })();
 </script>
 </body>
 </html>
