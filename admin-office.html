@@ -321,6 +321,7 @@
     letter-spacing: 2px; text-transform: uppercase;
   }
 </style>
+<script src="https://usma.libcal.com/widgets/932e13eedd40"></script>
 </head>
 <body>
 
@@ -387,8 +388,8 @@
       <span class="panel-title">Today's Events</span>
       <span class="panel-icon">📅</span>
     </div>
-    <div class="panel-body" id="events-body">
-      <div class="no-events">Loading events...</div>
+    <div class="panel-body" id="events-body" style="overflow-y:auto;">
+      <div id="lc_932e13eedd40"></div>
     </div>
   </div>
 
@@ -402,6 +403,10 @@
       <div class="print-summary-row">
         <span class="print-summary-label">Printers</span>
         <span class="help-badge clear" id="print-status-badge">LOADING</span>
+      </div>
+      <div class="print-summary-row">
+        <span class="print-summary-label">Pages (Last 60 Min)</span>
+        <span class="print-queue-count" id="print-pages-60min">--</span>
       </div>
       <div class="print-summary-row">
         <span class="print-summary-label">Jobs in Queue</span>
@@ -554,27 +559,8 @@
     });
   }
 
-  /* ── TODAY'S EVENTS ── */
-  function loadEvents() {
-    var today = new Date().toISOString().split('T')[0];
-    loadJSON('https://usma.libcal.com/api/1.0/events?iid=4846&cal_id=17422&date=' + today + '&format=json&limit=5', function(data) {
-      var body = document.getElementById('events-body');
-      if (!data.events || data.events.length === 0) {
-        body.innerHTML = '<div class="no-events">No events today</div>';
-        return;
-      }
-      var html = '';
-      data.events.slice(0, 4).forEach(function(ev) {
-        var start = ev.start ? new Date(ev.start) : null;
-        var timeStr = start ? fmtTime(start.toISOString()) : '';
-        html += '<div class="event-item">' +
-          '<div class="event-time">' + timeStr + '</div>' +
-          '<div class="event-title">' + ev.title + '</div>' +
-          '</div>';
-      });
-      body.innerHTML = html;
-    });
-  }
+  /* ── TODAY'S EVENTS: handled by the LibCal widget script tag in <head>,
+     which renders directly into #lc_932e13eedd40 - no fetch needed here. ── */
 
   /* ── VISITOR COUNT ── */
   function loadVisitorCount() {
@@ -618,6 +604,9 @@
       }
 
       document.getElementById('print-queue-count').textContent = totalHeld;
+      var pages60 = data.pagesLast60Min;
+      document.getElementById('print-pages-60min').textContent =
+        (pages60 === null || pages60 === undefined) ? 'N/A' : pages60;
 
       var listEl = document.getElementById('print-issue-list');
       if (issues.length === 0) {
@@ -655,7 +644,6 @@
     loadHelpStatus('help-needed-frontdesk.json', 'frontdesk-status');
     loadHelpStatus('help-needed.json', 'kiosk-status');
     loadHours();
-    loadEvents();
     loadVisitorCount();
     loadPrintQueue();
   }
