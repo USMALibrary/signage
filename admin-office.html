@@ -324,9 +324,15 @@
 <script src="https://usma.libcal.com/widgets/e28829ccf912"></script>
 <style>
   /* ── LIBCAL EVENTS IFRAME ── */
-  #events-frame {
+  #events-frame-wrap {
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  #events-frame {
+    width: calc(100% + 20px); /* push any residual scrollbar off-screen */
+    height: 2000px; /* tall enough to render all content without scrollbar */
     border: none;
     filter: invert(0.88) hue-rotate(180deg);
   }
@@ -398,7 +404,9 @@
       <span class="panel-icon">📅</span>
     </div>
     <div class="panel-body" id="events-body" style="overflow:hidden; padding:0;">
-      <iframe id="events-frame" src="https://usma.libcal.com/widgets/direct/e28829ccf912"></iframe>
+      <div id="events-frame-wrap">
+        <iframe id="events-frame" src="https://usma.libcal.com/widgets/direct/e28829ccf912" scrolling="no"></iframe>
+      </div>
     </div>
   </div>
 
@@ -667,6 +675,39 @@
 
   loadAll();
   setInterval(loadAll, 60000);
+
+  /* ── AUTO-SCROLL EVENTS IFRAME ── */
+  (function() {
+    var wrap = document.getElementById('events-frame-wrap');
+    var frame = document.getElementById('events-frame');
+    var scrollSpeed = 0.4;
+    var pauseTop = 4000;
+    var pauseBottom = 3000;
+    var scrollPos = 0;
+    var paused = false;
+
+    function tick() {
+      if (!paused) {
+        var maxScroll = frame.offsetHeight - wrap.clientHeight;
+        if (maxScroll <= 0) { requestAnimationFrame(tick); return; }
+        scrollPos += scrollSpeed;
+        if (scrollPos >= maxScroll) {
+          scrollPos = maxScroll;
+          paused = true;
+          setTimeout(function() {
+            scrollPos = 0;
+            frame.style.transform = 'translateY(0px)';
+            paused = false;
+          }, pauseBottom + pauseTop);
+        }
+        frame.style.transform = 'translateY(-' + scrollPos + 'px)';
+      }
+      requestAnimationFrame(tick);
+    }
+
+    // Wait for the iframe content to load before starting
+    setTimeout(function() { requestAnimationFrame(tick); }, 8000);
+  })();
 </script>
 </body>
 </html>
