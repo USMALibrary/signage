@@ -1,0 +1,42 @@
+name: LibCal Space Bookings Feed
+
+on:
+  schedule:
+    # Every 15 minutes during operating hours (10:00–01:00 UTC = 6 AM–9 PM ET)
+    - cron: '*/15 10-23 * * *'
+    - cron: '*/15 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-bookings:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch space bookings
+        env:
+          LIBCAL_CLIENT_ID: ${{ secrets.LIBCAL_CLIENT_ID }}
+          LIBCAL_CLIENT_SECRET: ${{ secrets.LIBCAL_CLIENT_SECRET }}
+        run: python space_bookings.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/room-reservations.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update room reservations $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git pull --rebase
+            git push
+          fi
