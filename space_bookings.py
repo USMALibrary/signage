@@ -25,13 +25,27 @@ LOCATION_NAME = os.environ.get("LIBCAL_LOCATION_NAME", "Jefferson Hall")
 OUTPUT = os.path.join(os.path.dirname(__file__), "data", "room-reservations.json")
 
 
-def api_post(path, data):
-    """POST form-encoded data, return parsed JSON."""
-    body = urlencode(data).encode()
-    req = Request(BASE + path, data=body, method="POST")
-    req.add_header("Content-Type", "application/x-www-form-urlencoded")
-    with urlopen(req) as resp:
-        return json.loads(resp.read())
+def api_request(url, data=None, headers=None, method=None):
+    """Make an HTTP request with error-body logging."""
+    if method is None:
+        method = "POST" if data is not None else "GET"
+    req = Request(url, data=data, method=method)
+    if headers:
+        for k, v in headers.items():
+            req.add_header(k, v)
+    try:
+        with urlopen(req) as resp:
+            return json.loads(resp.read())
+    except HTTPError as e:
+        body = ""
+        try:
+            body = e.read().decode("utf-8", errors="replace")
+        except Exception:
+            pass
+        print(f"HTTP {e.code} {e.reason} on {method} {url}")
+        if body:
+            print(f"Response body: {body}")
+        raise
 
 
 def api_get(path, token, params=None):
@@ -39,10 +53,7 @@ def api_get(path, token, params=None):
     url = BASE + path
     if params:
         url += "?" + urlencode(params)
-    req = Request(url)
-    req.add_header("Authorization", "Bearer " + token)
-    with urlopen(req) as resp:
-        return json.loads(resp.read())
+    return api_request(url, headers={"Authorization": "Bearer " + token})
 
 
 def get_token(client_id, client_secret):
@@ -52,8 +63,12 @@ def get_token(client_id, client_secret):
         "client_id": client_id,
         "client_secret": client_secret,
     }
-    result = api_post("/oauth/token", data)
-    return result["access_token"]
+    body = urlencode(data).encode()
+    return api_request(
+        BASE + "/oauth/token",
+        data=body,
+        headers={"Content-Type": "application/x-www-form-urlencoded"},
+    )["access_token"]
 
 
 def find_location(token, name):
