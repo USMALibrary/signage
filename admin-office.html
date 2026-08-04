@@ -216,21 +216,92 @@
   .hours-time.open { color: #6fcf6f; }
   .hours-time.closed { color: #cf6f6f; }
 
-  /* ── EVENTS PANEL ── */
-  .event-item {
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
+  /* ── RESERVATIONS PANEL ── */
+  .reservations-scroll {
     flex: 1;
+    overflow: hidden;
+    position: relative;
   }
 
-  .event-item:last-child { border-bottom: none; }
+  .reservations-list {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    transition: none;
+  }
 
-  .event-time {
+  .res-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .res-item:last-child { border-bottom: none; }
+
+  .res-time {
     font-family: 'Oswald', sans-serif;
-    font-size: 15px; color: var(--gold); margin-bottom: 3px;
+    font-size: 13px;
+    color: var(--gold);
+    flex-shrink: 0;
+    width: 115px;
+    line-height: 1.3;
   }
 
-  .event-title { font-size: 16px; color: #ddd; }
+  .res-room {
+    font-size: 14px;
+    color: #ddd;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+  }
+
+  .res-room .res-title {
+    font-size: 12px;
+    color: var(--muted);
+    display: block;
+    margin-top: 1px;
+  }
+
+  .res-status {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+
+  .res-status.now {
+    color: #6fcf6f;
+    background: rgba(111, 207, 111, 0.12);
+  }
+
+  .res-status.upcoming {
+    color: var(--gold);
+    background: rgba(200, 170, 100, 0.10);
+  }
+
+  .res-status.past {
+    color: #555;
+    background: transparent;
+  }
+
+  .res-count {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .res-count span { color: #fff; font-weight: 600; font-size: 16px; }
+
   .no-events { font-size: 20px; color: var(--muted); text-align: center; margin: auto; }
 
   /* ── PRINT QUEUE PANEL ── */
@@ -321,22 +392,6 @@
     letter-spacing: 2px; text-transform: uppercase;
   }
 </style>
-<script src="https://usma.libcal.com/widgets/e28829ccf912"></script>
-<style>
-  /* ── LIBCAL EVENTS IFRAME ── */
-  #events-frame-wrap {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-  }
-  #events-frame {
-    width: calc(100% + 20px); /* push any residual scrollbar off-screen */
-    height: 2000px; /* tall enough to render all content without scrollbar */
-    border: none;
-    filter: invert(0.88) hue-rotate(180deg);
-  }
-</style>
 </head>
 <body>
 
@@ -397,16 +452,14 @@
     </div>
   </div>
 
-  <!-- 3. TODAY'S EVENTS -->
+  <!-- 3. ROOM RESERVATIONS -->
   <div class="panel">
     <div class="panel-header">
-      <span class="panel-title">Today's Events</span>
-      <span class="panel-icon">📅</span>
+      <span class="panel-title">Room Reservations</span>
+      <span class="panel-icon">🚪</span>
     </div>
-    <div class="panel-body" id="events-body" style="overflow:hidden; padding:0;">
-      <div id="events-frame-wrap">
-        <iframe id="events-frame" src="https://usma.libcal.com/widgets/direct/e28829ccf912" scrolling="no"></iframe>
-      </div>
+    <div class="panel-body" id="reservations-body">
+      <div class="no-events">Loading...</div>
     </div>
   </div>
 
@@ -576,8 +629,109 @@
     });
   }
 
-  /* ── TODAY'S EVENTS: handled by the LibCal widget script tag in <head>,
-     which renders directly into #lc_e28829ccf912 - no fetch needed here. ── */
+  /* ── ROOM RESERVATIONS ── */
+  var resScrollPos = 0;
+  var resScrollPaused = false;
+
+  function loadReservations() {
+    loadJSON(BASE + 'room-reservations.json', function(data) {
+      var body = document.getElementById('reservations-body');
+      if (!data.bookings || data.bookings.length === 0) {
+        body.innerHTML = '<div class="no-events">No reservations today</div>';
+        return;
+      }
+
+      var now = new Date();
+      var bookings = data.bookings;
+
+      // Count active (in-progress) and upcoming
+      var activeCount = 0;
+      bookings.forEach(function(b) {
+        var from = new Date(b.from);
+        var to = new Date(b.to);
+        if (now >= from && now < to) activeCount++;
+      });
+
+      var html = '<div class="res-count"><span>' + bookings.length + '</span> reservations today';
+      if (activeCount > 0) html += ' · <span>' + activeCount + '</span> active now';
+      html += '</div>';
+
+      html += '<div class="reservations-scroll"><div class="reservations-list" id="res-list">';
+
+      bookings.forEach(function(b) {
+        var from = new Date(b.from);
+        var to = new Date(b.to);
+        var statusClass = 'upcoming';
+        var statusLabel = 'UPCOMING';
+        if (now >= from && now < to) {
+          statusClass = 'now';
+          statusLabel = 'IN USE';
+        } else if (now >= to) {
+          statusClass = 'past';
+          statusLabel = 'DONE';
+        }
+
+        // Shorten room name: strip "JH " prefix for density
+        var room = b.room || 'Unknown';
+
+        var title = b.title || '';
+
+        html += '<div class="res-item">' +
+          '<div class="res-time">' + b.fromDisplay + ' –<br>' + b.toDisplay + '</div>' +
+          '<div class="res-room">' + room +
+            (title ? '<span class="res-title">' + title + '</span>' : '') +
+          '</div>' +
+          '<span class="res-status ' + statusClass + '">' + statusLabel + '</span>' +
+          '</div>';
+      });
+
+      html += '</div></div>';
+      body.innerHTML = html;
+
+      // Reset auto-scroll
+      resScrollPos = 0;
+      resScrollPaused = false;
+
+    }, function() {
+      document.getElementById('reservations-body').innerHTML =
+        '<div class="no-events" style="font-size:15px;">Feed unavailable</div>';
+    });
+  }
+
+  /* ── AUTO-SCROLL RESERVATIONS ── */
+  (function() {
+    var scrollSpeed = 0.3;
+    var pauseTop = 5000;
+    var pauseBottom = 4000;
+
+    function tick() {
+      var list = document.getElementById('res-list');
+      var wrap = list ? list.parentElement : null;
+      if (!list || !wrap || resScrollPaused) {
+        requestAnimationFrame(tick);
+        return;
+      }
+
+      var maxScroll = list.scrollHeight - wrap.clientHeight;
+      if (maxScroll <= 0) { requestAnimationFrame(tick); return; }
+
+      resScrollPos += scrollSpeed;
+      if (resScrollPos >= maxScroll) {
+        resScrollPos = maxScroll;
+        resScrollPaused = true;
+        setTimeout(function() {
+          resScrollPos = 0;
+          list.style.transform = 'translateY(0px)';
+          resScrollPaused = false;
+        }, pauseBottom + pauseTop);
+      }
+      list.style.transform = 'translateY(-' + resScrollPos + 'px)';
+      requestAnimationFrame(tick);
+    }
+
+    // Start scrolling after initial data load
+    setTimeout(function() { requestAnimationFrame(tick); }, 3000);
+  })();
 
   /* ── VISITOR COUNT ── */
   function loadVisitorCount() {
@@ -669,45 +823,13 @@
     loadHelpStatus('help-needed-frontdesk.json', 'frontdesk-status');
     loadHelpStatus('help-needed.json', 'kiosk-status');
     loadHours();
+    loadReservations();
     loadVisitorCount();
     loadPrintQueue();
   }
 
   loadAll();
   setInterval(loadAll, 60000);
-
-  /* ── AUTO-SCROLL EVENTS IFRAME ── */
-  (function() {
-    var wrap = document.getElementById('events-frame-wrap');
-    var frame = document.getElementById('events-frame');
-    var scrollSpeed = 0.4;
-    var pauseTop = 4000;
-    var pauseBottom = 3000;
-    var scrollPos = 0;
-    var paused = false;
-
-    function tick() {
-      if (!paused) {
-        var maxScroll = frame.offsetHeight - wrap.clientHeight;
-        if (maxScroll <= 0) { requestAnimationFrame(tick); return; }
-        scrollPos += scrollSpeed;
-        if (scrollPos >= maxScroll) {
-          scrollPos = maxScroll;
-          paused = true;
-          setTimeout(function() {
-            scrollPos = 0;
-            frame.style.transform = 'translateY(0px)';
-            paused = false;
-          }, pauseBottom + pauseTop);
-        }
-        frame.style.transform = 'translateY(-' + scrollPos + 'px)';
-      }
-      requestAnimationFrame(tick);
-    }
-
-    // Wait for the iframe content to load before starting
-    setTimeout(function() { requestAnimationFrame(tick); }, 8000);
-  })();
 </script>
 </body>
 </html>
