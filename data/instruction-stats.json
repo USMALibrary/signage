@@ -1,0 +1,19 @@
+{
+  "updated": "2026-08-05T00:24:15.197939+00:00",
+  "calendarId": 20048,
+  "today": {
+    "date": "2026-08-05",
+    "count": 0,
+    "sessions": [],
+    "next": null
+  },
+  "thisWeek": {
+    "startDate": "2026-08-03",
+    "count": 0
+  },
+  "semester": {
+    "label": "Fall 2026",
+    "startDate": "2026-08-01",
+    "count": 0
+  }
+}
