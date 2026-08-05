@@ -1,19 +1,52 @@
 {
-  "updated": "2026-08-04T23:45:23.776821+00:00",
-  "date": "2026-08-04",
+  "updated": "2026-08-05T03:22:28.814284+00:00",
+  "date": "2026-08-05",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 1,
+  "count": 4,
   "bookings": [
     {
-      "room": "JH 314C",
-      "category": "Library Staff Rooms",
-      "from": "2026-08-04T13:00:00-04:00",
-      "to": "2026-08-04T14:00:00-04:00",
-      "fromDisplay": "1:00 PM",
-      "toDisplay": "2:00 PM",
-      "title": "Leadership Meeting",
-      "nickname": "Leadership Meeting",
+      "room": "JH 402",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-05T08:00:00-04:00",
+      "to": "2026-08-05T10:00:00-04:00",
+      "fromDisplay": "8:00 AM",
+      "toDisplay": "10:00 AM",
+      "title": "Scholarship Block",
+      "nickname": "Scholarship Block",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-05T08:00:00-04:00",
+      "to": "2026-08-05T16:00:00-04:00",
+      "fromDisplay": "8:00 AM",
+      "toDisplay": "4:00 PM",
+      "title": "PANE Off-site",
+      "nickname": "PANE Off-site",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 401 (Class of 1994)",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-05T10:00:00-04:00",
+      "to": "2026-08-05T12:00:00-04:00",
+      "fromDisplay": "10:00 AM",
+      "toDisplay": "12:00 PM",
+      "title": "USMA COMMSYNC Meeting",
+      "nickname": "USMA COMMSYNC Meeting",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "*JH - Haig Room & All 6th Floor Spaces",
+      "category": "Sixth Floor & Haig Room",
+      "from": "2026-08-05T10:30:00-04:00",
+      "to": "2026-08-05T14:30:00-04:00",
+      "fromDisplay": "10:30 AM",
+      "toDisplay": "2:30 PM",
+      "title": "Promotion Ceremony to LTC",
+      "nickname": "Promotion Ceremony to LTC",
       "status": "Mediated Approved"
     }
   ]
