@@ -880,6 +880,20 @@
 
   loadAll();
   setInterval(loadAll, 60000);
+
+  /* ── AUTO-SCALE TO FIT BROWSER WINDOW ── */
+  (function() {
+    var W = 1920, H = 1080;
+    function rescale() {
+      var sx = window.innerWidth / W;
+      var sy = window.innerHeight / H;
+      var s = Math.min(sx, sy);
+      document.body.style.transformOrigin = '0 0';
+      document.body.style.transform = 'scale(' + s + ')';
+    }
+    rescale();
+    window.addEventListener('resize', rescale);
+  })();
 </script>
 </body>
 </html>
