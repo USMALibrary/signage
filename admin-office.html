@@ -787,7 +787,10 @@
       var updEl = document.getElementById('visitor-updated');
 
       if (data.count != null) countEl.textContent = data.count.toLocaleString();
-      if (data.occupancy != null) occEl.textContent = data.occupancy.toLocaleString();
+      if (data.occupancy != null) {
+        var occ = Math.max(0, data.occupancy);
+        occEl.textContent = occ.toLocaleString();
+      }
 
       if (data.updated) {
         var updated = new Date(data.updated);
