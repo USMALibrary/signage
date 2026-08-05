@@ -1,11 +1,17 @@
 {
-  "updated": "2026-08-05T00:24:15.197939+00:00",
+  "updated": "2026-08-05T00:35:29.668193+00:00",
   "calendarId": 20048,
   "today": {
     "date": "2026-08-05",
     "count": 0,
     "sessions": [],
-    "next": null
+    "next": {
+      "title": "Exchange Cadets Tour/Briefing (Elaine)(JH514)",
+      "time": "8:30 AM",
+      "date": "2026-08-12",
+      "dateDisplay": "Wed Aug 12",
+      "status": "upcoming"
+    }
   },
   "thisWeek": {
     "startDate": "2026-08-03",
@@ -13,7 +19,7 @@
   },
   "semester": {
     "label": "Fall 2026",
-    "startDate": "2026-08-01",
-    "count": 0
+    "startDate": "2026-07-01",
+    "count": 13
   }
 }
