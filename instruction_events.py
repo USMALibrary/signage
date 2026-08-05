@@ -106,10 +106,10 @@ def get_semester_start(today):
     if override:
         return override
 
-    # Fall semester: Aug 1 – Dec 31
-    # Spring semester: Jan 15 – Jul 31
-    if today.month >= 8:
-        return f"{today.year}-08-01"
+    # Fall semester (including summer instruction): Jul 1 – Dec 31
+    # Spring semester: Jan 15 – Jun 30
+    if today.month >= 7:
+        return f"{today.year}-07-01"
     else:
         return f"{today.year}-01-15"
 
