@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-05T17:56:06.421486+00:00",
+  "updated": "2026-08-05T19:35:01.284212+00:00",
   "date": "2026-08-05",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 3,
+  "count": 4,
   "bookings": [
     {
       "room": "JH 514 (Class of 1985)",
@@ -36,6 +36,17 @@
       "toDisplay": "2:30 PM",
       "title": "Promotion Ceremony to LTC",
       "nickname": "Promotion Ceremony to LTC",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "*JH - Haig Room & All 6th Floor Spaces",
+      "category": "Sixth Floor & Haig Room",
+      "from": "2026-08-05T15:00:00-04:00",
+      "to": "2026-08-06T16:30:00-04:00",
+      "fromDisplay": "3:00 PM",
+      "toDisplay": "4:30 PM",
+      "title": "AWPAA Exec Staff Off Site",
+      "nickname": "AWPAA Exec Staff Off Site",
       "status": "Mediated Approved"
     }
   ]
