@@ -202,19 +202,53 @@ def main():
     # Sort by start time
     sessions_today.sort(key=lambda x: x["start"])
 
-    # Find next upcoming
+    # Find next upcoming — look at today first, then ahead 14 days
     next_session = None
     for s in sessions_today:
         if s["status"] in ("upcoming", "now"):
             next_session = {
                 "title": s["title"],
                 "time": s["startDisplay"],
+                "date": today_str,
+                "dateDisplay": "Today",
                 "status": s["status"],
             }
             break
 
+    if not next_session:
+        # Nothing left today — look ahead up to 14 days
+        tomorrow = today + timedelta(days=1)
+        tomorrow_str = tomorrow.strftime("%Y-%m-%d")
+        print(f"No upcoming sessions today, looking ahead 14 days from {tomorrow_str}...")
+        upcoming = fetch_events(token, CAL_ID, tomorrow_str, days=13)
+        if upcoming:
+            # Sort by start time and take the first
+            upcoming.sort(key=lambda e: e.get("start", e.get("date", {}).get("start", "")))
+            nxt = upcoming[0]
+            nxt_start = nxt.get("start", nxt.get("date", {}).get("start", ""))
+            nxt_title = nxt.get("title", "Untitled")
+            # Format the date nicely
+            try:
+                nxt_dt = datetime.fromisoformat(nxt_start)
+                days_away = (nxt_dt.date() - today.date()).days
+                day_names = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+                if days_away == 1:
+                    date_display = "Tomorrow"
+                else:
+                    date_display = day_names[nxt_dt.weekday()] + " " + nxt_dt.strftime("%b %-d")
+            except Exception:
+                date_display = ""
+            next_session = {
+                "title": nxt_title,
+                "time": fmt_time_12h(nxt_start),
+                "date": nxt_start[:10] if len(nxt_start) >= 10 else "",
+                "dateDisplay": date_display,
+                "status": "upcoming",
+            }
+            print(f"  Next session: {nxt_title} on {date_display}")
+
     # ── SEMESTER LABEL ──
-    semester_label = "Fall" if today.month >= 8 else "Spring"
+    semester_label = "Fall" if today.month >= 7 else "Spring"
     semester_label += f" {today.year}"
 
     output = {
