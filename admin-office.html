@@ -763,17 +763,15 @@
       var nextEl = document.getElementById('instr-next');
       if (data.today && data.today.next) {
         var n = data.today.next;
-        var label = n.time + ' · ' + n.title;
+        var prefix = n.dateDisplay && n.dateDisplay !== 'Today' ? n.dateDisplay + ' · ' : '';
         if (n.status === 'now') {
           nextEl.innerHTML = '<span style="color:#6fcf6f;">IN SESSION</span><br>' + n.title;
         } else {
-          nextEl.textContent = label;
+          nextEl.textContent = prefix + n.time + ' · ' + n.title;
           nextEl.style.color = '';
         }
-      } else if (data.today && data.today.count === 0) {
-        nextEl.textContent = 'None today';
       } else {
-        nextEl.textContent = 'All done for today';
+        nextEl.textContent = 'Nothing scheduled';
       }
     }, function() {
       document.getElementById('instr-today').textContent = '--';
