@@ -1,21 +1,10 @@
 {
-  "updated": "2026-08-05T03:22:28.814284+00:00",
+  "updated": "2026-08-05T11:58:26.701230+00:00",
   "date": "2026-08-05",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 4,
+  "count": 3,
   "bookings": [
-    {
-      "room": "JH 402",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-05T08:00:00-04:00",
-      "to": "2026-08-05T10:00:00-04:00",
-      "fromDisplay": "8:00 AM",
-      "toDisplay": "10:00 AM",
-      "title": "Scholarship Block",
-      "nickname": "Scholarship Block",
-      "status": "Mediated Approved"
-    },
     {
       "room": "JH 514 (Class of 1985)",
       "category": "Collaborative Rooms",
