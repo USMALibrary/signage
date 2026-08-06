@@ -2,7 +2,7 @@ name: Instruction Calendar Feed
 
 on:
   schedule:
-    # Every 15 minutes during operating hours (10:00–01:00 UTC = 6 AM–9 PM ET)
+    # Every 15 minutes during operating hours, offset by 5 min to stagger from fetch-hours
     - cron: '5-59/15 10-23 * * 1-5'
     - cron: '5-59/15 0 * * 1-5'
   workflow_dispatch:
@@ -14,8 +14,10 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout repo
+      - name: Checkout data branch
         uses: actions/checkout@v4
+        with:
+          ref: data
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -37,6 +39,10 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Update instruction stats $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git pull --rebase
-            git push
+            git pull --rebase origin data
+            git push origin data || {
+              echo "Push failed, retrying after rebase..."
+              git pull --rebase origin data
+              git push origin data
+            }
           fi
