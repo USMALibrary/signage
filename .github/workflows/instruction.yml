@@ -3,8 +3,8 @@ name: Instruction Calendar Feed
 on:
   schedule:
     # Every 15 minutes during operating hours (10:00–01:00 UTC = 6 AM–9 PM ET)
-    - cron: '*/15 10-23 * * 1-5'
-    - cron: '*/15 0 * * 1-5'
+    - cron: '5-59/15 10-23 * * 1-5'
+    - cron: '5-59/15 0 * * 1-5'
   workflow_dispatch:
 
 jobs:
