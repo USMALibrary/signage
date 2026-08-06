@@ -17,7 +17,7 @@ jobs:
 
       - name: Fetch today's hours
         run: |
-          curl -s "https://usma.libcal.com/api_hours_today.php?iid=4846&lid=0&format=json&systemTime=1" \
+          curl -s "https://usma.libcal.com/api_hours_today.php?iid=4846&lid=0&format=json&systemTime=0" \
             -o data/hours-today.json
 
       - name: Fetch weekly hours
