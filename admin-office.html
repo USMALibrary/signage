@@ -597,21 +597,18 @@
 
   function fmtRendered(r) {
     if (!r || r === 'Closed') return 'Closed';
-    // If already in 12-hour format (contains am/pm), just clean it up
-    if (/[ap]m/i.test(r)) {
-      return r
-        .replace(/\s*-\s*/g, ' – ')
-        .replace(/am/gi, ' AM')
-        .replace(/pm/gi, ' PM')
-        .replace(/\s+/g, ' ')
-        .trim();
+    // If already in 24-hour format (HH:MM), just clean up the separator
+    if (/^\d{1,2}:\d{2}/.test(r.trim()) && !/[ap]m/i.test(r)) {
+      return r.replace(' - ', ' – ');
     }
-    // Otherwise convert from 24-hour format
-    return r.replace(/(\d{1,2}):(\d{2})/g, function(_, hh, mm) {
-      var h = parseInt(hh), ampm = h >= 12 ? 'PM' : 'AM';
-      h = h % 12 || 12;
-      return h + ':' + mm + ' ' + ampm;
-    }).replace(' - ', ' – ');
+    // Convert 12-hour format (from LibCal systemTime=0) to 24-hour
+    return r.replace(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)/gi, function(_, h, m, ampm) {
+      var hour = parseInt(h);
+      var min = m || '00';
+      if (ampm.toLowerCase() === 'pm' && hour !== 12) hour += 12;
+      if (ampm.toLowerCase() === 'am' && hour === 12) hour = 0;
+      return hour.toString().padStart(2, '0') + ':' + min;
+    }).replace(/\s*-\s*/, ' – ');
   }
 
   /* ── ON CALL ── */
