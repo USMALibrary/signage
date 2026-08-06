@@ -597,6 +597,16 @@
 
   function fmtRendered(r) {
     if (!r || r === 'Closed') return 'Closed';
+    // If already in 12-hour format (contains am/pm), just clean it up
+    if (/[ap]m/i.test(r)) {
+      return r
+        .replace(/\s*-\s*/g, ' – ')
+        .replace(/am/gi, ' AM')
+        .replace(/pm/gi, ' PM')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+    // Otherwise convert from 24-hour format
     return r.replace(/(\d{1,2}):(\d{2})/g, function(_, hh, mm) {
       var h = parseInt(hh), ampm = h >= 12 ? 'PM' : 'AM';
       h = h % 12 || 12;
