@@ -1,41 +1,30 @@
 {
-  "updated": "2026-08-06T14:34:32.797238+00:00",
-  "date": "2026-08-06",
+  "updated": "2026-08-07T00:34:04.178691+00:00",
+  "date": "2026-08-07",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 3,
+  "count": 2,
   "bookings": [
     {
       "room": "*JH - Haig Room & All 6th Floor Spaces",
       "category": "Sixth Floor & Haig Room",
-      "from": "2026-08-05T15:00:00-04:00",
-      "to": "2026-08-06T16:30:00-04:00",
-      "fromDisplay": "3:00 PM",
+      "from": "2026-08-07T07:00:00-04:00",
+      "to": "2026-08-07T16:30:00-04:00",
+      "fromDisplay": "7:00 AM",
       "toDisplay": "4:30 PM",
-      "title": "AWPAA Exec Staff Off Site",
-      "nickname": "AWPAA Exec Staff Off Site",
+      "title": "Department of History and War Studies Strategic Review",
+      "nickname": "Department of History and War Studies Strategic Review",
       "status": "Mediated Approved"
     },
     {
       "room": "JH 514 (Class of 1985)",
       "category": "Collaborative Rooms",
-      "from": "2026-08-06T08:00:00-04:00",
-      "to": "2026-08-06T16:00:00-04:00",
+      "from": "2026-08-07T08:00:00-04:00",
+      "to": "2026-08-07T16:00:00-04:00",
       "fromDisplay": "8:00 AM",
       "toDisplay": "4:00 PM",
       "title": "PANE Off-site",
       "nickname": "PANE Off-site",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 414",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-06T13:00:00-04:00",
-      "to": "2026-08-06T14:00:00-04:00",
-      "fromDisplay": "1:00 PM",
-      "toDisplay": "2:00 PM",
-      "title": "Staff meeting",
-      "nickname": "Staff meeting",
       "status": "Mediated Approved"
     }
   ]
