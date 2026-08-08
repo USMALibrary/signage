@@ -1,31 +1,8 @@
 {
-  "updated": "2026-08-07T23:42:18.405616+00:00",
-  "date": "2026-08-07",
+  "updated": "2026-08-08T00:34:38.998234+00:00",
+  "date": "2026-08-08",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 2,
-  "bookings": [
-    {
-      "room": "*JH - Haig Room & All 6th Floor Spaces",
-      "category": "Sixth Floor & Haig Room",
-      "from": "2026-08-07T07:00:00-04:00",
-      "to": "2026-08-07T16:30:00-04:00",
-      "fromDisplay": "7:00 AM",
-      "toDisplay": "4:30 PM",
-      "title": "Department of History and War Studies Strategic Review",
-      "nickname": "Department of History and War Studies Strategic Review",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-07T08:00:00-04:00",
-      "to": "2026-08-07T16:00:00-04:00",
-      "fromDisplay": "8:00 AM",
-      "toDisplay": "4:00 PM",
-      "title": "PANE Off-site",
-      "nickname": "PANE Off-site",
-      "status": "Mediated Approved"
-    }
-  ]
+  "count": 0,
+  "bookings": []
 }
