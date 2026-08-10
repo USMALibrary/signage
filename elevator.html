@@ -300,7 +300,7 @@
 </div>
 
 <script>
-  var BASE = 'https://usmalibrary.github.io/signage/data/';
+  var BASE = 'https://raw.githubusercontent.com/USMALibrary/signage/data/data/';
 
   /* ── XHR HELPER — silent on failure ── */
   function loadJSON(url, callback) {
@@ -332,12 +332,27 @@
   updateClock();
   setInterval(updateClock, 30000);
 
-  /* ── FORMAT HOURS ── */
-  /* LibCal's "rendered" field already arrives in 12-hour format
-     (e.g. "7am - 10pm" or "7am - 4:30pm") — just tidy the dash. */
-  function fmtTime(rendered) {
-    if (!rendered || rendered === 'Closed') return 'Closed';
-    return rendered.replace(' - ', ' – ');
+  /* ── FORMAT HOURS (24-hour / military time) ── */
+  /* Build directly from the raw from/to hours array rather than the
+     pre-rendered 12-hour string, so we don't have to re-parse AM/PM. */
+  function to24(t) {
+    if (!t) return '';
+    var m = t.match(/(\d{1,2})(?::(\d{2}))?\s*([ap]m)/i);
+    if (!m) return t;
+    var hr = parseInt(m[1], 10);
+    var min = m[2] || '00';
+    var ampm = m[3].toLowerCase();
+    if (ampm === 'pm' && hr !== 12) hr += 12;
+    if (ampm === 'am' && hr === 12) hr = 0;
+    return (hr < 10 ? '0' : '') + hr + min;
+  }
+
+  function fmtHoursMilitary(loc) {
+    if (!loc.times || loc.times.status === 'closed' ||
+        !loc.times.hours || !loc.times.hours.length) return 'Closed';
+    return loc.times.hours
+      .map(function(r) { return to24(r.from) + ' – ' + to24(r.to); })
+      .join(' & ');
   }
 
   /* ── HOURS ── */
@@ -350,7 +365,7 @@
       var time = document.getElementById('hours-time');
       dot.className = 'dot ' + (isOpen ? 'open' : 'closed');
       time.className = 'hours-time ' + (isOpen ? 'open' : 'closed');
-      time.textContent = fmtTime(loc.rendered);
+      time.textContent = fmtHoursMilitary(loc);
     });
   }
 
