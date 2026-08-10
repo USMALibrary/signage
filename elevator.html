@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1024">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <title>USMA Library – Elevator Display</title>
@@ -24,8 +24,8 @@
   }
 
   body {
-    width: 1024px;
-    height: 768px;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
     background: var(--black);
     font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif;
@@ -225,13 +225,15 @@
 
   /* ── FOOTER ── */
   #footer {
-    height: 56px;
+    height: auto;
+    min-height: 56px;
     background: var(--dark);
     border-top: 3px solid var(--gold);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 36px;
+    padding: 12px 36px;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
     flex-shrink: 0;
   }
 
