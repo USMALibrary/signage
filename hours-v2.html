@@ -344,11 +344,42 @@
     }).replace(' - ', ' – ');
   }
 
+  /* ── OPEN/CLOSED (computed client-side, do not trust feed's currently_open) ── */
+  function parseTimeToMinutes(str) {
+    if (!str) return null;
+    var m = String(str).toLowerCase().trim().match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/);
+    if (!m) return null;
+    var h = parseInt(m[1], 10);
+    var min = m[2] ? parseInt(m[2], 10) : 0;
+    if (m[3] === 'pm' && h !== 12) h += 12;
+    if (m[3] === 'am' && h === 12) h = 0;
+    return h * 60 + min;
+  }
+
+  function isLocationOpen(loc) {
+    if (!loc.times || loc.times.status === 'closed') return false;
+    var ranges = loc.times.hours;
+    if (!ranges || !ranges.length) return false;
+    var now = new Date();
+    var nowMin = now.getHours() * 60 + now.getMinutes();
+    for (var i = 0; i < ranges.length; i++) {
+      var from = parseTimeToMinutes(ranges[i].from);
+      var to = parseTimeToMinutes(ranges[i].to);
+      if (from === null || to === null) continue;
+      if (to <= from) { // overnight range, e.g. 6pm–2am
+        if (nowMin >= from || nowMin < to) return true;
+      } else if (nowMin >= from && nowMin < to) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   /* ── RENDER TODAY ── */
   function renderToday(data) {
     var locs = data.locations, html = '', anyOpen = false;
     locs.forEach(function(loc) {
-      var open = loc.times && loc.times.currently_open;
+      var open = isLocationOpen(loc);
       if (open) anyOpen = true;
       html += '<div class="today-loc">' +
         '<div class="dot ' + (open?'open':'closed') + '"></div>' +
