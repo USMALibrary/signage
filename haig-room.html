@@ -120,6 +120,15 @@
     position: relative;
     background: var(--black);
     flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  #image-zone img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   /* ── FOOTER ── */
@@ -180,8 +189,12 @@
 <!-- SECTION LABEL -->
 <div class="section-label">Welcome to the Alexander Haig Room</div>
 
-<!-- IMAGE ZONE — Rise Vision Image component goes here -->
-<div id="image-zone"></div>
+<!-- IMAGE ZONE — crest image, fills zone via CSS object-fit -->
+<div id="image-zone">
+  <img src="https://usmalibrary.github.io/signage/images/haig-room-crest.png"
+       alt="USMA Crest"
+       onerror="this.style.display='none'">
+</div>
 
 <!-- FOOTER -->
 <div id="footer">
