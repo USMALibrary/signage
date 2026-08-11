@@ -1,15 +1,25 @@
 {
-  "updated": "2026-08-10T23:45:33.347974+00:00",
+  "updated": "2026-08-11T00:37:17.334364+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-08-10",
-    "count": 0,
-    "sessions": [],
+    "date": "2026-08-11",
+    "count": 1,
+    "sessions": [
+      {
+        "title": "Sister Academy Cadets Tour/Briefing (Elaine)(JH514)",
+        "start": "2026-08-11T09:00:00-04:00",
+        "end": "2026-08-11T10:00:00-04:00",
+        "startDisplay": "9:00 AM",
+        "endDisplay": "10:00 AM",
+        "location": "",
+        "status": "upcoming"
+      }
+    ],
     "next": {
       "title": "Sister Academy Cadets Tour/Briefing (Elaine)(JH514)",
       "time": "9:00 AM",
       "date": "2026-08-11",
-      "dateDisplay": "Tomorrow",
+      "dateDisplay": "Today",
       "status": "upcoming"
     }
   },
@@ -20,6 +30,6 @@
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 13
+    "count": 14
   }
 }
