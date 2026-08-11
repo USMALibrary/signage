@@ -1,8 +1,53 @@
 {
-  "updated": "2026-08-10T23:46:29.863545+00:00",
-  "date": "2026-08-10",
+  "updated": "2026-08-11T00:37:11.333356+00:00",
+  "date": "2026-08-11",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 0,
-  "bookings": []
+  "count": 4,
+  "bookings": [
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-11T08:30:00-04:00",
+      "to": "2026-08-11T09:30:00-04:00",
+      "fromDisplay": "8:30 AM",
+      "toDisplay": "9:30 AM",
+      "title": "SAEP orientation",
+      "nickname": "SAEP orientation",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 314C",
+      "category": "Library Staff Rooms",
+      "from": "2026-08-11T13:00:00-04:00",
+      "to": "2026-08-11T14:00:00-04:00",
+      "fromDisplay": "1:00 PM",
+      "toDisplay": "2:00 PM",
+      "title": "Leadership Meeting",
+      "nickname": "Leadership Meeting",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-11T15:30:00-04:00",
+      "to": "2026-08-11T17:00:00-04:00",
+      "fromDisplay": "3:30 PM",
+      "toDisplay": "5:00 PM",
+      "title": "CPT Hake promotion",
+      "nickname": "CPT Hake promotion",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 613 Haig Room Only",
+      "category": "Sixth Floor & Haig Room",
+      "from": "2026-08-11T16:00:00-04:00",
+      "to": "2026-08-11T18:00:00-04:00",
+      "fromDisplay": "4:00 PM",
+      "toDisplay": "6:00 PM",
+      "title": "Recon and RFI for 14AUG26 Ret. Ceremony",
+      "nickname": "Recon and RFI for 14AUG26 Ret. Ceremony",
+      "status": "Mediated Approved"
+    }
+  ]
 }
