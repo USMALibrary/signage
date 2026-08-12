@@ -84,35 +84,15 @@ def local_name(tag):
     return tag.split("}")[-1]
 
 
-def strip_type_prefix(value):
-    """'xsd:double' -> 'double'. Type attribute values are QName strings,
-    not Clark-notation tags, so this is a plain colon-split."""
-    return value.split(":")[-1] if value else value
-
-
 def parse_rows(rowset):
-    """Extract {month, count} from each Row.
+    """Extract raw {ColumnN: value} records from each Row.
 
-    This report has just two real columns: the Usage Date Year-Month
-    dimension and the PR_P1 total-requests measure. Rather than assume
-    a type for the month column (Alma has been inconsistent about
-    whether Year-Month dimensions come through as xsd:string or
-    xsd:date), identify the numeric measure column by type and treat
-    whichever other column remains as the month column.
+    Deliberately doesn't use the schema's declared XSD type to tell the
+    month column from the count column — that approach broke silently
+    for the circulation report (whose schema carries no reliable type
+    info at all) and produced all-zero counts here, so column roles are
+    decided from the actual values instead, in main().
     """
-    col_types = {}
-    for el in rowset.iter():
-        if local_name(el.tag) != "element":
-            continue
-        name = el.get("name")
-        if not name or not name.startswith("Column"):
-            continue
-        col_types[name] = strip_type_prefix(el.get("type", ""))
-
-    numeric_cols = [c for c, t in col_types.items() if t in ("double", "float", "decimal", "int")]
-    count_col = numeric_cols[0] if numeric_cols else None
-    month_col = next((c for c in col_types if c != count_col), None)
-
     rows = []
     for row in rowset.iter():
         if local_name(row.tag) != "Row":
@@ -120,8 +100,34 @@ def parse_rows(rowset):
         record = {}
         for child in row:
             record[local_name(child.tag)] = (child.text or "").strip()
-        rows.append({"month": record.get(month_col), "count": record.get(count_col)})
+        rows.append(record)
     return rows
+
+
+def looks_numeric(value):
+    if not value:
+        return False
+    try:
+        float(value)
+        return True
+    except ValueError:
+        return False
+
+
+def detect_columns(raw_rows):
+    """Pick the count column as whichever ColumnN parses as a number in
+    every non-empty row, and the month column as whichever other column
+    remains."""
+    if not raw_rows:
+        return None, None
+    col_names = sorted(raw_rows[0].keys())
+    numeric_cols = [
+        c for c in col_names
+        if any(r.get(c) for r in raw_rows) and all(looks_numeric(r.get(c)) for r in raw_rows if r.get(c))
+    ]
+    count_col = numeric_cols[0] if numeric_cols else None
+    month_col = next((c for c in col_names if c != count_col), None)
+    return month_col, count_col
 
 
 DEBUG_DUMP = os.path.join(os.path.dirname(__file__), "data", ".alma-eresource-debug-response.xml")
@@ -181,11 +187,16 @@ def main():
     print(f"Fetching report: {REPORT_PATH}")
     raw_rows = fetch_all_rows(api_key, REPORT_PATH)
     print(f"  Found {len(raw_rows)} rows")
+    if raw_rows:
+        print(f"  Sample row: {raw_rows[0]}")
+
+    month_col, count_col = detect_columns(raw_rows)
+    print(f"  Detected columns: month={month_col}, count={count_col}")
 
     monthly = {}
     for record in raw_rows:
-        month_str = record.get("month")
-        count_str = record.get("count")
+        month_str = record.get(month_col)
+        count_str = record.get(count_col)
         if not month_str:
             continue
         m = parse_month(month_str)
