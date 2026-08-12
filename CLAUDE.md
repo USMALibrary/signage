@@ -42,9 +42,19 @@ JSON summary to `data/<name>.json`, and print a short log line. The workflow the
 rebase-then-push-with-retry pattern if you touch the commit step.
 
 Some data files (`visitor-count.json`, `papercut-status.json`, `on-call.json`,
-`help-needed.json`, `help-needed-frontdesk.json`, `elevator-notices.json`) are **not** produced by
-any workflow in this repo — they're pushed to the `data` branch by an external system. Don't assume
-every file in `data/` has a corresponding fetcher here.
+`help-needed.json`, `help-needed-frontdesk.json`) are **not** produced by any workflow in this repo —
+they're pushed to the `data` branch by an external system. Don't assume every file in `data/` has a
+corresponding fetcher here.
+
+`elevator-notices.json` is different again: nothing — no workflow, no external system — writes it.
+It has to be edited by hand directly on the `data` branch (editing `data/elevator-notices.json` on
+`main` has no effect on `elevator.html`, which only reads from `data`). This was a real gap: the file
+existed only on `main` until 2026-08-12 and the notices panel was silently always showing its
+hardcoded default. Whether this stays a hand-edited JSON file is an open question — the library may
+instead manage elevator (and other) sign content through Rise Vision's built-in content playlists,
+depending on how comfortable the staff doing the day-to-day updates are with editing JSON on a git
+branch vs. using Rise Vision's UI. Check with the maintainer before building more tooling around
+hand-edited `data/*.json` content files.
 
 `alma_usage.py` writes a debug dump of the raw first-page API response to
 `data/.alma-debug-response.xml` on every run — useful for diagnosing Alma schema changes (the report
