@@ -508,21 +508,28 @@
   <!-- 5. VISITOR COUNT -->
   <div class="panel">
     <div class="panel-header">
-      <span class="panel-title">Visitor Count</span>
+      <span class="panel-title">Visitors &amp; Circulation</span>
       <span class="panel-icon">🚶</span>
     </div>
     <div class="panel-body">
-      <div class="staff-row" style="flex:2;">
+      <div class="staff-row" style="flex:0.9;">
         <span class="staff-label">Today</span>
-        <span class="staff-value" id="visitor-count" style="font-size:48px; color:#60a5fa;">--</span>
+        <span class="staff-value" id="visitor-count" style="font-size:32px; color:#60a5fa;">--</span>
       </div>
-      <div class="staff-row" style="flex:2;">
+      <div class="staff-row" style="flex:0.9;">
         <span class="staff-label">In Building</span>
-        <span class="staff-value" id="occupancy-count" style="font-size:48px; color:#6fcf6f;">--</span>
+        <span class="staff-value" id="occupancy-count" style="font-size:32px; color:#6fcf6f;">--</span>
       </div>
-      <div class="staff-row" style="flex:1;">
+      <div class="staff-row" style="flex:0.9;">
+        <span class="staff-label" id="circ-month-label">Loans</span>
+        <span class="staff-value" id="circ-month-total" style="font-size:32px; color:var(--gold);">--</span>
+      </div>
+      <div style="flex:1.6; display:flex; align-items:flex-end; padding:6px 0 2px;">
+        <svg id="circ-chart" viewBox="0 0 600 100" preserveAspectRatio="none" style="width:100%; height:100%;"></svg>
+      </div>
+      <div class="staff-row" style="flex:0.5;">
         <span class="staff-label">Updated</span>
-        <span class="staff-value" id="visitor-updated" style="font-size:16px; color:var(--muted); font-weight:300;">Loading...</span>
+        <span class="staff-value" id="visitor-updated" style="font-size:14px; color:var(--muted); font-weight:300;">Loading...</span>
       </div>
     </div>
   </div>
@@ -862,6 +869,38 @@
   }
 
   /* ── PRINT QUEUE (PaperCut) ── */
+  /* ── CIRCULATION TREND CHART ── */
+  function renderCircChart(daily) {
+    var svg = document.getElementById('circ-chart');
+    var days = (daily || []).slice(-14);
+    if (!days.length) { svg.innerHTML = ''; return; }
+    var w = 600, h = 100, gap = 4;
+    var barW = (w - gap * (days.length - 1)) / days.length;
+    var max = Math.max.apply(null, days.map(function(d) { return d.count; })) || 1;
+    var bars = days.map(function(d, i) {
+      var barH = Math.max(2, (d.count / max) * (h - 18));
+      var x = i * (barW + gap);
+      var y = h - barH - 14;
+      var day = (d.dateDisplay || '').split(' ')[1] || '';
+      return '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + barW.toFixed(1) +
+        '" height="' + barH.toFixed(1) + '" fill="rgb(200,170,100)" opacity="0.85"/>' +
+        '<text x="' + (x + barW / 2).toFixed(1) + '" y="' + (h - 2) +
+        '" font-size="9" fill="#888" text-anchor="middle" font-family="Open Sans, sans-serif">' + day + '</text>';
+    }).join('');
+    svg.innerHTML = bars;
+  }
+
+  /* ── CIRCULATION ── */
+  function loadCirculation() {
+    loadJSON(BASE + 'circulation-usage.json', function(data) {
+      if (data.month) {
+        document.getElementById('circ-month-label').textContent = 'Loans (' + data.month.label + ')';
+        document.getElementById('circ-month-total').textContent = data.month.total.toLocaleString();
+      }
+      renderCircChart(data.daily);
+    });
+  }
+
   function loadPrintQueue() {
     loadJSON(BASE + 'papercut-status.json', function(data) {
       var printers = data.printers || [];
@@ -928,6 +967,7 @@
     loadHours();
     loadReservations();
     loadVisitorCount();
+    loadCirculation();
     loadPrintQueue();
     loadInstruction();
   }
