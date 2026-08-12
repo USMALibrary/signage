@@ -1,24 +1,33 @@
 {
-  "updated": "2026-08-11T23:20:31.458069+00:00",
+  "updated": "2026-08-12T00:09:19.994748+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-08-11",
-    "count": 1,
+    "date": "2026-08-12",
+    "count": 2,
     "sessions": [
       {
-        "title": "Sister Academy Cadets Tour/Briefing (Elaine)(JH514)",
-        "start": "2026-08-11T09:00:00-04:00",
-        "end": "2026-08-11T10:00:00-04:00",
-        "startDisplay": "9:00 AM",
-        "endDisplay": "10:00 AM",
+        "title": "Exchange Cadets Tour/Briefing (Elaine)(JH514)",
+        "start": "2026-08-12T08:30:00-04:00",
+        "end": "2026-08-12T09:30:00-04:00",
+        "startDisplay": "8:30 AM",
+        "endDisplay": "9:30 AM",
         "location": "",
+        "status": "upcoming"
+      },
+      {
+        "title": "D/CBSE NIO Briefing",
+        "start": "2026-08-12T09:00:00-04:00",
+        "end": "2026-08-12T09:45:00-04:00",
+        "startDisplay": "9:00 AM",
+        "endDisplay": "9:45 AM",
+        "location": "Bartlett Hall",
         "status": "upcoming"
       }
     ],
     "next": {
-      "title": "Sister Academy Cadets Tour/Briefing (Elaine)(JH514)",
-      "time": "9:00 AM",
-      "date": "2026-08-11",
+      "title": "Exchange Cadets Tour/Briefing (Elaine)(JH514)",
+      "time": "8:30 AM",
+      "date": "2026-08-12",
       "dateDisplay": "Today",
       "status": "upcoming"
     }
@@ -30,6 +39,6 @@
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 14
+    "count": 16
   }
 }
