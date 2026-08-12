@@ -33,7 +33,7 @@ no `requests`), and commit+push the resulting JSON back to `data`:
 | `fetch-hours.yml` | (inline `curl`, no script) | `hours-today.json`, `hours-weekly.json` | LibCal Hours API | every 15 min |
 | `libcal-spaces.yml` | `space_bookings.py` | `room-reservations.json` | LibCal Space Bookings API (OAuth) | every 15 min, business hours |
 | `instruction.yml` | `instruction_events.py` | `instruction-stats.json` | LibCal Events API (OAuth) | every 15 min, business hours |
-| `alma-usage.yml` | `alma_usage.py` | `circulation-usage.json` | Alma Analytics API (XML) | daily |
+| `alma-usage.yml` | `alma_usage.py` + `alma_eresource_usage.py` | `circulation-usage.json`, `eresource-usage.json` | Alma Analytics API (XML) | daily |
 
 Each script follows the same shape: read creds from env vars, hit the API with `urllib`, write a
 JSON summary to `data/<name>.json`, and print a short log line. The workflow then does

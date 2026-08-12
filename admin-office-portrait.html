@@ -505,31 +505,38 @@
     </div>
   </div>
 
-  <!-- 5. VISITOR COUNT -->
+  <!-- 5. VISITORS & USAGE -->
   <div class="panel">
     <div class="panel-header">
-      <span class="panel-title">Visitors &amp; Circulation</span>
+      <span class="panel-title">Visitors &amp; Usage</span>
       <span class="panel-icon">🚶</span>
     </div>
     <div class="panel-body">
-      <div class="staff-row" style="flex:0.9;">
+      <div class="staff-row" style="flex:0.6;">
         <span class="staff-label">Today</span>
-        <span class="staff-value" id="visitor-count" style="font-size:32px; color:#60a5fa;">--</span>
+        <span class="staff-value" id="visitor-count" style="font-size:26px; color:#60a5fa;">--</span>
       </div>
-      <div class="staff-row" style="flex:0.9;">
+      <div class="staff-row" style="flex:0.6;">
         <span class="staff-label">In Building</span>
-        <span class="staff-value" id="occupancy-count" style="font-size:32px; color:#6fcf6f;">--</span>
+        <span class="staff-value" id="occupancy-count" style="font-size:26px; color:#6fcf6f;">--</span>
       </div>
-      <div class="staff-row" style="flex:0.9;">
+      <div class="staff-row" style="flex:0.6;">
         <span class="staff-label" id="circ-month-label">Loans</span>
-        <span class="staff-value" id="circ-month-total" style="font-size:32px; color:var(--gold);">--</span>
+        <span class="staff-value" id="circ-month-total" style="font-size:26px; color:var(--gold);">--</span>
       </div>
-      <div style="flex:1.6; display:flex; align-items:flex-end; padding:6px 0 2px;">
+      <div style="flex:1.1; display:flex; align-items:flex-end; padding:4px 0 2px;">
         <svg id="circ-chart" viewBox="0 0 600 100" preserveAspectRatio="none" style="width:100%; height:100%;"></svg>
       </div>
-      <div class="staff-row" style="flex:0.5;">
+      <div class="staff-row" style="flex:0.6;">
+        <span class="staff-label" id="eres-month-label">E-Resources</span>
+        <span class="staff-value" id="eres-month-total" style="font-size:26px; color:#c084fc;">--</span>
+      </div>
+      <div style="flex:1.1; display:flex; align-items:flex-end; padding:4px 0 2px;">
+        <svg id="eres-chart" viewBox="0 0 600 100" preserveAspectRatio="none" style="width:100%; height:100%;"></svg>
+      </div>
+      <div class="staff-row" style="flex:0.4;">
         <span class="staff-label">Updated</span>
-        <span class="staff-value" id="visitor-updated" style="font-size:14px; color:var(--muted); font-weight:300;">Loading...</span>
+        <span class="staff-value" id="visitor-updated" style="font-size:13px; color:var(--muted); font-weight:300;">Loading...</span>
       </div>
     </div>
   </div>
@@ -869,23 +876,22 @@
   }
 
   /* ── PRINT QUEUE (PaperCut) ── */
-  /* ── CIRCULATION TREND CHART ── */
-  function renderCircChart(daily) {
-    var svg = document.getElementById('circ-chart');
-    var days = (daily || []).slice(-14);
-    if (!days.length) { svg.innerHTML = ''; return; }
+  /* ── USAGE TREND BAR CHART (shared by circulation + e-resources) ── */
+  function renderBarChart(svgId, items, color, maxBars) {
+    var svg = document.getElementById(svgId);
+    var bars_ = (items || []).slice(-maxBars);
+    if (!bars_.length) { svg.innerHTML = ''; return; }
     var w = 600, h = 100, gap = 4;
-    var barW = (w - gap * (days.length - 1)) / days.length;
-    var max = Math.max.apply(null, days.map(function(d) { return d.count; })) || 1;
-    var bars = days.map(function(d, i) {
+    var barW = (w - gap * (bars_.length - 1)) / bars_.length;
+    var max = Math.max.apply(null, bars_.map(function(d) { return d.count; })) || 1;
+    var bars = bars_.map(function(d, i) {
       var barH = Math.max(2, (d.count / max) * (h - 18));
       var x = i * (barW + gap);
       var y = h - barH - 14;
-      var day = (d.dateDisplay || '').split(' ')[1] || '';
       return '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + barW.toFixed(1) +
-        '" height="' + barH.toFixed(1) + '" fill="rgb(200,170,100)" opacity="0.85"/>' +
+        '" height="' + barH.toFixed(1) + '" fill="' + color + '" opacity="0.85"/>' +
         '<text x="' + (x + barW / 2).toFixed(1) + '" y="' + (h - 2) +
-        '" font-size="9" fill="#888" text-anchor="middle" font-family="Open Sans, sans-serif">' + day + '</text>';
+        '" font-size="9" fill="#888" text-anchor="middle" font-family="Open Sans, sans-serif">' + d.label + '</text>';
     }).join('');
     svg.innerHTML = bars;
   }
@@ -897,7 +903,26 @@
         document.getElementById('circ-month-label').textContent = 'Loans (' + data.month.label + ')';
         document.getElementById('circ-month-total').textContent = data.month.total.toLocaleString();
       }
-      renderCircChart(data.daily);
+      var days = (data.daily || []).map(function(d) {
+        return { count: d.count, label: (d.dateDisplay || '').split(' ')[1] || '' };
+      });
+      renderBarChart('circ-chart', days, 'rgb(200,170,100)', 14);
+    });
+  }
+
+  /* ── E-RESOURCE USAGE ── */
+  function loadEresource() {
+    loadJSON(BASE + 'eresource-usage.json', function(data) {
+      if (data.month) {
+        document.getElementById('eres-month-label').textContent = 'E-Resources (' + data.month.label + ')';
+        document.getElementById('eres-month-total').textContent = data.month.total.toLocaleString();
+      }
+      var months = (data.monthly || []).map(function(m) {
+        return { count: m.count, label: (m.monthDisplay || '').split(' ')[0] || '' };
+      });
+      renderBarChart('eres-chart', months, 'rgb(192,132,252)', 12);
+    }, function() {
+      document.getElementById('eres-month-total').textContent = '--';
     });
   }
 
@@ -968,6 +993,7 @@
     loadReservations();
     loadVisitorCount();
     loadCirculation();
+    loadEresource();
     loadPrintQueue();
     loadInstruction();
   }

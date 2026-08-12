@@ -1,4 +1,4 @@
-name: Alma Circulation Usage Feed
+name: Alma Usage Feeds
 
 on:
   schedule:
@@ -29,15 +29,20 @@ jobs:
           ALMA_API_KEY: ${{ secrets.ALMA_API_KEY }}
         run: python alma_usage.py
 
+      - name: Fetch e-resource usage
+        env:
+          ALMA_API_KEY: ${{ secrets.ALMA_API_KEY }}
+        run: python alma_eresource_usage.py
+
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/circulation-usage.json
+          git add data/circulation-usage.json data/eresource-usage.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update circulation usage $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git commit -m "Update Alma usage feeds $(date -u +'%Y-%m-%d %H:%M UTC')"
             git pull --rebase origin data
             git push origin data || {
               echo "Push failed, retrying after rebase..."
