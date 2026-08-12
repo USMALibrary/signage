@@ -26,12 +26,12 @@ jobs:
 
       - name: Fetch circulation usage
         env:
-          ALMA_API_KEY: ${{ secrets.ALMA_API_KEY }}
+          ALMA_API_KEY: ${{ secrets.ALMA_ANALYTICS_API_KEY }}
         run: python alma_usage.py
 
       - name: Fetch e-resource usage
         env:
-          ALMA_API_KEY: ${{ secrets.ALMA_API_KEY }}
+          ALMA_API_KEY: ${{ secrets.ALMA_ANALYTICS_API_KEY }}
         run: python alma_eresource_usage.py
 
       - name: Commit and push
