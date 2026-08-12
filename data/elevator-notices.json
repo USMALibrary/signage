@@ -1,0 +1,10 @@
+{
+  "notices": [
+    {
+      "title": "Welcome to the USMA Library",
+      "body": "",
+      "type": "welcome",
+      "icon": "logo"
+    }
+  ]
+}
