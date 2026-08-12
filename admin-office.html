@@ -416,10 +416,10 @@
 <!-- GRID -->
 <div id="grid">
 
-  <!-- 1. STAFF STATUS -->
+  <!-- 1. STAFF STATUS & HOURS -->
   <div class="panel">
     <div class="panel-header">
-      <span class="panel-title">Staff Status</span>
+      <span class="panel-title">Staff &amp; Hours</span>
       <span class="panel-icon">👥</span>
     </div>
     <div class="panel-body">
@@ -438,21 +438,14 @@
         <span class="staff-label">Help Kiosk</span>
         <span class="help-badge clear" id="kiosk-status">ALL CLEAR</span>
       </div>
+      <div style="font-family:'Oswald', sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); padding-top:8px; margin-top:2px; border-top:1px solid var(--border); flex-shrink:0;">Today's Hours</div>
+      <div id="hours-body" style="display:contents;">
+        <div class="no-events">Loading...</div>
+      </div>
     </div>
   </div>
 
-  <!-- 2. TODAY'S HOURS -->
-  <div class="panel">
-    <div class="panel-header">
-      <span class="panel-title">Today's Hours</span>
-      <span class="panel-icon">🕐</span>
-    </div>
-    <div class="panel-body" id="hours-body">
-      <div class="no-events">Loading...</div>
-    </div>
-  </div>
-
-  <!-- 3. ROOM RESERVATIONS -->
+  <!-- 2. ROOM RESERVATIONS -->
   <div class="panel">
     <div class="panel-header">
       <span class="panel-title">Room Reservations</span>
@@ -463,7 +456,7 @@
     </div>
   </div>
 
-  <!-- 4. PRINT QUEUE -->
+  <!-- 3. PRINT QUEUE -->
   <div class="panel">
     <div class="panel-header">
       <span class="panel-title">Print Queue</span>
@@ -489,38 +482,48 @@
     </div>
   </div>
 
-  <!-- 5. VISITORS & USAGE -->
+  <!-- 4. VISITORS -->
   <div class="panel">
     <div class="panel-header">
-      <span class="panel-title">Visitors &amp; Usage</span>
+      <span class="panel-title">Visitors</span>
       <span class="panel-icon">🚶</span>
     </div>
     <div class="panel-body">
-      <div class="staff-row" style="flex:0.6;">
+      <div class="staff-row">
         <span class="staff-label">Today</span>
-        <span class="staff-value" id="visitor-count" style="font-size:26px; color:#60a5fa;">--</span>
+        <span class="staff-value" id="visitor-count" style="font-size:32px; color:#60a5fa;">--</span>
       </div>
-      <div class="staff-row" style="flex:0.6;">
+      <div class="staff-row">
         <span class="staff-label">In Building</span>
-        <span class="staff-value" id="occupancy-count" style="font-size:26px; color:#6fcf6f;">--</span>
+        <span class="staff-value" id="occupancy-count" style="font-size:32px; color:#6fcf6f;">--</span>
       </div>
-      <div class="staff-row" style="flex:0.6;">
-        <span class="staff-label" id="circ-month-label">Loans</span>
-        <span class="staff-value" id="circ-month-total" style="font-size:26px; color:var(--gold);">--</span>
+      <div class="staff-row">
+        <span class="staff-label">Updated</span>
+        <span class="staff-value" id="visitor-updated" style="font-size:14px; color:var(--muted); font-weight:300;">Loading...</span>
       </div>
-      <div style="flex:1.1; display:flex; align-items:flex-end; padding:4px 0 2px;">
-        <svg id="circ-chart" viewBox="0 0 600 100" preserveAspectRatio="none" style="width:100%; height:100%;"></svg>
-      </div>
-      <div class="staff-row" style="flex:0.6;">
+    </div>
+  </div>
+
+  <!-- 5. USAGE -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="panel-title">Usage</span>
+      <span class="panel-icon">📊</span>
+    </div>
+    <div class="panel-body">
+      <div class="staff-row" style="flex:0.7;">
         <span class="staff-label" id="eres-month-label">E-Resources</span>
-        <span class="staff-value" id="eres-month-total" style="font-size:26px; color:#c084fc;">--</span>
+        <span class="staff-value" id="eres-month-total" style="font-size:30px; color:#c084fc;">--</span>
       </div>
-      <div style="flex:1.1; display:flex; align-items:flex-end; padding:4px 0 2px;">
+      <div style="flex:1.6; display:flex; align-items:flex-end; padding:4px 0 2px;">
         <svg id="eres-chart" viewBox="0 0 600 100" preserveAspectRatio="none" style="width:100%; height:100%;"></svg>
       </div>
-      <div class="staff-row" style="flex:0.4;">
-        <span class="staff-label">Updated</span>
-        <span class="staff-value" id="visitor-updated" style="font-size:13px; color:var(--muted); font-weight:300;">Loading...</span>
+      <div class="staff-row" style="flex:0.7;">
+        <span class="staff-label" id="circ-month-label">Loans</span>
+        <span class="staff-value" id="circ-month-total" style="font-size:30px; color:var(--gold);">--</span>
+      </div>
+      <div style="flex:1.6; display:flex; align-items:flex-end; padding:4px 0 2px;">
+        <svg id="circ-chart" viewBox="0 0 600 100" preserveAspectRatio="none" style="width:100%; height:100%;"></svg>
       </div>
     </div>
   </div>
