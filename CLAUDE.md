@@ -13,8 +13,10 @@ standalone page: inline `<style>` and inline `<script>`, no shared JS/CSS files,
 
 - **`main`** — the HTML pages themselves, served via GitHub Pages at
   `https://usmalibrary.github.io/signage/`. This is the branch you'll normally be editing.
-- **`data`** — *only* JSON data files (mirrors the `data/` folder), updated exclusively by GitHub
-  Actions bots on a schedule. Pages fetch their data from this branch via
+- **`data`** — a full snapshot of the repo (HTML, images, `.py` scripts, some workflow files) frozen
+  at whatever point it last diverged from `main`, *not* a data-only branch despite the name. The
+  only thing kept continuously fresh on it is `data/*.json`, written by the GitHub Actions bots
+  below. Pages fetch their data from this branch via
   `https://raw.githubusercontent.com/USMALibrary/signage/data/data/<file>.json`, so a display never
   needs a redeploy to pick up fresh data — it just polls raw.githubusercontent.com.
 
@@ -22,6 +24,15 @@ Do not hand-edit files under `data/` on `main` expecting them to reach productio
 `main` is effectively a local snapshot/fixture; the live data lives on the `data` branch and is
 overwritten by the workflows below. If you need to inspect current live data, check out or fetch the
 `data` branch.
+
+**Gotcha that has already caused a workflow to fail in production:** every workflow step
+`git checkout`s `ref: data` before running its Python script, so the script is executed from the
+`data` branch's copy of the repo — not `main`'s. Adding or changing a script on `main` is not enough;
+the same file has to be copied onto the `data` branch too (see how `alma_usage.py` and
+`alma_eresource_usage.py` are duplicated there) or the workflow step fails with a file-not-found
+error the moment it runs. There's no automation for this — after adding/editing any script a workflow
+runs, manually copy it onto `data` (e.g. via a throwaway `git worktree add ... origin/data`, copy the
+file in, commit, push) before triggering or waiting on that workflow.
 
 ## Data pipeline (`.github/workflows/*.yml` + root `*.py` scripts)
 
