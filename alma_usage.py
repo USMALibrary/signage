@@ -33,8 +33,6 @@ TREND_DAYS = int(os.environ.get("ALMA_TREND_DAYS", "30"))
 OUTPUT = os.path.join(os.path.dirname(__file__), "data", "circulation-usage.json")
 
 ROWSET_NS = "urn:schemas-microsoft-com:xml-analysis:rowset"
-XSD_NS = "http://www.w3.org/2001/XMLSchema"
-SAW_NS = "urn:saw-sql"
 
 DATE_FORMATS = ("%Y-%m-%d", "%m/%d/%Y", "%Y-%m-%dT%H:%M:%S")
 
@@ -79,34 +77,67 @@ def get_rowset_element(root):
     return None
 
 
+def local_name(tag):
+    return tag.split("}")[-1]
+
+
+def strip_type_prefix(value):
+    """'xsd:date' -> 'date'. Type attribute values are QName strings, not
+    Clark-notation tags, so this is a plain colon-split, not local_name()."""
+    return value.split(":")[-1] if value else value
+
+
 def parse_rows(rowset):
-    """Map Column0/Column1/... to their saw-sql:columnHeading names and
-    return a list of {heading: value} dicts."""
-    headings = {}
-    for el in rowset.iter(f"{{{XSD_NS}}}element"):
+    """Extract {date, count} from each Row, identifying which ColumnN is
+    which by its XSD type rather than by name.
+
+    This Alma Analytics instance's schema carries no columnHeading (or
+    equivalent) attribute at all — only saw-sql:displayFormula and a type.
+    The date column is whichever is typed xsd:date; the count column is
+    whichever numeric column is xsd:double (the report also includes a
+    constant int column that isn't real data).
+    """
+    col_types = {}
+    for el in rowset.iter():
+        if local_name(el.tag) != "element":
+            continue
         name = el.get("name")
-        heading = el.get(f"{{{SAW_NS}}}columnHeading")
-        if name and heading and name.startswith("Column"):
-            headings[name] = heading
+        if not name or not name.startswith("Column"):
+            continue
+        col_types[name] = strip_type_prefix(el.get("type", ""))
+
+    date_col = next((c for c, t in col_types.items() if t == "date"), None)
+    numeric_cols = [c for c, t in col_types.items() if t in ("double", "float", "decimal")]
+    count_col = numeric_cols[0] if numeric_cols else next(
+        (c for c, t in col_types.items() if t == "int" and c != date_col), None
+    )
 
     rows = []
-    for row in rowset.iter(f"{{{ROWSET_NS}}}Row"):
+    for row in rowset.iter():
+        if local_name(row.tag) != "Row":
+            continue
         record = {}
         for child in row:
-            tag = child.tag.split("}")[-1]
-            key = headings.get(tag, tag)
-            record[key] = (child.text or "").strip()
-        rows.append(record)
+            record[local_name(child.tag)] = (child.text or "").strip()
+        rows.append({"date": record.get(date_col), "count": record.get(count_col)})
     return rows
+
+
+DEBUG_DUMP = os.path.join(os.path.dirname(__file__), "data", ".alma-debug-response.xml")
 
 
 def fetch_all_rows(api_key, path):
     """Fetch every row of the report, following ResumptionToken pages."""
     all_rows = []
     params = {"apikey": api_key, "path": path, "limit": 1000, "col_names": "false"}
+    first_page = True
 
     while True:
         xml_bytes = api_get(params)
+        if first_page:
+            with open(DEBUG_DUMP, "wb") as f:
+                f.write(xml_bytes)
+            first_page = False
         root = ET.fromstring(xml_bytes)
 
         rowset = get_rowset_element(root)
@@ -124,18 +155,6 @@ def fetch_all_rows(api_key, path):
         params = {"apikey": api_key, "token": token_el.text.strip()}
 
     return all_rows
-
-
-def find_value(record, wanted):
-    """Look up a column by exact heading, falling back to a case-insensitive
-    substring match since report column labels can shift slightly."""
-    if wanted in record:
-        return record[wanted]
-    wanted_lower = wanted.lower()
-    for key, value in record.items():
-        if wanted_lower in key.lower():
-            return value
-    return None
 
 
 def parse_date(value):
@@ -163,8 +182,8 @@ def main():
 
     daily = {}
     for record in raw_rows:
-        date_str = find_value(record, "Loan Date")
-        count_str = find_value(record, "Loans (In House + Not In House)")
+        date_str = record.get("date")
+        count_str = record.get("count")
         if not date_str:
             continue
         d = parse_date(date_str)
