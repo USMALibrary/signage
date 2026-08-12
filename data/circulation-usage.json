@@ -1,0 +1,162 @@
+{
+  "updated": "2026-08-12T01:25:23.566469+00:00",
+  "asOfDate": "2026-08-10",
+  "month": {
+    "label": "August 2026",
+    "startDate": "2026-08-01",
+    "total": 63,
+    "days": 6
+  },
+  "daily": [
+    {
+      "date": "2026-07-01",
+      "dateDisplay": "Jul 1",
+      "count": 31
+    },
+    {
+      "date": "2026-07-02",
+      "dateDisplay": "Jul 2",
+      "count": 7
+    },
+    {
+      "date": "2026-07-06",
+      "dateDisplay": "Jul 6",
+      "count": 11
+    },
+    {
+      "date": "2026-07-07",
+      "dateDisplay": "Jul 7",
+      "count": 22
+    },
+    {
+      "date": "2026-07-08",
+      "dateDisplay": "Jul 8",
+      "count": 16
+    },
+    {
+      "date": "2026-07-09",
+      "dateDisplay": "Jul 9",
+      "count": 3
+    },
+    {
+      "date": "2026-07-10",
+      "dateDisplay": "Jul 10",
+      "count": 8
+    },
+    {
+      "date": "2026-07-13",
+      "dateDisplay": "Jul 13",
+      "count": 12
+    },
+    {
+      "date": "2026-07-14",
+      "dateDisplay": "Jul 14",
+      "count": 33
+    },
+    {
+      "date": "2026-07-15",
+      "dateDisplay": "Jul 15",
+      "count": 17
+    },
+    {
+      "date": "2026-07-16",
+      "dateDisplay": "Jul 16",
+      "count": 6
+    },
+    {
+      "date": "2026-07-17",
+      "dateDisplay": "Jul 17",
+      "count": 13
+    },
+    {
+      "date": "2026-07-19",
+      "dateDisplay": "Jul 19",
+      "count": 11
+    },
+    {
+      "date": "2026-07-20",
+      "dateDisplay": "Jul 20",
+      "count": 19
+    },
+    {
+      "date": "2026-07-21",
+      "dateDisplay": "Jul 21",
+      "count": 4
+    },
+    {
+      "date": "2026-07-22",
+      "dateDisplay": "Jul 22",
+      "count": 15
+    },
+    {
+      "date": "2026-07-23",
+      "dateDisplay": "Jul 23",
+      "count": 35
+    },
+    {
+      "date": "2026-07-24",
+      "dateDisplay": "Jul 24",
+      "count": 2
+    },
+    {
+      "date": "2026-07-26",
+      "dateDisplay": "Jul 26",
+      "count": 2
+    },
+    {
+      "date": "2026-07-27",
+      "dateDisplay": "Jul 27",
+      "count": 8
+    },
+    {
+      "date": "2026-07-28",
+      "dateDisplay": "Jul 28",
+      "count": 6
+    },
+    {
+      "date": "2026-07-29",
+      "dateDisplay": "Jul 29",
+      "count": 12
+    },
+    {
+      "date": "2026-07-30",
+      "dateDisplay": "Jul 30",
+      "count": 14
+    },
+    {
+      "date": "2026-07-31",
+      "dateDisplay": "Jul 31",
+      "count": 13
+    },
+    {
+      "date": "2026-08-03",
+      "dateDisplay": "Aug 3",
+      "count": 6
+    },
+    {
+      "date": "2026-08-04",
+      "dateDisplay": "Aug 4",
+      "count": 3
+    },
+    {
+      "date": "2026-08-05",
+      "dateDisplay": "Aug 5",
+      "count": 11
+    },
+    {
+      "date": "2026-08-06",
+      "dateDisplay": "Aug 6",
+      "count": 8
+    },
+    {
+      "date": "2026-08-07",
+      "dateDisplay": "Aug 7",
+      "count": 6
+    },
+    {
+      "date": "2026-08-10",
+      "dateDisplay": "Aug 10",
+      "count": 29
+    }
+  ]
+}
