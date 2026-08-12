@@ -21,6 +21,7 @@
     --muted: #888;
     --alert: #cf6f6f;
     --green: #6fcf6f;
+    --blue:  #60a5fa;
   }
 
   body {
@@ -150,6 +151,13 @@
     position: relative;
   }
 
+  /* ── NOTICE SLIDE ── */
+  #notice-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   /* Notice type styling */
   #notice-icon {
     margin-bottom: 20px;
@@ -191,6 +199,100 @@
   #content.type-info #notice-title { color: #60a5fa; }
 
   #content.type-welcome #notice-title { color: var(--gold); }
+
+  /* ── RESERVATIONS SLIDE ── */
+  #reservations-view {
+    display: none;
+    flex-direction: column;
+    align-self: stretch;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+  }
+
+  #reservations-view.active { display: flex; }
+
+  .res-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px; font-weight: 400;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px; flex-shrink: 0;
+  }
+
+  #res-summary {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px; font-weight: 300;
+    color: var(--muted); letter-spacing: 1px;
+    margin-bottom: 20px; flex-shrink: 0;
+  }
+
+  #res-summary strong { color: var(--gold); font-weight: 600; }
+
+  #res-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  .res-item {
+    display: flex;
+    align-items: center;
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 24px;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+
+  .res-time {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px; font-weight: 400;
+    color: var(--text); letter-spacing: 1px;
+    min-width: 170px; flex-shrink: 0;
+  }
+
+  .res-room {
+    flex: 1;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px; font-weight: 400;
+    color: var(--text); letter-spacing: 1px;
+  }
+
+  .res-title {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px; font-weight: 300;
+    color: var(--muted); margin-top: 2px; letter-spacing: 0;
+  }
+
+  .res-status {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 4px; flex-shrink: 0;
+  }
+
+  .res-status.now {
+    color: var(--green);
+    background: rgba(111, 207, 111, 0.1);
+    border: 1px solid rgba(111, 207, 111, 0.3);
+  }
+
+  .res-status.upcoming {
+    color: var(--blue);
+    background: rgba(96, 165, 250, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+  }
+
+  .res-status.past {
+    color: var(--muted);
+    background: rgba(136, 136, 136, 0.1);
+    border: 1px solid rgba(136, 136, 136, 0.2);
+  }
 
   /* Slide indicator dots */
   #slide-dots {
@@ -290,9 +392,16 @@
 
 <!-- MAIN CONTENT -->
 <div id="content" class="type-welcome">
-  <span id="notice-icon"><img src="https://libapps.s3.amazonaws.com/accounts/87070/images/USMALibraryLogo.png" alt="USMA Library"></span>
-  <div id="notice-title">Welcome to the USMA Library</div>
-  <div id="notice-body"></div>
+  <div id="notice-view">
+    <span id="notice-icon"><img src="https://libapps.s3.amazonaws.com/accounts/87070/images/USMALibraryLogo.png" alt="USMA Library"></span>
+    <div id="notice-title">Welcome to the USMA Library</div>
+    <div id="notice-body"></div>
+  </div>
+  <div id="reservations-view">
+    <div class="res-heading">Room Reservations</div>
+    <div id="res-summary"></div>
+    <div id="res-list"></div>
+  </div>
 </div>
 
 <!-- FOOTER -->
@@ -371,23 +480,26 @@
     });
   }
 
-  /* ── NOTICES ── */
-  var notices = [];
-  var currentSlide = 0;
+  /* ── NOTICES + RESERVATIONS SLIDE ROTATION ── */
+  var NOTICE_DWELL = 8000;
+  var RESERVATIONS_DWELL = 20000;
+
   var defaultNotice = {
     icon: 'logo',
     title: 'Welcome to the USMA Library',
     body: '',
     type: 'welcome'
   };
+  var notices = [defaultNotice]; // seeded so a fast reservations load can't jump ahead of it
+  var reservationsSlide = null; // null when there's nothing booked today
+  var slides = [];
+  var currentSlide = 0;
+  var advanceTimer = null;
 
   function renderNotice(notice) {
-    var content = document.getElementById('content');
     var icon = document.getElementById('notice-icon');
     var title = document.getElementById('notice-title');
     var body = document.getElementById('notice-body');
-
-    content.className = 'type-' + (notice.type || 'info');
 
     var icons = {
       alert: '⚠️',
@@ -407,32 +519,83 @@
     body.textContent = notice.body || '';
   }
 
+  function renderSlide(slide) {
+    var content = document.getElementById('content');
+    var noticeView = document.getElementById('notice-view');
+    var resView = document.getElementById('reservations-view');
+
+    if (slide.kind === 'reservations') {
+      noticeView.style.display = 'none';
+      resView.classList.add('active');
+      content.className = 'type-reservations';
+    } else {
+      resView.classList.remove('active');
+      noticeView.style.display = '';
+      content.className = 'type-' + (slide.notice.type || 'info');
+      renderNotice(slide.notice);
+    }
+  }
+
   function renderDots() {
     var container = document.getElementById('slide-dots');
     if (!container) return;
-    if (notices.length <= 1) {
+    if (slides.length <= 1) {
       container.innerHTML = '';
       return;
     }
     var html = '';
-    for (var i = 0; i < notices.length; i++) {
+    for (var i = 0; i < slides.length; i++) {
       html += '<div class="dot' + (i === currentSlide ? ' active' : '') + '"></div>';
     }
     container.innerHTML = html;
   }
 
+  function currentDwell() {
+    var s = slides[currentSlide];
+    return (s && s.kind === 'reservations') ? RESERVATIONS_DWELL : NOTICE_DWELL;
+  }
+
+  function scheduleAdvance() {
+    if (advanceTimer) clearTimeout(advanceTimer);
+    if (slides.length <= 1) return;
+    advanceTimer = setTimeout(advanceSlide, currentDwell());
+  }
+
   function advanceSlide() {
-    if (notices.length <= 1) return;
+    if (slides.length <= 1) return;
     var content = document.getElementById('content');
     content.classList.add('fade-out');
     content.classList.remove('fade-in');
     setTimeout(function() {
-      currentSlide = (currentSlide + 1) % notices.length;
-      renderNotice(notices[currentSlide]);
+      currentSlide = (currentSlide + 1) % slides.length;
+      renderSlide(slides[currentSlide]);
       renderDots();
       content.classList.remove('fade-out');
       content.classList.add('fade-in');
+      scheduleAdvance();
     }, 400);
+  }
+
+  /* Rebuild the combined slide list from whichever of notices/reservations
+     has loaded so far, keeping the currently-shown slide's content in sync
+     without forcing an unscheduled transition. */
+  function rebuildSlides() {
+    var newSlides = notices.map(function(n) { return { kind: 'notice', notice: n }; });
+    if (reservationsSlide) newSlides.push(reservationsSlide);
+
+    var wasEmpty = slides.length === 0;
+    slides = newSlides;
+    if (currentSlide >= slides.length) currentSlide = 0;
+
+    if (wasEmpty) {
+      renderSlide(slides[currentSlide]);
+      scheduleAdvance();
+    } else if (slides[currentSlide] && slides[currentSlide].kind !== 'reservations') {
+      // Reservations view refreshes itself independently via loadReservations();
+      // only notice slides need their content re-applied here.
+      renderNotice(slides[currentSlide].notice);
+    }
+    renderDots();
   }
 
   function loadNotices() {
@@ -449,25 +612,80 @@
         });
         if (!notices.length) notices = [defaultNotice];
       }
-      // Reset slide index if notices changed
-      if (currentSlide >= notices.length) currentSlide = 0;
-      renderNotice(notices[currentSlide]);
-      renderDots();
+      rebuildSlides();
+    });
+  }
+
+  /* ── ROOM RESERVATIONS ── */
+  function loadReservations() {
+    loadJSON(BASE + 'room-reservations.json', function(data) {
+      var summary = document.getElementById('res-summary');
+      var list = document.getElementById('res-list');
+      var bookings = data.bookings || [];
+
+      reservationsSlide = bookings.length ? { kind: 'reservations' } : null;
+
+      if (!bookings.length) {
+        summary.innerHTML = '';
+        list.innerHTML = '';
+        rebuildSlides();
+        return;
+      }
+
+      var now = new Date();
+      var activeCount = 0;
+      bookings.forEach(function(b) {
+        var from = new Date(b.from);
+        var to = new Date(b.to);
+        if (now >= from && now < to) activeCount++;
+      });
+
+      var sumHtml = '<strong>' + bookings.length + '</strong> reservation' +
+        (bookings.length !== 1 ? 's' : '') + ' today';
+      if (activeCount > 0) {
+        sumHtml += ' · <strong>' + activeCount + '</strong> in use now';
+      }
+      summary.innerHTML = sumHtml;
+
+      var html = '';
+      bookings.forEach(function(b) {
+        var from = new Date(b.from);
+        var to = new Date(b.to);
+        var statusClass = 'upcoming';
+        var statusLabel = 'UPCOMING';
+        if (now >= from && now < to) {
+          statusClass = 'now';
+          statusLabel = 'IN USE';
+        } else if (now >= to) {
+          statusClass = 'past';
+          statusLabel = 'DONE';
+        }
+
+        html += '<div class="res-item">' +
+          '<div class="res-time">' + (b.fromDisplay || '') + ' – ' + (b.toDisplay || '') + '</div>' +
+          '<div class="res-room">' + (b.room || 'Unknown') +
+            (b.title ? '<span class="res-title">' + b.title + '</span>' : '') +
+          '</div>' +
+          '<span class="res-status ' + statusClass + '">' + statusLabel + '</span>' +
+          '</div>';
+      });
+      list.innerHTML = html;
+
+      rebuildSlides();
     });
   }
 
   /* ── INIT ── */
   loadHours();
   loadNotices();
+  loadReservations();
 
   // Refresh data every 60 seconds (silent on failure)
   setInterval(function() {
     loadHours();
     loadNotices();
+    loadReservations();
   }, 60000);
-
-  // Cycle through notices every 8 seconds
-  setInterval(advanceSlide, 8000);
 </script>
 
 <!-- Slide indicator dots -->
