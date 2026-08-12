@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-12T11:55:40.520682+00:00",
+  "updated": "2026-08-12T13:37:11.351966+00:00",
   "date": "2026-08-12",
   "location": "Jefferson Hall",
   "lid": 7099,
@@ -80,7 +80,7 @@
       "toDisplay": "5:30 PM",
       "title": "Meeting",
       "nickname": "Meeting",
-      "status": "Mediated Tentative"
+      "status": "Mediated Approved"
     },
     {
       "room": "JH 513",
@@ -91,7 +91,7 @@
       "toDisplay": "7:00 PM",
       "title": "Cycling Club",
       "nickname": "Cycling Club",
-      "status": "Mediated Tentative"
+      "status": "Mediated Approved"
     }
   ]
 }
