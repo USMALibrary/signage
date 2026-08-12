@@ -115,18 +115,34 @@ def looks_numeric(value):
 
 
 def detect_columns(raw_rows):
-    """Pick the count column as whichever ColumnN parses as a number in
-    every non-empty row, and the month column as whichever other column
-    remains."""
+    """Pick the count column and the month column from their actual values.
+
+    This report has a third column beyond the two documented ones: a
+    constant "0" that isn't real data (the same trick the circulation
+    report's schema pulled). So among numeric columns, prefer whichever
+    one actually varies across rows rather than just the first numeric
+    column found. The month column is identified separately, by which
+    column's values parse as a month in every row — not just "whatever
+    isn't the count column" — since that assumption breaks once there
+    are more than two columns.
+    """
     if not raw_rows:
         return None, None
     col_names = sorted(raw_rows[0].keys())
+
     numeric_cols = [
         c for c in col_names
         if any(r.get(c) for r in raw_rows) and all(looks_numeric(r.get(c)) for r in raw_rows if r.get(c))
     ]
-    count_col = numeric_cols[0] if numeric_cols else None
-    month_col = next((c for c in col_names if c != count_col), None)
+    varying_numeric_cols = [c for c in numeric_cols if len({r.get(c) for r in raw_rows}) > 1]
+    count_col = (varying_numeric_cols or numeric_cols or [None])[0]
+
+    month_cols = [
+        c for c in col_names
+        if c != count_col and all(parse_month(r.get(c)) for r in raw_rows if r.get(c))
+    ]
+    month_col = month_cols[0] if month_cols else next((c for c in col_names if c != count_col), None)
+
     return month_col, count_col
 
 
