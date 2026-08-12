@@ -512,7 +512,7 @@
     </div>
     <div class="panel-body">
       <div class="staff-row" style="flex:0.7;">
-        <span class="staff-label" id="eres-month-label">E-Resources</span>
+        <span class="staff-label" id="eres-month-label">E-Res</span>
         <span class="staff-value" id="eres-month-total" style="font-size:30px; color:#c084fc;">--</span>
       </div>
       <div style="flex:1.6; display:flex; align-items:flex-end; padding:4px 0 2px;">
@@ -886,7 +886,7 @@
   function loadCirculation() {
     loadJSON(BASE + 'circulation-usage.json', function(data) {
       if (data.month) {
-        document.getElementById('circ-month-label').textContent = 'Loans (' + data.month.label + ')';
+        document.getElementById('circ-month-label').textContent = 'Loans (' + data.month.label + ' · MTD)';
         document.getElementById('circ-month-total').textContent = data.month.total.toLocaleString();
       }
       var days = (data.daily || []).map(function(d) {
@@ -900,7 +900,7 @@
   function loadEresource() {
     loadJSON(BASE + 'eresource-usage.json', function(data) {
       if (data.month) {
-        document.getElementById('eres-month-label').textContent = 'E-Resources (' + data.month.label + ')';
+        document.getElementById('eres-month-label').textContent = 'E-Res (' + data.month.label + ' · Final)';
         document.getElementById('eres-month-total').textContent = data.month.total.toLocaleString();
       }
       var months = (data.monthly || []).map(function(m) {
