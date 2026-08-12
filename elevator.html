@@ -555,14 +555,17 @@
     return (s && s.kind === 'reservations') ? RESERVATIONS_DWELL : NOTICE_DWELL;
   }
 
+  var rotationActive = false;
+
   function scheduleAdvance() {
     if (advanceTimer) clearTimeout(advanceTimer);
-    if (slides.length <= 1) return;
+    if (slides.length <= 1) { rotationActive = false; return; }
+    rotationActive = true;
     advanceTimer = setTimeout(advanceSlide, currentDwell());
   }
 
   function advanceSlide() {
-    if (slides.length <= 1) return;
+    if (slides.length <= 1) { rotationActive = false; return; }
     var content = document.getElementById('content');
     content.classList.add('fade-out');
     content.classList.remove('fade-in');
@@ -577,17 +580,20 @@
   }
 
   /* Rebuild the combined slide list from whichever of notices/reservations
-     has loaded so far, keeping the currently-shown slide's content in sync
-     without forcing an unscheduled transition. */
+     has loaded so far, keeping the currently-shown slide's content in sync.
+     Only (re)starts the rotation timer when it isn't already running --
+     notices and reservations refresh independently every 60s, and slide
+     counts can legitimately go 1 -> 2 -> 1 (e.g. reservations load after
+     notices, or the day's bookings run out), so rotation has to be able
+     to start or resume on any rebuild, not just the very first one. */
   function rebuildSlides() {
     var newSlides = notices.map(function(n) { return { kind: 'notice', notice: n }; });
     if (reservationsSlide) newSlides.push(reservationsSlide);
 
-    var wasEmpty = slides.length === 0;
     slides = newSlides;
     if (currentSlide >= slides.length) currentSlide = 0;
 
-    if (wasEmpty) {
+    if (!rotationActive && slides.length > 1) {
       renderSlide(slides[currentSlide]);
       scheduleAdvance();
     } else if (slides[currentSlide] && slides[currentSlide].kind !== 'reservations') {
