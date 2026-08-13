@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-13T11:07:24.397210+00:00",
+  "updated": "2026-08-13T11:55:46.366047+00:00",
   "date": "2026-08-13",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 9,
+  "count": 8,
   "bookings": [
     {
       "room": "*JH - Haig Room & All 6th Floor Spaces",
@@ -36,17 +36,6 @@
       "toDisplay": "11:15 AM",
       "title": "DELPHI Meeting",
       "nickname": "DELPHI Meeting",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-13T13:00:00-04:00",
-      "to": "2026-08-13T14:00:00-04:00",
-      "fromDisplay": "1:00 PM",
-      "toDisplay": "2:00 PM",
-      "title": "Library Staff Meeting",
-      "nickname": "Library Staff Meeting",
       "status": "Mediated Approved"
     },
     {
