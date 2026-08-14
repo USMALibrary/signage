@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>USMA Library – Cullum Hall Archives &amp; Special Collections</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold:  rgb(200, 170, 100);
+    --black: #0a0a0a;
+    --dark:  #111111;
+    --mid:   #1a1a1a;
+    --border:#2a2a2a;
+    --text:  #f0f0f0;
+    --muted: #888;
+    --parchment: #ece0c4;
+    --parchment-ink: #241a0c;
+  }
+
+  body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: var(--black);
+    font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER — identical bones to Haig Room ── */
+  #header {
+    width: 100%;
+    height: 130px;
+    background: var(--dark);
+    border-bottom: 4px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    flex-shrink: 0;
+  }
+
+  #header-left {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  #logo { height: 80px; width: auto; }
+
+  #header-title .lib-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  #header-title .lib-sub {
+    font-size: 17px;
+    color: var(--muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: 2px;
+    display: block;
+  }
+
+  #header-right { text-align: right; }
+
+  #clock {
+    font-family: 'Oswald', sans-serif;
+    font-size: 56px;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  #date {
+    font-size: 17px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ── SECTION LABEL — same treatment, content now rotates ── */
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 16px 60px 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
+  }
+
+  #section-text { transition: opacity 0.5s ease; }
+
+  /* ── CONTENT ZONE — where the archival personality lives ── */
+  #content-zone {
+    width: 100%;
+    flex: 1;
+    position: relative;
+    background: var(--black);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* faint drifting gold motes, restrained */
+  .mote {
+    position: absolute; width: 3px; height: 3px; border-radius: 50%;
+    background: var(--gold); opacity: 0.18;
+    animation: drift 24s linear infinite;
+  }
+  @keyframes drift {
+    from { transform: translateY(0); opacity: 0; }
+    10%  { opacity: 0.22; }
+    90%  { opacity: 0.22; }
+    to   { transform: translateY(-120px); opacity: 0; }
+  }
+
+  .panel {
+    display: none;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .panel.active { display: flex; animation: rise 0.7s ease forwards; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* WELCOME panel — plain, matches image-zone convention */
+  .welcome-inner { text-align: center; }
+  .welcome-eyebrow {
+    font-family: 'Oswald', sans-serif; font-weight: 400; font-size: 20px;
+    letter-spacing: 8px; text-transform: uppercase; color: var(--muted);
+    margin-bottom: 22px;
+  }
+  .welcome-inner h1 {
+    font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 92px;
+    line-height: 1.05; color: var(--text);
+  }
+  .welcome-inner h1 b { font-weight: 600; color: var(--gold); }
+  .welcome-sub {
+    margin-top: 24px; font-family: 'Open Sans', sans-serif; font-weight: 300;
+    font-size: 24px; color: var(--muted); letter-spacing: 0.5px;
+  }
+
+  /* INFO panels — the finding-aid card, the one stylized signature element */
+  .card {
+    background: linear-gradient(180deg, #f1e6c8, #e4d5ab);
+    color: var(--parchment-ink);
+    width: 1180px;
+    padding: 56px 72px 46px;
+    position: relative;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+  }
+  .card .bracket { position: absolute; width: 30px; height: 30px; }
+  .card .bracket.tl { top: -2px; left: -2px; border-top: 3px solid var(--gold); border-left: 3px solid var(--gold); }
+  .card .bracket.tr { top: -2px; right: -2px; border-top: 3px solid var(--gold); border-right: 3px solid var(--gold); }
+  .card .bracket.bl { bottom: -2px; left: -2px; border-bottom: 3px solid var(--gold); border-left: 3px solid var(--gold); }
+  .card .bracket.br { bottom: -2px; right: -2px; border-bottom: 3px solid var(--gold); border-right: 3px solid var(--gold); }
+
+  .call-no {
+    font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 13px;
+    letter-spacing: 4px; text-transform: uppercase; color: #8a6a2c;
+    border-bottom: 1px solid rgba(36,26,12,0.25); padding-bottom: 12px; margin-bottom: 28px;
+    display: flex; justify-content: space-between;
+  }
+  .card h2 {
+    font-family: 'Crimson Pro', serif; font-style: italic; font-weight: 600;
+    font-size: 54px; line-height: 1.1; color: #1c1408; margin-bottom: 18px;
+  }
+  .card p {
+    font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 21px;
+    line-height: 1.55; color: #3a2c14; max-width: 900px;
+  }
+  .card p b { font-weight: 600; color: #6b4d1a; }
+  .ruled {
+    margin-top: 28px; height: 1px;
+    background: repeating-linear-gradient(90deg, rgba(36,26,12,0.3) 0 2px, transparent 2px 14px);
+  }
+
+  .field-row {
+    display: flex; gap: 40px; margin-top: 6px;
+  }
+  .field { flex: 1; }
+  .field-label {
+    font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 20px;
+    letter-spacing: 1px; color: #6b4d1a; margin-bottom: 8px;
+    padding-bottom: 8px; border-bottom: 1px solid rgba(36,26,12,0.25);
+  }
+  .field-body {
+    font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 17px;
+    line-height: 1.5; color: #3a2c14;
+  }
+
+  .dots {
+    position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 10px; z-index: 2;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; border: 1px solid var(--gold); background: transparent; transition: background 0.4s; }
+  .dot.on { background: var(--gold); }
+
+  /* ── FOOTER — identical bones to Haig Room ── */
+  #footer {
+    height: 90px;
+    background: var(--dark);
+    border-top: 4px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    flex-shrink: 0;
+  }
+
+  #footer-url {
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 2px;
+  }
+
+  #footer-right {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: #ccc;
+    letter-spacing: 2px;
+    text-align: right;
+  }
+
+  #footer-right span {
+    color: var(--gold);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header">
+  <div id="header-left">
+    <img id="logo"
+      src="https://libapps.s3.amazonaws.com/accounts/87070/images/USMALibraryLogo.png"
+      alt="USMA Library"
+      onerror="this.style.display='none'">
+    <div id="header-title">
+      <span class="lib-name">Cullum Hall Library</span>
+      <span class="lib-sub">Archives &amp; Special Collections · West Point</span>
+    </div>
+  </div>
+  <div id="header-right">
+    <div id="clock">--:-- --</div>
+    <div id="date">--</div>
+  </div>
+</div>
+
+<!-- SECTION LABEL -->
+<div class="section-label"><span id="section-text">Welcome to the Archives</span></div>
+
+<!-- CONTENT ZONE -->
+<div id="content-zone">
+  <div class="mote-field" id="dust"></div>
+
+  <div class="panel active" data-i="0">
+    <div class="welcome-inner">
+      <div class="welcome-eyebrow">Welcome to</div>
+      <h1>Archives &amp; <b>Special Collections</b></h1>
+      <div class="welcome-sub">Two centuries of United States Military Academy history, preserved in the Archives, Special Collections, and Manuscripts</div>
+    </div>
+  </div>
+
+  <div class="panel" data-i="1">
+    <div class="card">
+      <div class="bracket tl"></div><div class="bracket tr"></div>
+      <div class="bracket bl"></div><div class="bracket br"></div>
+      <div class="call-no"><span>USMA·ASC — Hours</span><span>West Point, New York</span></div>
+      <h2>Reading Room Hours</h2>
+      <p>Monday–Friday, <b>0800–1600</b>. By appointment only — closed weekends and federal holidays.</p>
+      <div class="ruled"></div>
+    </div>
+  </div>
+
+  <div class="panel" data-i="2">
+    <div class="card">
+      <div class="bracket tl"></div><div class="bracket tr"></div>
+      <div class="bracket bl"></div><div class="bracket br"></div>
+      <div class="call-no"><span>USMA·ASC — Collections</span><span>West Point, New York</span></div>
+      <h2>What We Collect</h2>
+      <div class="field-row">
+        <div class="field">
+          <div class="field-label">Archives</div>
+          <div class="field-body">The Academy's official institutional record — an Affiliated Archive of the National Archives (NARA RG 404)</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Special Collections</div>
+          <div class="field-body">Rare books and maps, including the Sylvanus Thayer, Patton, and Bradley collections</div>
+        </div>
+        <div class="field">
+          <div class="field-label">Manuscripts</div>
+          <div class="field-body">Letters, diaries, and personal papers of alumni and the wider Academy community</div>
+        </div>
+      </div>
+      <div class="ruled"></div>
+    </div>
+  </div>
+
+  <div class="panel" data-i="3">
+    <div class="card">
+      <div class="bracket tl"></div><div class="bracket tr"></div>
+      <div class="bracket bl"></div><div class="bracket br"></div>
+      <div class="call-no"><span>USMA·ASC — From the Archives</span><span>West Point, New York</span></div>
+      <h2>The Court-Martial of Cadet Poe</h2>
+      <p>Edgar Allan Poe may be the most famous cadet never to graduate. After his court-martial and discharge in 1831, his classmates raised the funds for his <b>first published book of poetry</b>.</p>
+      <div class="ruled"></div>
+    </div>
+  </div>
+
+  <div class="panel" data-i="4">
+    <div class="card">
+      <div class="bracket tl"></div><div class="bracket tr"></div>
+      <div class="bracket bl"></div><div class="bracket br"></div>
+      <div class="call-no"><span>USMA·ASC — Visiting</span><span>West Point, New York</span></div>
+      <h2>Plan Your Visit</h2>
+      <p>Materials are viewed <b>by appointment only</b>. Submit a research request through the Library website to schedule your visit.</p>
+      <div class="ruled"></div>
+    </div>
+  </div>
+
+  <div class="dots">
+    <div class="dot on" data-d="0"></div>
+    <div class="dot" data-d="1"></div>
+    <div class="dot" data-d="2"></div>
+    <div class="dot" data-d="3"></div>
+    <div class="dot" data-d="4"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div id="footer">
+  <div id="footer-url">library.westpoint.edu</div>
+  <div id="footer-right">Cullum Hall &nbsp;·&nbsp; <span>Archives &amp; Special Collections</span></div>
+</div>
+
+<script>
+  function updateClock() {
+    var now = new Date();
+    var h = now.getHours(), m = now.getMinutes().toString().padStart(2,'0');
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    document.getElementById('clock').textContent = h + ':' + m + ' ' + ampm;
+    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var d = new Date();
+    document.getElementById('date').textContent =
+      days[d.getDay()].toUpperCase() + ' · ' + months[d.getMonth()].toUpperCase() + ' ' + d.getDate();
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
+
+  // restrained ambient motes in the content zone
+  var dust = document.getElementById('dust');
+  for (var i = 0; i < 16; i++) {
+    var m = document.createElement('div');
+    m.className = 'mote';
+    m.style.left = (Math.random()*100) + '%';
+    m.style.top = (35 + Math.random()*55) + '%';
+    m.style.animationDelay = (Math.random()*24) + 's';
+    m.style.animationDuration = (18 + Math.random()*12) + 's';
+    dust.appendChild(m);
+  }
+
+  var sectionLabels = [
+    'Welcome to the Archives',
+    'Reading Room Hours',
+    'What We Collect',
+    'From the Archives',
+    'Plan Your Visit'
+  ];
+  var idx = 0;
+  var panels = document.querySelectorAll('.panel');
+  var dots = document.querySelectorAll('.dot');
+  var sectionText = document.getElementById('section-text');
+  setInterval(function () {
+    panels[idx].classList.remove('active');
+    dots[idx].classList.remove('on');
+    idx = (idx + 1) % panels.length;
+    panels[idx].classList.add('active');
+    dots[idx].classList.add('on');
+    sectionText.style.opacity = 0;
+    setTimeout(function(){
+      sectionText.textContent = sectionLabels[idx];
+      sectionText.style.opacity = 1;
+    }, 250);
+  }, 8000);
+</script>
+</body>
+</html>

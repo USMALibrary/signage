@@ -1,14 +1,14 @@
-name: Instruction Calendar Feed
+name: Alma Usage Feeds
 
 on:
   schedule:
-    # Every 15 minutes during operating hours, offset by 5 min to stagger from fetch-hours
-    - cron: '5-59/15 10-23 * * 1-5'
-    - cron: '5-59/15 0 * * 1-5'
+    # Once daily — Alma Analytics data refreshes overnight, so intraday polling
+    # wouldn't show new numbers anyway. 11:00 UTC = ~7am ET, after the refresh.
+    - cron: '0 11 * * *'
   workflow_dispatch:
 
 jobs:
-  update-instruction:
+  update-usage:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -24,21 +24,25 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Fetch instruction events
+      - name: Fetch circulation usage
         env:
-          LIBCAL_CLIENT_ID: ${{ secrets.LIBCAL_CLIENT_ID }}
-          LIBCAL_CLIENT_SECRET: ${{ secrets.LIBCAL_CLIENT_SECRET }}
-        run: python instruction_events.py
+          ALMA_API_KEY: ${{ secrets.ALMA_ANALYTICS_API_KEY }}
+        run: python alma_usage.py
+
+      - name: Fetch e-resource usage
+        env:
+          ALMA_API_KEY: ${{ secrets.ALMA_ANALYTICS_API_KEY }}
+        run: python alma_eresource_usage.py
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/instruction-stats.json
+          git add data/circulation-usage.json data/eresource-usage.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update instruction stats $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git commit -m "Update Alma usage feeds $(date -u +'%Y-%m-%d %H:%M UTC')"
             git pull --rebase origin data
             git push origin data || {
               echo "Push failed, retrying after rebase..."
