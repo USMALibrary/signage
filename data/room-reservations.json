@@ -1,96 +1,19 @@
 {
-  "updated": "2026-08-13T23:52:15.163622+00:00",
-  "date": "2026-08-13",
+  "updated": "2026-08-14T00:45:15.277852+00:00",
+  "date": "2026-08-14",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 8,
+  "count": 1,
   "bookings": [
     {
-      "room": "*JH - Haig Room & All 6th Floor Spaces",
-      "category": "Sixth Floor & Haig Room",
-      "from": "2026-08-13T08:00:00-04:00",
-      "to": "2026-08-13T12:00:00-04:00",
-      "fromDisplay": "8:00 AM",
-      "toDisplay": "12:00 PM",
-      "title": "SOSH International Affairs Program Offsite",
-      "nickname": "SOSH International Affairs Program Offsite",
-      "status": "Mediated Approved"
-    },
-    {
       "room": "JH 514 (Class of 1985)",
       "category": "Collaborative Rooms",
-      "from": "2026-08-13T08:00:00-04:00",
-      "to": "2026-08-13T09:00:00-04:00",
-      "fromDisplay": "8:00 AM",
-      "toDisplay": "9:00 AM",
-      "title": "Exchange cadet orientation/tour",
-      "nickname": "Exchange cadet orientation/tour",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-13T09:45:00-04:00",
-      "to": "2026-08-13T11:15:00-04:00",
-      "fromDisplay": "9:45 AM",
-      "toDisplay": "11:15 AM",
+      "from": "2026-08-14T11:00:00-04:00",
+      "to": "2026-08-14T13:00:00-04:00",
+      "fromDisplay": "11:00 AM",
+      "toDisplay": "1:00 PM",
       "title": "DELPHI Meeting",
       "nickname": "DELPHI Meeting",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 301 (Class of 1976)",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-13T15:00:00-04:00",
-      "to": "2026-08-13T17:00:00-04:00",
-      "fromDisplay": "3:00 PM",
-      "toDisplay": "5:00 PM",
-      "title": "Admissions Field Force Forum",
-      "nickname": "Admissions Field Force Forum",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 401 (Class of 1994)",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-13T15:00:00-04:00",
-      "to": "2026-08-13T17:00:00-04:00",
-      "fromDisplay": "3:00 PM",
-      "toDisplay": "5:00 PM",
-      "title": "Admissions Field Force Forum",
-      "nickname": "Admissions Field Force Forum",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 414",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-13T15:00:00-04:00",
-      "to": "2026-08-13T17:00:00-04:00",
-      "fromDisplay": "3:00 PM",
-      "toDisplay": "5:00 PM",
-      "title": "Admissions Field Force Forum",
-      "nickname": "Admissions Field Force Forum",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 513",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-13T15:00:00-04:00",
-      "to": "2026-08-13T17:00:00-04:00",
-      "fromDisplay": "3:00 PM",
-      "toDisplay": "5:00 PM",
-      "title": "Admissions Field Force Forum",
-      "nickname": "Admissions Field Force Forum",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-13T15:00:00-04:00",
-      "to": "2026-08-13T17:00:00-04:00",
-      "fromDisplay": "3:00 PM",
-      "toDisplay": "5:00 PM",
-      "title": "Admissions Field Force Forum",
-      "nickname": "Admissions Field Force Forum",
       "status": "Mediated Approved"
     }
   ]
