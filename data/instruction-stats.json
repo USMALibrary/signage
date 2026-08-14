@@ -1,25 +1,15 @@
 {
-  "updated": "2026-08-13T23:21:25.142140+00:00",
+  "updated": "2026-08-14T00:10:40.049345+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-08-13",
-    "count": 1,
-    "sessions": [
-      {
-        "title": "Exchange Cadets Tour/Briefing (Elaine)(JH514)",
-        "start": "2026-08-13T08:30:00-04:00",
-        "end": "2026-08-13T09:30:00-04:00",
-        "startDisplay": "8:30 AM",
-        "endDisplay": "9:30 AM",
-        "location": "",
-        "status": "upcoming"
-      }
-    ],
+    "date": "2026-08-14",
+    "count": 0,
+    "sessions": [],
     "next": {
-      "title": "Exchange Cadets Tour/Briefing (Elaine)(JH514)",
-      "time": "8:30 AM",
-      "date": "2026-08-13",
-      "dateDisplay": "Today",
+      "title": "HI357 ASC Instruction-MAJ Salley",
+      "time": "10:35 AM",
+      "date": "2026-08-20",
+      "dateDisplay": "Thu Aug 20",
       "status": "upcoming"
     }
   },
