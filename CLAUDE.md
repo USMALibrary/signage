@@ -25,6 +25,18 @@ Do not hand-edit files under `data/` on `main` expecting them to reach productio
 overwritten by the workflows below. If you need to inspect current live data, check out or fetch the
 `data` branch.
 
+**Two hosts serve `data/*.json`, and they are not equally fresh.** Pages fetch pre-baked JSON either
+from `https://raw.githubusercontent.com/USMALibrary/signage/data/data/<file>.json` (reads straight
+from git, always matches the `data` branch tip) or from `https://usmalibrary.github.io/signage/data/<file>.json`
+(a GitHub Pages build of the `data` branch, which does **not** rebuild on every commit — observed
+serving JSON over a week stale on 2026-08-14 while the raw.githubusercontent copy was current to the
+minute). `hours-sign.html` and `hours-v2.html` on the `data` branch currently point at the
+`usmalibrary.github.io` host; `admin-office.html` was deliberately switched to raw.githubusercontent.com
+for this reason. Prefer raw.githubusercontent.com for any new or fixed page unless there's a specific
+reason to use the Pages host. `_headers` at the repo root grants `Access-Control-Allow-Origin: *` on
+`/data/*` for Cloudflare Pages/Netlify-style hosts that respect that convention — GitHub Pages itself
+ignores it (not needed there; raw.githubusercontent.com already sends permissive CORS headers).
+
 **Gotcha that has already caused a workflow to fail in production:** every workflow step
 `git checkout`s `ref: data` before running its Python script, so the script is executed from the
 `data` branch's copy of the repo — not `main`'s. Adding or changing a script on `main` is not enough;
