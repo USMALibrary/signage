@@ -1,20 +1,8 @@
 {
-  "updated": "2026-08-14T23:54:05.833629+00:00",
-  "date": "2026-08-14",
+  "updated": "2026-08-15T00:24:57.906772+00:00",
+  "date": "2026-08-15",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 1,
-  "bookings": [
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-14T11:00:00-04:00",
-      "to": "2026-08-14T13:00:00-04:00",
-      "fromDisplay": "11:00 AM",
-      "toDisplay": "1:00 PM",
-      "title": "DELPHI Meeting",
-      "nickname": "DELPHI Meeting",
-      "status": "Mediated Approved"
-    }
-  ]
+  "count": 0,
+  "bookings": []
 }
