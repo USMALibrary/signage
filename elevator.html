@@ -684,13 +684,13 @@
   /* ── INIT ── */
   loadHours();
   loadNotices();
-  loadReservations();
+  // loadReservations();  // TEMP DISABLED — re-enable when ready to show room reservations again
 
   // Refresh data every 60 seconds (silent on failure)
   setInterval(function() {
     loadHours();
     loadNotices();
-    loadReservations();
+    // loadReservations();  // TEMP DISABLED — re-enable when ready to show room reservations again
   }, 60000);
 </script>
 
