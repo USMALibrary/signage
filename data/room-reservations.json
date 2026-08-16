@@ -1,20 +1,8 @@
 {
-  "updated": "2026-08-16T18:00:23.080142+00:00",
+  "updated": "2026-08-16T18:41:25.820662+00:00",
   "date": "2026-08-16",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 1,
-  "bookings": [
-    {
-      "room": "*JH - Haig Room & All 6th Floor Spaces",
-      "category": "Sixth Floor & Haig Room",
-      "from": "2026-08-16T14:00:00-04:00",
-      "to": "2026-08-16T18:00:00-04:00",
-      "fromDisplay": "2:00 PM",
-      "toDisplay": "6:00 PM",
-      "title": "MG (P) Bartholomees Event",
-      "nickname": "MG (P) Bartholomees Event",
-      "status": "Mediated Approved"
-    }
-  ]
+  "count": 0,
+  "bookings": []
 }
