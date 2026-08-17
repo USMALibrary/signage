@@ -1,8 +1,53 @@
 {
-  "updated": "2026-08-16T23:50:29.730628+00:00",
-  "date": "2026-08-16",
+  "updated": "2026-08-17T00:00:33.983271+00:00",
+  "date": "2026-08-17",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 0,
-  "bookings": []
+  "count": 4,
+  "bookings": [
+    {
+      "room": "JH 423",
+      "category": "Classrooms",
+      "from": "2026-08-17T07:30:00-04:00",
+      "to": "2026-08-17T08:40:00-04:00",
+      "fromDisplay": "7:30 AM",
+      "toDisplay": "8:40 AM",
+      "title": "",
+      "nickname": "",
+      "status": "Confirmed"
+    },
+    {
+      "room": "JH 414",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-17T09:00:00-04:00",
+      "to": "2026-08-17T11:00:00-04:00",
+      "fromDisplay": "9:00 AM",
+      "toDisplay": "11:00 AM",
+      "title": "EN101 Boot Camp",
+      "nickname": "EN101 Boot Camp",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "*JH - Haig Room & All 6th Floor Spaces",
+      "category": "Sixth Floor & Haig Room",
+      "from": "2026-08-17T14:00:00-04:00",
+      "to": "2026-08-17T15:00:00-04:00",
+      "fromDisplay": "2:00 PM",
+      "toDisplay": "3:00 PM",
+      "title": "Geo Spatial Brief",
+      "nickname": "Geo Spatial Brief",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-17T14:00:00-04:00",
+      "to": "2026-08-17T16:00:00-04:00",
+      "fromDisplay": "2:00 PM",
+      "toDisplay": "4:00 PM",
+      "title": "Communications Class with Dr. Frank Luntz",
+      "nickname": "Communications Class with Dr. Frank Luntz",
+      "status": "Mediated Approved"
+    }
+  ]
 }
