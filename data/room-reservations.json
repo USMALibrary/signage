@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-18T14:18:00.696291+00:00",
+  "updated": "2026-08-18T14:55:58.974423+00:00",
   "date": "2026-08-18",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 6,
+  "count": 7,
   "bookings": [
     {
       "room": "JH 423",
@@ -26,6 +26,17 @@
       "title": "DELPHI Meeting",
       "nickname": "DELPHI Meeting",
       "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 402",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-18T12:45:00-04:00",
+      "to": "2026-08-18T14:45:00-04:00",
+      "fromDisplay": "12:45 PM",
+      "toDisplay": "2:45 PM",
+      "title": "MS200 AI",
+      "nickname": "MS200 AI",
+      "status": "Mediated Tentative"
     },
     {
       "room": "JH 314C",
