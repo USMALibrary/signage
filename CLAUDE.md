@@ -29,10 +29,11 @@ overwritten by the workflows below. If you need to inspect current live data, ch
 from `https://raw.githubusercontent.com/USMALibrary/signage/data/data/<file>.json` (reads straight
 from git, always matches the `data` branch tip) or from `https://usmalibrary.github.io/signage/data/<file>.json`
 (a GitHub Pages build of the `data` branch, which does **not** rebuild on every commit — observed
-serving JSON over a week stale on 2026-08-14 while the raw.githubusercontent copy was current to the
-minute). `hours-sign.html` and `hours-v2.html` on the `data` branch currently point at the
-`usmalibrary.github.io` host; `admin-office.html` was deliberately switched to raw.githubusercontent.com
-for this reason. Prefer raw.githubusercontent.com for any new or fixed page unless there's a specific
+serving JSON over a week stale on 2026-08-14, and still 12 days stale when re-checked on 2026-08-18,
+while the raw.githubusercontent copy was current to the minute both times). All pages, including
+`hours-sign.html` and `hours-v2.html`, have since been switched to raw.githubusercontent.com (verified
+2026-08-18 on both `main` and `data`); `admin-office.html` was the first to move, for this reason.
+Prefer raw.githubusercontent.com for any new or fixed page unless there's a specific
 reason to use the Pages host. `_headers` at the repo root grants `Access-Control-Allow-Origin: *` on
 `/data/*` for Cloudflare Pages/Netlify-style hosts that respect that convention — GitHub Pages itself
 ignores it (not needed there; raw.githubusercontent.com already sends permissive CORS headers).
