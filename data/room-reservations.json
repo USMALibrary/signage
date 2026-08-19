@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-19T11:34:33.491342+00:00",
+  "updated": "2026-08-19T11:54:40.488487+00:00",
   "date": "2026-08-19",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 4,
+  "count": 3,
   "bookings": [
     {
       "room": "JH 414",
@@ -25,17 +25,6 @@
       "toDisplay": "12:00 PM",
       "title": "USMA COMMSYNC Meeting",
       "nickname": "USMA COMMSYNC Meeting",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "*JH - Haig Room & All 6th Floor Spaces",
-      "category": "Sixth Floor & Haig Room",
-      "from": "2026-08-19T11:30:00-04:00",
-      "to": "2026-08-19T14:00:00-04:00",
-      "fromDisplay": "11:30 AM",
-      "toDisplay": "2:00 PM",
-      "title": "Department of Civil & Environmental Engineering Hard Hat Ceremony",
-      "nickname": "Department of Civil & Environmental Engineering Hard Hat Ceremony",
       "status": "Mediated Approved"
     },
     {
