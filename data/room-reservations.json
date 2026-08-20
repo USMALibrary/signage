@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-20T01:48:09.574432+00:00",
+  "updated": "2026-08-20T10:40:16.304610+00:00",
   "date": "2026-08-20",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 9,
+  "count": 8,
   "bookings": [
     {
       "room": "JH 403",
@@ -91,17 +91,6 @@
       "toDisplay": "2:45 PM",
       "title": "Seminar Meeting",
       "nickname": "Seminar Meeting",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-20T13:00:00-04:00",
-      "to": "2026-08-20T14:00:00-04:00",
-      "fromDisplay": "1:00 PM",
-      "toDisplay": "2:00 PM",
-      "title": "Library Staff Meeting",
-      "nickname": "Library Staff Meeting",
       "status": "Mediated Approved"
     }
   ]
