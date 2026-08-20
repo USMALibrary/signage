@@ -1,15 +1,52 @@
 {
-  "updated": "2026-08-19T23:41:16.433126+00:00",
+  "updated": "2026-08-20T00:01:43.930439+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-08-19",
-    "count": 0,
-    "sessions": [],
+    "date": "2026-08-20",
+    "count": 4,
+    "sessions": [
+      {
+        "title": "HI357 ASC Instruction-MAJ Salley",
+        "start": "2026-08-20T10:35:00-04:00",
+        "end": "2026-08-20T11:50:00-04:00",
+        "startDisplay": "10:35 AM",
+        "endDisplay": "11:50 AM",
+        "location": "BHN 422 - Table 1",
+        "status": "upcoming"
+      },
+      {
+        "title": "HI357 ASC Instruction-MAJ Salley",
+        "start": "2026-08-20T10:35:00-04:00",
+        "end": "2026-08-20T11:50:00-04:00",
+        "startDisplay": "10:35 AM",
+        "endDisplay": "11:50 AM",
+        "location": "JH 431A",
+        "status": "upcoming"
+      },
+      {
+        "title": "HI357 ASC Instruction-MAJ Salley",
+        "start": "2026-08-20T12:40:00-04:00",
+        "end": "2026-08-20T16:00:00-04:00",
+        "startDisplay": "12:40 PM",
+        "endDisplay": "4:00 PM",
+        "location": "BHN 422 - Table 1",
+        "status": "upcoming"
+      },
+      {
+        "title": "HI357 ASC Instruction-MAJ Salley",
+        "start": "2026-08-20T12:40:00-04:00",
+        "end": "2026-08-20T16:00:00-04:00",
+        "startDisplay": "12:40 PM",
+        "endDisplay": "4:00 PM",
+        "location": "JH 431A",
+        "status": "upcoming"
+      }
+    ],
     "next": {
       "title": "HI357 ASC Instruction-MAJ Salley",
       "time": "10:35 AM",
       "date": "2026-08-20",
-      "dateDisplay": "Tomorrow",
+      "dateDisplay": "Today",
       "status": "upcoming"
     }
   },
@@ -20,6 +57,6 @@
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 17
+    "count": 21
   }
 }
