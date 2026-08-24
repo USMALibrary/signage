@@ -1,18 +1,13 @@
 {
-  "updated": "2026-08-23T11:16:02.046953+00:00",
-  "asOfDate": "2026-08-21",
+  "updated": "2026-08-24T11:21:41.428463+00:00",
+  "asOfDate": "2026-08-23",
   "month": {
     "label": "August 2026",
     "startDate": "2026-08-01",
-    "total": 349,
-    "days": 16
+    "total": 366,
+    "days": 17
   },
   "daily": [
-    {
-      "date": "2026-07-16",
-      "dateDisplay": "Jul 16",
-      "count": 6
-    },
     {
       "date": "2026-07-17",
       "dateDisplay": "Jul 17",
@@ -157,6 +152,11 @@
       "date": "2026-08-21",
       "dateDisplay": "Aug 21",
       "count": 19
+    },
+    {
+      "date": "2026-08-23",
+      "dateDisplay": "Aug 23",
+      "count": 17
     }
   ]
 }
