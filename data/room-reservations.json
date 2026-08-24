@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-24T11:47:46.617368+00:00",
+  "updated": "2026-08-24T12:17:12.538654+00:00",
   "date": "2026-08-24",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 14,
+  "count": 13,
   "bookings": [
     {
       "room": "JH 301 (Class of 1976)",
@@ -147,17 +147,6 @@
       "title": "HI105 ASC Instruction-CPT Shumar (alt space)",
       "nickname": "HI105 ASC Instruction-CPT Shumar (alt space)",
       "status": "Confirmed"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-24T15:45:00-04:00",
-      "to": "2026-08-24T17:15:00-04:00",
-      "fromDisplay": "3:45 PM",
-      "toDisplay": "5:15 PM",
-      "title": "Finance Club Small Group Discussion: Carson Carter and Evan Spiegel",
-      "nickname": "Finance Club Small Group Discussion: Carson Carter and Evan Spiegel",
-      "status": "Mediated Approved"
     }
   ]
 }
