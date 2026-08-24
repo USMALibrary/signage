@@ -1,7 +1,79 @@
 {
-  "updated": "2026-08-24T14:07:49Z",
-  "pagesLast60Min": 181,
+  "updated": "2026-08-24T14:12:57Z",
+  "pagesLast60Min": 112,
   "printers": [
+    {
+      "name": "desktop-kh93d12\\HP LaserJet M1536dnf MFP UPD PCL 6",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "desktop-kh93d12\\HP Neverstop Laser MFP 120x",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "desktop-kh93d12\\HP Universal Printing PCL 6",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "sahcida\\HP081CC9 (HP Smart Tank 7000 series)",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "sahcida\\Xerox Phaser 6510 V4 PS",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "wppss6print\\Brother HL-L3230CDW series",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "wppss6print\\DemoCanon",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "wppss6print\\DemoKonica",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "wppss6print\\DemoToshiba",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "wppss6print\\DemoXerox",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "wppss6print\\ET0021B7D3CDC4",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "wppss6print\\WPPR600HR1B",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
     {
       "name": "wppss6print\\WPPRLIBADM",
       "status": "OK",
@@ -22,6 +94,18 @@
     },
     {
       "name": "wppss6print\\WPPRLIBREF03",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "wppss6print\\WPPRLIBRES",
+      "status": "OK",
+      "detail": null,
+      "heldJobsCount": 0
+    },
+    {
+      "name": "wppss6print\\WPPRLIBSTAFF",
       "status": "OK",
       "detail": null,
       "heldJobsCount": 0
