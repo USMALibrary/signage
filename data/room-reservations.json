@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-24T11:13:56.678517+00:00",
+  "updated": "2026-08-24T11:47:46.617368+00:00",
   "date": "2026-08-24",
   "location": "Jefferson Hall",
   "lid": 7099,
@@ -80,7 +80,7 @@
       "toDisplay": "12:00 PM",
       "title": "Bard USMA connections",
       "nickname": "Bard USMA connections",
-      "status": "Mediated Tentative"
+      "status": "Mediated Approved"
     },
     {
       "room": "JH 503",
@@ -157,7 +157,7 @@
       "toDisplay": "5:15 PM",
       "title": "Finance Club Small Group Discussion: Carson Carter and Evan Spiegel",
       "nickname": "Finance Club Small Group Discussion: Carson Carter and Evan Spiegel",
-      "status": "Mediated Tentative"
+      "status": "Mediated Approved"
     }
   ]
 }
