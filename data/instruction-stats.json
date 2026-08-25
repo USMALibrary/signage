@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-25T12:17:56.112489+00:00",
+  "updated": "2026-08-25T13:16:37.366100+00:00",
   "calendarId": 20048,
   "today": {
     "date": "2026-08-25",
@@ -79,7 +79,7 @@
   },
   "thisWeek": {
     "startDate": "2026-08-24",
-    "count": 20
+    "count": 18
   },
   "semester": {
     "label": "Fall 2026",
