@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-25T14:08:52.448213+00:00",
+  "updated": "2026-08-25T15:00:07.159804+00:00",
   "date": "2026-08-25",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 21,
+  "count": 22,
   "bookings": [
     {
       "room": "JH 414",
@@ -169,6 +169,17 @@
       "title": "Infantry Commandant, BG Keirsey, OCOI Touch Point Meeting",
       "nickname": "Infantry Commandant, BG Keirsey, OCOI Touch Point Meeting",
       "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 401 (Class of 1994)",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-25T12:30:00-04:00",
+      "to": "2026-08-25T16:15:00-04:00",
+      "fromDisplay": "12:30 PM",
+      "toDisplay": "4:15 PM",
+      "title": "American Politics: The Foundations of Civil Military Relations (LSN3)",
+      "nickname": "American Politics: The Foundations of Civil Military Relations (LSN3)",
+      "status": "Mediated Tentative"
     },
     {
       "room": "JH 514 (Class of 1985)",
