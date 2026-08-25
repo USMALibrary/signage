@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-25T13:15:49.588371+00:00",
+  "updated": "2026-08-25T14:08:52.448213+00:00",
   "date": "2026-08-25",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 20,
+  "count": 21,
   "bookings": [
     {
       "room": "JH 414",
@@ -168,6 +168,17 @@
       "toDisplay": "4:30 PM",
       "title": "Infantry Commandant, BG Keirsey, OCOI Touch Point Meeting",
       "nickname": "Infantry Commandant, BG Keirsey, OCOI Touch Point Meeting",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-25T12:30:00-04:00",
+      "to": "2026-08-25T14:00:00-04:00",
+      "fromDisplay": "12:30 PM",
+      "toDisplay": "2:00 PM",
+      "title": "AIAD Debrief",
+      "nickname": "AIAD Debrief",
       "status": "Mediated Approved"
     },
     {
