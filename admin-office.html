@@ -915,7 +915,10 @@
   /* ── PRINT QUEUE (PaperCut) ── */
   function loadPrintQueue() {
     loadJSON(BASE + 'papercut-status.json', function(data) {
-      var printers = data.printers || [];
+      var TRACKED_PRINTERS = ['wppss6print\\wpprlibref01', 'wppss6print\\wpprlibref02', 'wppss6print\\wpprlibref03'];
+      var printers = (data.printers || []).filter(function(p) {
+        return TRACKED_PRINTERS.indexOf((p.name || '').toLowerCase()) !== -1;
+      });
       var issues = printers.filter(function(p) { return p.status !== 'OK'; });
       var totalHeld = printers.reduce(function(sum, p) { return sum + (p.heldJobsCount || 0); }, 0);
 
