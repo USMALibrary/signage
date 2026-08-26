@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-26T11:49:59.229689+00:00",
+  "updated": "2026-08-26T12:19:13.327462+00:00",
   "date": "2026-08-26",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 15,
+  "count": 16,
   "bookings": [
     {
       "room": "JH 423",
@@ -91,6 +91,17 @@
       "toDisplay": "1:45 PM",
       "title": "Branch Week Commandant Engagements",
       "nickname": "Branch Week Commandant Engagements",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 401 (Class of 1994)",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-26T12:30:00-04:00",
+      "to": "2026-08-26T14:30:00-04:00",
+      "fromDisplay": "12:30 PM",
+      "toDisplay": "2:30 PM",
+      "title": "DELPHI Meeting",
+      "nickname": "DELPHI Meeting",
       "status": "Mediated Approved"
     },
     {
