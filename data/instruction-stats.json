@@ -1,78 +1,42 @@
 {
-  "updated": "2026-08-25T23:42:12.012581+00:00",
+  "updated": "2026-08-26T00:02:19.414297+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-08-25",
-    "count": 7,
+    "date": "2026-08-26",
+    "count": 3,
     "sessions": [
       {
-        "title": "HI105/155-Information Literacy Instruction (Howard)(Elaine)(G2)(JH514)",
-        "start": "2026-08-25T07:40:00-04:00",
-        "end": "2026-08-25T08:55:00-04:00",
-        "startDisplay": "7:40 AM",
-        "endDisplay": "8:55 AM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "HI302-Information Literacy Instruction (Abenes)(Erin)(G2)(JH414)",
-        "start": "2026-08-25T07:40:00-04:00",
-        "end": "2026-08-25T08:55:00-04:00",
-        "startDisplay": "7:40 AM",
-        "endDisplay": "8:55 AM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "CH375 Information Literacy Instruction (Rodriguez)(Jenn)(W2)(BH)",
-        "start": "2026-08-25T07:40:00-04:00",
-        "end": "2026-08-25T09:40:00-04:00",
-        "startDisplay": "7:40 AM",
+        "title": "LW310-Information Literacy Instruction (Wellman)(Erin)(B1)(JH514)",
+        "start": "2026-08-26T08:45:00-04:00",
+        "end": "2026-08-26T09:40:00-04:00",
+        "startDisplay": "8:45 AM",
         "endDisplay": "9:40 AM",
-        "location": "Bartlett Hall",
-        "status": "upcoming"
-      },
-      {
-        "title": "HI105/155-Information Literacy Instruction (Howard)(Elaine)(H2)(JH514)",
-        "start": "2026-08-25T09:05:00-04:00",
-        "end": "2026-08-25T10:20:00-04:00",
-        "startDisplay": "9:05 AM",
-        "endDisplay": "10:20 AM",
         "location": "",
         "status": "upcoming"
       },
       {
-        "title": "HI105 - ASC Instruction-(CPT Shumar)(Doug)(J2)(BHN)",
-        "start": "2026-08-25T12:45:00-04:00",
-        "end": "2026-08-25T14:00:00-04:00",
-        "startDisplay": "12:45 PM",
-        "endDisplay": "2:00 PM",
+        "title": "LW310-Information Literacy Instruction (Wellman)(Erin)(E1)(JH514)",
+        "start": "2026-08-26T14:10:00-04:00",
+        "end": "2026-08-26T15:05:00-04:00",
+        "startDisplay": "2:10 PM",
+        "endDisplay": "3:05 PM",
         "location": "",
         "status": "upcoming"
       },
       {
-        "title": "CH375 Information Literacy Instruction (Rodriguez)(Jenn)(T2)(BH)",
-        "start": "2026-08-25T12:45:00-04:00",
-        "end": "2026-08-25T14:45:00-04:00",
-        "startDisplay": "12:45 PM",
-        "endDisplay": "2:45 PM",
-        "location": "Bartlett Hall",
-        "status": "upcoming"
-      },
-      {
-        "title": "HI105 - ASC Instruction-(CPT Shumar)(Doug)(L2)(BHN)",
-        "start": "2026-08-25T14:55:00-04:00",
-        "end": "2026-08-25T16:10:00-04:00",
-        "startDisplay": "2:55 PM",
+        "title": "LW310-Information Literacy Instruction (Wellman)(Erin)(F1)(JH514)",
+        "start": "2026-08-26T15:15:00-04:00",
+        "end": "2026-08-26T16:10:00-04:00",
+        "startDisplay": "3:15 PM",
         "endDisplay": "4:10 PM",
         "location": "",
         "status": "upcoming"
       }
     ],
     "next": {
-      "title": "HI105/155-Information Literacy Instruction (Howard)(Elaine)(G2)(JH514)",
-      "time": "7:40 AM",
-      "date": "2026-08-25",
+      "title": "LW310-Information Literacy Instruction (Wellman)(Erin)(B1)(JH514)",
+      "time": "8:45 AM",
+      "date": "2026-08-26",
       "dateDisplay": "Today",
       "status": "upcoming"
     }
@@ -84,6 +48,6 @@
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 33
+    "count": 36
   }
 }
