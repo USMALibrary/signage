@@ -200,100 +200,6 @@
 
   #content.type-welcome #notice-title { color: var(--gold); }
 
-  /* ── RESERVATIONS SLIDE ── */
-  #reservations-view {
-    display: none;
-    flex-direction: column;
-    align-self: stretch;
-    width: 100%;
-    height: 100%;
-    text-align: left;
-  }
-
-  #reservations-view.active { display: flex; }
-
-  .res-heading {
-    font-family: 'Oswald', sans-serif;
-    font-size: 22px; font-weight: 400;
-    letter-spacing: 4px; text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px; flex-shrink: 0;
-  }
-
-  #res-summary {
-    font-family: 'Oswald', sans-serif;
-    font-size: 20px; font-weight: 300;
-    color: var(--muted); letter-spacing: 1px;
-    margin-bottom: 20px; flex-shrink: 0;
-  }
-
-  #res-summary strong { color: var(--gold); font-weight: 600; }
-
-  #res-list {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    overflow: hidden;
-  }
-
-  .res-item {
-    display: flex;
-    align-items: center;
-    background: var(--mid);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 16px 24px;
-    gap: 20px;
-    flex-shrink: 0;
-  }
-
-  .res-time {
-    font-family: 'Oswald', sans-serif;
-    font-size: 18px; font-weight: 400;
-    color: var(--text); letter-spacing: 1px;
-    min-width: 170px; flex-shrink: 0;
-  }
-
-  .res-room {
-    flex: 1;
-    font-family: 'Oswald', sans-serif;
-    font-size: 18px; font-weight: 400;
-    color: var(--text); letter-spacing: 1px;
-  }
-
-  .res-title {
-    display: block;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 13px; font-weight: 300;
-    color: var(--muted); margin-top: 2px; letter-spacing: 0;
-  }
-
-  .res-status {
-    font-family: 'Oswald', sans-serif;
-    font-size: 12px; font-weight: 600;
-    letter-spacing: 2px; text-transform: uppercase;
-    padding: 4px 12px; border-radius: 4px; flex-shrink: 0;
-  }
-
-  .res-status.now {
-    color: var(--green);
-    background: rgba(111, 207, 111, 0.1);
-    border: 1px solid rgba(111, 207, 111, 0.3);
-  }
-
-  .res-status.upcoming {
-    color: var(--blue);
-    background: rgba(96, 165, 250, 0.1);
-    border: 1px solid rgba(96, 165, 250, 0.3);
-  }
-
-  .res-status.past {
-    color: var(--muted);
-    background: rgba(136, 136, 136, 0.1);
-    border: 1px solid rgba(136, 136, 136, 0.2);
-  }
-
   /* Slide indicator dots */
   #slide-dots {
     position: absolute;
@@ -397,11 +303,6 @@
     <div id="notice-title">Welcome to the USMA Library</div>
     <div id="notice-body"></div>
   </div>
-  <div id="reservations-view">
-    <div class="res-heading">Room Reservations</div>
-    <div id="res-summary"></div>
-    <div id="res-list"></div>
-  </div>
 </div>
 
 <!-- FOOTER -->
@@ -467,11 +368,39 @@
   }
 
   /* ── HOURS ── */
+  /* currently_open in the feed reflects when the GitHub Actions workflow
+     last ran, not the live time — always compute open/closed ourselves
+     from the raw hours array, same as the other signage files. */
+  function parseTimeToMinutes(t) {
+    if (!t) return null;
+    var m = t.match(/(\d{1,2})(?::(\d{2}))?\s*([ap]m)/i);
+    if (!m) return null;
+    var hr = parseInt(m[1], 10);
+    var min = parseInt(m[2] || '0', 10);
+    var ampm = m[3].toLowerCase();
+    if (ampm === 'pm' && hr !== 12) hr += 12;
+    if (ampm === 'am' && hr === 12) hr = 0;
+    return hr * 60 + min;
+  }
+
+  function isLocationOpen(loc) {
+    if (!loc.times || loc.times.status === 'closed' ||
+        !loc.times.hours || !loc.times.hours.length) return false;
+    var now = new Date();
+    var nowMinutes = now.getHours() * 60 + now.getMinutes();
+    return loc.times.hours.some(function(r) {
+      var from = parseTimeToMinutes(r.from);
+      var to = parseTimeToMinutes(r.to);
+      if (from === null || to === null) return false;
+      return nowMinutes >= from && nowMinutes < to;
+    });
+  }
+
   function loadHours() {
     loadJSON(BASE + 'hours-today.json', function(data) {
       if (!data.locations || !data.locations.length) return;
       var loc = data.locations[0];
-      var isOpen = loc.times && loc.times.currently_open;
+      var isOpen = isLocationOpen(loc);
       var dot = document.getElementById('hours-dot');
       var time = document.getElementById('hours-time');
       dot.className = 'dot ' + (isOpen ? 'open' : 'closed');
@@ -480,9 +409,8 @@
     });
   }
 
-  /* ── NOTICES + RESERVATIONS SLIDE ROTATION ── */
+  /* ── NOTICE SLIDE ROTATION ── */
   var NOTICE_DWELL = 8000;
-  var RESERVATIONS_DWELL = 20000;
 
   var defaultNotice = {
     icon: 'logo',
@@ -490,11 +418,11 @@
     body: '',
     type: 'welcome'
   };
-  var notices = [defaultNotice]; // seeded so a fast reservations load can't jump ahead of it
-  var reservationsSlide = null; // null when there's nothing booked today
+  var notices = [defaultNotice];
   var slides = [];
   var currentSlide = 0;
   var advanceTimer = null;
+  var rotationActive = false;
 
   function renderNotice(notice) {
     var icon = document.getElementById('notice-icon');
@@ -521,19 +449,8 @@
 
   function renderSlide(slide) {
     var content = document.getElementById('content');
-    var noticeView = document.getElementById('notice-view');
-    var resView = document.getElementById('reservations-view');
-
-    if (slide.kind === 'reservations') {
-      noticeView.style.display = 'none';
-      resView.classList.add('active');
-      content.className = 'type-reservations';
-    } else {
-      resView.classList.remove('active');
-      noticeView.style.display = '';
-      content.className = 'type-' + (slide.notice.type || 'info');
-      renderNotice(slide.notice);
-    }
+    content.className = 'type-' + (slide.notice.type || 'info');
+    renderNotice(slide.notice);
   }
 
   function renderDots() {
@@ -550,18 +467,11 @@
     container.innerHTML = html;
   }
 
-  function currentDwell() {
-    var s = slides[currentSlide];
-    return (s && s.kind === 'reservations') ? RESERVATIONS_DWELL : NOTICE_DWELL;
-  }
-
-  var rotationActive = false;
-
   function scheduleAdvance() {
     if (advanceTimer) clearTimeout(advanceTimer);
     if (slides.length <= 1) { rotationActive = false; return; }
     rotationActive = true;
-    advanceTimer = setTimeout(advanceSlide, currentDwell());
+    advanceTimer = setTimeout(advanceSlide, NOTICE_DWELL);
   }
 
   function advanceSlide() {
@@ -579,26 +489,18 @@
     }, 400);
   }
 
-  /* Rebuild the combined slide list from whichever of notices/reservations
-     has loaded so far, keeping the currently-shown slide's content in sync.
-     Only (re)starts the rotation timer when it isn't already running --
-     notices and reservations refresh independently every 60s, and slide
-     counts can legitimately go 1 -> 2 -> 1 (e.g. reservations load after
-     notices, or the day's bookings run out), so rotation has to be able
-     to start or resume on any rebuild, not just the very first one. */
+  /* Rebuild the slide list from whatever notices have loaded, keeping the
+     currently-shown slide's content in sync. Only (re)starts the rotation
+     timer when it isn't already running -- notices refresh every 60s and
+     the slide count can legitimately change between refreshes. */
   function rebuildSlides() {
-    var newSlides = notices.map(function(n) { return { kind: 'notice', notice: n }; });
-    if (reservationsSlide) newSlides.push(reservationsSlide);
-
-    slides = newSlides;
+    slides = notices.map(function(n) { return { kind: 'notice', notice: n }; });
     if (currentSlide >= slides.length) currentSlide = 0;
 
     if (!rotationActive && slides.length > 1) {
       renderSlide(slides[currentSlide]);
       scheduleAdvance();
-    } else if (slides[currentSlide] && slides[currentSlide].kind !== 'reservations') {
-      // Reservations view refreshes itself independently via loadReservations();
-      // only notice slides need their content re-applied here.
+    } else if (slides[currentSlide]) {
       renderNotice(slides[currentSlide].notice);
     }
     renderDots();
@@ -622,75 +524,14 @@
     });
   }
 
-  /* ── ROOM RESERVATIONS ── */
-  function loadReservations() {
-    loadJSON(BASE + 'room-reservations.json', function(data) {
-      var summary = document.getElementById('res-summary');
-      var list = document.getElementById('res-list');
-      var bookings = data.bookings || [];
-
-      reservationsSlide = bookings.length ? { kind: 'reservations' } : null;
-
-      if (!bookings.length) {
-        summary.innerHTML = '';
-        list.innerHTML = '';
-        rebuildSlides();
-        return;
-      }
-
-      var now = new Date();
-      var activeCount = 0;
-      bookings.forEach(function(b) {
-        var from = new Date(b.from);
-        var to = new Date(b.to);
-        if (now >= from && now < to) activeCount++;
-      });
-
-      var sumHtml = '<strong>' + bookings.length + '</strong> reservation' +
-        (bookings.length !== 1 ? 's' : '') + ' today';
-      if (activeCount > 0) {
-        sumHtml += ' · <strong>' + activeCount + '</strong> in use now';
-      }
-      summary.innerHTML = sumHtml;
-
-      var html = '';
-      bookings.forEach(function(b) {
-        var from = new Date(b.from);
-        var to = new Date(b.to);
-        var statusClass = 'upcoming';
-        var statusLabel = 'UPCOMING';
-        if (now >= from && now < to) {
-          statusClass = 'now';
-          statusLabel = 'IN USE';
-        } else if (now >= to) {
-          statusClass = 'past';
-          statusLabel = 'DONE';
-        }
-
-        html += '<div class="res-item">' +
-          '<div class="res-time">' + (b.fromDisplay || '') + ' – ' + (b.toDisplay || '') + '</div>' +
-          '<div class="res-room">' + (b.room || 'Unknown') +
-            (b.title ? '<span class="res-title">' + b.title + '</span>' : '') +
-          '</div>' +
-          '<span class="res-status ' + statusClass + '">' + statusLabel + '</span>' +
-          '</div>';
-      });
-      list.innerHTML = html;
-
-      rebuildSlides();
-    });
-  }
-
   /* ── INIT ── */
   loadHours();
   loadNotices();
-  loadReservations();
 
   // Refresh data every 60 seconds (silent on failure)
   setInterval(function() {
     loadHours();
     loadNotices();
-    loadReservations();
   }, 60000);
 </script>
 
