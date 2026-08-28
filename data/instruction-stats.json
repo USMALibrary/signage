@@ -1,43 +1,15 @@
 {
-  "updated": "2026-08-27T20:18:48.151163+00:00",
+  "updated": "2026-08-28T04:23:33.991151+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-08-27",
-    "count": 3,
-    "sessions": [
-      {
-        "title": "EV490-Information Literacy Instruction Capstone (Wallen)(Erin)(Capstone Hour)(JH414)",
-        "start": "2026-08-27T09:50:00-04:00",
-        "end": "2026-08-27T11:55:00-04:00",
-        "startDisplay": "9:50 AM",
-        "endDisplay": "11:55 AM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "GE378 ASC Instruction-LTC Stamps",
-        "start": "2026-08-27T10:35:00-04:00",
-        "end": "2026-08-27T11:50:00-04:00",
-        "startDisplay": "10:35 AM",
-        "endDisplay": "11:50 AM",
-        "location": "BHN 422 - Table 1",
-        "status": "upcoming"
-      },
-      {
-        "title": "GE378 ASC Instruction-LTC Stamps",
-        "start": "2026-08-27T12:45:00-04:00",
-        "end": "2026-08-27T14:00:00-04:00",
-        "startDisplay": "12:45 PM",
-        "endDisplay": "2:00 PM",
-        "location": "BHN 422 - Table 1",
-        "status": "upcoming"
-      }
-    ],
+    "date": "2026-08-28",
+    "count": 0,
+    "sessions": [],
     "next": {
-      "title": "EV490-Information Literacy Instruction Capstone (Wallen)(Erin)(Capstone Hour)(JH414)",
-      "time": "9:50 AM",
-      "date": "2026-08-27",
-      "dateDisplay": "Today",
+      "title": "LW310-AI for Research (Wellman)(Erin)(B1)(JH514)",
+      "time": "8:45 AM",
+      "date": "2026-08-31",
+      "dateDisplay": "Mon Aug 31",
       "status": "upcoming"
     }
   },
