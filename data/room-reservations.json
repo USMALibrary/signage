@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-28T11:17:08.233549+00:00",
+  "updated": "2026-08-28T21:09:53.277335+00:00",
   "date": "2026-08-28",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 7,
+  "count": 5,
   "bookings": [
     {
       "room": "JH 423",
@@ -28,17 +28,6 @@
       "status": "Mediated Approved"
     },
     {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-28T10:15:00-04:00",
-      "to": "2026-08-28T11:45:00-04:00",
-      "fromDisplay": "10:15 AM",
-      "toDisplay": "11:45 AM",
-      "title": "Swim & Dive Recruits",
-      "nickname": "Swim & Dive Recruits",
-      "status": "Mediated Approved"
-    },
-    {
       "room": "JH 414",
       "category": "Collaborative Rooms",
       "from": "2026-08-28T13:00:00-04:00",
@@ -50,17 +39,6 @@
       "status": "Mediated Approved"
     },
     {
-      "room": "JH 513",
-      "category": "Collaborative Rooms",
-      "from": "2026-08-28T13:00:00-04:00",
-      "to": "2026-08-28T13:45:00-04:00",
-      "fromDisplay": "1:00 PM",
-      "toDisplay": "1:45 PM",
-      "title": "EO Training",
-      "nickname": "EO Training",
-      "status": "Mediated Approved"
-    },
-    {
       "room": "JH 514 (Class of 1985)",
       "category": "Collaborative Rooms",
       "from": "2026-08-28T13:00:00-04:00",
@@ -69,7 +47,7 @@
       "toDisplay": "2:00 PM",
       "title": "EO Training",
       "nickname": "EO Training",
-      "status": "Mediated Tentative"
+      "status": "Mediated Approved"
     },
     {
       "room": "JH 514 (Class of 1985)",
