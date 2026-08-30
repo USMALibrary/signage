@@ -1,8 +1,20 @@
 {
-  "updated": "2026-08-29T23:13:29.647870+00:00",
-  "date": "2026-08-29",
+  "updated": "2026-08-30T01:18:34.103840+00:00",
+  "date": "2026-08-30",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 0,
-  "bookings": []
+  "count": 1,
+  "bookings": [
+    {
+      "room": "JH 613 Haig Room Only",
+      "category": "Sixth Floor & Haig Room",
+      "from": "2026-08-30T14:00:00-04:00",
+      "to": "2026-08-30T19:00:00-04:00",
+      "fromDisplay": "2:00 PM",
+      "toDisplay": "7:00 PM",
+      "title": "Piano Mentorship Program",
+      "nickname": "Piano Mentorship Program",
+      "status": "Mediated Approved"
+    }
+  ]
 }
