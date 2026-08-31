@@ -1,25 +1,71 @@
 {
-  "updated": "2026-08-29T03:11:55.628342+00:00",
+  "updated": "2026-08-31T05:22:15.344738+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-08-29",
-    "count": 0,
-    "sessions": [],
+    "date": "2026-08-31",
+    "count": 5,
+    "sessions": [
+      {
+        "title": "LW310-AI for Research (Wellman)(Erin)(B1)(JH514)",
+        "start": "2026-08-31T08:45:00-04:00",
+        "end": "2026-08-31T09:40:00-04:00",
+        "startDisplay": "8:45 AM",
+        "endDisplay": "9:40 AM",
+        "location": "",
+        "status": "upcoming"
+      },
+      {
+        "title": "HI108W Information Literacy Instruction (Costa)(Susan and Celeste)(H1)(JH414)",
+        "start": "2026-08-31T09:05:00-04:00",
+        "end": "2026-08-31T10:20:00-04:00",
+        "startDisplay": "9:05 AM",
+        "endDisplay": "10:20 AM",
+        "location": "",
+        "status": "upcoming"
+      },
+      {
+        "title": "LW310-AI for Research (Wellman)(Erin)(E1)(JH514)",
+        "start": "2026-08-31T14:10:00-04:00",
+        "end": "2026-08-31T15:05:00-04:00",
+        "startDisplay": "2:10 PM",
+        "endDisplay": "3:05 PM",
+        "location": "",
+        "status": "upcoming"
+      },
+      {
+        "title": "HI108W Information Literacy Instruction (Costa)(Susan and Celeste)(J1)(JH414)",
+        "start": "2026-08-31T14:50:00-04:00",
+        "end": "2026-08-31T15:25:00-04:00",
+        "startDisplay": "2:50 PM",
+        "endDisplay": "3:25 PM",
+        "location": "",
+        "status": "upcoming"
+      },
+      {
+        "title": "LW310-AI for Research (Wellman)(Erin)(F1)(JH514)",
+        "start": "2026-08-31T15:15:00-04:00",
+        "end": "2026-08-31T16:10:00-04:00",
+        "startDisplay": "3:15 PM",
+        "endDisplay": "4:10 PM",
+        "location": "",
+        "status": "upcoming"
+      }
+    ],
     "next": {
       "title": "LW310-AI for Research (Wellman)(Erin)(B1)(JH514)",
       "time": "8:45 AM",
       "date": "2026-08-31",
-      "dateDisplay": "Mon Aug 31",
+      "dateDisplay": "Today",
       "status": "upcoming"
     }
   },
   "thisWeek": {
-    "startDate": "2026-08-24",
-    "count": 18
+    "startDate": "2026-08-31",
+    "count": 21
   },
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 39
+    "count": 44
   }
 }
