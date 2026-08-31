@@ -1,19 +1,118 @@
 {
-  "updated": "2026-08-30T23:35:05.183746+00:00",
-  "date": "2026-08-30",
+  "updated": "2026-08-31T01:33:23.038392+00:00",
+  "date": "2026-08-31",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 1,
+  "count": 10,
   "bookings": [
     {
-      "room": "JH 613 Haig Room Only",
-      "category": "Sixth Floor & Haig Room",
-      "from": "2026-08-30T14:00:00-04:00",
-      "to": "2026-08-30T19:00:00-04:00",
+      "room": "JH 423",
+      "category": "Classrooms",
+      "from": "2026-08-31T07:30:00-04:00",
+      "to": "2026-08-31T08:40:00-04:00",
+      "fromDisplay": "7:30 AM",
+      "toDisplay": "8:40 AM",
+      "title": "",
+      "nickname": "",
+      "status": "Confirmed"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-31T08:30:00-04:00",
+      "to": "2026-08-31T09:55:00-04:00",
+      "fromDisplay": "8:30 AM",
+      "toDisplay": "9:55 AM",
+      "title": "LW310 AI for Research",
+      "nickname": "LW310 AI for Research",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 423",
+      "category": "Classrooms",
+      "from": "2026-08-31T08:45:00-04:00",
+      "to": "2026-08-31T17:45:00-04:00",
+      "fromDisplay": "8:45 AM",
+      "toDisplay": "5:45 PM",
+      "title": "",
+      "nickname": "",
+      "status": "Confirmed"
+    },
+    {
+      "room": "JH 414",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-31T08:50:00-04:00",
+      "to": "2026-08-31T10:35:00-04:00",
+      "fromDisplay": "8:50 AM",
+      "toDisplay": "10:35 AM",
+      "title": "HI108W",
+      "nickname": "HI108W",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 401/402/403",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-31T10:00:00-04:00",
+      "to": "2026-08-31T17:00:00-04:00",
+      "fromDisplay": "10:00 AM",
+      "toDisplay": "5:00 PM",
+      "title": "AV Upgrade",
+      "nickname": "AV Upgrade",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 301 (Class of 1976)",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-31T10:15:00-04:00",
+      "to": "2026-08-31T12:15:00-04:00",
+      "fromDisplay": "10:15 AM",
+      "toDisplay": "12:15 PM",
+      "title": "WS358",
+      "nickname": "WS358",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-31T11:00:00-04:00",
+      "to": "2026-08-31T12:00:00-04:00",
+      "fromDisplay": "11:00 AM",
+      "toDisplay": "12:00 PM",
+      "title": "Center for Faculty Excellence EAC Interview",
+      "nickname": "Center for Faculty Excellence EAC Interview",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-31T13:55:00-04:00",
+      "to": "2026-08-31T16:25:00-04:00",
+      "fromDisplay": "1:55 PM",
+      "toDisplay": "4:25 PM",
+      "title": "LW310 AI for Research",
+      "nickname": "LW310 AI for Research",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 301 (Class of 1976)",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-31T14:00:00-04:00",
+      "to": "2026-08-31T16:00:00-04:00",
       "fromDisplay": "2:00 PM",
-      "toDisplay": "7:00 PM",
-      "title": "Piano Mentorship Program",
-      "nickname": "Piano Mentorship Program",
+      "toDisplay": "4:00 PM",
+      "title": "WS358",
+      "nickname": "WS358",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 414",
+      "category": "Collaborative Rooms",
+      "from": "2026-08-31T14:35:00-04:00",
+      "to": "2026-08-31T15:40:00-04:00",
+      "fromDisplay": "2:35 PM",
+      "toDisplay": "3:40 PM",
+      "title": "HI108W",
+      "nickname": "HI108W",
       "status": "Mediated Approved"
     }
   ]
