@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-01T04:59:15.034582+00:00",
+  "updated": "2026-09-01T14:45:41.662873+00:00",
   "date": "2026-09-01",
   "location": "Jefferson Hall",
   "lid": 7099,
@@ -58,7 +58,7 @@
       "toDisplay": "2:00 PM",
       "title": "AV Upgrade",
       "nickname": "AV Upgrade",
-      "status": "Mediated Tentative"
+      "status": "Mediated Approved"
     },
     {
       "room": "JH 402",
@@ -190,7 +190,7 @@
       "toDisplay": "4:30 PM",
       "title": "HWS108",
       "nickname": "HWS108",
-      "status": "Mediated Tentative"
+      "status": "Mediated Approved"
     },
     {
       "room": "*JH - Haig Room & All 6th Floor Spaces",
