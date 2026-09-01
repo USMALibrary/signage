@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>USMA Library – Generative AI Research Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold:  rgb(200, 170, 100);
+    --black: #0a0a0a;
+    --dark:  #111111;
+    --line:  #2a2a2a;
+    --muted: #8a8a8a;
+  }
+
+  html { width: 1920px; height: 1080px; }
+
+  body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: var(--black);
+    font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif;
+    color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  #header {
+    height: 130px;
+    flex-shrink: 0;
+    background: var(--dark);
+    border-bottom: 4px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 64px;
+  }
+
+  #header-left { display: flex; align-items: center; gap: 26px; }
+
+  #logo { height: 78px; width: auto; filter: brightness(1.1); }
+
+  #header-title .lib-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 34px; font-weight: 600;
+    color: var(--gold); letter-spacing: 2px;
+    text-transform: uppercase; display: block;
+  }
+  #header-title .lib-sub {
+    font-size: 16px; color: var(--muted);
+    letter-spacing: 3px; text-transform: uppercase;
+    font-weight: 300; margin-top: 4px; display: block;
+  }
+
+  #eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px; font-weight: 400;
+    color: #ddd; letter-spacing: 5px;
+    text-transform: uppercase; text-align: right;
+  }
+  #eyebrow span { color: var(--gold); }
+
+  /* ── STAGE ── */
+  #stage {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* right rail: QR + URL, visible on every slide */
+  #rail {
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 470px;
+    background: #0d0d0d;
+    border-left: 3px solid var(--gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 46px;
+    z-index: 3;
+  }
+
+  #rail .rail-kicker {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px; font-weight: 600;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); text-align: center; line-height: 1.3;
+  }
+
+  #rail .qr-plate {
+    width: 340px; height: 340px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  #rail .qr-plate svg { display: block; width: 100%; height: 100%; }
+
+  #rail .rail-url {
+    font-family: 'Oswald', sans-serif;
+    font-size: 27px; font-weight: 400;
+    letter-spacing: 1px; color: #fff;
+    text-align: center; word-break: break-word; line-height: 1.35;
+  }
+  #rail .rail-url b { color: var(--gold); font-weight: 600; }
+
+  /* ── SLIDES ── */
+  .slide {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    right: 470px;                 /* clear the rail */
+    padding: 78px 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    pointer-events: none;
+  }
+  .slide.is-active { opacity: 1; }
+
+  .kicker {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px; font-weight: 600;
+    letter-spacing: 7px; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+
+  .headline {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 104px;
+    line-height: 1.05;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  .headline .hl-gold { color: var(--gold); }
+
+  .subline {
+    font-size: 40px;
+    font-weight: 300;
+    color: #cfcfcf;
+    line-height: 1.4;
+    margin-top: 40px;
+  }
+  .subline b { color: #fff; font-weight: 600; }
+
+  /* tool list (slide 2) */
+  .tool {
+    padding: 22px 0;
+    border-top: 2px solid var(--line);
+  }
+  .tool:last-child { border-bottom: 2px solid var(--line); }
+  .tool .tool-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 54px; font-weight: 600;
+    color: var(--gold); letter-spacing: 1px;
+    line-height: 1;
+  }
+  .tool .tool-desc {
+    font-size: 35px; font-weight: 300;
+    color: #dcdcdc; line-height: 1.32;
+    margin-top: 10px;
+  }
+
+  /* question list (slide 3) */
+  .qlist { display: flex; flex-direction: column; gap: 30px; margin-top: 12px; }
+  .qrow {
+    display: flex; align-items: flex-start; gap: 30px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 58px; font-weight: 400;
+    color: #fff; line-height: 1.12;
+  }
+  .qrow .qnum {
+    color: var(--gold); font-weight: 700;
+    flex-shrink: 0; min-width: 62px;
+  }
+
+  /* format chips (slide 4) */
+  .chips { display: flex; gap: 28px; margin-top: 48px; }
+  .chip {
+    font-family: 'Oswald', sans-serif;
+    font-size: 46px; font-weight: 600;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold);
+    border: 3px solid var(--gold);
+    border-radius: 8px;
+    padding: 18px 44px;
+  }
+
+  /* help block (slide 5) */
+  .help-lines { margin-top: 8px; display: flex; flex-direction: column; gap: 20px; }
+  .help-lines .hl {
+    font-size: 38px; font-weight: 300;
+    color: #dcdcdc; line-height: 1.3;
+  }
+  .help-lines .hl b { color: #fff; font-weight: 600; }
+  .course-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 66px; font-weight: 600;
+    color: #fff; line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  .help-head {
+    font-family: 'Oswald', sans-serif;
+    font-size: 34px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--gold);
+    margin: 40px 0 6px;
+  }
+
+  /* ── FOOTER ── */
+  #footer {
+    height: 92px;
+    flex-shrink: 0;
+    background: var(--dark);
+    border-top: 4px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 64px;
+  }
+  #footer-url {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px; font-weight: 400;
+    color: var(--gold); letter-spacing: 2px;
+  }
+  #footer-help {
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px; font-weight: 300;
+    color: #ccc; letter-spacing: 2px; text-align: right;
+  }
+  #footer-help b { color: var(--gold); font-weight: 600; }
+
+  /* progress dots */
+  #dots { display: flex; gap: 14px; }
+  #dots .dot {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: #3a3a3a;
+    transition: background 0.4s ease, transform 0.4s ease;
+  }
+  #dots .dot.on { background: var(--gold); transform: scale(1.25); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header">
+  <div id="header-left">
+    <img id="logo"
+      src="https://libapps.s3.amazonaws.com/accounts/87070/images/USMALibraryLogo.png"
+      alt="USMA Library" onerror="this.style.display='none'">
+    <div id="header-title">
+      <span class="lib-name">Jefferson Hall Library</span>
+      <span class="lib-sub">United States Military Academy</span>
+    </div>
+  </div>
+  <div id="eyebrow">Generative AI <span>Research Guide</span></div>
+</div>
+
+<!-- STAGE -->
+<div id="stage">
+
+  <!-- RIGHT RAIL (persistent QR + URL) -->
+  <div id="rail">
+    <div class="rail-kicker">Scan for<br>the full guide</div>
+    <div class="qr-plate">
+      <!-- QR encodes https://guides.library.westpoint.edu/GenAI  (built by scripts/gen-genai-qr.py) -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" shape-rendering="crispEdges" role="img" aria-label="QR code linking to guides.library.westpoint.edu/GenAI"><rect width="33" height="33" fill="#fff"/><path d="M2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM12 2h1v1h-1zM13 2h1v1h-1zM15 2h1v1h-1zM16 2h1v1h-1zM17 2h1v1h-1zM18 2h1v1h-1zM19 2h1v1h-1zM20 2h1v1h-1zM21 2h1v1h-1zM22 2h1v1h-1zM24 2h1v1h-1zM25 2h1v1h-1zM26 2h1v1h-1zM27 2h1v1h-1zM28 2h1v1h-1zM29 2h1v1h-1zM30 2h1v1h-1zM2 3h1v1h-1zM8 3h1v1h-1zM12 3h1v1h-1zM15 3h1v1h-1zM16 3h1v1h-1zM17 3h1v1h-1zM20 3h1v1h-1zM22 3h1v1h-1zM24 3h1v1h-1zM30 3h1v1h-1zM2 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM12 4h1v1h-1zM16 4h1v1h-1zM19 4h1v1h-1zM20 4h1v1h-1zM24 4h1v1h-1zM26 4h1v1h-1zM27 4h1v1h-1zM28 4h1v1h-1zM30 4h1v1h-1zM2 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM13 5h1v1h-1zM15 5h1v1h-1zM16 5h1v1h-1zM17 5h1v1h-1zM18 5h1v1h-1zM20 5h1v1h-1zM22 5h1v1h-1zM24 5h1v1h-1zM26 5h1v1h-1zM27 5h1v1h-1zM28 5h1v1h-1zM30 5h1v1h-1zM2 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM11 6h1v1h-1zM13 6h1v1h-1zM15 6h1v1h-1zM16 6h1v1h-1zM17 6h1v1h-1zM18 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM27 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM2 7h1v1h-1zM8 7h1v1h-1zM10 7h1v1h-1zM13 7h1v1h-1zM14 7h1v1h-1zM17 7h1v1h-1zM19 7h1v1h-1zM20 7h1v1h-1zM21 7h1v1h-1zM22 7h1v1h-1zM24 7h1v1h-1zM30 7h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM10 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM18 8h1v1h-1zM20 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM25 8h1v1h-1zM26 8h1v1h-1zM27 8h1v1h-1zM28 8h1v1h-1zM29 8h1v1h-1zM30 8h1v1h-1zM14 9h1v1h-1zM16 9h1v1h-1zM17 9h1v1h-1zM19 9h1v1h-1zM20 9h1v1h-1zM21 9h1v1h-1zM2 10h1v1h-1zM5 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM10 10h1v1h-1zM11 10h1v1h-1zM12 10h1v1h-1zM14 10h1v1h-1zM15 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM22 10h1v1h-1zM23 10h1v1h-1zM25 10h1v1h-1zM2 11h1v1h-1zM3 11h1v1h-1zM4 11h1v1h-1zM5 11h1v1h-1zM7 11h1v1h-1zM9 11h1v1h-1zM11 11h1v1h-1zM13 11h1v1h-1zM15 11h1v1h-1zM18 11h1v1h-1zM19 11h1v1h-1zM22 11h1v1h-1zM23 11h1v1h-1zM24 11h1v1h-1zM27 11h1v1h-1zM30 11h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM5 12h1v1h-1zM8 12h1v1h-1zM10 12h1v1h-1zM12 12h1v1h-1zM14 12h1v1h-1zM15 12h1v1h-1zM18 12h1v1h-1zM21 12h1v1h-1zM23 12h1v1h-1zM26 12h1v1h-1zM27 12h1v1h-1zM28 12h1v1h-1zM29 12h1v1h-1zM2 13h1v1h-1zM7 13h1v1h-1zM12 13h1v1h-1zM13 13h1v1h-1zM14 13h1v1h-1zM15 13h1v1h-1zM17 13h1v1h-1zM18 13h1v1h-1zM20 13h1v1h-1zM21 13h1v1h-1zM22 13h1v1h-1zM25 13h1v1h-1zM28 13h1v1h-1zM29 13h1v1h-1zM7 14h1v1h-1zM8 14h1v1h-1zM12 14h1v1h-1zM14 14h1v1h-1zM15 14h1v1h-1zM18 14h1v1h-1zM19 14h1v1h-1zM22 14h1v1h-1zM23 14h1v1h-1zM24 14h1v1h-1zM27 14h1v1h-1zM29 14h1v1h-1zM30 14h1v1h-1zM2 15h1v1h-1zM4 15h1v1h-1zM6 15h1v1h-1zM7 15h1v1h-1zM13 15h1v1h-1zM15 15h1v1h-1zM19 15h1v1h-1zM20 15h1v1h-1zM21 15h1v1h-1zM22 15h1v1h-1zM2 16h1v1h-1zM4 16h1v1h-1zM5 16h1v1h-1zM7 16h1v1h-1zM8 16h1v1h-1zM9 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM15 16h1v1h-1zM16 16h1v1h-1zM18 16h1v1h-1zM20 16h1v1h-1zM24 16h1v1h-1zM26 16h1v1h-1zM27 16h1v1h-1zM28 16h1v1h-1zM29 16h1v1h-1zM30 16h1v1h-1zM9 17h1v1h-1zM11 17h1v1h-1zM14 17h1v1h-1zM15 17h1v1h-1zM18 17h1v1h-1zM19 17h1v1h-1zM20 17h1v1h-1zM24 17h1v1h-1zM25 17h1v1h-1zM26 17h1v1h-1zM27 17h1v1h-1zM29 17h1v1h-1zM2 18h1v1h-1zM3 18h1v1h-1zM5 18h1v1h-1zM8 18h1v1h-1zM9 18h1v1h-1zM10 18h1v1h-1zM14 18h1v1h-1zM15 18h1v1h-1zM17 18h1v1h-1zM19 18h1v1h-1zM21 18h1v1h-1zM29 18h1v1h-1zM3 19h1v1h-1zM5 19h1v1h-1zM6 19h1v1h-1zM7 19h1v1h-1zM10 19h1v1h-1zM11 19h1v1h-1zM13 19h1v1h-1zM15 19h1v1h-1zM16 19h1v1h-1zM20 19h1v1h-1zM23 19h1v1h-1zM24 19h1v1h-1zM25 19h1v1h-1zM27 19h1v1h-1zM30 19h1v1h-1zM2 20h1v1h-1zM4 20h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM10 20h1v1h-1zM11 20h1v1h-1zM12 20h1v1h-1zM16 20h1v1h-1zM18 20h1v1h-1zM22 20h1v1h-1zM23 20h1v1h-1zM25 20h1v1h-1zM26 20h1v1h-1zM29 20h1v1h-1zM30 20h1v1h-1zM4 21h1v1h-1zM11 21h1v1h-1zM14 21h1v1h-1zM16 21h1v1h-1zM17 21h1v1h-1zM19 21h1v1h-1zM21 21h1v1h-1zM23 21h1v1h-1zM29 21h1v1h-1zM30 21h1v1h-1zM2 22h1v1h-1zM4 22h1v1h-1zM7 22h1v1h-1zM8 22h1v1h-1zM9 22h1v1h-1zM10 22h1v1h-1zM13 22h1v1h-1zM14 22h1v1h-1zM16 22h1v1h-1zM22 22h1v1h-1zM23 22h1v1h-1zM24 22h1v1h-1zM25 22h1v1h-1zM26 22h1v1h-1zM28 22h1v1h-1zM10 23h1v1h-1zM18 23h1v1h-1zM19 23h1v1h-1zM20 23h1v1h-1zM21 23h1v1h-1zM22 23h1v1h-1zM26 23h1v1h-1zM28 23h1v1h-1zM29 23h1v1h-1zM30 23h1v1h-1zM2 24h1v1h-1zM3 24h1v1h-1zM4 24h1v1h-1zM5 24h1v1h-1zM6 24h1v1h-1zM7 24h1v1h-1zM8 24h1v1h-1zM12 24h1v1h-1zM13 24h1v1h-1zM15 24h1v1h-1zM16 24h1v1h-1zM20 24h1v1h-1zM22 24h1v1h-1zM24 24h1v1h-1zM26 24h1v1h-1zM29 24h1v1h-1zM2 25h1v1h-1zM8 25h1v1h-1zM10 25h1v1h-1zM15 25h1v1h-1zM18 25h1v1h-1zM22 25h1v1h-1zM26 25h1v1h-1zM27 25h1v1h-1zM28 25h1v1h-1zM29 25h1v1h-1zM30 25h1v1h-1zM2 26h1v1h-1zM4 26h1v1h-1zM5 26h1v1h-1zM6 26h1v1h-1zM8 26h1v1h-1zM12 26h1v1h-1zM16 26h1v1h-1zM17 26h1v1h-1zM18 26h1v1h-1zM19 26h1v1h-1zM22 26h1v1h-1zM23 26h1v1h-1zM24 26h1v1h-1zM25 26h1v1h-1zM26 26h1v1h-1zM2 27h1v1h-1zM4 27h1v1h-1zM5 27h1v1h-1zM6 27h1v1h-1zM8 27h1v1h-1zM10 27h1v1h-1zM12 27h1v1h-1zM13 27h1v1h-1zM14 27h1v1h-1zM15 27h1v1h-1zM21 27h1v1h-1zM24 27h1v1h-1zM26 27h1v1h-1zM27 27h1v1h-1zM28 27h1v1h-1zM29 27h1v1h-1zM2 28h1v1h-1zM4 28h1v1h-1zM5 28h1v1h-1zM6 28h1v1h-1zM8 28h1v1h-1zM11 28h1v1h-1zM13 28h1v1h-1zM15 28h1v1h-1zM22 28h1v1h-1zM26 28h1v1h-1zM27 28h1v1h-1zM28 28h1v1h-1zM30 28h1v1h-1zM2 29h1v1h-1zM8 29h1v1h-1zM15 29h1v1h-1zM17 29h1v1h-1zM19 29h1v1h-1zM20 29h1v1h-1zM21 29h1v1h-1zM22 29h1v1h-1zM24 29h1v1h-1zM26 29h1v1h-1zM29 29h1v1h-1zM2 30h1v1h-1zM3 30h1v1h-1zM4 30h1v1h-1zM5 30h1v1h-1zM6 30h1v1h-1zM7 30h1v1h-1zM8 30h1v1h-1zM10 30h1v1h-1zM11 30h1v1h-1zM13 30h1v1h-1zM14 30h1v1h-1zM15 30h1v1h-1zM17 30h1v1h-1zM19 30h1v1h-1zM22 30h1v1h-1zM25 30h1v1h-1zM26 30h1v1h-1zM27 30h1v1h-1zM29 30h1v1h-1z" fill="#000"/></svg>
+    </div>
+    <div class="rail-url">guides.library.westpoint.edu<b>/GenAI</b></div>
+  </div>
+
+  <!-- SLIDE 1: HOOK -->
+  <div class="slide is-active" data-slide="0">
+    <div class="kicker">USMA Library Research Guide</div>
+    <div class="headline">Using AI for a paper?<br><span class="hl-gold">Know the rules first.</span></div>
+    <div class="subline"><b>Generative Artificial Intelligence</b><br>A research guide by Jennifer Chess, USMA Library</div>
+  </div>
+
+  <!-- SLIDE 2: USMA-PROVIDED TOOLS -->
+  <div class="slide" data-slide="1">
+    <div class="kicker">Tools you already have access to</div>
+    <div class="tool">
+      <div class="tool-name">Microsoft Copilot</div>
+      <div class="tool-desc">Chat and image generation. Sign in with your USMA account.</div>
+    </div>
+    <div class="tool">
+      <div class="tool-name">Scite</div>
+      <div class="tool-desc">Citation analysis across 1.2 billion citations. Sign up with your westpoint.edu email.</div>
+    </div>
+    <div class="tool">
+      <div class="tool-name">Keenious</div>
+      <div class="tool-desc">Finds related articles from your own text, not just keywords.</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: FOUR CADET QUESTIONS -->
+  <div class="slide" data-slide="2">
+    <div class="kicker">Before you use GenAI, ask</div>
+    <div class="qlist">
+      <div class="qrow"><span class="qnum">1</span><span>What is GenAI good for?</span></div>
+      <div class="qrow"><span class="qnum">2</span><span>What are GenAI's limitations?</span></div>
+      <div class="qrow"><span class="qnum">3</span><span>When should I be wary of using GenAI?</span></div>
+      <div class="qrow"><span class="qnum">4</span><span>To use or not use...</span></div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: CITING GENAI -->
+  <div class="slide" data-slide="3">
+    <div class="kicker">Citing Generative AI</div>
+    <div class="headline">If you use it,<br><span class="hl-gold">you have to cite it.</span></div>
+    <div class="subline">The guide shows you how, with examples in every style.</div>
+    <div class="chips">
+      <div class="chip">APA</div>
+      <div class="chip">MLA</div>
+      <div class="chip">Chicago</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: TAKE THE COURSE + HELP -->
+  <div class="slide" data-slide="4">
+    <div class="kicker">Take the course</div>
+    <div class="course-title">Generative AI:<br>Responsible Use at West Point</div>
+    <div class="subline">A cadet version is available now.</div>
+    <div class="help-head">Need help?</div>
+    <div class="help-lines">
+      <div class="hl">Chat with a librarian or book an appointment.</div>
+      <div class="hl"><b>Help Kiosk, 2nd Floor</b> &nbsp;·&nbsp; Library Help Desk x8325</div>
+      <div class="hl">Custom workshops: instruction@usmalibrary.org</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div id="footer">
+  <div id="footer-url">guides.library.westpoint.edu/GenAI</div>
+  <div id="dots"></div>
+  <div id="footer-help">Help Kiosk &nbsp;·&nbsp; <b>2nd Floor</b></div>
+</div>
+
+<script>
+  /* ── SLIDESHOW: crossfade, ~10s per slide, loops forever ── */
+  (function() {
+    var slides = document.querySelectorAll('.slide');
+    var dotWrap = document.getElementById('dots');
+    var idx = 0;
+
+    for (var i = 0; i < slides.length; i++) {
+      var d = document.createElement('div');
+      d.className = 'dot' + (i === 0 ? ' on' : '');
+      dotWrap.appendChild(d);
+    }
+    var dots = dotWrap.querySelectorAll('.dot');
+
+    function show(n) {
+      slides[idx].classList.remove('is-active');
+      dots[idx].classList.remove('on');
+      idx = (n + slides.length) % slides.length;
+      slides[idx].classList.add('is-active');
+      dots[idx].classList.add('on');
+    }
+
+    setInterval(function() { show(idx + 1); }, 10000);
+  })();
+
+  /* ── AUTO-SCALE TO FIT BROWSER WINDOW ── */
+  (function() {
+    var W = 1920, H = 1080;
+    function rescale() {
+      var sx = window.innerWidth / W;
+      var sy = window.innerHeight / H;
+      var s = Math.min(sx, sy);
+      document.body.style.transformOrigin = '0 0';
+      document.body.style.transform = 'scale(' + s + ')';
+    }
+    rescale();
+    window.addEventListener('resize', rescale);
+  })();
+</script>
+</body>
+</html>
