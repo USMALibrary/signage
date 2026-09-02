@@ -27,9 +27,12 @@ architecture and the data pipeline.
 | `portrait-single.html` | 1080x1920 | Single-panel portrait display |
 | `genai-guide.html` | 1920x1080 | Promotes the Generative AI research guide to cadets; 5-slide auto-rotating crossfade with a QR to `guides.library.westpoint.edu/GenAI` |
 | `genai-guide-portrait.html` | 1080x1920 | Portrait variant of `genai-guide.html` |
+| `genai-guide-zone.html` | zone | GenAI guide slides for a Rise Vision content zone: no header/footer, transparent background, 1200x880 canvas auto-scaled to the zone |
+| `hi302-overlord-zone.html` | zone | HI 302 MilArt paper: promotes the Operation OVERLORD research guide; 5-slide crossfade with a QR to `guides.library.westpoint.edu/OperationOVERLORD` |
 
 ## Build scripts
 
 | Script | Output | Notes |
 |---|---|---|
+| `scripts/gen-guide-qr.py` | `<name>-qr.svg` | Generic QR generator for any LibGuide page: `python3 scripts/gen-guide-qr.py <url> <out.svg>`. Omits `xmlns` so the SVG passes Rise Vision's HTML Embed HTTPS check. |
 | `scripts/gen-genai-qr.py` | `genai-guide-qr.svg` | Regenerates the inline QR used by the `genai-guide*` pages. Requires `segno` (`pip install --user segno`). Re-run and paste the SVG into both pages if the guide URL changes. |
