@@ -29,6 +29,9 @@
     overflow: hidden;
     background: transparent;
   }
+  /* Opened directly in a browser tab (not inside a Rise Vision zone iframe):
+     paint the sign's dark background so the white text is readable. */
+  html.standalone, html.standalone body { background: #0a0a0a; }
 
   body {
     font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif;
@@ -186,6 +189,7 @@
 </style>
 </head>
 <body>
+<script>if (window.self === window.top) document.documentElement.classList.add('standalone');</script>
 <div id="canvas">
 
   <!-- PERSISTENT QR -->
