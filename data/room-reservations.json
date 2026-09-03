@@ -1,9 +1,9 @@
 {
-  "updated": "2026-09-03T04:16:31.919509+00:00",
+  "updated": "2026-09-03T14:25:16.606066+00:00",
   "date": "2026-09-03",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 17,
+  "count": 16,
   "bookings": [
     {
       "room": "JH 514 (Class of 1985)",
@@ -179,17 +179,6 @@
       "toDisplay": "2:45 PM",
       "title": "HI498 Meeting",
       "nickname": "HI498 Meeting",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-09-03T13:00:00-04:00",
-      "to": "2026-09-03T14:00:00-04:00",
-      "fromDisplay": "1:00 PM",
-      "toDisplay": "2:00 PM",
-      "title": "Library Staff Meeting",
-      "nickname": "Library Staff Meeting",
       "status": "Mediated Approved"
     }
   ]
