@@ -1,115 +1,15 @@
 {
-  "updated": "2026-09-03T23:13:11.606871+00:00",
+  "updated": "2026-09-04T01:03:27.713236+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-09-03",
-    "count": 11,
-    "sessions": [
-      {
-        "title": "GE305 ASC Instruction-LTC Radunzel",
-        "start": "2026-09-03T07:40:00-04:00",
-        "end": "2026-09-03T08:55:00-04:00",
-        "startDisplay": "7:40 AM",
-        "endDisplay": "8:55 AM",
-        "location": "BHN 422 - Table 1",
-        "status": "upcoming"
-      },
-      {
-        "title": "GE305 ASC Instruction-LTC Radunzel (alt space)",
-        "start": "2026-09-03T07:40:00-04:00",
-        "end": "2026-09-03T08:55:00-04:00",
-        "startDisplay": "7:40 AM",
-        "endDisplay": "8:55 AM",
-        "location": "JH 431A",
-        "status": "upcoming"
-      },
-      {
-        "title": "HI302-Information Literacy Instruction (Mendes)(Erin)(G2)(JH514)",
-        "start": "2026-09-03T07:40:00-04:00",
-        "end": "2026-09-03T08:55:00-04:00",
-        "startDisplay": "7:40 AM",
-        "endDisplay": "8:55 AM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "GE305 ASC Instruction-LTC Radunzel",
-        "start": "2026-09-03T09:05:00-04:00",
-        "end": "2026-09-03T10:20:00-04:00",
-        "startDisplay": "9:05 AM",
-        "endDisplay": "10:20 AM",
-        "location": "BHN 422 - Table 1",
-        "status": "upcoming"
-      },
-      {
-        "title": "GE305 ASC Instruction-LTC Radunzel (alt space)",
-        "start": "2026-09-03T09:05:00-04:00",
-        "end": "2026-09-03T10:20:00-04:00",
-        "startDisplay": "9:05 AM",
-        "endDisplay": "10:20 AM",
-        "location": "JH 431A",
-        "status": "upcoming"
-      },
-      {
-        "title": "HI105-Information Literacy Instruction (Ross)(Elaine)(H2)(JH414)",
-        "start": "2026-09-03T09:05:00-04:00",
-        "end": "2026-09-03T10:20:00-04:00",
-        "startDisplay": "9:05 AM",
-        "endDisplay": "10:20 AM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "HI302-Information Literacy Instruction (Mendes)(Erin)(H2)(JH514)",
-        "start": "2026-09-03T09:05:00-04:00",
-        "end": "2026-09-03T10:20:00-04:00",
-        "startDisplay": "9:05 AM",
-        "endDisplay": "10:20 AM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "SE402 Information Literacy Instruction(Daffinee)(Lori and Jenn)(H2)(Research Lab)",
-        "start": "2026-09-03T09:50:00-04:00",
-        "end": "2026-09-03T10:20:00-04:00",
-        "startDisplay": "9:50 AM",
-        "endDisplay": "10:20 AM",
-        "location": "Jefferson Hall",
-        "status": "upcoming"
-      },
-      {
-        "title": "HI105-Information Literacy Instruction (Ross)(Elaine)(I2)(JH414)",
-        "start": "2026-09-03T10:35:00-04:00",
-        "end": "2026-09-03T11:50:00-04:00",
-        "startDisplay": "10:35 AM",
-        "endDisplay": "11:50 AM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "HI302X-Information Literacy Instruction (Mendes)(Erin)(I2)(JH514)",
-        "start": "2026-09-03T10:35:00-04:00",
-        "end": "2026-09-03T11:50:00-04:00",
-        "startDisplay": "10:35 AM",
-        "endDisplay": "11:50 AM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "SE402 Information Literacy Instruction(Daffinee)(Lori and Jenn)(I2)(Research Lab)",
-        "start": "2026-09-03T10:35:00-04:00",
-        "end": "2026-09-03T11:50:00-04:00",
-        "startDisplay": "10:35 AM",
-        "endDisplay": "11:50 AM",
-        "location": "Jefferson Hall",
-        "status": "upcoming"
-      }
-    ],
+    "date": "2026-09-04",
+    "count": 0,
+    "sessions": [],
     "next": {
-      "title": "GE305 ASC Instruction-LTC Radunzel",
-      "time": "7:40 AM",
-      "date": "2026-09-03",
-      "dateDisplay": "Today",
+      "title": "EN101 - Information Literacy Instruction (Cina)(Lori)(H1) JH514",
+      "time": "9:05 AM",
+      "date": "2026-09-08",
+      "dateDisplay": "Tue Sep 8",
       "status": "upcoming"
     }
   },
