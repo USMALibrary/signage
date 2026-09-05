@@ -1,31 +1,8 @@
 {
-  "updated": "2026-09-04T23:25:28.078099+00:00",
-  "date": "2026-09-04",
+  "updated": "2026-09-05T01:20:38.282002+00:00",
+  "date": "2026-09-05",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 2,
-  "bookings": [
-    {
-      "room": "JH 403",
-      "category": "Collaborative Rooms",
-      "from": "2026-09-04T07:00:00-04:00",
-      "to": "2026-09-04T16:30:00-04:00",
-      "fromDisplay": "7:00 AM",
-      "toDisplay": "4:30 PM",
-      "title": "Med School Interview",
-      "nickname": "Med School Interview",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 401 (Class of 1994)",
-      "category": "Collaborative Rooms",
-      "from": "2026-09-04T13:00:00-04:00",
-      "to": "2026-09-04T15:00:00-04:00",
-      "fromDisplay": "1:00 PM",
-      "toDisplay": "3:00 PM",
-      "title": "PL100 Study Review_Faculty Led",
-      "nickname": "PL100 Study Review_Faculty Led",
-      "status": "Mediated Approved"
-    }
-  ]
+  "count": 0,
+  "bookings": []
 }
