@@ -1,19 +1,19 @@
 {
-  "updated": "2026-09-06T22:26:26.234114+00:00",
-  "date": "2026-09-06",
+  "updated": "2026-09-07T00:17:52.665715+00:00",
+  "date": "2026-09-07",
   "location": "Jefferson Hall",
   "lid": 7099,
   "count": 1,
   "bookings": [
     {
-      "room": "JH 613 Haig Room Only",
-      "category": "Sixth Floor & Haig Room",
-      "from": "2026-09-06T14:00:00-04:00",
-      "to": "2026-09-06T19:00:00-04:00",
-      "fromDisplay": "2:00 PM",
-      "toDisplay": "7:00 PM",
-      "title": "Piano Mentorship Program",
-      "nickname": "Piano Mentorship Program",
+      "room": "JH 301 (Class of 1976)",
+      "category": "Collaborative Rooms",
+      "from": "2026-09-07T15:30:00-04:00",
+      "to": "2026-09-07T16:30:00-04:00",
+      "fromDisplay": "3:30 PM",
+      "toDisplay": "4:30 PM",
+      "title": "Med School Interview",
+      "nickname": "Med School Interview",
       "status": "Mediated Approved"
     }
   ]
