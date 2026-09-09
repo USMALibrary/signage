@@ -1,33 +1,69 @@
 {
-  "updated": "2026-09-08T23:21:03.279412+00:00",
+  "updated": "2026-09-09T01:27:46.332382+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-09-08",
-    "count": 2,
+    "date": "2026-09-09",
+    "count": 6,
     "sessions": [
       {
-        "title": "EN101 - Information Literacy Instruction (Cina)(Lori)(H1) JH514",
-        "start": "2026-09-08T09:05:00-04:00",
-        "end": "2026-09-08T10:20:00-04:00",
+        "title": "HI302 - ASC Instruction (Mendes)(Doug)(G2)(JH431A)",
+        "start": "2026-09-09T07:40:00-04:00",
+        "end": "2026-09-09T08:55:00-04:00",
+        "startDisplay": "7:40 AM",
+        "endDisplay": "8:55 AM",
+        "location": "BHN 422 - Table 1",
+        "status": "upcoming"
+      },
+      {
+        "title": "EN101 - Information Literacy Instruction (Gerrity)(Lori)(H2)(JH514)",
+        "start": "2026-09-09T09:05:00-04:00",
+        "end": "2026-09-09T10:20:00-04:00",
         "startDisplay": "9:05 AM",
         "endDisplay": "10:20 AM",
         "location": "",
         "status": "upcoming"
       },
       {
-        "title": "EN101 - Information Literacy Instruction (Cina)Jenn)(I1)(JH514)",
-        "start": "2026-09-08T10:35:00-04:00",
-        "end": "2026-09-08T11:50:00-04:00",
+        "title": "HI302 - ASC Instruction (Mendes)(Doug)(H2)(JH431A)",
+        "start": "2026-09-09T09:05:00-04:00",
+        "end": "2026-09-09T10:20:00-04:00",
+        "startDisplay": "9:05 AM",
+        "endDisplay": "10:20 AM",
+        "location": "BHN 422 - Table 1",
+        "status": "upcoming"
+      },
+      {
+        "title": "EN101 - Information Literacy Instruction (Cina/Gerrity)(Jenn and Sam)(I2)(JH514)",
+        "start": "2026-09-09T10:35:00-04:00",
+        "end": "2026-09-09T11:50:00-04:00",
         "startDisplay": "10:35 AM",
         "endDisplay": "11:50 AM",
+        "location": "",
+        "status": "upcoming"
+      },
+      {
+        "title": "HI302 - ASC Instruction (Mendes)(Doug)(I2)(JH431A)",
+        "start": "2026-09-09T10:35:00-04:00",
+        "end": "2026-09-09T11:50:00-04:00",
+        "startDisplay": "10:35 AM",
+        "endDisplay": "11:50 AM",
+        "location": "BHN 422 - Table 1",
+        "status": "upcoming"
+      },
+      {
+        "title": "EN101 - Information Literacy Instruction (Cina/Gerrity)(Erin and Kirsten)(J2)(JH514)",
+        "start": "2026-09-09T12:45:00-04:00",
+        "end": "2026-09-09T14:00:00-04:00",
+        "startDisplay": "12:45 PM",
+        "endDisplay": "2:00 PM",
         "location": "",
         "status": "upcoming"
       }
     ],
     "next": {
-      "title": "EN101 - Information Literacy Instruction (Cina)(Lori)(H1) JH514",
-      "time": "9:05 AM",
-      "date": "2026-09-08",
+      "title": "HI302 - ASC Instruction (Mendes)(Doug)(G2)(JH431A)",
+      "time": "7:40 AM",
+      "date": "2026-09-09",
       "dateDisplay": "Today",
       "status": "upcoming"
     }
@@ -39,6 +75,6 @@
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 60
+    "count": 66
   }
 }
