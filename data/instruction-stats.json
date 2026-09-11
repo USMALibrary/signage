@@ -1,51 +1,60 @@
 {
-  "updated": "2026-09-10T22:39:27.618671+00:00",
+  "updated": "2026-09-11T00:36:01.314054+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-09-10",
-    "count": 4,
+    "date": "2026-09-11",
+    "count": 5,
     "sessions": [
       {
-        "title": "EN101 - Information Literacy Instruction (Bonilla/Candelmo)(Lori and Doug)(G1)(JH514)",
-        "start": "2026-09-10T07:40:00-04:00",
-        "end": "2026-09-10T08:55:00-04:00",
+        "title": "EN101 - Information Literacy Instruction (Bonilla/Candelmo)(Lori and Doug)(G2)(JH514)",
+        "start": "2026-09-11T07:40:00-04:00",
+        "end": "2026-09-11T08:55:00-04:00",
         "startDisplay": "7:40 AM",
         "endDisplay": "8:55 AM",
         "location": "",
         "status": "upcoming"
       },
       {
-        "title": "EN101 - Information Literacy Instruction(Bonilla/Candelmo)(Jenn and Susan)(H1)(JH514)",
-        "start": "2026-09-10T09:05:00-04:00",
-        "end": "2026-09-10T10:20:00-04:00",
+        "title": "EN101 - Information Literacy Instruction (Bonilla/Candelmo)(Erin and Sam)(H2)(JH514)",
+        "start": "2026-09-11T09:05:00-04:00",
+        "end": "2026-09-11T10:20:00-04:00",
         "startDisplay": "9:05 AM",
         "endDisplay": "10:20 AM",
         "location": "",
         "status": "upcoming"
       },
       {
-        "title": "EN101 - Information Literacy Instruction (Walters/Ramirez)(Lisa and Sam)(I1)(JH514)",
-        "start": "2026-09-10T10:35:00-04:00",
-        "end": "2026-09-10T11:50:00-04:00",
-        "startDisplay": "10:35 AM",
-        "endDisplay": "11:50 AM",
+        "title": "EN101 - Information Literacy Instruction (Walters/Ramirez)(Lori and Corey)(J2)(JH514)",
+        "start": "2026-09-11T12:45:00-04:00",
+        "end": "2026-09-11T14:00:00-04:00",
+        "startDisplay": "12:45 PM",
+        "endDisplay": "2:00 PM",
         "location": "",
         "status": "upcoming"
       },
       {
-        "title": "EN101 - Information Literacy Instruction (Walters/Ramirez)(Erin and Celeste)(J1) JH514",
-        "start": "2026-09-10T14:10:00-04:00",
-        "end": "2026-09-10T15:25:00-04:00",
-        "startDisplay": "2:10 PM",
-        "endDisplay": "3:25 PM",
+        "title": "EN101 - Information Literacy Instruction (Walters)(Kirsten)(K2)(JH431A)",
+        "start": "2026-09-11T14:15:00-04:00",
+        "end": "2026-09-11T15:30:00-04:00",
+        "startDisplay": "2:15 PM",
+        "endDisplay": "3:30 PM",
+        "location": "",
+        "status": "upcoming"
+      },
+      {
+        "title": "EN101 - Information Literacy Instruction (Ramirez)(Erin and Corey)(L2)(JH514)",
+        "start": "2026-09-11T14:55:00-04:00",
+        "end": "2026-09-11T16:10:00-04:00",
+        "startDisplay": "2:55 PM",
+        "endDisplay": "4:10 PM",
         "location": "",
         "status": "upcoming"
       }
     ],
     "next": {
-      "title": "EN101 - Information Literacy Instruction (Bonilla/Candelmo)(Lori and Doug)(G1)(JH514)",
+      "title": "EN101 - Information Literacy Instruction (Bonilla/Candelmo)(Lori and Doug)(G2)(JH514)",
       "time": "7:40 AM",
-      "date": "2026-09-10",
+      "date": "2026-09-11",
       "dateDisplay": "Today",
       "status": "upcoming"
     }
@@ -57,6 +66,6 @@
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 70
+    "count": 75
   }
 }
