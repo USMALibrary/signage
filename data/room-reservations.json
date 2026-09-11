@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-11T04:30:45.296371+00:00",
+  "updated": "2026-09-11T14:19:51.414983+00:00",
   "date": "2026-09-11",
   "location": "Jefferson Hall",
   "lid": 7099,
@@ -91,7 +91,7 @@
       "toDisplay": "2:15 PM",
       "title": "Exam proctoring",
       "nickname": "Exam proctoring",
-      "status": "Mediated Tentative"
+      "status": "Mediated Approved"
     },
     {
       "room": "JH 514 (Class of 1985)",
