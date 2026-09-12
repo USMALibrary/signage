@@ -1,61 +1,15 @@
 {
-  "updated": "2026-09-11T22:31:25.892968+00:00",
+  "updated": "2026-09-12T00:34:26.423747+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-09-11",
-    "count": 5,
-    "sessions": [
-      {
-        "title": "EN101 - Information Literacy Instruction (Bonilla/Candelmo)(Lori and Doug)(G2)(JH514)",
-        "start": "2026-09-11T07:40:00-04:00",
-        "end": "2026-09-11T08:55:00-04:00",
-        "startDisplay": "7:40 AM",
-        "endDisplay": "8:55 AM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "EN101 - Information Literacy Instruction (Bonilla/Candelmo)(Erin and Sam)(H2)(JH514)",
-        "start": "2026-09-11T09:05:00-04:00",
-        "end": "2026-09-11T10:20:00-04:00",
-        "startDisplay": "9:05 AM",
-        "endDisplay": "10:20 AM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "EN101 - Information Literacy Instruction (Walters/Ramirez)(Lori and Corey)(J2)(JH514)",
-        "start": "2026-09-11T12:45:00-04:00",
-        "end": "2026-09-11T14:00:00-04:00",
-        "startDisplay": "12:45 PM",
-        "endDisplay": "2:00 PM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "EN101 - Information Literacy Instruction (Walters)(Kirsten)(K2)(JH431A)",
-        "start": "2026-09-11T14:15:00-04:00",
-        "end": "2026-09-11T15:30:00-04:00",
-        "startDisplay": "2:15 PM",
-        "endDisplay": "3:30 PM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "EN101 - Information Literacy Instruction (Ramirez)(Erin and Corey)(L2)(JH514)",
-        "start": "2026-09-11T14:55:00-04:00",
-        "end": "2026-09-11T16:10:00-04:00",
-        "startDisplay": "2:55 PM",
-        "endDisplay": "4:10 PM",
-        "location": "",
-        "status": "upcoming"
-      }
-    ],
+    "date": "2026-09-12",
+    "count": 0,
+    "sessions": [],
     "next": {
-      "title": "EN101 - Information Literacy Instruction (Bonilla/Candelmo)(Lori and Doug)(G2)(JH514)",
+      "title": "EN101 - Information Literacy Instruction (Stark/Roche)(Lori and Sam)(G1)(JH514)",
       "time": "7:40 AM",
-      "date": "2026-09-11",
-      "dateDisplay": "Today",
+      "date": "2026-09-14",
+      "dateDisplay": "Mon Sep 14",
       "status": "upcoming"
     }
   },
