@@ -1,9 +1,9 @@
 {
-  "updated": "2026-09-15T04:47:03.544208+00:00",
+  "updated": "2026-09-15T14:53:50.312374+00:00",
   "date": "2026-09-15",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 15,
+  "count": 16,
   "bookings": [
     {
       "room": "JH 514 (Class of 1985)",
@@ -58,6 +58,17 @@
       "toDisplay": "12:00 PM",
       "title": "In-Class Debate",
       "nickname": "In-Class Debate",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 502 (COL Kerry K. Pierce)",
+      "category": "Collaborative Rooms",
+      "from": "2026-09-15T11:30:00-04:00",
+      "to": "2026-09-15T12:30:00-04:00",
+      "fromDisplay": "11:30 AM",
+      "toDisplay": "12:30 PM",
+      "title": "DELPHI Meeting",
+      "nickname": "DELPHI Meeting",
       "status": "Mediated Approved"
     },
     {
