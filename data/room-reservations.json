@@ -1,9 +1,9 @@
 {
-  "updated": "2026-09-15T14:53:50.312374+00:00",
+  "updated": "2026-09-15T18:31:44.865165+00:00",
   "date": "2026-09-15",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 16,
+  "count": 17,
   "bookings": [
     {
       "room": "JH 514 (Class of 1985)",
@@ -179,6 +179,17 @@
       "toDisplay": "6:00 PM",
       "title": "Med School Interview",
       "nickname": "Med School Interview",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-09-15T19:00:00-04:00",
+      "to": "2026-09-15T20:45:00-04:00",
+      "fromDisplay": "7:00 PM",
+      "toDisplay": "8:45 PM",
+      "title": "SS202 (AP) - WPR Study Session",
+      "nickname": "SS202 (AP) - WPR Study Session",
       "status": "Mediated Approved"
     }
   ]
