@@ -1,6 +1,6 @@
 {
-  "updated": "2026-09-16T07:26:50Z",
-  "pagesLast60Min": 0,
+  "updated": "2026-09-16T12:28:28Z",
+  "pagesLast60Min": 299,
   "printers": [
     {
       "name": "desktop-kh93d12\\HP LaserJet M1536dnf MFP UPD PCL 6",
@@ -82,7 +82,7 @@
     },
     {
       "name": "wppss6print\\WPPRLIBREF01",
-      "status": "OK",
+      "status": "ERROR",
       "detail": null,
       "heldJobsCount": 0
     },
