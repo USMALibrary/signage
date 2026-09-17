@@ -1,51 +1,69 @@
 {
-  "updated": "2026-09-16T23:53:30.154957+00:00",
+  "updated": "2026-09-17T04:44:16.321441+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-09-16",
-    "count": 4,
+    "date": "2026-09-17",
+    "count": 6,
     "sessions": [
       {
-        "title": "EN101 - Information Literacy Instruction (Schmidt/Gregory)(Lori and Sam)(G1) JH514",
-        "start": "2026-09-16T07:40:00-04:00",
-        "end": "2026-09-16T08:55:00-04:00",
+        "title": "HI108W Information Literacy Instruction (Rennekamp)(Doug)(G2)(JH414)",
+        "start": "2026-09-17T07:40:00-04:00",
+        "end": "2026-09-17T08:55:00-04:00",
         "startDisplay": "7:40 AM",
         "endDisplay": "8:55 AM",
         "location": "",
         "status": "upcoming"
       },
       {
-        "title": "EN101 - Information Literacy Instruction (Visscher)(Lisa)(I1) (JH514)",
-        "start": "2026-09-16T10:35:00-04:00",
-        "end": "2026-09-16T11:50:00-04:00",
+        "title": "EN101 - Information Literacy Instruction (Visscher)(Lisa and Corey)(I2) JH514",
+        "start": "2026-09-17T10:35:00-04:00",
+        "end": "2026-09-17T11:50:00-04:00",
         "startDisplay": "10:35 AM",
         "endDisplay": "11:50 AM",
         "location": "",
         "status": "upcoming"
       },
       {
-        "title": "EN101 - Information Literacy Instruction (Schmidt/Visscher)(Erin and Celeste)(J1) JH514",
-        "start": "2026-09-16T14:10:00-04:00",
-        "end": "2026-09-16T15:25:00-04:00",
-        "startDisplay": "2:10 PM",
-        "endDisplay": "3:25 PM",
+        "title": "EN101 - Information Literacy Instruction (Visscher/Schmidt)(Lori and Kirsten)(J2) JH514",
+        "start": "2026-09-17T12:45:00-04:00",
+        "end": "2026-09-17T14:00:00-04:00",
+        "startDisplay": "12:45 PM",
+        "endDisplay": "2:00 PM",
         "location": "",
         "status": "upcoming"
       },
       {
-        "title": "HI108W Information Literacy Instruction (Rennekamp)(Doug)(J1)(JH414)",
-        "start": "2026-09-16T14:10:00-04:00",
-        "end": "2026-09-16T15:25:00-04:00",
-        "startDisplay": "2:10 PM",
-        "endDisplay": "3:25 PM",
+        "title": "HI108W Information Literacy Instruction (Rennekamp)(Doug)(J2)(JH414)",
+        "start": "2026-09-17T12:45:00-04:00",
+        "end": "2026-09-17T14:00:00-04:00",
+        "startDisplay": "12:45 PM",
+        "endDisplay": "2:00 PM",
+        "location": "",
+        "status": "upcoming"
+      },
+      {
+        "title": "HI108W Information Literacy Instruction (Rennekamp)(Doug)(K2)(JH414)",
+        "start": "2026-09-17T14:15:00-04:00",
+        "end": "2026-09-17T15:30:00-04:00",
+        "startDisplay": "2:15 PM",
+        "endDisplay": "3:30 PM",
+        "location": "",
+        "status": "upcoming"
+      },
+      {
+        "title": "EN101 - Information Literacy Instruction (Schmidt)(Erin and Corey)(L2) JH514",
+        "start": "2026-09-17T14:55:00-04:00",
+        "end": "2026-09-17T16:10:00-04:00",
+        "startDisplay": "2:55 PM",
+        "endDisplay": "4:10 PM",
         "location": "",
         "status": "upcoming"
       }
     ],
     "next": {
-      "title": "EN101 - Information Literacy Instruction (Schmidt/Gregory)(Lori and Sam)(G1) JH514",
+      "title": "HI108W Information Literacy Instruction (Rennekamp)(Doug)(G2)(JH414)",
       "time": "7:40 AM",
-      "date": "2026-09-16",
+      "date": "2026-09-17",
       "dateDisplay": "Today",
       "status": "upcoming"
     }
@@ -57,6 +75,6 @@
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 91
+    "count": 97
   }
 }
