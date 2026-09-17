@@ -1,9 +1,9 @@
 {
-  "updated": "2026-09-17T04:46:23.107007+00:00",
+  "updated": "2026-09-17T14:53:08.629981+00:00",
   "date": "2026-09-17",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 15,
+  "count": 14,
   "bookings": [
     {
       "room": "JH 414",
@@ -136,17 +136,6 @@
       "title": "HI498 Meeting",
       "nickname": "HI498 Meeting",
       "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 423",
-      "category": "Classrooms",
-      "from": "2026-09-17T13:00:00-04:00",
-      "to": "2026-09-17T14:00:00-04:00",
-      "fromDisplay": "1:00 PM",
-      "toDisplay": "2:00 PM",
-      "title": "Library all-staff meeting",
-      "nickname": "Library all-staff meeting",
-      "status": "Confirmed"
     },
     {
       "room": "JH 502 (COL Kerry K. Pierce)",
