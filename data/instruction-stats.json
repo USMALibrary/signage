@@ -1,34 +1,15 @@
 {
-  "updated": "2026-09-18T22:30:36.985451+00:00",
+  "updated": "2026-09-19T00:34:04.015084+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-09-18",
-    "count": 2,
-    "sessions": [
-      {
-        "title": "USMAPS English - Information Literacy Instruction (Greene)(Erin)",
-        "start": "2026-09-18T08:55:00-04:00",
-        "end": "2026-09-18T10:00:00-04:00",
-        "startDisplay": "8:55 AM",
-        "endDisplay": "10:00 AM",
-        "location": "Other Location",
-        "status": "upcoming"
-      },
-      {
-        "title": "USMAPS English - Information Literacy Instruction (Greene)(Erin)",
-        "start": "2026-09-18T14:15:00-04:00",
-        "end": "2026-09-18T15:20:00-04:00",
-        "startDisplay": "2:15 PM",
-        "endDisplay": "3:20 PM",
-        "location": "Other Location",
-        "status": "upcoming"
-      }
-    ],
+    "date": "2026-09-19",
+    "count": 0,
+    "sessions": [],
     "next": {
-      "title": "USMAPS English - Information Literacy Instruction (Greene)(Erin)",
-      "time": "8:55 AM",
-      "date": "2026-09-18",
-      "dateDisplay": "Today",
+      "title": "EN101 - Information Literacy Instruction (McLucas/Hodgkins)(Lori and Matt)(G1) JH514",
+      "time": "7:40 AM",
+      "date": "2026-09-21",
+      "dateDisplay": "Mon Sep 21",
       "status": "upcoming"
     }
   },
