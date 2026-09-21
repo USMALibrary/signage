@@ -1,9 +1,9 @@
 {
-  "updated": "2026-09-21T16:24:53.019382+00:00",
+  "updated": "2026-09-21T20:28:50.238752+00:00",
   "date": "2026-09-21",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 9,
+  "count": 8,
   "bookings": [
     {
       "room": "JH 514 (Class of 1985)",
@@ -91,17 +91,6 @@
       "toDisplay": "4:00 PM",
       "title": "Communications Class with Dr. Frank Luntz",
       "nickname": "Communications Class with Dr. Frank Luntz",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 302",
-      "category": "Collaborative Rooms",
-      "from": "2026-09-21T15:00:00-04:00",
-      "to": "2026-09-21T15:45:00-04:00",
-      "fromDisplay": "3:00 PM",
-      "toDisplay": "3:45 PM",
-      "title": "Cadet interview",
-      "nickname": "Cadet interview",
       "status": "Mediated Approved"
     }
   ]
