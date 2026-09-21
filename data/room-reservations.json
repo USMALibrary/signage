@@ -1,9 +1,9 @@
 {
-  "updated": "2026-09-21T04:48:13.521754+00:00",
+  "updated": "2026-09-21T16:24:53.019382+00:00",
   "date": "2026-09-21",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 7,
+  "count": 9,
   "bookings": [
     {
       "room": "JH 514 (Class of 1985)",
@@ -61,6 +61,17 @@
       "status": "Mediated Approved"
     },
     {
+      "room": "JH 303",
+      "category": "Collaborative Rooms",
+      "from": "2026-09-21T12:30:00-04:00",
+      "to": "2026-09-21T14:30:00-04:00",
+      "fromDisplay": "12:30 PM",
+      "toDisplay": "2:30 PM",
+      "title": "MP Al Carns Meeting",
+      "nickname": "MP Al Carns Meeting",
+      "status": "Mediated Approved"
+    },
+    {
       "room": "JH 431A",
       "category": "Classrooms",
       "from": "2026-09-21T13:45:00-04:00",
@@ -80,6 +91,17 @@
       "toDisplay": "4:00 PM",
       "title": "Communications Class with Dr. Frank Luntz",
       "nickname": "Communications Class with Dr. Frank Luntz",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 302",
+      "category": "Collaborative Rooms",
+      "from": "2026-09-21T15:00:00-04:00",
+      "to": "2026-09-21T15:45:00-04:00",
+      "fromDisplay": "3:00 PM",
+      "toDisplay": "3:45 PM",
+      "title": "Cadet interview",
+      "nickname": "Cadet interview",
       "status": "Mediated Approved"
     }
   ]
