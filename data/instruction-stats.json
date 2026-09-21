@@ -1,25 +1,53 @@
 {
-  "updated": "2026-09-19T00:34:04.015084+00:00",
+  "updated": "2026-09-21T04:45:52.649041+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-09-19",
-    "count": 0,
-    "sessions": [],
+    "date": "2026-09-21",
+    "count": 3,
+    "sessions": [
+      {
+        "title": "EN101 - Information Literacy Instruction (McLucas/Hodgkins)(Lori and Matt)(G1) JH514",
+        "start": "2026-09-21T07:40:00-04:00",
+        "end": "2026-09-21T08:55:00-04:00",
+        "startDisplay": "7:40 AM",
+        "endDisplay": "8:55 AM",
+        "location": "",
+        "status": "upcoming"
+      },
+      {
+        "title": "EN101 - Information Literacy Instruction (Hodgkins)(Kirsten and Corey)(H1) JH514",
+        "start": "2026-09-21T09:05:00-04:00",
+        "end": "2026-09-21T10:20:00-04:00",
+        "startDisplay": "9:05 AM",
+        "endDisplay": "10:20 AM",
+        "location": "",
+        "status": "upcoming"
+      },
+      {
+        "title": "EN101 - Information Literacy Instruction (McLucas)(Corey and Kirsten)(J1) JH431A",
+        "start": "2026-09-21T14:10:00-04:00",
+        "end": "2026-09-21T15:25:00-04:00",
+        "startDisplay": "2:10 PM",
+        "endDisplay": "3:25 PM",
+        "location": "",
+        "status": "upcoming"
+      }
+    ],
     "next": {
       "title": "EN101 - Information Literacy Instruction (McLucas/Hodgkins)(Lori and Matt)(G1) JH514",
       "time": "7:40 AM",
       "date": "2026-09-21",
-      "dateDisplay": "Mon Sep 21",
+      "dateDisplay": "Today",
       "status": "upcoming"
     }
   },
   "thisWeek": {
-    "startDate": "2026-09-14",
-    "count": 24
+    "startDate": "2026-09-21",
+    "count": 26
   },
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 99
+    "count": 102
   }
 }
