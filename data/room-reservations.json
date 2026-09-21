@@ -1,19 +1,85 @@
 {
-  "updated": "2026-09-20T23:38:53.778342+00:00",
-  "date": "2026-09-20",
+  "updated": "2026-09-21T01:37:45.145421+00:00",
+  "date": "2026-09-21",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 1,
+  "count": 7,
   "bookings": [
     {
-      "room": "JH 613 Haig Room Only",
-      "category": "Sixth Floor & Haig Room",
-      "from": "2026-09-20T14:00:00-04:00",
-      "to": "2026-09-20T19:00:00-04:00",
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-09-21T07:15:00-04:00",
+      "to": "2026-09-21T09:15:00-04:00",
+      "fromDisplay": "7:15 AM",
+      "toDisplay": "9:15 AM",
+      "title": "EN101 Mclucas/Hodgkins",
+      "nickname": "EN101 Mclucas/Hodgkins",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 301 (Class of 1976)",
+      "category": "Collaborative Rooms",
+      "from": "2026-09-21T07:30:00-04:00",
+      "to": "2026-09-21T10:30:00-04:00",
+      "fromDisplay": "7:30 AM",
+      "toDisplay": "10:30 AM",
+      "title": "WS358",
+      "nickname": "WS358",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 423",
+      "category": "Classrooms",
+      "from": "2026-09-21T07:30:00-04:00",
+      "to": "2026-09-21T08:40:00-04:00",
+      "fromDisplay": "7:30 AM",
+      "toDisplay": "8:40 AM",
+      "title": "",
+      "nickname": "",
+      "status": "Confirmed"
+    },
+    {
+      "room": "JH 414",
+      "category": "Collaborative Rooms",
+      "from": "2026-09-21T09:00:00-04:00",
+      "to": "2026-09-21T12:00:00-04:00",
+      "fromDisplay": "9:00 AM",
+      "toDisplay": "12:00 PM",
+      "title": "SS 395 Class Group Briefing Exercise",
+      "nickname": "SS 395 Class Group Briefing Exercise",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-09-21T09:15:00-04:00",
+      "to": "2026-09-21T10:35:00-04:00",
+      "fromDisplay": "9:15 AM",
+      "toDisplay": "10:35 AM",
+      "title": "EN101 Hodgkins",
+      "nickname": "EN101 Hodgkins",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 431A",
+      "category": "Classrooms",
+      "from": "2026-09-21T13:45:00-04:00",
+      "to": "2026-09-21T15:45:00-04:00",
+      "fromDisplay": "1:45 PM",
+      "toDisplay": "3:45 PM",
+      "title": "",
+      "nickname": "",
+      "status": "Confirmed"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-09-21T14:00:00-04:00",
+      "to": "2026-09-21T16:00:00-04:00",
       "fromDisplay": "2:00 PM",
-      "toDisplay": "7:00 PM",
-      "title": "Piano Mentorship Program",
-      "nickname": "Piano Mentorship Program",
+      "toDisplay": "4:00 PM",
+      "title": "Communications Class with Dr. Frank Luntz",
+      "nickname": "Communications Class with Dr. Frank Luntz",
       "status": "Mediated Approved"
     }
   ]
