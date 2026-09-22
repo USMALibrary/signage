@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-22T04:43:21.822851+00:00",
+  "updated": "2026-09-22T14:41:25.626231+00:00",
   "calendarId": 20048,
   "today": {
     "date": "2026-09-22",
@@ -24,7 +24,7 @@
         "status": "upcoming"
       },
       {
-        "title": "HI302X-Information Literacy Instruction (Gatzemeyer)(TBD)(H2)(JH401)",
+        "title": "HI302X-Information Literacy Instruction (Gatzemeyer)(Doug)(H2)(JH401)",
         "start": "2026-09-22T09:05:00-04:00",
         "end": "2026-09-22T10:20:00-04:00",
         "startDisplay": "9:05 AM",
@@ -69,7 +69,7 @@
         "status": "upcoming"
       },
       {
-        "title": "HI302X-Information Literacy Instruction (Gatzemeyer)(TBD)(J2)(JH401)",
+        "title": "HI302X-Information Literacy Instruction (Gatzemeyer)(Doug)(J2)(JH401)",
         "start": "2026-09-22T12:45:00-04:00",
         "end": "2026-09-22T14:00:00-04:00",
         "startDisplay": "12:45 PM",
