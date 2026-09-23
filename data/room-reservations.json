@@ -1,9 +1,9 @@
 {
-  "updated": "2026-09-23T04:38:41.630160+00:00",
+  "updated": "2026-09-23T14:54:58.747973+00:00",
   "date": "2026-09-23",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 15,
+  "count": 14,
   "bookings": [
     {
       "room": "*JH - Haig Room & All 6th Floor Spaces",
@@ -80,17 +80,6 @@
       "toDisplay": "1:15 PM",
       "title": "Med School Interview",
       "nickname": "Med School Interview",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 301 (Class of 1976)",
-      "category": "Collaborative Rooms",
-      "from": "2026-09-23T12:00:00-04:00",
-      "to": "2026-09-23T18:00:00-04:00",
-      "fromDisplay": "12:00 PM",
-      "toDisplay": "6:00 PM",
-      "title": "Army Cyber Institute Strategic Planning Session",
-      "nickname": "Army Cyber Institute Strategic Planning Session",
       "status": "Mediated Approved"
     },
     {
