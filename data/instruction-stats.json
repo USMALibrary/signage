@@ -1,51 +1,60 @@
 {
-  "updated": "2026-09-23T22:12:48.131233+00:00",
+  "updated": "2026-09-24T00:33:18.621048+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-09-23",
-    "count": 4,
+    "date": "2026-09-24",
+    "count": 5,
     "sessions": [
       {
-        "title": "EN101 - Information Literacy Instruction (Wren/Heck)(Lori and Sam)(G1) JH514",
-        "start": "2026-09-23T07:40:00-04:00",
-        "end": "2026-09-23T08:55:00-04:00",
+        "title": "EN101 - Information Literacy Instruction (Wren/Heck)(Lori and Sam)(G2) JH514",
+        "start": "2026-09-24T07:40:00-04:00",
+        "end": "2026-09-24T08:55:00-04:00",
         "startDisplay": "7:40 AM",
         "endDisplay": "8:55 AM",
         "location": "",
         "status": "upcoming"
       },
       {
-        "title": "HI105 - ASC Instruction-(Mohr)(Elaine)(A1)(JH431)",
-        "start": "2026-09-23T09:05:00-04:00",
-        "end": "2026-09-23T10:20:00-04:00",
-        "startDisplay": "9:05 AM",
+        "title": "HI105 - ASC Instruction-(Mohr)(Elaine)(A2)(JH431)",
+        "start": "2026-09-24T07:40:00-04:00",
+        "end": "2026-09-24T10:20:00-04:00",
+        "startDisplay": "7:40 AM",
         "endDisplay": "10:20 AM",
         "location": "JH 431A",
         "status": "upcoming"
       },
       {
-        "title": "EN101 - Information Literacy Instruction (Wren/Heck)(Jenn and Kirsten)(J1) JH514",
-        "start": "2026-09-23T14:10:00-04:00",
-        "end": "2026-09-23T15:25:00-04:00",
-        "startDisplay": "2:10 PM",
-        "endDisplay": "3:25 PM",
+        "title": "EN101 - Information Literacy Instruction (Mitchell)(Kirsten and Corey)(H2) JH514",
+        "start": "2026-09-24T09:05:00-04:00",
+        "end": "2026-09-24T10:20:00-04:00",
+        "startDisplay": "9:05 AM",
+        "endDisplay": "10:20 AM",
         "location": "",
         "status": "upcoming"
       },
       {
-        "title": "HI302-Information Literacy Instruction (Steinberg)(Doug)(J1)(JH414)",
-        "start": "2026-09-23T14:10:00-04:00",
-        "end": "2026-09-23T15:25:00-04:00",
-        "startDisplay": "2:10 PM",
-        "endDisplay": "3:25 PM",
+        "title": "EN101 - Information Literacy Instruction (Wren/Mitchell)(Erin and Corey)(J2) JH514",
+        "start": "2026-09-24T12:45:00-04:00",
+        "end": "2026-09-24T14:00:00-04:00",
+        "startDisplay": "12:45 PM",
+        "endDisplay": "2:00 PM",
+        "location": "",
+        "status": "upcoming"
+      },
+      {
+        "title": "EN101 - Information Literacy Instruction (Heck)(Kirsten and Corey)(L2) JH514",
+        "start": "2026-09-24T14:55:00-04:00",
+        "end": "2026-09-24T16:10:00-04:00",
+        "startDisplay": "2:55 PM",
+        "endDisplay": "4:10 PM",
         "location": "",
         "status": "upcoming"
       }
     ],
     "next": {
-      "title": "EN101 - Information Literacy Instruction (Wren/Heck)(Lori and Sam)(G1) JH514",
+      "title": "EN101 - Information Literacy Instruction (Wren/Heck)(Lori and Sam)(G2) JH514",
       "time": "7:40 AM",
-      "date": "2026-09-23",
+      "date": "2026-09-24",
       "dateDisplay": "Today",
       "status": "upcoming"
     }
@@ -57,6 +66,6 @@
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 116
+    "count": 121
   }
 }
