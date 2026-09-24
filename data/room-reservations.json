@@ -1,9 +1,9 @@
 {
-  "updated": "2026-09-24T04:39:05.320261+00:00",
+  "updated": "2026-09-24T14:56:06.411771+00:00",
   "date": "2026-09-24",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 15,
+  "count": 14,
   "bookings": [
     {
       "room": "*JH - Haig Room & All 6th Floor Spaces",
@@ -147,17 +147,6 @@
       "title": "History Seminar",
       "nickname": "History Seminar",
       "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 431A",
-      "category": "Classrooms",
-      "from": "2026-09-24T13:00:00-04:00",
-      "to": "2026-09-24T14:00:00-04:00",
-      "fromDisplay": "1:00 PM",
-      "toDisplay": "2:00 PM",
-      "title": "",
-      "nickname": "",
-      "status": "Confirmed"
     },
     {
       "room": "JH 514 (Class of 1985)",
