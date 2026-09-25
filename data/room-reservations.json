@@ -1,9 +1,9 @@
 {
-  "updated": "2026-09-25T04:49:01.774896+00:00",
+  "updated": "2026-09-25T15:09:41.305226+00:00",
   "date": "2026-09-25",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 9,
+  "count": 8,
   "bookings": [
     {
       "room": "*JH - Haig Room & All 6th Floor Spaces",
@@ -58,17 +58,6 @@
       "toDisplay": "5:00 PM",
       "title": "Candidate Interview",
       "nickname": "Candidate Interview",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-09-25T09:00:00-04:00",
-      "to": "2026-09-25T11:00:00-04:00",
-      "fromDisplay": "9:00 AM",
-      "toDisplay": "11:00 AM",
-      "title": "CPT Meyer's Promotion Ceremony",
-      "nickname": "CPT Meyer's Promotion Ceremony",
       "status": "Mediated Approved"
     },
     {
