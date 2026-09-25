@@ -1,61 +1,15 @@
 {
-  "updated": "2026-09-24T22:16:07.711329+00:00",
+  "updated": "2026-09-25T00:35:59.257239+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-09-24",
-    "count": 5,
-    "sessions": [
-      {
-        "title": "EN101 - Information Literacy Instruction (Wren/Heck)(Lori and Sam)(G2) JH514",
-        "start": "2026-09-24T07:40:00-04:00",
-        "end": "2026-09-24T08:55:00-04:00",
-        "startDisplay": "7:40 AM",
-        "endDisplay": "8:55 AM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "HI105 - ASC Instruction-(Mohr)(Elaine)(A2)(JH431)",
-        "start": "2026-09-24T07:40:00-04:00",
-        "end": "2026-09-24T10:20:00-04:00",
-        "startDisplay": "7:40 AM",
-        "endDisplay": "10:20 AM",
-        "location": "JH 431A",
-        "status": "upcoming"
-      },
-      {
-        "title": "EN101 - Information Literacy Instruction (Mitchell)(Kirsten and Corey)(H2) JH514",
-        "start": "2026-09-24T09:05:00-04:00",
-        "end": "2026-09-24T10:20:00-04:00",
-        "startDisplay": "9:05 AM",
-        "endDisplay": "10:20 AM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "EN101 - Information Literacy Instruction (Wren/Mitchell)(Erin and Corey)(J2) JH514",
-        "start": "2026-09-24T12:45:00-04:00",
-        "end": "2026-09-24T14:00:00-04:00",
-        "startDisplay": "12:45 PM",
-        "endDisplay": "2:00 PM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "EN101 - Information Literacy Instruction (Heck)(Kirsten and Corey)(L2) JH514",
-        "start": "2026-09-24T14:55:00-04:00",
-        "end": "2026-09-24T16:10:00-04:00",
-        "startDisplay": "2:55 PM",
-        "endDisplay": "4:10 PM",
-        "location": "",
-        "status": "upcoming"
-      }
-    ],
+    "date": "2026-09-25",
+    "count": 0,
+    "sessions": [],
     "next": {
-      "title": "EN101 - Information Literacy Instruction (Wren/Heck)(Lori and Sam)(G2) JH514",
-      "time": "7:40 AM",
-      "date": "2026-09-24",
-      "dateDisplay": "Today",
+      "title": "HI105 - ASC Instruction (Howard)(Susan & Celeste)(J1)(JH431A)",
+      "time": "2:10 PM",
+      "date": "2026-09-28",
+      "dateDisplay": "Mon Sep 28",
       "status": "upcoming"
     }
   },
