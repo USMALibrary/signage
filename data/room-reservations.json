@@ -1,9 +1,9 @@
 {
-  "updated": "2026-09-29T05:37:21.904659+00:00",
+  "updated": "2026-09-29T16:28:03.143283+00:00",
   "date": "2026-09-29",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 18,
+  "count": 19,
   "bookings": [
     {
       "room": "*JH - Haig Room & All 6th Floor Spaces",
@@ -102,7 +102,7 @@
       "toDisplay": "12:00 PM",
       "title": "SE387 Make up WPR",
       "nickname": "SE387 Make up WPR",
-      "status": "Mediated Tentative"
+      "status": "Mediated Approved"
     },
     {
       "room": "JH 403",
@@ -116,6 +116,17 @@
       "status": "Mediated Approved"
     },
     {
+      "room": "JH 303",
+      "category": "Collaborative Rooms",
+      "from": "2026-09-29T11:30:00-04:00",
+      "to": "2026-09-29T16:00:00-04:00",
+      "fromDisplay": "11:30 AM",
+      "toDisplay": "4:00 PM",
+      "title": "Med School Interview",
+      "nickname": "Med School Interview",
+      "status": "Mediated Approved"
+    },
+    {
       "room": "JH 301 (Class of 1976)",
       "category": "Collaborative Rooms",
       "from": "2026-09-29T12:30:00-04:00",
@@ -124,7 +135,18 @@
       "toDisplay": "3:00 PM",
       "title": "HI498 Guest Lecture",
       "nickname": "HI498 Guest Lecture",
-      "status": "Mediated Tentative"
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 401 (Class of 1994)",
+      "category": "Collaborative Rooms",
+      "from": "2026-09-29T12:45:00-04:00",
+      "to": "2026-09-29T14:00:00-04:00",
+      "fromDisplay": "12:45 PM",
+      "toDisplay": "2:00 PM",
+      "title": "DLP class session/meeting",
+      "nickname": "DLP class session/meeting",
+      "status": "Mediated Approved"
     },
     {
       "room": "JH 503",
@@ -135,17 +157,6 @@
       "toDisplay": "2:45 PM",
       "title": "HWS498",
       "nickname": "HWS498",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 314C",
-      "category": "Library Staff Rooms",
-      "from": "2026-09-29T13:00:00-04:00",
-      "to": "2026-09-29T14:00:00-04:00",
-      "fromDisplay": "1:00 PM",
-      "toDisplay": "2:00 PM",
-      "title": "Leadership Meeting",
-      "nickname": "Leadership Meeting",
       "status": "Mediated Approved"
     },
     {
