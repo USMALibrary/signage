@@ -1,0 +1,52 @@
+name: Vea Visitor Count Feed
+
+on:
+  schedule:
+    # Every 15 minutes, offset by 12 min to stagger from fetch-hours (:00),
+    # instruction (:05) and libcal-spaces (:10)
+    - cron: '12-59/15 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: vea-visitor-count
+  cancel-in-progress: false
+
+jobs:
+  update-visitor-count:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout data branch
+        uses: actions/checkout@v4
+        with:
+          ref: data
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch Vea visitor count
+        env:
+          VEA_CLIENT_ID: ${{ secrets.VEA_CLIENT_ID }}
+          VEA_CLIENT_SECRET: ${{ secrets.VEA_CLIENT_SECRET }}
+        run: python vea_visitor_count.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/visitor-count.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update visitor count $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin data
+            git push origin data || {
+              echo "Push failed, retrying after rebase..."
+              git pull --rebase origin data
+              git push origin data
+            }
+          fi
