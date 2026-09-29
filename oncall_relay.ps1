@@ -1,22 +1,22 @@
 <#
 Relays the on-call status file from OneDrive to the data branch.
 
-The source file is written by the on-call system into OneDrive; this script
-copies it into the repo and pushes, so admin-office.html can read it from
-raw.githubusercontent.com.
+The "Update On-Call Status" Power Automate flow can no longer write to GitHub
+directly (GitHub returns 403 to Microsoft's egress IPs), so the flow writes the
+JSON to OneDrive and this script pushes it from the Windows laptop.
 
 Setup:
   1. Clone the data branch (or reuse the clone the other feeds push from):
        git clone -b data https://github.com/USMALibrary/signage.git C:\signage-data
   2. Make sure this script sits at the clone root.
-  3. Schedule it every 5 minutes, running only when the user is logged on, so
-     the OneDrive folder is actually synced and readable.
+  3. Schedule it every 5 minutes via run-hidden-oncall.vbs, running only when
+     the user is logged on, so the OneDrive folder is synced and readable.
 
-Override -SourcePath if the OneDrive folder is not the default below.
+Override -SourcePath if the flow writes somewhere other than the default below.
 #>
 param(
     [string]$RepoPath = $PSScriptRoot,
-    [string]$SourcePath = "$env:OneDrive\SignageFeeds\on-call.json"
+    [string]$SourcePath = "C:\Users\travis.schaben\OneDrive - West Point\SignageFeeds\on-call.json"
 )
 
 # Validate before touching git, so a missing or malformed source never commits.
