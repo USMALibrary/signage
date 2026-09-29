@@ -1,10 +1,11 @@
 name: Vea Visitor Count Feed
 
+# Manual dispatch only. GitHub delivers roughly 6 of 96 requested runs/day for
+# this repo's crons, which is far too sparse for a live occupancy number that
+# the sign flags STALE after 30 minutes. The scheduled copy of this feed runs
+# from the Windows box that also runs the PaperCut task; this workflow is kept
+# as a manual fallback.
 on:
-  schedule:
-    # Every 15 minutes, offset by 12 min to stagger from fetch-hours (:00),
-    # instruction (:05) and libcal-spaces (:10)
-    - cron: '12-59/15 * * * *'
   workflow_dispatch:
 
 concurrency:
