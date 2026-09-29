@@ -125,16 +125,23 @@ def pick(record, keys, default=None):
 
 
 def summarize(records):
-    """Return (zones, total_ins, total_outs) where zones is a list of (name, ins, outs)."""
+    """Return (zones, total_ins, total_outs, recognized) where zones is (name, ins, outs).
+
+    `recognized` counts records we could actually read a metric off, so a schema
+    change shows up as an error instead of a zeroed-out visitor count on the sign.
+    """
     zones = []
+    recognized = 0
     for rec in records:
         if not isinstance(rec, dict):
             continue
         name = pick(rec, ZONE_NAME_KEYS, "(unnamed)")
-        ins = int(pick(rec, INS_KEYS, 0) or 0)
-        outs = int(pick(rec, OUTS_KEYS, 0) or 0)
-        zones.append((str(name), ins, outs))
-    return zones, sum(z[1] for z in zones), sum(z[2] for z in zones)
+        raw_ins = pick(rec, INS_KEYS)
+        raw_outs = pick(rec, OUTS_KEYS)
+        if raw_ins is not None or raw_outs is not None:
+            recognized += 1
+        zones.append((str(name), int(raw_ins or 0), int(raw_outs or 0)))
+    return zones, sum(z[1] for z in zones), sum(z[2] for z in zones), recognized
 
 
 def main():
@@ -158,11 +165,19 @@ def main():
         print(json.dumps(payload, indent=2)[:8000])
         print("--- end raw response ---")
 
-    zones, total_ins, total_outs = summarize(extract_records(payload))
+    records = extract_records(payload)
+    zones, total_ins, total_outs, recognized = summarize(records)
 
     print(f"Zones returned: {len(zones)}")
     for name, ins, outs in zones:
         print(f"  {name}: ins={ins} outs={outs}")
+
+    if not recognized:
+        sample = sorted(records[0]) if records and isinstance(records[0], dict) else []
+        print(f"Error: no ins/outs metric found on any of {len(records)} record(s).")
+        print(f"Keys on the first record: {sample}")
+        print(f"Expected one of {INS_KEYS} / {OUTS_KEYS} -- the API schema likely changed.")
+        sys.exit(1)
 
     occupancy = max(0, total_ins - total_outs)
     print(f"Totals: ins={total_ins} outs={total_outs} occupancy={occupancy}")
