@@ -1,24 +1,51 @@
 {
-  "updated": "2026-09-28T23:21:51.038863+00:00",
+  "updated": "2026-09-29T02:41:45.772559+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-09-28",
-    "count": 1,
+    "date": "2026-09-29",
+    "count": 4,
     "sessions": [
       {
-        "title": "HI105 - ASC Instruction (Howard)(Susan & Celeste)(J1)(JH431A)",
-        "start": "2026-09-28T14:10:00-04:00",
-        "end": "2026-09-28T15:25:00-04:00",
-        "startDisplay": "2:10 PM",
-        "endDisplay": "3:25 PM",
+        "title": "HI105 - ASC Instruction (Howard)(Celeste)(G2)(JH431A)",
+        "start": "2026-09-29T07:40:00-04:00",
+        "end": "2026-09-29T08:55:00-04:00",
+        "startDisplay": "7:40 AM",
+        "endDisplay": "8:55 AM",
         "location": "JH 431A",
+        "status": "upcoming"
+      },
+      {
+        "title": "SE402 Information Literacy Instruction(Johnson)(Erin)(H2, I2)(Research Lab)",
+        "start": "2026-09-29T09:05:00-04:00",
+        "end": "2026-09-29T11:50:00-04:00",
+        "startDisplay": "9:05 AM",
+        "endDisplay": "11:50 AM",
+        "location": "Jefferson Hall",
+        "status": "upcoming"
+      },
+      {
+        "title": "HI105 - ASC Instruction (Howard)(Celeste)(H2)(JH431A)",
+        "start": "2026-09-29T09:10:00-04:00",
+        "end": "2026-09-29T10:35:00-04:00",
+        "startDisplay": "9:10 AM",
+        "endDisplay": "10:35 AM",
+        "location": "JH 431A",
+        "status": "upcoming"
+      },
+      {
+        "title": "SS202 Block 2 Paper Workshop (Information Literacy)(Doug)(JH514)",
+        "start": "2026-09-29T20:00:00-04:00",
+        "end": "2026-09-29T20:40:00-04:00",
+        "startDisplay": "8:00 PM",
+        "endDisplay": "8:40 PM",
+        "location": "JH 514 (Class of 1985)",
         "status": "upcoming"
       }
     ],
     "next": {
-      "title": "HI105 - ASC Instruction (Howard)(Susan & Celeste)(J1)(JH431A)",
-      "time": "2:10 PM",
-      "date": "2026-09-28",
+      "title": "HI105 - ASC Instruction (Howard)(Celeste)(G2)(JH431A)",
+      "time": "7:40 AM",
+      "date": "2026-09-29",
       "dateDisplay": "Today",
       "status": "upcoming"
     }
@@ -30,6 +57,6 @@
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 122
+    "count": 126
   }
 }
