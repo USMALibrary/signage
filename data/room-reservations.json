@@ -1,9 +1,9 @@
 {
-  "updated": "2026-09-30T05:25:19.170424+00:00",
+  "updated": "2026-09-30T16:22:10.438686+00:00",
   "date": "2026-09-30",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 9,
+  "count": 8,
   "bookings": [
     {
       "room": "JH 431A",
@@ -15,17 +15,6 @@
       "title": "reserved for moving",
       "nickname": "reserved for moving",
       "status": "Confirmed"
-    },
-    {
-      "room": "*JH - Haig Room & All 6th Floor Spaces",
-      "category": "Sixth Floor & Haig Room",
-      "from": "2026-09-30T07:00:00-04:00",
-      "to": "2026-09-30T16:00:00-04:00",
-      "fromDisplay": "7:00 AM",
-      "toDisplay": "4:00 PM",
-      "title": "MWI War Council",
-      "nickname": "MWI War Council",
-      "status": "Mediated Approved"
     },
     {
       "room": "JH 423",
