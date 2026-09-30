@@ -1,51 +1,24 @@
 {
-  "updated": "2026-09-29T20:59:28.228678+00:00",
+  "updated": "2026-09-30T00:18:52.917315+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-09-29",
-    "count": 4,
+    "date": "2026-09-30",
+    "count": 1,
     "sessions": [
       {
-        "title": "HI105 - ASC Instruction (Howard)(Celeste)(G2)(JH431A)",
-        "start": "2026-09-29T07:40:00-04:00",
-        "end": "2026-09-29T08:55:00-04:00",
-        "startDisplay": "7:40 AM",
-        "endDisplay": "8:55 AM",
+        "title": "reserved for moving",
+        "start": "2026-09-30T00:00:00-04:00",
+        "end": "2026-09-30T23:59:59-04:00",
+        "startDisplay": "12:00 AM",
+        "endDisplay": "11:59 PM",
         "location": "JH 431A",
-        "status": "upcoming"
-      },
-      {
-        "title": "SE402 Information Literacy Instruction(Johnson)(Erin)(H2, I2)(Research Lab)",
-        "start": "2026-09-29T09:05:00-04:00",
-        "end": "2026-09-29T11:50:00-04:00",
-        "startDisplay": "9:05 AM",
-        "endDisplay": "11:50 AM",
-        "location": "Jefferson Hall",
-        "status": "upcoming"
-      },
-      {
-        "title": "HI105 - ASC Instruction (Howard)(Celeste)(H2)(JH431A)",
-        "start": "2026-09-29T09:10:00-04:00",
-        "end": "2026-09-29T10:35:00-04:00",
-        "startDisplay": "9:10 AM",
-        "endDisplay": "10:35 AM",
-        "location": "JH 431A",
-        "status": "upcoming"
-      },
-      {
-        "title": "SS202 Block 2 Paper Workshop (Information Literacy)(Doug)(JH514)",
-        "start": "2026-09-29T20:00:00-04:00",
-        "end": "2026-09-29T20:40:00-04:00",
-        "startDisplay": "8:00 PM",
-        "endDisplay": "8:40 PM",
-        "location": "JH 514 (Class of 1985)",
         "status": "upcoming"
       }
     ],
     "next": {
-      "title": "HI105 - ASC Instruction (Howard)(Celeste)(G2)(JH431A)",
-      "time": "7:40 AM",
-      "date": "2026-09-29",
+      "title": "reserved for moving",
+      "time": "12:00 AM",
+      "date": "2026-09-30",
       "dateDisplay": "Today",
       "status": "upcoming"
     }
@@ -57,6 +30,6 @@
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 126
+    "count": 127
   }
 }
