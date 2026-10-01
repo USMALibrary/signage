@@ -1,27 +1,11 @@
 {
-  "updated": "2026-09-30T20:58:04.407125+00:00",
+  "updated": "2026-10-01T00:29:39.783620+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-09-30",
-    "count": 1,
-    "sessions": [
-      {
-        "title": "reserved for moving",
-        "start": "2026-09-30T00:00:00-04:00",
-        "end": "2026-09-30T23:59:59-04:00",
-        "startDisplay": "12:00 AM",
-        "endDisplay": "11:59 PM",
-        "location": "JH 431A",
-        "status": "upcoming"
-      }
-    ],
-    "next": {
-      "title": "reserved for moving",
-      "time": "12:00 AM",
-      "date": "2026-09-30",
-      "dateDisplay": "Today",
-      "status": "upcoming"
-    }
+    "date": "2026-10-01",
+    "count": 0,
+    "sessions": [],
+    "next": null
   },
   "thisWeek": {
     "startDate": "2026-09-28",
