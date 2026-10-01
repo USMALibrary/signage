@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-01T05:43:14.968402+00:00",
+  "updated": "2026-10-01T16:59:49.139184+00:00",
   "date": "2026-10-01",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 10,
+  "count": 11,
   "bookings": [
     {
       "room": "JH 502 (COL Kerry K. Pierce)",
@@ -113,6 +113,17 @@
       "toDisplay": "3:00 PM",
       "title": "DLP Meeting",
       "nickname": "DLP Meeting",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 503",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-01T14:30:00-04:00",
+      "to": "2026-10-01T16:00:00-04:00",
+      "fromDisplay": "2:30 PM",
+      "toDisplay": "4:00 PM",
+      "title": "EN490",
+      "nickname": "EN490",
       "status": "Mediated Approved"
     }
   ]
