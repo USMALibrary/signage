@@ -1,3 +1,6 @@
 data/.alma-debug-response.xml
 data/.alma-eresource-debug-response.xml
 .DS_Store
+logs/
+data/papercut_feed.log
+STALE_ALERT.txt
