@@ -54,45 +54,87 @@ function Write-FeedLog {
 }
 
 
+function Format-GitArgs {
+    param([string[]]$Arguments)
+
+    $parts = foreach ($a in $Arguments) {
+        if ([string]::IsNullOrEmpty($a)) {
+            '""'
+        } elseif ($a -match '[\s"]') {
+            $e = $a -replace '(\\+)(?=")', '$1$1'
+            $e = $e -replace '"', '\"'
+            '"' + $e + '"'
+        } else {
+            $a
+        }
+    }
+    return ($parts -join ' ')
+}
+
+
 function Invoke-Git {
     param(
         [Parameter(Mandatory = $true)][string[]]$Arguments,
         [int]$TimeoutSec = $script:GitTimeoutSec
     )
 
-    $outFile = [System.IO.Path]::GetTempFileName()
-    $errFile = [System.IO.Path]::GetTempFileName()
+    $display = "git $($Arguments -join ' ')"
+
+    # System.Diagnostics.Process rather than Start-Process -PassThru: the
+    # latter leaves ExitCode $null unless the handle is cached, and $null -ne 0
+    # made every successful call look like a failure.
+    $psi = New-Object System.Diagnostics.ProcessStartInfo
+    $psi.FileName               = 'git'
+    $psi.Arguments              = Format-GitArgs -Arguments $Arguments
+    $psi.WorkingDirectory       = $script:FeedRepo
+    $psi.UseShellExecute        = $false
+    $psi.RedirectStandardOutput = $true
+    $psi.RedirectStandardError  = $true
+    $psi.CreateNoWindow         = $true
+
+    $p = New-Object System.Diagnostics.Process
+    $p.StartInfo = $psi
 
     try {
-        $proc = Start-Process -FilePath 'git' -ArgumentList $Arguments `
-                    -WorkingDirectory $script:FeedRepo -NoNewWindow -PassThru `
-                    -RedirectStandardOutput $outFile -RedirectStandardError $errFile
+        [void]$p.Start()
+    } catch {
+        Exit-Feed -Code 1 -Result 'wrapper-bug' -Detail "could not start ${display}: $($_.Exception.Message)"
+    }
 
-        if (-not $proc.WaitForExit($TimeoutSec * 1000)) {
-            try { $proc.Kill() } catch { }
-            try { $proc.WaitForExit() } catch { }
-            return [pscustomobject]@{
-                ExitCode = 124
-                Output   = "git $($Arguments -join ' ') timed out after ${TimeoutSec}s and was killed"
-                TimedOut = $true
-            }
-        }
+    # Drain both pipes asynchronously; a full pipe buffer would otherwise
+    # deadlock against WaitForExit.
+    $outTask = $p.StandardOutput.ReadToEndAsync()
+    $errTask = $p.StandardError.ReadToEndAsync()
 
-        $text = ''
-        foreach ($f in @($outFile, $errFile)) {
-            if (Test-Path -LiteralPath $f) {
-                $c = Get-Content -LiteralPath $f -Raw -ErrorAction SilentlyContinue
-                if ($c) { $text += $c }
-            }
-        }
-
+    if (-not $p.WaitForExit($TimeoutSec * 1000)) {
+        try { $p.Kill() } catch { }
+        try { $p.WaitForExit() } catch { }
         return [pscustomobject]@{
-            ExitCode = $proc.ExitCode
-            Output   = $text.Trim()
-            TimedOut = $false
+            ExitCode = 124
+            Output   = "$display timed out after ${TimeoutSec}s and was killed"
+            TimedOut = $true
         }
-    } finally {
-        Remove-Item -LiteralPath $outFile, $errFile -Force -ErrorAction SilentlyContinue
+    }
+
+    # The parameterless overload flushes the redirected streams.
+    try { $p.WaitForExit() } catch { }
+
+    $out = ''
+    $err = ''
+    try { $out = $outTask.GetAwaiter().GetResult() } catch { }
+    try { $err = $errTask.GetAwaiter().GetResult() } catch { }
+
+    $code = $null
+    try { $code = $p.ExitCode } catch { }
+
+    if ($null -eq $code) {
+        Exit-Feed -Code 1 -Result 'wrapper-bug' -Detail "no exit code available for $display"
+    }
+
+    return [pscustomobject]@{
+        ExitCode = [int]$code
+        Output   = ("$out`n$err").Trim()
+        TimedOut = $false
     }
 }
 
@@ -104,6 +146,8 @@ function Invoke-GitOrFail {
     )
 
     $r = Invoke-Git -Arguments $Arguments -TimeoutSec $TimeoutSec
+    # Only a non-zero integer is a failure; Invoke-Git has already bailed out
+    # loudly if it could not read an exit code at all.
     if ($r.ExitCode -ne 0) {
         Exit-Feed -Code 1 -Result 'error' -Detail "git $($Arguments -join ' ') failed ($($r.ExitCode)): $($r.Output)"
     }
@@ -140,6 +184,15 @@ function Repair-FeedRepoState {
 
     $branch = (Invoke-Git -Arguments @('rev-parse', '--abbrev-ref', 'HEAD')).Output.Trim()
     if ($branch -ne 'data') { $reasons += "on branch '$branch'" }
+
+    # Leftover staged or modified tracked files mean a previous run died between
+    # `git add` and `git commit`. Every data file is regenerated each run, so
+    # throwing the work away is always safe and is what unblocks the next pull.
+    # Untracked files (logs, debug dumps) are deliberately ignored.
+    $status = Invoke-Git -Arguments @('status', '--porcelain', '--untracked-files=no')
+    if ($status.ExitCode -eq 0 -and -not [string]::IsNullOrWhiteSpace($status.Output)) {
+        $reasons += 'dirty index or working tree'
+    }
 
     if ($reasons.Count -eq 0) { return }
 
