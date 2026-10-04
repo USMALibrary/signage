@@ -1,16 +1,11 @@
 {
-  "updated": "2026-10-03T15:01:21.441951+00:00",
-  "asOfMonth": "2026-08",
+  "updated": "2026-10-04T15:36:54.436117+00:00",
+  "asOfMonth": "2026-09",
   "month": {
-    "label": "Aug 2026",
-    "total": 274
+    "label": "Sep 2026",
+    "total": 30
   },
   "monthly": [
-    {
-      "month": "2025-09",
-      "monthDisplay": "Sep 2025",
-      "count": 814
-    },
     {
       "month": "2025-10",
       "monthDisplay": "Oct 2025",
@@ -65,6 +60,11 @@
       "month": "2026-08",
       "monthDisplay": "Aug 2026",
       "count": 274
+    },
+    {
+      "month": "2026-09",
+      "monthDisplay": "Sep 2026",
+      "count": 30
     }
   ]
 }
