@@ -1,19 +1,96 @@
 {
-  "updated": "2026-10-04T21:55:10.069104+00:00",
-  "date": "2026-10-04",
+  "updated": "2026-10-05T00:18:00.587874+00:00",
+  "date": "2026-10-05",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 1,
+  "count": 8,
   "bookings": [
     {
-      "room": "JH 613 Haig Room Only",
+      "room": "JH 423",
+      "category": "Classrooms",
+      "from": "2026-10-05T07:30:00-04:00",
+      "to": "2026-10-05T08:40:00-04:00",
+      "fromDisplay": "7:30 AM",
+      "toDisplay": "8:40 AM",
+      "title": "",
+      "nickname": "",
+      "status": "Confirmed"
+    },
+    {
+      "room": "JH 423",
+      "category": "Classrooms",
+      "from": "2026-10-05T08:45:00-04:00",
+      "to": "2026-10-05T17:45:00-04:00",
+      "fromDisplay": "8:45 AM",
+      "toDisplay": "5:45 PM",
+      "title": "",
+      "nickname": "",
+      "status": "Confirmed"
+    },
+    {
+      "room": "JH 302",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-05T09:30:00-04:00",
+      "to": "2026-10-05T11:00:00-04:00",
+      "fromDisplay": "9:30 AM",
+      "toDisplay": "11:00 AM",
+      "title": "EN101 Essay Conference",
+      "nickname": "EN101 Essay Conference",
+      "status": "Mediated Tentative"
+    },
+    {
+      "room": "JH 513",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-05T10:30:00-04:00",
+      "to": "2026-10-05T12:00:00-04:00",
+      "fromDisplay": "10:30 AM",
+      "toDisplay": "12:00 PM",
+      "title": "Thesis Presentation",
+      "nickname": "Thesis Presentation",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 302",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-05T11:00:00-04:00",
+      "to": "2026-10-05T16:00:00-04:00",
+      "fromDisplay": "11:00 AM",
+      "toDisplay": "4:00 PM",
+      "title": "EN101 Essay Conferences",
+      "nickname": "EN101 Essay Conferences",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "*JH - Haig Room & All 6th Floor Spaces",
       "category": "Sixth Floor & Haig Room",
-      "from": "2026-10-04T14:00:00-04:00",
-      "to": "2026-10-04T19:00:00-04:00",
+      "from": "2026-10-05T12:00:00-04:00",
+      "to": "2026-10-05T14:30:00-04:00",
+      "fromDisplay": "12:00 PM",
+      "toDisplay": "2:30 PM",
+      "title": "Promotion",
+      "nickname": "Promotion",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-05T14:00:00-04:00",
+      "to": "2026-10-05T16:00:00-04:00",
       "fromDisplay": "2:00 PM",
-      "toDisplay": "7:00 PM",
-      "title": "Piano Mentorship Program",
-      "nickname": "Piano Mentorship Program",
+      "toDisplay": "4:00 PM",
+      "title": "Communications Class with Dr. Frank Luntz",
+      "nickname": "Communications Class with Dr. Frank Luntz",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 301 (Class of 1976)",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-05T18:30:00-04:00",
+      "to": "2026-10-05T20:00:00-04:00",
+      "fromDisplay": "6:30 PM",
+      "toDisplay": "8:00 PM",
+      "title": "WPR II Study Hall",
+      "nickname": "WPR II Study Hall",
       "status": "Mediated Approved"
     }
   ]
