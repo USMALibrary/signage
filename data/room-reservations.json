@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-06T06:12:59.615579+00:00",
+  "updated": "2026-10-06T16:41:22.696213+00:00",
   "date": "2026-10-06",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 16,
+  "count": 20,
   "bookings": [
     {
       "room": "JH 302",
@@ -94,17 +94,6 @@
       "status": "Mediated Approved"
     },
     {
-      "room": "JH 613 Haig Room Only",
-      "category": "Sixth Floor & Haig Room",
-      "from": "2026-10-06T10:00:00-04:00",
-      "to": "2026-10-06T13:00:00-04:00",
-      "fromDisplay": "10:00 AM",
-      "toDisplay": "1:00 PM",
-      "title": "Rehearsal for USMA BOV Meeting",
-      "nickname": "Rehearsal for USMA BOV Meeting",
-      "status": "Mediated Approved"
-    },
-    {
       "room": "JH 302",
       "category": "Collaborative Rooms",
       "from": "2026-10-06T11:00:00-04:00",
@@ -113,6 +102,39 @@
       "toDisplay": "12:00 PM",
       "title": "Cadet Thesis Topic Presentation",
       "nickname": "Cadet Thesis Topic Presentation",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 502 (COL Kerry K. Pierce)",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-06T11:30:00-04:00",
+      "to": "2026-10-06T12:30:00-04:00",
+      "fromDisplay": "11:30 AM",
+      "toDisplay": "12:30 PM",
+      "title": "DELPHI Class/Meeting",
+      "nickname": "DELPHI Class/Meeting",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "*JH - Haig Room & All 6th Floor Spaces",
+      "category": "Sixth Floor & Haig Room",
+      "from": "2026-10-06T12:00:00-04:00",
+      "to": "2026-10-06T22:00:00-04:00",
+      "fromDisplay": "12:00 PM",
+      "toDisplay": "10:00 PM",
+      "title": "MWI War Council - JUMP Event",
+      "nickname": "MWI War Council - JUMP Event",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 301 (Class of 1976)",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-06T12:30:00-04:00",
+      "to": "2026-10-06T14:45:00-04:00",
+      "fromDisplay": "12:30 PM",
+      "toDisplay": "2:45 PM",
+      "title": "HI498 Seminar",
+      "nickname": "HI498 Seminar",
       "status": "Mediated Approved"
     },
     {
@@ -138,6 +160,17 @@
       "status": "Mediated Approved"
     },
     {
+      "room": "JH 401 (Class of 1994)",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-06T12:45:00-04:00",
+      "to": "2026-10-06T14:00:00-04:00",
+      "fromDisplay": "12:45 PM",
+      "toDisplay": "2:00 PM",
+      "title": "DELPHI Class/Meeting",
+      "nickname": "DELPHI Class/Meeting",
+      "status": "Mediated Approved"
+    },
+    {
       "room": "JH 402",
       "category": "Collaborative Rooms",
       "from": "2026-10-06T12:45:00-04:00",
@@ -157,6 +190,17 @@
       "toDisplay": "2:00 PM",
       "title": "Leadership Meeting",
       "nickname": "Leadership Meeting",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 502 (COL Kerry K. Pierce)",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-06T13:30:00-04:00",
+      "to": "2026-10-06T14:30:00-04:00",
+      "fromDisplay": "1:30 PM",
+      "toDisplay": "2:30 PM",
+      "title": "DELPHI Make-up test",
+      "nickname": "DELPHI Make-up test",
       "status": "Mediated Approved"
     },
     {
