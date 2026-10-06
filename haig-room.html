@@ -132,12 +132,12 @@
   }
 
   /* ── QR OVERLAY ── */
-  /* Kept inside the ~250px black strip right of the player's content zone,
-     which is drawn on top of this page and hides anything further left. */
+  /* Tucked inside the Rise Vision playlist zone (~x 248-1670, drawn over this
+     page), so the QR only shows when no content is scheduled over the crest. */
   #qr-overlay {
     position: absolute;
     bottom: 40px;
-    right: 28px;
+    right: 290px;
     width: 200px;
     display: flex;
     flex-direction: column;
@@ -241,7 +241,7 @@
        alt="USMA Crest"
        onerror="this.style.display='none'">
 
-  <!-- Small discreet QR — always visible on the default crest view -->
+  <!-- QR sits under the playlist zone: visible only on the default crest view -->
   <div id="qr-overlay">
     <img src="https://usmalibrary.github.io/signage/images/digital-signage-qr.png"
          alt="QR code to request digital signage"
