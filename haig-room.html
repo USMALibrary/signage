@@ -132,10 +132,13 @@
   }
 
   /* ── QR OVERLAY ── */
+  /* Kept inside the ~250px black strip right of the player's content zone,
+     which is drawn on top of this page and hides anything further left. */
   #qr-overlay {
     position: absolute;
     bottom: 40px;
-    right: 40px;
+    right: 28px;
+    width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -245,7 +248,7 @@
          onerror="this.style.display='none'">
     <div class="qr-text">
       Request to display your content
-      <span>library.westpoint.edu/digital-signage</span>
+      <span>library.westpoint.edu<br>/digital-signage</span>
     </div>
   </div>
 </div>
