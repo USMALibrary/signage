@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07T05:48:56.285624+00:00",
+  "updated": "2026-10-07T17:23:16.215745+00:00",
   "date": "2026-10-07",
   "location": "Jefferson Hall",
   "lid": 7099,
@@ -75,22 +75,11 @@
       "room": "JH 301 (Class of 1976)",
       "category": "Collaborative Rooms",
       "from": "2026-10-07T12:45:00-04:00",
-      "to": "2026-10-07T14:45:00-04:00",
+      "to": "2026-10-07T16:40:00-04:00",
       "fromDisplay": "12:45 PM",
-      "toDisplay": "2:45 PM",
+      "toDisplay": "4:40 PM",
       "title": "Midterm Essay",
       "nickname": "Midterm Essay",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-07T12:45:00-04:00",
-      "to": "2026-10-07T14:00:00-04:00",
-      "fromDisplay": "12:45 PM",
-      "toDisplay": "2:00 PM",
-      "title": "Sea to Shining Sea Monthly Meeting",
-      "nickname": "Sea to Shining Sea Monthly Meeting",
       "status": "Mediated Approved"
     },
     {
@@ -113,6 +102,17 @@
       "toDisplay": "3:00 PM",
       "title": "SAME Leaders Sync",
       "nickname": "SAME Leaders Sync",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 303",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-07T13:45:00-04:00",
+      "to": "2026-10-07T17:15:00-04:00",
+      "fromDisplay": "1:45 PM",
+      "toDisplay": "5:15 PM",
+      "title": "PDRs",
+      "nickname": "PDRs",
       "status": "Mediated Approved"
     },
     {
