@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-08T05:54:15.569384+00:00",
+  "updated": "2026-10-08T17:21:16.942838+00:00",
   "date": "2026-10-08",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 9,
+  "count": 10,
   "bookings": [
     {
       "room": "JH 513",
@@ -39,7 +39,7 @@
       "status": "Mediated Approved"
     },
     {
-      "room": "JH 302",
+      "room": "JH 303",
       "category": "Collaborative Rooms",
       "from": "2026-10-08T12:30:00-04:00",
       "to": "2026-10-08T14:45:00-04:00",
@@ -50,14 +50,14 @@
       "status": "Mediated Approved"
     },
     {
-      "room": "JH 303",
+      "room": "JH 502 (COL Kerry K. Pierce)",
       "category": "Collaborative Rooms",
       "from": "2026-10-08T12:30:00-04:00",
-      "to": "2026-10-08T14:45:00-04:00",
+      "to": "2026-10-08T14:30:00-04:00",
       "fromDisplay": "12:30 PM",
-      "toDisplay": "2:45 PM",
-      "title": "HI498 Seminar",
-      "nickname": "HI498 Seminar",
+      "toDisplay": "2:30 PM",
+      "title": "HI498 make-up meeting",
+      "nickname": "HI498 make-up meeting",
       "status": "Mediated Approved"
     },
     {
@@ -102,6 +102,17 @@
       "toDisplay": "4:15 PM",
       "title": "Academic Meeting",
       "nickname": "Academic Meeting",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 302",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-08T15:00:00-04:00",
+      "to": "2026-10-08T17:00:00-04:00",
+      "fromDisplay": "3:00 PM",
+      "toDisplay": "5:00 PM",
+      "title": "Make-Up Exam",
+      "nickname": "Make-Up Exam",
       "status": "Mediated Approved"
     }
   ]
