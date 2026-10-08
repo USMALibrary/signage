@@ -1,18 +1,13 @@
 {
-  "updated": "2026-10-07T17:38:19.367939+00:00",
-  "asOfDate": "2026-10-06",
+  "updated": "2026-10-08T17:40:55.413292+00:00",
+  "asOfDate": "2026-10-07",
   "month": {
     "label": "October 2026",
     "startDate": "2026-10-01",
-    "total": 309,
-    "days": 5
+    "total": 370,
+    "days": 6
   },
   "daily": [
-    {
-      "date": "2026-09-02",
-      "dateDisplay": "Sep 2",
-      "count": 32
-    },
     {
       "date": "2026-09-03",
       "dateDisplay": "Sep 3",
@@ -156,7 +151,12 @@
     {
       "date": "2026-10-06",
       "dateDisplay": "Oct 6",
-      "count": 63
+      "count": 75
+    },
+    {
+      "date": "2026-10-07",
+      "dateDisplay": "Oct 7",
+      "count": 49
     }
   ]
 }
