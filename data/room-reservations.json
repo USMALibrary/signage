@@ -1,75 +1,8 @@
 {
-  "updated": "2026-10-09T21:35:55.631379+00:00",
-  "date": "2026-10-09",
+  "updated": "2026-10-10T01:11:52.338164+00:00",
+  "date": "2026-10-10",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 6,
-  "bookings": [
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-09T07:00:00-04:00",
-      "to": "2026-10-09T09:00:00-04:00",
-      "fromDisplay": "7:00 AM",
-      "toDisplay": "9:00 AM",
-      "title": "PL100 Family Day Class",
-      "nickname": "PL100 Family Day Class",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "*JH - Haig Room & All 6th Floor Spaces",
-      "category": "Sixth Floor & Haig Room",
-      "from": "2026-10-09T08:00:00-04:00",
-      "to": "2026-10-09T17:00:00-04:00",
-      "fromDisplay": "8:00 AM",
-      "toDisplay": "5:00 PM",
-      "title": "USMA Board of Visitors Meeting",
-      "nickname": "USMA Board of Visitors Meeting",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 402",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-09T09:15:00-04:00",
-      "to": "2026-10-09T10:30:00-04:00",
-      "fromDisplay": "9:15 AM",
-      "toDisplay": "10:30 AM",
-      "title": "LW498 Thesis Presentation",
-      "nickname": "LW498 Thesis Presentation",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 431A",
-      "category": "Classrooms",
-      "from": "2026-10-09T10:00:00-04:00",
-      "to": "2026-10-09T12:00:00-04:00",
-      "fromDisplay": "10:00 AM",
-      "toDisplay": "12:00 PM",
-      "title": "ASC Researcher-CDT Emily Wilczek",
-      "nickname": "ASC Researcher-CDT Emily Wilczek",
-      "status": "Confirmed"
-    },
-    {
-      "room": "JH 414",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-09T13:45:00-04:00",
-      "to": "2026-10-09T15:00:00-04:00",
-      "fromDisplay": "1:45 PM",
-      "toDisplay": "3:00 PM",
-      "title": "WLAX Plebe Parents Meeting",
-      "nickname": "WLAX Plebe Parents Meeting",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-09T14:15:00-04:00",
-      "to": "2026-10-09T16:15:00-04:00",
-      "fromDisplay": "2:15 PM",
-      "toDisplay": "4:15 PM",
-      "title": "WP Werx: Human Performance CoP",
-      "nickname": "WP Werx: Human Performance CoP",
-      "status": "Mediated Approved"
-    }
-  ]
+  "count": 0,
+  "bookings": []
 }
