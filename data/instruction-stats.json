@@ -1,34 +1,15 @@
 {
-  "updated": "2026-10-09T21:35:07.796640+00:00",
+  "updated": "2026-10-10T01:13:36.034117+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-10-09",
-    "count": 2,
-    "sessions": [
-      {
-        "title": "Family Day Library Tour (Elaine)",
-        "start": "2026-10-09T12:45:00-04:00",
-        "end": "2026-10-09T13:45:00-04:00",
-        "startDisplay": "12:45 PM",
-        "endDisplay": "1:45 PM",
-        "location": "Jefferson Hall",
-        "status": "upcoming"
-      },
-      {
-        "title": "Family Day Library Tour (Elaine)",
-        "start": "2026-10-09T13:45:00-04:00",
-        "end": "2026-10-09T14:45:00-04:00",
-        "startDisplay": "1:45 PM",
-        "endDisplay": "2:45 PM",
-        "location": "Jefferson Hall",
-        "status": "upcoming"
-      }
-    ],
+    "date": "2026-10-10",
+    "count": 0,
+    "sessions": [],
     "next": {
-      "title": "Family Day Library Tour (Elaine)",
-      "time": "12:45 PM",
-      "date": "2026-10-09",
-      "dateDisplay": "Today",
+      "title": "EN364 - Information Literacy Instruction (Utzig)(Lori)(H2) JH513",
+      "time": "9:05 AM",
+      "date": "2026-10-20",
+      "dateDisplay": "Tue Oct 20",
       "status": "upcoming"
     }
   },
