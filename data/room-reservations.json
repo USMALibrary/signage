@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-13T06:42:09.582052+00:00",
+  "updated": "2026-10-13T17:32:11.791581+00:00",
   "date": "2026-10-13",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 10,
+  "count": 11,
   "bookings": [
     {
       "room": "JH 401 (Class of 1994)",
@@ -58,6 +58,17 @@
       "toDisplay": "2:00 PM",
       "title": "DELPHI Curriculum Workshop",
       "nickname": "DELPHI Curriculum Workshop",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 401 (Class of 1994)",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-13T12:30:00-04:00",
+      "to": "2026-10-13T14:00:00-04:00",
+      "fromDisplay": "12:30 PM",
+      "toDisplay": "2:00 PM",
+      "title": "DELPHI Meeting/Class",
+      "nickname": "DELPHI Meeting/Class",
       "status": "Mediated Approved"
     },
     {
