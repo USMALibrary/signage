@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-15T04:28:20.679518+00:00",
+  "updated": "2026-10-15T14:53:15.458353+00:00",
   "date": "2026-10-15",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 12,
+  "count": 13,
   "bookings": [
     {
       "room": "JH 401 (Class of 1994)",
@@ -103,6 +103,17 @@
       "title": "Breakout Meeting Space for John Yoo and GEN Joseph Votel Fireside Chat",
       "nickname": "Breakout Meeting Space for John Yoo and GEN Joseph Votel Fireside Chat",
       "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 302",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-15T14:00:00-04:00",
+      "to": "2026-10-15T15:00:00-04:00",
+      "fromDisplay": "2:00 PM",
+      "toDisplay": "3:00 PM",
+      "title": "EO - Cadet Meeting",
+      "nickname": "EO - Cadet Meeting",
+      "status": "Mediated Tentative"
     },
     {
       "room": "JH 514 (Class of 1985)",
