@@ -1,75 +1,8 @@
 {
-  "updated": "2026-10-16T23:51:04.585844+00:00",
-  "date": "2026-10-16",
+  "updated": "2026-10-17T01:37:08.154399+00:00",
+  "date": "2026-10-17",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 6,
-  "bookings": [
-    {
-      "room": "*JH - Haig Room & All 6th Floor Spaces",
-      "category": "Sixth Floor & Haig Room",
-      "from": "2026-10-16T07:00:00-04:00",
-      "to": "2026-10-16T18:00:00-04:00",
-      "fromDisplay": "7:00 AM",
-      "toDisplay": "6:00 PM",
-      "title": "Civics and Civil-Military Relations Workshop",
-      "nickname": "Civics and Civil-Military Relations Workshop",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 403",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-16T08:30:00-04:00",
-      "to": "2026-10-16T13:30:00-04:00",
-      "fromDisplay": "8:30 AM",
-      "toDisplay": "1:30 PM",
-      "title": "emily.yoo@westpoint.edu",
-      "nickname": "emily.yoo@westpoint.edu",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 513",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-16T09:00:00-04:00",
-      "to": "2026-10-16T15:00:00-04:00",
-      "fromDisplay": "9:00 AM",
-      "toDisplay": "3:00 PM",
-      "title": "American Political Thought and Civil-Military Relations Workshop Breakout Room",
-      "nickname": "American Political Thought and Civil-Military Relations Workshop Breakout Room",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-16T10:30:00-04:00",
-      "to": "2026-10-16T13:00:00-04:00",
-      "fromDisplay": "10:30 AM",
-      "toDisplay": "1:00 PM",
-      "title": "PL360 Guest Speaker - Dr. Mark McLaughlin",
-      "nickname": "PL360 Guest Speaker - Dr. Mark McLaughlin",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 302",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-16T12:00:00-04:00",
-      "to": "2026-10-16T14:30:00-04:00",
-      "fromDisplay": "12:00 PM",
-      "toDisplay": "2:30 PM",
-      "title": "D/HWS Class/Meeting",
-      "nickname": "D/HWS Class/Meeting",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 301 (Class of 1976)",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-16T12:15:00-04:00",
-      "to": "2026-10-16T14:15:00-04:00",
-      "fromDisplay": "12:15 PM",
-      "toDisplay": "2:15 PM",
-      "title": "Guadalcanal Colloquium Research",
-      "nickname": "Guadalcanal Colloquium Research",
-      "status": "Mediated Approved"
-    }
-  ]
+  "count": 0,
+  "bookings": []
 }
