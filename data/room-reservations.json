@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-19T04:31:27.695247+00:00",
+  "updated": "2026-10-19T16:55:42.421025+00:00",
   "date": "2026-10-19",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 7,
+  "count": 6,
   "bookings": [
     {
       "room": "JH 423",
@@ -36,17 +36,6 @@
       "toDisplay": "5:00 PM",
       "title": "Med School Interview",
       "nickname": "Med School Interview",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 301 (Class of 1976)",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-19T12:15:00-04:00",
-      "to": "2026-10-19T13:30:00-04:00",
-      "fromDisplay": "12:15 PM",
-      "toDisplay": "1:30 PM",
-      "title": "WPR 2 Scrub",
-      "nickname": "WPR 2 Scrub",
       "status": "Mediated Approved"
     },
     {
