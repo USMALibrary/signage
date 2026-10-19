@@ -1,21 +1,21 @@
 {
-  "updated": "2026-10-16T23:56:57.290747+00:00",
+  "updated": "2026-10-19T04:29:17.199097+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-10-16",
+    "date": "2026-10-19",
     "count": 0,
     "sessions": [],
     "next": {
       "title": "EN364 - Information Literacy Instruction (Utzig)(Lori)(H2) JH513",
       "time": "9:05 AM",
       "date": "2026-10-20",
-      "dateDisplay": "Tue Oct 20",
+      "dateDisplay": "Tomorrow",
       "status": "upcoming"
     }
   },
   "thisWeek": {
-    "startDate": "2026-10-12",
-    "count": 0
+    "startDate": "2026-10-19",
+    "count": 5
   },
   "semester": {
     "label": "Fall 2026",
