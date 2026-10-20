@@ -1,15 +1,34 @@
 {
-  "updated": "2026-10-19T21:25:27.072120+00:00",
+  "updated": "2026-10-20T00:35:06.694372+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-10-19",
-    "count": 0,
-    "sessions": [],
+    "date": "2026-10-20",
+    "count": 2,
+    "sessions": [
+      {
+        "title": "EN364 - Information Literacy Instruction (Utzig)(Lori)(H2) JH301",
+        "start": "2026-10-20T09:05:00-04:00",
+        "end": "2026-10-20T10:20:00-04:00",
+        "startDisplay": "9:05 AM",
+        "endDisplay": "10:20 AM",
+        "location": "",
+        "status": "upcoming"
+      },
+      {
+        "title": "EN151 - Information Literacy Instruction (McGowan)(Lori)(J2) JH414",
+        "start": "2026-10-20T12:45:00-04:00",
+        "end": "2026-10-20T14:00:00-04:00",
+        "startDisplay": "12:45 PM",
+        "endDisplay": "2:00 PM",
+        "location": "",
+        "status": "upcoming"
+      }
+    ],
     "next": {
       "title": "EN364 - Information Literacy Instruction (Utzig)(Lori)(H2) JH301",
       "time": "9:05 AM",
       "date": "2026-10-20",
-      "dateDisplay": "Tomorrow",
+      "dateDisplay": "Today",
       "status": "upcoming"
     }
   },
@@ -20,6 +39,6 @@
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 129
+    "count": 131
   }
 }
