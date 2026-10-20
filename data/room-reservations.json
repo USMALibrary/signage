@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-20T04:40:55.858251+00:00",
+  "updated": "2026-10-20T14:57:35.400179+00:00",
   "date": "2026-10-20",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 12,
+  "count": 13,
   "bookings": [
     {
       "room": "*JH - Haig Room & All 6th Floor Spaces",
@@ -102,6 +102,17 @@
       "toDisplay": "2:30 PM",
       "title": "EN151 McGowan",
       "nickname": "EN151 McGowan",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 403",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-20T12:45:00-04:00",
+      "to": "2026-10-20T14:45:00-04:00",
+      "fromDisplay": "12:45 PM",
+      "toDisplay": "2:45 PM",
+      "title": "HWS498",
+      "nickname": "HWS498",
       "status": "Mediated Approved"
     },
     {
