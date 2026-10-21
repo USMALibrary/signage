@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-21T15:04:20.730222+00:00",
+  "updated": "2026-10-21T19:16:09.494806+00:00",
   "calendarId": 20048,
   "today": {
     "date": "2026-10-21",
     "count": 3,
     "sessions": [
       {
-        "title": "EN151 - Information Literacy Instruction (Daley)(Lori)(I1) JH414",
+        "title": "EN151 - Information Literacy Instruction (Daley)(Lori and Jenn)(I1) JH414",
         "start": "2026-10-21T10:35:00-04:00",
         "end": "2026-10-21T11:50:00-04:00",
         "startDisplay": "10:35 AM",
@@ -24,7 +24,7 @@
         "status": "upcoming"
       },
       {
-        "title": "EN151 - Information Literacy Instruction (Daley)(Lori)(J1) JH414",
+        "title": "EN151 - Information Literacy Instruction (Daley)(Lori and Jenn)(J1) JH414",
         "start": "2026-10-21T14:10:00-04:00",
         "end": "2026-10-21T15:25:00-04:00",
         "startDisplay": "2:10 PM",
@@ -34,7 +34,7 @@
       }
     ],
     "next": {
-      "title": "EN151 - Information Literacy Instruction (Daley)(Lori)(I1) JH414",
+      "title": "EN151 - Information Literacy Instruction (Daley)(Lori and Jenn)(I1) JH414",
       "time": "10:35 AM",
       "date": "2026-10-21",
       "dateDisplay": "Today",
