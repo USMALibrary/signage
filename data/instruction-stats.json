@@ -1,33 +1,42 @@
 {
-  "updated": "2026-10-20T22:22:50.501208+00:00",
+  "updated": "2026-10-21T00:50:07.148005+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-10-20",
-    "count": 2,
+    "date": "2026-10-21",
+    "count": 3,
     "sessions": [
       {
-        "title": "EN364 - Information Literacy Instruction (Utzig)(Lori)(H2) JH301",
-        "start": "2026-10-20T09:05:00-04:00",
-        "end": "2026-10-20T10:20:00-04:00",
-        "startDisplay": "9:05 AM",
-        "endDisplay": "10:20 AM",
+        "title": "EN151 - Information Literacy Instruction (Daley)(Lori)(I1) JH414",
+        "start": "2026-10-21T10:35:00-04:00",
+        "end": "2026-10-21T11:50:00-04:00",
+        "startDisplay": "10:35 AM",
+        "endDisplay": "11:50 AM",
         "location": "",
         "status": "upcoming"
       },
       {
-        "title": "EN151 - Information Literacy Instruction (McGowan)(Lori)(J2) JH414",
-        "start": "2026-10-20T12:45:00-04:00",
-        "end": "2026-10-20T14:00:00-04:00",
+        "title": "LN287 - Information Literacy Instruction (Lane)(Erin)(Dean's Hour) 2nd Floor Research Lab",
+        "start": "2026-10-21T12:45:00-04:00",
+        "end": "2026-10-21T14:00:00-04:00",
         "startDisplay": "12:45 PM",
         "endDisplay": "2:00 PM",
+        "location": "2nd Floor Research Lab",
+        "status": "upcoming"
+      },
+      {
+        "title": "EN151 - Information Literacy Instruction (Daley)(Lori)(J1) JH414",
+        "start": "2026-10-21T14:10:00-04:00",
+        "end": "2026-10-21T15:25:00-04:00",
+        "startDisplay": "2:10 PM",
+        "endDisplay": "3:25 PM",
         "location": "",
         "status": "upcoming"
       }
     ],
     "next": {
-      "title": "EN364 - Information Literacy Instruction (Utzig)(Lori)(H2) JH301",
-      "time": "9:05 AM",
-      "date": "2026-10-20",
+      "title": "EN151 - Information Literacy Instruction (Daley)(Lori)(I1) JH414",
+      "time": "10:35 AM",
+      "date": "2026-10-21",
       "dateDisplay": "Today",
       "status": "upcoming"
     }
@@ -39,6 +48,6 @@
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 142
+    "count": 145
   }
 }
