@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-21T15:05:51.264762+00:00",
+  "updated": "2026-10-21T19:14:46.631427+00:00",
   "date": "2026-10-21",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 15,
+  "count": 16,
   "bookings": [
     {
       "room": "JH 401 (Class of 1994)",
@@ -113,6 +113,17 @@
       "toDisplay": "3:55 PM",
       "title": "EN151 LTC Daley",
       "nickname": "EN151 LTC Daley",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 502 (COL Kerry K. Pierce)",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-21T14:00:00-04:00",
+      "to": "2026-10-21T16:00:00-04:00",
+      "fromDisplay": "2:00 PM",
+      "toDisplay": "4:00 PM",
+      "title": "Sea to Shining Sea Fellowship group discussion",
+      "nickname": "Sea to Shining Sea Fellowship group discussion",
       "status": "Mediated Approved"
     },
     {
