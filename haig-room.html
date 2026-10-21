@@ -143,7 +143,11 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    opacity: 1;
+    transition: opacity 6s ease-in-out;
   }
+
+  #qr-overlay.qr-hidden { opacity: 0; }
 
   /* 41-module code: needs ~4px per module on a 1080p TV for phones to read it */
   #qr-overlay img {
@@ -274,6 +278,25 @@
   }
   updateClock();
   setInterval(updateClock, 30000);
+
+  /* ── QR FADE IN/OUT ── */
+  (function() {
+    // Random visible / hidden windows, in seconds
+    var SHOW_MIN = 25, SHOW_MAX = 40;
+    var HIDE_MIN = 60, HIDE_MAX = 120;
+    var qr = document.getElementById('qr-overlay');
+    if (!qr) return;
+    function rand(min, max) { return (min + Math.random() * (max - min)) * 1000; }
+    function show() {
+      qr.classList.remove('qr-hidden');
+      setTimeout(hide, rand(SHOW_MIN, SHOW_MAX));
+    }
+    function hide() {
+      qr.classList.add('qr-hidden');
+      setTimeout(show, rand(HIDE_MIN, HIDE_MAX));
+    }
+    show();
+  })();
 
   /* ── AUTO-SCALE TO FIT BROWSER WINDOW ── */
   (function() {
