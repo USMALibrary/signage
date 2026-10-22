@@ -1,43 +1,15 @@
 {
-  "updated": "2026-10-21T22:27:09.179771+00:00",
+  "updated": "2026-10-22T00:50:48.124676+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-10-21",
-    "count": 3,
-    "sessions": [
-      {
-        "title": "EN151 - Information Literacy Instruction (Daley)(Lori and Jenn)(I1) JH414",
-        "start": "2026-10-21T10:35:00-04:00",
-        "end": "2026-10-21T11:50:00-04:00",
-        "startDisplay": "10:35 AM",
-        "endDisplay": "11:50 AM",
-        "location": "",
-        "status": "upcoming"
-      },
-      {
-        "title": "LN287 - Information Literacy Instruction (Lane)(Erin)(Dean's Hour) 2nd Floor Research Lab",
-        "start": "2026-10-21T12:45:00-04:00",
-        "end": "2026-10-21T14:00:00-04:00",
-        "startDisplay": "12:45 PM",
-        "endDisplay": "2:00 PM",
-        "location": "2nd Floor Research Lab",
-        "status": "upcoming"
-      },
-      {
-        "title": "EN151 - Information Literacy Instruction (Daley)(Lori and Jenn)(J1) JH414",
-        "start": "2026-10-21T14:10:00-04:00",
-        "end": "2026-10-21T15:25:00-04:00",
-        "startDisplay": "2:10 PM",
-        "endDisplay": "3:25 PM",
-        "location": "",
-        "status": "upcoming"
-      }
-    ],
+    "date": "2026-10-22",
+    "count": 0,
+    "sessions": [],
     "next": {
-      "title": "EN151 - Information Literacy Instruction (Daley)(Lori and Jenn)(I1) JH414",
+      "title": "EN151 - Information Literacy Instruction (Query)(Lori)(I2)JH514",
       "time": "10:35 AM",
-      "date": "2026-10-21",
-      "dateDisplay": "Today",
+      "date": "2026-10-29",
+      "dateDisplay": "Thu Oct 29",
       "status": "upcoming"
     }
   },
