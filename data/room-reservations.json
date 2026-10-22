@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-22T04:33:54.363907+00:00",
+  "updated": "2026-10-22T15:06:31.430778+00:00",
   "date": "2026-10-22",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 12,
+  "count": 10,
   "bookings": [
     {
       "room": "JH 401/402/403",
@@ -72,29 +72,7 @@
       "status": "Mediated Approved"
     },
     {
-      "room": "JH 301 (Class of 1976)",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-22T12:15:00-04:00",
-      "to": "2026-10-22T13:00:00-04:00",
-      "fromDisplay": "12:15 PM",
-      "toDisplay": "1:00 PM",
-      "title": "GE203 Lesson Conferences",
-      "nickname": "GE203 Lesson Conferences",
-      "status": "Mediated Approved"
-    },
-    {
       "room": "JH 302",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-22T12:30:00-04:00",
-      "to": "2026-10-22T14:45:00-04:00",
-      "fromDisplay": "12:30 PM",
-      "toDisplay": "2:45 PM",
-      "title": "HI498 Seminar",
-      "nickname": "HI498 Seminar",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 303",
       "category": "Collaborative Rooms",
       "from": "2026-10-22T12:30:00-04:00",
       "to": "2026-10-22T14:45:00-04:00",
