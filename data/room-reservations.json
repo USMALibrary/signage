@@ -1,75 +1,8 @@
 {
-  "updated": "2026-10-23T22:01:13.736237+00:00",
-  "date": "2026-10-23",
+  "updated": "2026-10-24T00:31:35.935873+00:00",
+  "date": "2026-10-24",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 6,
-  "bookings": [
-    {
-      "room": "JH 401/402/403",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-23T07:00:00-04:00",
-      "to": "2026-10-23T18:00:00-04:00",
-      "fromDisplay": "7:00 AM",
-      "toDisplay": "6:00 PM",
-      "title": "SCUSA 2026",
-      "nickname": "SCUSA 2026",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 414",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-23T07:00:00-04:00",
-      "to": "2026-10-23T18:00:00-04:00",
-      "fromDisplay": "7:00 AM",
-      "toDisplay": "6:00 PM",
-      "title": "SCUSA 2026",
-      "nickname": "SCUSA 2026",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-23T07:00:00-04:00",
-      "to": "2026-10-23T18:00:00-04:00",
-      "fromDisplay": "7:00 AM",
-      "toDisplay": "6:00 PM",
-      "title": "SCUSA 2026",
-      "nickname": "SCUSA 2026",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 423",
-      "category": "Classrooms",
-      "from": "2026-10-23T07:30:00-04:00",
-      "to": "2026-10-23T08:40:00-04:00",
-      "fromDisplay": "7:30 AM",
-      "toDisplay": "8:40 AM",
-      "title": "",
-      "nickname": "",
-      "status": "Confirmed"
-    },
-    {
-      "room": "JH 301 (Class of 1976)",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-23T11:00:00-04:00",
-      "to": "2026-10-23T12:00:00-04:00",
-      "fromDisplay": "11:00 AM",
-      "toDisplay": "12:00 PM",
-      "title": "Women's Rugby Recruits",
-      "nickname": "Women's Rugby Recruits",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 301 (Class of 1976)",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-23T13:00:00-04:00",
-      "to": "2026-10-23T15:00:00-04:00",
-      "fromDisplay": "1:00 PM",
-      "toDisplay": "3:00 PM",
-      "title": "Philosophy Faculty Meeting",
-      "nickname": "Philosophy Faculty Meeting",
-      "status": "Mediated Approved"
-    }
-  ]
+  "count": 0,
+  "bookings": []
 }
