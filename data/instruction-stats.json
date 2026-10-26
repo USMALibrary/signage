@@ -1,8 +1,8 @@
 {
-  "updated": "2026-10-24T00:34:55.876219+00:00",
+  "updated": "2026-10-26T04:33:46.448891+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-10-24",
+    "date": "2026-10-26",
     "count": 0,
     "sessions": [],
     "next": {
@@ -14,8 +14,8 @@
     }
   },
   "thisWeek": {
-    "startDate": "2026-10-19",
-    "count": 5
+    "startDate": "2026-10-26",
+    "count": 1
   },
   "semester": {
     "label": "Fall 2026",
