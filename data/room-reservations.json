@@ -1,19 +1,85 @@
 {
-  "updated": "2026-10-25T22:28:15.956168+00:00",
-  "date": "2026-10-25",
+  "updated": "2026-10-26T00:39:41.174630+00:00",
+  "date": "2026-10-26",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 1,
+  "count": 7,
   "bookings": [
+    {
+      "room": "JH 423",
+      "category": "Classrooms",
+      "from": "2026-10-26T07:30:00-04:00",
+      "to": "2026-10-26T08:40:00-04:00",
+      "fromDisplay": "7:30 AM",
+      "toDisplay": "8:40 AM",
+      "title": "",
+      "nickname": "",
+      "status": "Confirmed"
+    },
+    {
+      "room": "JH 423",
+      "category": "Classrooms",
+      "from": "2026-10-26T08:45:00-04:00",
+      "to": "2026-10-26T17:45:00-04:00",
+      "fromDisplay": "8:45 AM",
+      "toDisplay": "5:45 PM",
+      "title": "",
+      "nickname": "",
+      "status": "Confirmed"
+    },
     {
       "room": "JH 613 Haig Room Only",
       "category": "Sixth Floor & Haig Room",
-      "from": "2026-10-25T14:00:00-04:00",
-      "to": "2026-10-25T19:00:00-04:00",
+      "from": "2026-10-26T10:00:00-04:00",
+      "to": "2026-10-26T14:00:00-04:00",
+      "fromDisplay": "10:00 AM",
+      "toDisplay": "2:00 PM",
+      "title": "Retirement Ceremony RXL",
+      "nickname": "Retirement Ceremony RXL",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 302",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-26T12:45:00-04:00",
+      "to": "2026-10-26T14:00:00-04:00",
+      "fromDisplay": "12:45 PM",
+      "toDisplay": "2:00 PM",
+      "title": "OPORD 1 Brief",
+      "nickname": "OPORD 1 Brief",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-26T14:00:00-04:00",
+      "to": "2026-10-26T16:00:00-04:00",
       "fromDisplay": "2:00 PM",
-      "toDisplay": "7:00 PM",
-      "title": "Piano Mentorship Program",
-      "nickname": "Piano Mentorship Program",
+      "toDisplay": "4:00 PM",
+      "title": "Communications Class with Dr. Frank Luntz",
+      "nickname": "Communications Class with Dr. Frank Luntz",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "*JH - Haig Room & All 6th Floor Spaces",
+      "category": "Sixth Floor & Haig Room",
+      "from": "2026-10-26T16:30:00-04:00",
+      "to": "2026-10-26T17:30:00-04:00",
+      "fromDisplay": "4:30 PM",
+      "toDisplay": "5:30 PM",
+      "title": "Dean and APs Event",
+      "nickname": "Dean and APs Event",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "*JH - Haig Room & All 6th Floor Spaces",
+      "category": "Sixth Floor & Haig Room",
+      "from": "2026-10-26T17:30:00-04:00",
+      "to": "2026-10-26T21:30:00-04:00",
+      "fromDisplay": "5:30 PM",
+      "toDisplay": "9:30 PM",
+      "title": "Phi Kappa Phi Plebe Major Selection & AIAD Inquiry Event",
+      "nickname": "Phi Kappa Phi Plebe Major Selection & AIAD Inquiry Event",
       "status": "Mediated Approved"
     }
   ]
