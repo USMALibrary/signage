@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-26T04:36:57.202219+00:00",
+  "updated": "2026-10-26T16:44:11.488616+00:00",
   "date": "2026-10-26",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 7,
+  "count": 8,
   "bookings": [
     {
       "room": "JH 423",
@@ -47,6 +47,17 @@
       "toDisplay": "2:00 PM",
       "title": "OPORD 1 Brief",
       "nickname": "OPORD 1 Brief",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 502 (COL Kerry K. Pierce)",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-26T13:00:00-04:00",
+      "to": "2026-10-26T14:00:00-04:00",
+      "fromDisplay": "1:00 PM",
+      "toDisplay": "2:00 PM",
+      "title": "Library Meeting",
+      "nickname": "Library Meeting",
       "status": "Mediated Approved"
     },
     {
