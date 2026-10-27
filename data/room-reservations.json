@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-27T04:54:47.206088+00:00",
+  "updated": "2026-10-27T15:50:15.005630+00:00",
   "date": "2026-10-27",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 11,
+  "count": 10,
   "bookings": [
     {
       "room": "JH 423",
@@ -15,17 +15,6 @@
       "title": "",
       "nickname": "",
       "status": "Confirmed"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-27T08:00:00-04:00",
-      "to": "2026-10-27T12:00:00-04:00",
-      "fromDisplay": "8:00 AM",
-      "toDisplay": "12:00 PM",
-      "title": "Cadet Capstone Client Sponsor Meeting",
-      "nickname": "Cadet Capstone Client Sponsor Meeting",
-      "status": "Mediated Approved"
     },
     {
       "room": "JH 613 Haig Room Only",
