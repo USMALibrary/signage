@@ -1,15 +1,15 @@
 {
-  "updated": "2026-10-27T23:50:42.147572+00:00",
+  "updated": "2026-10-28T05:26:48.105709+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "count": 0,
     "sessions": [],
     "next": {
       "title": "EN151 - Information Literacy Instruction (Query)(Lori)(I2)JH514",
       "time": "10:35 AM",
       "date": "2026-10-29",
-      "dateDisplay": "Thu Oct 29",
+      "dateDisplay": "Tomorrow",
       "status": "upcoming"
     }
   },
