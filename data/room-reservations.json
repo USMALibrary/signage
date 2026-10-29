@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-29T05:38:25.973529+00:00",
+  "updated": "2026-10-29T16:51:36.146726+00:00",
   "date": "2026-10-29",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 9,
+  "count": 10,
   "bookings": [
     {
       "room": "JH 502 (COL Kerry K. Pierce)",
@@ -102,6 +102,17 @@
       "toDisplay": "4:00 PM",
       "title": "MHM Committee Meeting",
       "nickname": "MHM Committee Meeting",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-10-29T16:00:00-04:00",
+      "to": "2026-10-29T18:00:00-04:00",
+      "fromDisplay": "4:00 PM",
+      "toDisplay": "6:00 PM",
+      "title": "LDSSA Speaker Series",
+      "nickname": "LDSSA Speaker Series",
       "status": "Mediated Approved"
     }
   ]
