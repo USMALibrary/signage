@@ -1,25 +1,15 @@
 {
-  "updated": "2026-10-29T21:44:30.095697+00:00",
+  "updated": "2026-10-30T01:21:55.642433+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-10-29",
-    "count": 1,
-    "sessions": [
-      {
-        "title": "EN151 - Information Literacy Instruction (Query)(Lori)(I2)JH514",
-        "start": "2026-10-29T10:35:00-04:00",
-        "end": "2026-10-29T11:50:00-04:00",
-        "startDisplay": "10:35 AM",
-        "endDisplay": "11:50 AM",
-        "location": "",
-        "status": "upcoming"
-      }
-    ],
+    "date": "2026-10-30",
+    "count": 0,
+    "sessions": [],
     "next": {
-      "title": "EN151 - Information Literacy Instruction (Query)(Lori)(I2)JH514",
-      "time": "10:35 AM",
-      "date": "2026-10-29",
-      "dateDisplay": "Today",
+      "title": "SS307 SOSH Paper Workshop (Information Literacy)(Doug)(JH514)",
+      "time": "8:00 PM",
+      "date": "2026-11-04",
+      "dateDisplay": "Wed Nov 4",
       "status": "upcoming"
     }
   },
