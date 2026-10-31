@@ -1,31 +1,8 @@
 {
-  "updated": "2026-10-30T21:01:16.417623+00:00",
-  "date": "2026-10-30",
+  "updated": "2026-10-31T00:41:23.781653+00:00",
+  "date": "2026-10-31",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 2,
-  "bookings": [
-    {
-      "room": "JH 414",
-      "category": "Collaborative Rooms",
-      "from": "2026-10-30T08:30:00-04:00",
-      "to": "2026-10-30T12:30:00-04:00",
-      "fromDisplay": "8:30 AM",
-      "toDisplay": "12:30 PM",
-      "title": "LW490B Guest Speaker",
-      "nickname": "LW490B Guest Speaker",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "*JH - Haig Room & All 6th Floor Spaces",
-      "category": "Sixth Floor & Haig Room",
-      "from": "2026-10-30T12:30:00-04:00",
-      "to": "2026-10-30T18:00:00-04:00",
-      "fromDisplay": "12:30 PM",
-      "toDisplay": "6:00 PM",
-      "title": "COL Sculley Retirement Ceremony",
-      "nickname": "COL Sculley Retirement Ceremony",
-      "status": "Mediated Approved"
-    }
-  ]
+  "count": 0,
+  "bookings": []
 }
