@@ -1,8 +1,8 @@
 {
-  "updated": "2026-10-31T00:51:46.468698+00:00",
+  "updated": "2026-11-02T05:50:51.063186+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-10-31",
+    "date": "2026-11-02",
     "count": 0,
     "sessions": [],
     "next": {
@@ -14,7 +14,7 @@
     }
   },
   "thisWeek": {
-    "startDate": "2026-10-26",
+    "startDate": "2026-11-02",
     "count": 1
   },
   "semester": {
