@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-02T04:57:36Z",
+  "updated": "2026-11-02T05:07:36Z",
   "pagesLast60Min": 0,
   "printers": [
     {
@@ -94,7 +94,7 @@
     },
     {
       "name": "wppss6print\\WPPRLIBREF03",
-      "status": "ERROR",
+      "status": "OK",
       "detail": null,
       "heldJobsCount": 0
     },
