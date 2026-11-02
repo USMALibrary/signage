@@ -1,19 +1,52 @@
 {
-  "updated": "2026-11-01T23:57:50.057331+00:00",
-  "date": "2026-11-01",
+  "updated": "2026-11-02T05:53:26.761505+00:00",
+  "date": "2026-11-02",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 1,
+  "count": 4,
   "bookings": [
     {
-      "room": "JH 613 Haig Room Only",
+      "room": "*JH - Haig Room & All 6th Floor Spaces",
       "category": "Sixth Floor & Haig Room",
-      "from": "2026-11-01T14:00:00-05:00",
-      "to": "2026-11-01T19:00:00-05:00",
+      "from": "2026-11-02T07:00:00-05:00",
+      "to": "2026-11-02T22:00:00-05:00",
+      "fromDisplay": "7:00 AM",
+      "toDisplay": "10:00 PM",
+      "title": "Hold for Fox Gameday Event",
+      "nickname": "Hold for Fox Gameday Event",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 423",
+      "category": "Classrooms",
+      "from": "2026-11-02T07:30:00-05:00",
+      "to": "2026-11-02T08:40:00-05:00",
+      "fromDisplay": "7:30 AM",
+      "toDisplay": "8:40 AM",
+      "title": "",
+      "nickname": "",
+      "status": "Confirmed"
+    },
+    {
+      "room": "JH 423",
+      "category": "Classrooms",
+      "from": "2026-11-02T08:45:00-05:00",
+      "to": "2026-11-02T16:30:00-05:00",
+      "fromDisplay": "8:45 AM",
+      "toDisplay": "4:30 PM",
+      "title": "",
+      "nickname": "",
+      "status": "Confirmed"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-02T14:00:00-05:00",
+      "to": "2026-11-02T16:00:00-05:00",
       "fromDisplay": "2:00 PM",
-      "toDisplay": "7:00 PM",
-      "title": "Piano Mentorship Program",
-      "nickname": "Piano Mentorship Program",
+      "toDisplay": "4:00 PM",
+      "title": "Communications Class with Dr. Frank Luntz",
+      "nickname": "Communications Class with Dr. Frank Luntz",
       "status": "Mediated Approved"
     }
   ]
