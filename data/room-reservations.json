@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-02T05:53:26.761505+00:00",
+  "updated": "2026-11-02T20:15:52.251855+00:00",
   "date": "2026-11-02",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 4,
+  "count": 6,
   "bookings": [
     {
       "room": "*JH - Haig Room & All 6th Floor Spaces",
@@ -14,6 +14,17 @@
       "toDisplay": "10:00 PM",
       "title": "Hold for Fox Gameday Event",
       "nickname": "Hold for Fox Gameday Event",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 513",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-02T07:00:00-05:00",
+      "to": "2026-11-02T22:00:00-05:00",
+      "fromDisplay": "7:00 AM",
+      "toDisplay": "10:00 PM",
+      "title": "Fox Gameday Broadcast",
+      "nickname": "Fox Gameday Broadcast",
       "status": "Mediated Approved"
     },
     {
@@ -47,6 +58,17 @@
       "toDisplay": "4:00 PM",
       "title": "Communications Class with Dr. Frank Luntz",
       "nickname": "Communications Class with Dr. Frank Luntz",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 301 (Class of 1976)",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-02T19:00:00-05:00",
+      "to": "2026-11-02T21:00:00-05:00",
+      "fromDisplay": "7:00 PM",
+      "toDisplay": "9:00 PM",
+      "title": "EN101 Essay 2 AI",
+      "nickname": "EN101 Essay 2 AI",
       "status": "Mediated Approved"
     }
   ]
