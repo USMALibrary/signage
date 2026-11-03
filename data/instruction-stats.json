@@ -1,15 +1,15 @@
 {
-  "updated": "2026-11-02T20:14:56.561005+00:00",
+  "updated": "2026-11-03T02:25:20.658456+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-11-02",
+    "date": "2026-11-03",
     "count": 0,
     "sessions": [],
     "next": {
       "title": "SS307 SOSH Paper Workshop (Information Literacy)(Doug)(JH514)",
       "time": "8:00 PM",
       "date": "2026-11-04",
-      "dateDisplay": "Wed Nov 4",
+      "dateDisplay": "Tomorrow",
       "status": "upcoming"
     }
   },
