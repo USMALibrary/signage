@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-03T06:38:00.458651+00:00",
+  "updated": "2026-11-03T17:43:37.681413+00:00",
   "date": "2026-11-03",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 15,
+  "count": 17,
   "bookings": [
     {
       "room": "*JH - Haig Room & All 6th Floor Spaces",
@@ -135,6 +135,28 @@
       "toDisplay": "2:45 PM",
       "title": "HWS498",
       "nickname": "HWS498",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-03T12:30:00-05:00",
+      "to": "2026-11-03T15:00:00-05:00",
+      "fromDisplay": "12:30 PM",
+      "toDisplay": "3:00 PM",
+      "title": "HI498 Senior Seminar",
+      "nickname": "HI498 Senior Seminar",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 301 (Class of 1976)",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-03T12:45:00-05:00",
+      "to": "2026-11-03T14:00:00-05:00",
+      "fromDisplay": "12:45 PM",
+      "toDisplay": "2:00 PM",
+      "title": "DELPHI Class/Meeting",
+      "nickname": "DELPHI Class/Meeting",
       "status": "Mediated Approved"
     },
     {
