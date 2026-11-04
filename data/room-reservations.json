@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-04T06:05:40.628119+00:00",
+  "updated": "2026-11-04T17:56:28.086446+00:00",
   "date": "2026-11-04",
   "location": "Jefferson Hall",
   "lid": 7099,
@@ -39,17 +39,6 @@
       "status": "Confirmed"
     },
     {
-      "room": "JH 302",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-04T09:00:00-05:00",
-      "to": "2026-11-04T12:00:00-05:00",
-      "fromDisplay": "9:00 AM",
-      "toDisplay": "12:00 PM",
-      "title": "Scholarship Block",
-      "nickname": "Scholarship Block",
-      "status": "Mediated Approved"
-    },
-    {
       "room": "JH 401 (Class of 1994)",
       "category": "Collaborative Rooms",
       "from": "2026-11-04T10:00:00-05:00",
@@ -58,6 +47,17 @@
       "toDisplay": "12:00 PM",
       "title": "USMA COMMSYNC Meeting",
       "nickname": "USMA COMMSYNC Meeting",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-04T10:00:00-05:00",
+      "to": "2026-11-04T12:00:00-05:00",
+      "fromDisplay": "10:00 AM",
+      "toDisplay": "12:00 PM",
+      "title": "Dean's R&A with MX400",
+      "nickname": "Dean's R&A with MX400",
       "status": "Mediated Approved"
     },
     {
