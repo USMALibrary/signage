@@ -1,25 +1,15 @@
 {
-  "updated": "2026-11-04T23:33:27.675949+00:00",
+  "updated": "2026-11-05T03:41:52.981368+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-11-04",
-    "count": 1,
-    "sessions": [
-      {
-        "title": "SS307 SOSH Paper Workshop (Information Literacy)(Doug)(JH514)",
-        "start": "2026-11-04T20:00:00-05:00",
-        "end": "2026-11-04T20:30:00-05:00",
-        "startDisplay": "8:00 PM",
-        "endDisplay": "8:30 PM",
-        "location": "JH 414",
-        "status": "upcoming"
-      }
-    ],
+    "date": "2026-11-05",
+    "count": 0,
+    "sessions": [],
     "next": {
-      "title": "SS307 SOSH Paper Workshop (Information Literacy)(Doug)(JH514)",
+      "title": "SS202 American Politics Block 3 Paper Informal Actors (Information Literacy)(Doug)(JH414)",
       "time": "8:00 PM",
-      "date": "2026-11-04",
-      "dateDisplay": "Today",
+      "date": "2026-11-18",
+      "dateDisplay": "Wed Nov 18",
       "status": "upcoming"
     }
   },
