@@ -1,15 +1,15 @@
 {
-  "updated": "2026-11-06T22:12:10.031673+00:00",
-  "date": "2026-11-06",
+  "updated": "2026-11-07T02:00:16.617893+00:00",
+  "date": "2026-11-07",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 13,
+  "count": 2,
   "bookings": [
     {
       "room": "*JH - Haig Room & All 6th Floor Spaces",
       "category": "Sixth Floor & Haig Room",
-      "from": "2026-11-06T07:00:00-05:00",
-      "to": "2026-11-06T22:00:00-05:00",
+      "from": "2026-11-07T07:00:00-05:00",
+      "to": "2026-11-07T22:00:00-05:00",
       "fromDisplay": "7:00 AM",
       "toDisplay": "10:00 PM",
       "title": "Hold for Fox Gameday Event",
@@ -17,135 +17,14 @@
       "status": "Mediated Approved"
     },
     {
-      "room": "JH 301 (Class of 1976)",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-06T07:00:00-05:00",
-      "to": "2026-11-06T12:00:00-05:00",
-      "fromDisplay": "7:00 AM",
-      "toDisplay": "12:00 PM",
-      "title": "PL361 - Introduction Revisions",
-      "nickname": "PL361 - Introduction Revisions",
-      "status": "Mediated Approved"
-    },
-    {
       "room": "JH 513",
       "category": "Collaborative Rooms",
-      "from": "2026-11-06T07:00:00-05:00",
-      "to": "2026-11-06T22:00:00-05:00",
+      "from": "2026-11-07T07:00:00-05:00",
+      "to": "2026-11-07T22:00:00-05:00",
       "fromDisplay": "7:00 AM",
       "toDisplay": "10:00 PM",
       "title": "Fox Gameday Broadcast",
       "nickname": "Fox Gameday Broadcast",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 423",
-      "category": "Classrooms",
-      "from": "2026-11-06T07:30:00-05:00",
-      "to": "2026-11-06T08:40:00-05:00",
-      "fromDisplay": "7:30 AM",
-      "toDisplay": "8:40 AM",
-      "title": "",
-      "nickname": "",
-      "status": "Confirmed"
-    },
-    {
-      "room": "JH 414",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-06T08:00:00-05:00",
-      "to": "2026-11-06T15:15:00-05:00",
-      "fromDisplay": "8:00 AM",
-      "toDisplay": "3:15 PM",
-      "title": "LW474",
-      "nickname": "LW474",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 423",
-      "category": "Classrooms",
-      "from": "2026-11-06T08:45:00-05:00",
-      "to": "2026-11-06T16:30:00-05:00",
-      "fromDisplay": "8:45 AM",
-      "toDisplay": "4:30 PM",
-      "title": "",
-      "nickname": "",
-      "status": "Confirmed"
-    },
-    {
-      "room": "JH 401 (Class of 1994)",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-06T09:00:00-05:00",
-      "to": "2026-11-06T12:00:00-05:00",
-      "fromDisplay": "9:00 AM",
-      "toDisplay": "12:00 PM",
-      "title": "DELPHI Class/Meeting",
-      "nickname": "DELPHI Class/Meeting",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-06T10:00:00-05:00",
-      "to": "2026-11-06T12:00:00-05:00",
-      "fromDisplay": "10:00 AM",
-      "toDisplay": "12:00 PM",
-      "title": "Character Council",
-      "nickname": "Character Council",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 301 (Class of 1976)",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-06T12:15:00-05:00",
-      "to": "2026-11-06T14:15:00-05:00",
-      "fromDisplay": "12:15 PM",
-      "toDisplay": "2:15 PM",
-      "title": "Assessment Steering Committee Goal Team Meeting",
-      "nickname": "Assessment Steering Committee Goal Team Meeting",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-06T12:30:00-05:00",
-      "to": "2026-11-06T14:00:00-05:00",
-      "fromDisplay": "12:30 PM",
-      "toDisplay": "2:00 PM",
-      "title": "ECON Seminar",
-      "nickname": "ECON Seminar",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 401 (Class of 1994)",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-06T14:00:00-05:00",
-      "to": "2026-11-06T15:30:00-05:00",
-      "fromDisplay": "2:00 PM",
-      "toDisplay": "3:30 PM",
-      "title": "PL361 Class",
-      "nickname": "PL361 Class",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 402",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-06T14:00:00-05:00",
-      "to": "2026-11-06T16:00:00-05:00",
-      "fromDisplay": "2:00 PM",
-      "toDisplay": "4:00 PM",
-      "title": "Individual Conferences for EN101 Essays",
-      "nickname": "Individual Conferences for EN101 Essays",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-06T14:00:00-05:00",
-      "to": "2026-11-06T16:00:00-05:00",
-      "fromDisplay": "2:00 PM",
-      "toDisplay": "4:00 PM",
-      "title": "Communications Class with Dr. Frank Luntz",
-      "nickname": "Communications Class with Dr. Frank Luntz",
       "status": "Mediated Approved"
     }
   ]
