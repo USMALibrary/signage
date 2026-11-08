@@ -1,15 +1,15 @@
 {
-  "updated": "2026-11-07T23:40:48.601841+00:00",
-  "date": "2026-11-07",
+  "updated": "2026-11-08T02:45:20.558080+00:00",
+  "date": "2026-11-08",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 2,
+  "count": 4,
   "bookings": [
     {
       "room": "*JH - Haig Room & All 6th Floor Spaces",
       "category": "Sixth Floor & Haig Room",
-      "from": "2026-11-07T07:00:00-05:00",
-      "to": "2026-11-07T22:00:00-05:00",
+      "from": "2026-11-08T07:00:00-05:00",
+      "to": "2026-11-08T22:00:00-05:00",
       "fromDisplay": "7:00 AM",
       "toDisplay": "10:00 PM",
       "title": "Hold for Fox Gameday Event",
@@ -19,12 +19,34 @@
     {
       "room": "JH 513",
       "category": "Collaborative Rooms",
-      "from": "2026-11-07T07:00:00-05:00",
-      "to": "2026-11-07T22:00:00-05:00",
+      "from": "2026-11-08T07:00:00-05:00",
+      "to": "2026-11-08T22:00:00-05:00",
       "fromDisplay": "7:00 AM",
       "toDisplay": "10:00 PM",
       "title": "Fox Gameday Broadcast",
       "nickname": "Fox Gameday Broadcast",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-08T16:00:00-05:00",
+      "to": "2026-11-08T18:00:00-05:00",
+      "fromDisplay": "4:00 PM",
+      "toDisplay": "6:00 PM",
+      "title": "LDSSA Speaker Series",
+      "nickname": "LDSSA Speaker Series",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 414",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-08T19:45:00-05:00",
+      "to": "2026-11-08T22:00:00-05:00",
+      "fromDisplay": "7:45 PM",
+      "toDisplay": "10:00 PM",
+      "title": "SE387 Study Session",
+      "nickname": "SE387 Study Session",
       "status": "Mediated Approved"
     }
   ]
