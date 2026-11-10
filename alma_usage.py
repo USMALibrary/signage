@@ -30,7 +30,12 @@ REPORT_PATH = os.environ.get(
     "/shared/United States Military Academy (West Point) 01USMA_INST/Reports/Signage/Circulation Daily Totals",
 )
 TREND_DAYS = int(os.environ.get("ALMA_TREND_DAYS", "30"))
-OUTPUT = os.path.join(os.path.dirname(__file__), "data", "circulation-usage.json")
+OUTPUT = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    os.environ.get("ALMA_OUTPUT", os.path.join("data", "circulation-usage.json")),
+)
+METRIC_LABEL = os.environ.get("ALMA_METRIC_LABEL", "loans")
+SAW_NS = "urn:saw-sql"
 
 ROWSET_NS = "urn:schemas-microsoft-com:xml-analysis:rowset"
 
@@ -98,6 +103,7 @@ def parse_rows(rowset):
     constant int column that isn't real data).
     """
     col_types = {}
+    col_agg = {}
     for el in rowset.iter():
         if local_name(el.tag) != "element":
             continue
@@ -105,12 +111,16 @@ def parse_rows(rowset):
         if not name or not name.startswith("Column"):
             continue
         col_types[name] = strip_type_prefix(el.get("type", ""))
+        col_agg[name] = el.get(f"{{{SAW_NS}}}aggregationType", "")
 
     date_col = next((c for c, t in col_types.items() if t == "date"), None)
     numeric_cols = [c for c, t in col_types.items() if t in ("double", "float", "decimal")]
-    count_col = numeric_cols[0] if numeric_cols else next(
-        (c for c, t in col_types.items() if t == "int" and c != date_col), None
-    )
+    int_cols = [c for c, t in col_types.items() if t == "int" and c != date_col]
+    # Prefer the aggregated measure; the constant Column0 is typed int but nonAgg.
+    agg_int_cols = [c for c in int_cols if col_agg.get(c) == "agg"]
+    count_col = (numeric_cols[0] if numeric_cols
+                 else agg_int_cols[0] if agg_int_cols
+                 else int_cols[-1] if int_cols else None)
 
     rows = []
     for row in rowset.iter():
@@ -232,7 +242,7 @@ def main():
     with open(OUTPUT, "w") as f:
         json.dump(output, f, indent=2)
 
-    print(f"Month to date ({output['month']['label']}): {month_total} loans over {len(month_days)} days")
+    print(f"Month to date ({output['month']['label']}): {month_total} {METRIC_LABEL} over {len(month_days)} days")
     print(f"Wrote {OUTPUT}")
 
 

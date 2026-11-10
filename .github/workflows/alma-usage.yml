@@ -34,11 +34,21 @@ jobs:
           ALMA_API_KEY: ${{ secrets.ALMA_ANALYTICS_API_KEY }}
         run: python alma_eresource_usage.py
 
+      - name: Fetch Scout (Primo VE) searches
+        continue-on-error: true
+        env:
+          ALMA_API_KEY: ${{ secrets.PRIMO_ANALYTICS_API_KEY }}
+          ALMA_API_BASE: https://api-na.hosted.exlibrisgroup.com/primo/v1/analytics/reports
+          ALMA_REPORT_PATH: /shared/Primo United States Military Academy (West Point) 01USMA_INST/Reports/Signage/Scout Searches Daily
+          ALMA_OUTPUT: data/scout-usage.json
+          ALMA_METRIC_LABEL: searches
+        run: python alma_usage.py
+
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/circulation-usage.json data/eresource-usage.json
+          git add data/circulation-usage.json data/eresource-usage.json data/scout-usage.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
