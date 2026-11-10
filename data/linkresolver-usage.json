@@ -1,0 +1,162 @@
+{
+  "updated": "2026-11-10T19:25:11.538394+00:00",
+  "asOfDate": "2026-11-09",
+  "month": {
+    "label": "November 2026",
+    "startDate": "2026-11-01",
+    "total": 1696,
+    "days": 9
+  },
+  "daily": [
+    {
+      "date": "2026-10-11",
+      "dateDisplay": "Oct 11",
+      "count": 40
+    },
+    {
+      "date": "2026-10-12",
+      "dateDisplay": "Oct 12",
+      "count": 126
+    },
+    {
+      "date": "2026-10-13",
+      "dateDisplay": "Oct 13",
+      "count": 213
+    },
+    {
+      "date": "2026-10-14",
+      "dateDisplay": "Oct 14",
+      "count": 189
+    },
+    {
+      "date": "2026-10-15",
+      "dateDisplay": "Oct 15",
+      "count": 74
+    },
+    {
+      "date": "2026-10-16",
+      "dateDisplay": "Oct 16",
+      "count": 59
+    },
+    {
+      "date": "2026-10-17",
+      "dateDisplay": "Oct 17",
+      "count": 42
+    },
+    {
+      "date": "2026-10-18",
+      "dateDisplay": "Oct 18",
+      "count": 138
+    },
+    {
+      "date": "2026-10-19",
+      "dateDisplay": "Oct 19",
+      "count": 175
+    },
+    {
+      "date": "2026-10-20",
+      "dateDisplay": "Oct 20",
+      "count": 169
+    },
+    {
+      "date": "2026-10-21",
+      "dateDisplay": "Oct 21",
+      "count": 123
+    },
+    {
+      "date": "2026-10-22",
+      "dateDisplay": "Oct 22",
+      "count": 75
+    },
+    {
+      "date": "2026-10-23",
+      "dateDisplay": "Oct 23",
+      "count": 81
+    },
+    {
+      "date": "2026-10-24",
+      "dateDisplay": "Oct 24",
+      "count": 33
+    },
+    {
+      "date": "2026-10-25",
+      "dateDisplay": "Oct 25",
+      "count": 150
+    },
+    {
+      "date": "2026-10-26",
+      "dateDisplay": "Oct 26",
+      "count": 99
+    },
+    {
+      "date": "2026-10-27",
+      "dateDisplay": "Oct 27",
+      "count": 197
+    },
+    {
+      "date": "2026-10-28",
+      "dateDisplay": "Oct 28",
+      "count": 147
+    },
+    {
+      "date": "2026-10-29",
+      "dateDisplay": "Oct 29",
+      "count": 135
+    },
+    {
+      "date": "2026-10-30",
+      "dateDisplay": "Oct 30",
+      "count": 61
+    },
+    {
+      "date": "2026-10-31",
+      "dateDisplay": "Oct 31",
+      "count": 67
+    },
+    {
+      "date": "2026-11-01",
+      "dateDisplay": "Nov 1",
+      "count": 153
+    },
+    {
+      "date": "2026-11-02",
+      "dateDisplay": "Nov 2",
+      "count": 242
+    },
+    {
+      "date": "2026-11-03",
+      "dateDisplay": "Nov 3",
+      "count": 300
+    },
+    {
+      "date": "2026-11-04",
+      "dateDisplay": "Nov 4",
+      "count": 272
+    },
+    {
+      "date": "2026-11-05",
+      "dateDisplay": "Nov 5",
+      "count": 136
+    },
+    {
+      "date": "2026-11-06",
+      "dateDisplay": "Nov 6",
+      "count": 104
+    },
+    {
+      "date": "2026-11-07",
+      "dateDisplay": "Nov 7",
+      "count": 30
+    },
+    {
+      "date": "2026-11-08",
+      "dateDisplay": "Nov 8",
+      "count": 177
+    },
+    {
+      "date": "2026-11-09",
+      "dateDisplay": "Nov 9",
+      "count": 282
+    }
+  ]
+}
