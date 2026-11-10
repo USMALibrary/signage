@@ -364,6 +364,42 @@
   .print-issue-detail.warning { color: #f5a623; }
   .print-issue-detail.error   { color: var(--alert); }
 
+  /* ── PRINT + HELP DESK SPLIT ── */
+  .split-print {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding: 0 0 10px; border-bottom: 1px solid var(--border); flex-shrink: 0;
+  }
+  .split-stat { display: flex; flex-direction: column; gap: 4px; }
+  .split-label {
+    font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .print-issues-compact { flex: 0 0 auto; padding-top: 0; }
+  .print-issues-compact:empty { display: none; }
+  .hd-title {
+    font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin: 12px 0 8px; flex-shrink: 0;
+  }
+  .hd-totals { display: flex; gap: 10px; flex-shrink: 0; }
+  .hd-stat {
+    flex: 1; background: var(--mid); border: 1px solid var(--border);
+    border-radius: 4px; padding: 8px 6px; text-align: center;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .hd-num { font-family: 'Oswald', sans-serif; font-size: 34px; font-weight: 600; color: #fff; line-height: 1.1; }
+  .hd-num.alert { color: var(--alert); animation: pulse 1.5s infinite; }
+  .hd-num.ok { color: #6fcf6f; }
+  .hd-lbl { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+  .hd-recent { flex: 1; display: flex; flex-direction: column; overflow: hidden; margin-top: 8px; }
+  .hd-row { display: flex; align-items: center; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 15px; }
+  .hd-row:last-child { border-bottom: none; }
+  .hd-row-time { font-family: 'Oswald', sans-serif; color: var(--gold); width: 52px; flex-shrink: 0; }
+  .hd-row-type { flex: 1; color: #ddd; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hd-row-status { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+  .hd-row-status.open { color: var(--alert); }
+  .hd-row-status.done { color: #6fcf6f; }
+
   .print-stale {
     font-size: 12px; color: var(--muted); margin-top: auto; padding-top: 8px; text-align: right;
   }
@@ -456,29 +492,39 @@
     </div>
   </div>
 
-  <!-- 3. PRINT QUEUE -->
+  <!-- 3. PRINT QUEUE + HELP DESK -->
   <div class="panel">
     <div class="panel-header">
-      <span class="panel-title">Print Queue</span>
+      <span class="panel-title">Print &amp; Help Desk</span>
       <span class="panel-icon">🖨</span>
     </div>
     <div class="panel-body">
-      <div class="print-summary-row">
-        <span class="print-summary-label">Printers</span>
-        <span class="help-badge clear" id="print-status-badge">LOADING</span>
+      <div class="split-print">
+        <div class="split-stat">
+          <span class="split-label">Printers</span>
+          <span class="help-badge clear" id="print-status-badge">LOADING</span>
+        </div>
+        <div class="split-stat">
+          <span class="split-label">Pages / 60 Min</span>
+          <span class="print-queue-count" id="print-pages-60min">--</span>
+        </div>
+        <div class="split-stat">
+          <span class="split-label">Held Jobs</span>
+          <span class="print-queue-count" id="print-queue-count">--</span>
+        </div>
       </div>
-      <div class="print-summary-row">
-        <span class="print-summary-label">Pages (Last 60 Min)</span>
-        <span class="print-queue-count" id="print-pages-60min">--</span>
-      </div>
-      <div class="print-summary-row">
-        <span class="print-summary-label">Jobs in Queue</span>
-        <span class="print-queue-count" id="print-queue-count">--</span>
-      </div>
-      <div class="print-issue-list" id="print-issue-list">
-        <div class="no-events" style="font-size:15px;">Loading...</div>
-      </div>
+      <div class="print-issue-list print-issues-compact" id="print-issue-list"></div>
       <div class="print-stale" id="print-updated"></div>
+
+      <div class="hd-title">Help Desk Kiosk &middot; Today</div>
+      <div class="hd-totals" id="hd-totals">
+        <div class="hd-stat"><span class="hd-num" id="hd-open">--</span><span class="hd-lbl">Open</span></div>
+        <div class="hd-stat"><span class="hd-num" id="hd-done">--</span><span class="hd-lbl">Completed</span></div>
+        <div class="hd-stat"><span class="hd-num" id="hd-nopatron">--</span><span class="hd-lbl">No Patron</span></div>
+        <div class="hd-stat"><span class="hd-num" id="hd-auto">--</span><span class="hd-lbl">Auto / Canceled</span></div>
+      </div>
+      <div class="hd-recent" id="hd-recent"><div class="no-events" style="font-size:15px;">Loading...</div></div>
+      <div class="print-stale" id="hd-updated"></div>
     </div>
   </div>
 
@@ -511,18 +557,25 @@
       <span class="panel-icon">📊</span>
     </div>
     <div class="panel-body">
-      <div class="staff-row" style="flex:0.7;">
+      <div class="staff-row" style="flex:0.6;">
+        <span class="staff-label" id="scout-month-label">Scout</span>
+        <span class="staff-value" id="scout-month-total" style="font-size:30px; color:#60a5fa;">--</span>
+      </div>
+      <div style="flex:1; display:flex; align-items:flex-end; padding:4px 0 2px;">
+        <svg id="scout-chart" viewBox="0 0 600 100" preserveAspectRatio="none" style="width:100%; height:100%;"></svg>
+      </div>
+      <div class="staff-row" style="flex:0.6;">
         <span class="staff-label" id="eres-month-label">E-Res</span>
         <span class="staff-value" id="eres-month-total" style="font-size:30px; color:#c084fc;">--</span>
       </div>
-      <div style="flex:1.6; display:flex; align-items:flex-end; padding:4px 0 2px;">
+      <div style="flex:1; display:flex; align-items:flex-end; padding:4px 0 2px;">
         <svg id="eres-chart" viewBox="0 0 600 100" preserveAspectRatio="none" style="width:100%; height:100%;"></svg>
       </div>
-      <div class="staff-row" style="flex:0.7;">
+      <div class="staff-row" style="flex:0.6;">
         <span class="staff-label" id="circ-month-label">Loans</span>
         <span class="staff-value" id="circ-month-total" style="font-size:30px; color:var(--gold);">--</span>
       </div>
-      <div style="flex:1.6; display:flex; align-items:flex-end; padding:4px 0 2px;">
+      <div style="flex:1; display:flex; align-items:flex-end; padding:4px 0 2px;">
         <svg id="circ-chart" viewBox="0 0 600 100" preserveAspectRatio="none" style="width:100%; height:100%;"></svg>
       </div>
     </div>
@@ -896,6 +949,22 @@
     });
   }
 
+  /* ── SCOUT (PRIMO VE) SEARCHES ── */
+  function loadScout() {
+    loadJSON(BASE + 'scout-usage.json', function(data) {
+      if (data.month) {
+        document.getElementById('scout-month-label').textContent = 'Scout · ' + data.month.label.split(' ')[0] + ' MTD';
+        document.getElementById('scout-month-total').textContent = data.month.total.toLocaleString();
+      }
+      var days = (data.daily || []).map(function(d) {
+        return { count: d.count, label: (d.dateDisplay || '').split(' ')[1] || '' };
+      });
+      renderBarChart('scout-chart', days, '#60a5fa', 14);
+    }, function() {
+      document.getElementById('scout-month-total').textContent = '--';
+    });
+  }
+
   /* ── E-RESOURCE USAGE ── */
   function loadEresource() {
     loadJSON(BASE + 'eresource-usage.json', function(data) {
@@ -946,7 +1015,7 @@
 
       var listEl = document.getElementById('print-issue-list');
       if (issues.length === 0) {
-        listEl.innerHTML = '<div class="no-events" style="font-size:15px;">All ' + printers.length + ' printers OK</div>';
+        listEl.innerHTML = '';
       } else {
         var html = '';
         issues.slice(0, 4).forEach(function(p) {
@@ -970,7 +1039,50 @@
     }, function() {
       document.getElementById('print-status-badge').textContent = 'NO DATA';
       document.getElementById('print-status-badge').className = 'help-badge alert';
-      document.getElementById('print-issue-list').innerHTML = '<div class="no-events" style="font-size:15px;">Feed unavailable</div>';
+      document.getElementById('print-issue-list').innerHTML = '<div class="no-events" style="font-size:15px;">Print feed unavailable</div>';
+    });
+  }
+
+  function fmt24(t) {
+    var d = new Date(t);
+    return d.getHours().toString().padStart(2,'0') + d.getMinutes().toString().padStart(2,'0');
+  }
+
+  /* ── HELP DESK KIOSK REQUESTS ── */
+  function loadKioskRequests() {
+    loadJSON(BASE + 'kiosk-requests.json', function(data) {
+      var t = data.today || {};
+      var open = document.getElementById('hd-open');
+      open.textContent = t.open || 0;
+      open.className = 'hd-num' + (t.open > 0 ? ' alert' : ' ok');
+      document.getElementById('hd-done').textContent = t.completed || 0;
+      document.getElementById('hd-nopatron').textContent = t.noPatron || 0;
+      document.getElementById('hd-auto').textContent = t.autoClosed || 0;
+
+      var el = document.getElementById('hd-recent');
+      var recent = (data.recent || []).slice(0, 4);
+      if (!recent.length) {
+        el.innerHTML = '<div class="no-events" style="font-size:15px;">No requests today</div>';
+      } else {
+        var html = '';
+        recent.forEach(function(r) {
+          var cls = r.state === 'open' ? 'open' : (r.state === 'done' ? 'done' : '');
+          html += '<div class="hd-row">' +
+            '<span class="hd-row-time">' + fmt24(r.time) + '</span>' +
+            '<span class="hd-row-type">' + (r.type || 'Help request') + '</span>' +
+            '<span class="hd-row-status ' + cls + '">' + (r.status || '') + '</span></div>';
+        });
+        el.innerHTML = html;
+      }
+      var u = document.getElementById('hd-updated');
+      if (data.updated) {
+        var stale = (Date.now() - new Date(data.updated).getTime()) > 30 * 60 * 1000;
+        u.textContent = 'Updated ' + fmtTime(data.updated) + (stale ? ' (STALE)' : '');
+        u.style.color = stale ? '#f59e0b' : '';
+      }
+    }, function() {
+      document.getElementById('hd-recent').innerHTML = '<div class="no-events" style="font-size:15px;">Help desk feed unavailable</div>';
+      ['hd-open','hd-done','hd-nopatron','hd-auto'].forEach(function(id) { document.getElementById(id).textContent = '--'; });
     });
   }
 
@@ -983,8 +1095,10 @@
     loadReservations();
     loadVisitorCount();
     loadCirculation();
+    loadScout();
     loadEresource();
     loadPrintQueue();
+    loadKioskRequests();
     loadInstruction();
   }
 
