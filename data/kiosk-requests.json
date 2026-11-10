@@ -1,0 +1,10 @@
+{
+  "updated": "2026-11-10T15:40:00Z",
+  "today": { "open": 1, "completed": 6, "noPatron": 2, "autoClosed": 1, "total": 10 },
+  "recent": [
+    { "time": "2026-11-10T15:32:00Z", "type": "Printing", "status": "Open", "state": "open" },
+    { "time": "2026-11-10T15:05:00Z", "type": "Research help", "status": "Completed", "state": "done" },
+    { "time": "2026-11-10T14:41:00Z", "type": "Computer", "status": "No Patron", "state": "closed" },
+    { "time": "2026-11-10T14:10:00Z", "type": "Other", "status": "Auto-closed", "state": "closed" }
+  ]
+}
