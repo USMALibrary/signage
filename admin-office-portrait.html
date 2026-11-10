@@ -581,7 +581,7 @@
         <svg id="scout-chart" viewBox="0 0 600 100" preserveAspectRatio="none" style="width:100%; height:100%;"></svg>
       </div>
       <div class="staff-row" style="flex:0 0 38px; padding:4px 0;">
-        <span class="staff-label" id="eres-month-label" style="width:auto; white-space:nowrap; font-size:14px;">E-Res</span>
+        <span class="staff-label" id="eres-month-label" style="width:auto; white-space:nowrap; font-size:14px;">Full-text clicks</span>
         <span class="staff-value" id="eres-month-total" style="font-size:30px; color:#B2B4B3;">--</span>
       </div>
       <div style="flex:1; min-height:0; display:flex; align-items:flex-end; padding:2px 0 6px;">
@@ -984,15 +984,16 @@
 
   /* ── E-RESOURCE USAGE ── */
   function loadEresource() {
-    loadJSON(BASE + 'eresource-usage.json', function(data) {
+    /* Full-text click-throughs via Scout's link resolver (Alma Analytics, daily) */
+    loadJSON(BASE + 'linkresolver-usage.json', function(data) {
       if (data.month) {
-        document.getElementById('eres-month-label').textContent = 'E-Res · ' + data.month.label.split(' ')[0].slice(0,3) + ' (final)';
+        document.getElementById('eres-month-label').textContent = 'Full-text clicks \u00b7 ' + data.month.label.split(' ')[0].slice(0,3) + ' MTD';
         document.getElementById('eres-month-total').textContent = data.month.total.toLocaleString();
       }
-      var months = (data.monthly || []).map(function(m) {
-        return { count: m.count, label: (m.monthDisplay || '').split(' ')[0] || '' };
+      var days = (data.daily || []).map(function(d) {
+        return { count: d.count, label: (d.dateDisplay || '').split(' ')[1] || '' };
       });
-      renderBarChart('eres-chart', months, '#B2B4B3', 12);
+      renderBarChart('eres-chart', days, '#B2B4B3', 14);
     }, function() {
       document.getElementById('eres-month-total').textContent = '--';
     });

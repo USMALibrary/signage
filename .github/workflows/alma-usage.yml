@@ -44,11 +44,20 @@ jobs:
           ALMA_METRIC_LABEL: searches
         run: python alma_usage.py
 
+      - name: Fetch link resolver full-text clicks
+        continue-on-error: true
+        env:
+          ALMA_API_KEY: ${{ secrets.ALMA_ANALYTICS_API_KEY }}
+          ALMA_REPORT_PATH: /shared/United States Military Academy (West Point) 01USMA_INST/Reports/Signage/Link Resolver Daily
+          ALMA_OUTPUT: data/linkresolver-usage.json
+          ALMA_METRIC_LABEL: clicks
+        run: python alma_usage.py
+
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/circulation-usage.json data/eresource-usage.json data/scout-usage.json
+          git add data/circulation-usage.json data/eresource-usage.json data/scout-usage.json data/linkresolver-usage.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
