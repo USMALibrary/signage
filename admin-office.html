@@ -537,7 +537,7 @@
     <div class="panel-body">
       <div class="staff-row">
         <span class="staff-label">Today</span>
-        <span class="staff-value" id="visitor-count" style="font-size:32px; color:#60a5fa;">--</span>
+        <span class="staff-value" id="visitor-count" style="font-size:32px; color:#FFD530;">--</span>
       </div>
       <div class="staff-row">
         <span class="staff-label">In Building</span>
@@ -557,25 +557,25 @@
       <span class="panel-icon">📊</span>
     </div>
     <div class="panel-body">
-      <div class="staff-row" style="flex:0.6;">
-        <span class="staff-label" id="scout-month-label">Scout</span>
-        <span class="staff-value" id="scout-month-total" style="font-size:30px; color:#60a5fa;">--</span>
+      <div class="staff-row" style="flex:0 0 38px; padding:4px 0;">
+        <span class="staff-label" id="scout-month-label" style="width:auto; white-space:nowrap; font-size:14px;">Scout</span>
+        <span class="staff-value" id="scout-month-total" style="font-size:30px; color:#FFD530;">--</span>
       </div>
-      <div style="flex:1; display:flex; align-items:flex-end; padding:4px 0 2px;">
+      <div style="flex:1; min-height:0; display:flex; align-items:flex-end; padding:2px 0 6px;">
         <svg id="scout-chart" viewBox="0 0 600 100" preserveAspectRatio="none" style="width:100%; height:100%;"></svg>
       </div>
-      <div class="staff-row" style="flex:0.6;">
-        <span class="staff-label" id="eres-month-label">E-Res</span>
-        <span class="staff-value" id="eres-month-total" style="font-size:30px; color:#c084fc;">--</span>
+      <div class="staff-row" style="flex:0 0 38px; padding:4px 0;">
+        <span class="staff-label" id="eres-month-label" style="width:auto; white-space:nowrap; font-size:14px;">E-Res</span>
+        <span class="staff-value" id="eres-month-total" style="font-size:30px; color:#B2B4B3;">--</span>
       </div>
-      <div style="flex:1; display:flex; align-items:flex-end; padding:4px 0 2px;">
+      <div style="flex:1; min-height:0; display:flex; align-items:flex-end; padding:2px 0 6px;">
         <svg id="eres-chart" viewBox="0 0 600 100" preserveAspectRatio="none" style="width:100%; height:100%;"></svg>
       </div>
-      <div class="staff-row" style="flex:0.6;">
-        <span class="staff-label" id="circ-month-label">Loans</span>
+      <div class="staff-row" style="flex:0 0 38px; padding:4px 0;">
+        <span class="staff-label" id="circ-month-label" style="width:auto; white-space:nowrap; font-size:14px;">Loans</span>
         <span class="staff-value" id="circ-month-total" style="font-size:30px; color:var(--gold);">--</span>
       </div>
-      <div style="flex:1; display:flex; align-items:flex-end; padding:4px 0 2px;">
+      <div style="flex:1; min-height:0; display:flex; align-items:flex-end; padding:2px 0 6px;">
         <svg id="circ-chart" viewBox="0 0 600 100" preserveAspectRatio="none" style="width:100%; height:100%;"></svg>
       </div>
     </div>
@@ -598,11 +598,11 @@
       </div>
       <div class="staff-row" style="flex:2;">
         <span class="staff-label">This Week</span>
-        <span class="staff-value" id="instr-week" style="font-size:48px; color:#60a5fa;">--</span>
+        <span class="staff-value" id="instr-week" style="font-size:48px; color:#FFD530;">--</span>
       </div>
       <div class="staff-row" style="flex:2;">
         <span class="staff-label">Today</span>
-        <span class="staff-value" id="instr-today" style="font-size:48px; color:#c084fc;">--</span>
+        <span class="staff-value" id="instr-today" style="font-size:48px; color:#B2B4B3;">--</span>
       </div>
     </div>
   </div>
@@ -939,7 +939,7 @@
   function loadCirculation() {
     loadJSON(BASE + 'circulation-usage.json', function(data) {
       if (data.month) {
-        document.getElementById('circ-month-label').textContent = 'Loans (' + data.month.label + ' · MTD)';
+        document.getElementById('circ-month-label').textContent = 'Loans · ' + data.month.label.split(' ')[0].slice(0,3) + ' MTD';
         document.getElementById('circ-month-total').textContent = data.month.total.toLocaleString();
       }
       var days = (data.daily || []).map(function(d) {
@@ -953,13 +953,13 @@
   function loadScout() {
     loadJSON(BASE + 'scout-usage.json', function(data) {
       if (data.month) {
-        document.getElementById('scout-month-label').textContent = 'Scout · ' + data.month.label.split(' ')[0] + ' MTD';
+        document.getElementById('scout-month-label').textContent = 'Scout · ' + data.month.label.split(' ')[0].slice(0,3) + ' MTD';
         document.getElementById('scout-month-total').textContent = data.month.total.toLocaleString();
       }
       var days = (data.daily || []).map(function(d) {
         return { count: d.count, label: (d.dateDisplay || '').split(' ')[1] || '' };
       });
-      renderBarChart('scout-chart', days, '#60a5fa', 14);
+      renderBarChart('scout-chart', days, '#FFD530', 14);
     }, function() {
       document.getElementById('scout-month-total').textContent = '--';
     });
@@ -969,13 +969,13 @@
   function loadEresource() {
     loadJSON(BASE + 'eresource-usage.json', function(data) {
       if (data.month) {
-        document.getElementById('eres-month-label').textContent = 'E-Res (' + data.month.label + ' · Final)';
+        document.getElementById('eres-month-label').textContent = 'E-Res · ' + data.month.label.split(' ')[0].slice(0,3) + ' (final)';
         document.getElementById('eres-month-total').textContent = data.month.total.toLocaleString();
       }
       var months = (data.monthly || []).map(function(m) {
         return { count: m.count, label: (m.monthDisplay || '').split(' ')[0] || '' };
       });
-      renderBarChart('eres-chart', months, 'rgb(192,132,252)', 12);
+      renderBarChart('eres-chart', months, '#B2B4B3', 12);
     }, function() {
       document.getElementById('eres-month-total').textContent = '--';
     });
