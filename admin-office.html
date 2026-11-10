@@ -544,6 +544,10 @@
         <span class="staff-value" id="occupancy-count" style="font-size:32px; color:#6fcf6f;">--</span>
       </div>
       <div class="staff-row">
+        <span class="staff-label" style="width:auto; white-space:nowrap;">Web Sessions &middot; Yesterday</span>
+        <span class="staff-value" id="web-sessions" style="font-size:32px; color:#F2E2A8;">--</span>
+      </div>
+      <div class="staff-row">
         <span class="staff-label">Updated</span>
         <span class="staff-value" id="visitor-updated" style="font-size:14px; color:var(--muted); font-weight:300;">Loading...</span>
       </div>
@@ -1088,6 +1092,18 @@
   }
 
   /* ── LOAD ALL ── */
+  /* ── WEBSITE SESSIONS (Microsoft Clarity, library.westpoint.edu) ── */
+  function loadWebsiteSessions() {
+    loadJSON(BASE + 'website-sessions.json', function(data) {
+      var el = document.getElementById('web-sessions');
+      el.textContent = (typeof data.yesterday === 'number') ? data.yesterday.toLocaleString() : '--';
+      var ageDays = data.asOfDate ? (Date.now() - new Date(data.asOfDate + 'T12:00:00').getTime()) / 86400000 : 99;
+      el.style.opacity = ageDays > 3 ? '0.45' : '1';
+    }, function() {
+      document.getElementById('web-sessions').textContent = '--';
+    });
+  }
+
   function loadAll() {
     loadOnCall();
     loadHelpStatus('help-needed-frontdesk.json', 'frontdesk-status');
@@ -1095,6 +1111,7 @@
     loadHours();
     loadReservations();
     loadVisitorCount();
+    loadWebsiteSessions();
     loadCirculation();
     loadScout();
     loadEresource();
