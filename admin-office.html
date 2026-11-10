@@ -558,7 +558,7 @@
     </div>
     <div class="panel-body">
       <div class="staff-row" style="flex:0 0 38px; padding:4px 0;">
-        <span class="staff-label" id="scout-month-label" style="width:auto; white-space:nowrap; font-size:14px;">Scout</span>
+        <span class="staff-label" id="scout-month-label" style="width:auto; white-space:nowrap; font-size:14px;">Scout searches</span>
         <span class="staff-value" id="scout-month-total" style="font-size:30px; color:#FFD530;">--</span>
       </div>
       <div style="flex:1; min-height:0; display:flex; align-items:flex-end; padding:2px 0 6px;">
@@ -953,7 +953,7 @@
   function loadScout() {
     loadJSON(BASE + 'scout-usage.json', function(data) {
       if (data.month) {
-        document.getElementById('scout-month-label').textContent = 'Scout · ' + data.month.label.split(' ')[0].slice(0,3) + ' MTD';
+        document.getElementById('scout-month-label').textContent = 'Scout searches · ' + data.month.label.split(' ')[0].slice(0,3) + ' MTD';
         document.getElementById('scout-month-total').textContent = data.month.total.toLocaleString();
       }
       var days = (data.daily || []).map(function(d) {
