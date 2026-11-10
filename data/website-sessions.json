@@ -1,0 +1,17 @@
+{
+  "updated": "2026-11-10T19:45:42.626499+00:00",
+  "asOfDate": "2026-11-09",
+  "yesterday": 326,
+  "month": {
+    "label": "November 2026",
+    "total": 326,
+    "days": 1
+  },
+  "daily": [
+    {
+      "date": "2026-11-09",
+      "dateDisplay": "Nov 9",
+      "count": 326
+    }
+  ]
+}
