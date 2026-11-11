@@ -1,18 +1,24 @@
 ﻿{
-    "updated":  "2026-11-11T19:45:02Z",
+    "updated":  "2026-11-11T20:00:04Z",
     "today":  {
-                  "open":  1,
-                  "completed":  0,
+                  "open":  0,
+                  "completed":  1,
                   "noPatron":  0,
-                  "autoClosed":  1,
-                  "total":  2
+                  "autoClosed":  2,
+                  "total":  3
               },
     "recent":  [
                    {
+                       "time":  "2026-11-11T19:49:27Z",
+                       "type":  "Help finding a book",
+                       "status":  "Completed",
+                       "state":  "done"
+                   },
+                   {
                        "time":  "2026-11-11T19:39:17Z",
                        "type":  "Help finding a book",
-                       "status":  "New",
-                       "state":  "open"
+                       "status":  "Canceled",
+                       "state":  "closed"
                    },
                    {
                        "time":  "2026-11-11T19:13:18Z",
