@@ -1,107 +1,19 @@
 {
-  "updated": "2026-11-10T22:33:42.122924+00:00",
-  "date": "2026-11-10",
+  "updated": "2026-11-11T02:11:43.062623+00:00",
+  "date": "2026-11-11",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 9,
+  "count": 1,
   "bookings": [
-    {
-      "room": "JH 514 (Class of 1985)",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-10T08:00:00-05:00",
-      "to": "2026-11-10T14:00:00-05:00",
-      "fromDisplay": "8:00 AM",
-      "toDisplay": "2:00 PM",
-      "title": "DELPHI Meetings with MG Offir, Israel Defense Forces",
-      "nickname": "DELPHI Meetings with MG Offir, Israel Defense Forces",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 302",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-10T08:30:00-05:00",
-      "to": "2026-11-10T10:30:00-05:00",
-      "fromDisplay": "8:30 AM",
-      "toDisplay": "10:30 AM",
-      "title": "NEOMED Interview",
-      "nickname": "NEOMED Interview",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 303",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-10T09:00:00-05:00",
-      "to": "2026-11-10T12:00:00-05:00",
-      "fromDisplay": "9:00 AM",
-      "toDisplay": "12:00 PM",
-      "title": "HI108W AI w/ Cadets",
-      "nickname": "HI108W AI w/ Cadets",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "*JH - Haig Room & All 6th Floor Spaces",
-      "category": "Sixth Floor & Haig Room",
-      "from": "2026-11-10T10:00:00-05:00",
-      "to": "2026-11-10T12:00:00-05:00",
-      "fromDisplay": "10:00 AM",
-      "toDisplay": "12:00 PM",
-      "title": "Admissions Group Visit Briefing",
-      "nickname": "Admissions Group Visit Briefing",
-      "status": "Mediated Approved"
-    },
     {
       "room": "JH 613 Haig Room Only",
       "category": "Sixth Floor & Haig Room",
-      "from": "2026-11-10T12:00:00-05:00",
-      "to": "2026-11-10T22:00:00-05:00",
-      "fromDisplay": "12:00 PM",
-      "toDisplay": "10:00 PM",
+      "from": "2026-11-11T14:00:00-05:00",
+      "to": "2026-11-11T21:00:00-05:00",
+      "fromDisplay": "2:00 PM",
+      "toDisplay": "9:00 PM",
       "title": "LTG Hal Moore Award Ceremony",
       "nickname": "LTG Hal Moore Award Ceremony",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 302",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-10T12:30:00-05:00",
-      "to": "2026-11-10T16:30:00-05:00",
-      "fromDisplay": "12:30 PM",
-      "toDisplay": "4:30 PM",
-      "title": "Med School Interview",
-      "nickname": "Med School Interview",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 513",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-10T12:45:00-05:00",
-      "to": "2026-11-10T14:45:00-05:00",
-      "fromDisplay": "12:45 PM",
-      "toDisplay": "2:45 PM",
-      "title": "HWS498",
-      "nickname": "HWS498",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 314C",
-      "category": "Library Staff Rooms",
-      "from": "2026-11-10T13:00:00-05:00",
-      "to": "2026-11-10T14:00:00-05:00",
-      "fromDisplay": "1:00 PM",
-      "toDisplay": "2:00 PM",
-      "title": "Leadership Meeting",
-      "nickname": "Leadership Meeting",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 303",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-10T15:15:00-05:00",
-      "to": "2026-11-10T16:00:00-05:00",
-      "fromDisplay": "3:15 PM",
-      "toDisplay": "4:00 PM",
-      "title": "Interview",
-      "nickname": "Interview",
       "status": "Mediated Approved"
     }
   ]
