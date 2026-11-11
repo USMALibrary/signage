@@ -1,36 +1,13 @@
 ﻿{
-    "updated":  "2026-11-11T04:45:01Z",
+    "updated":  "2026-11-11T05:00:08Z",
     "today":  {
                   "open":  0,
-                  "completed":  2,
+                  "completed":  0,
                   "noPatron":  0,
-                  "autoClosed":  2,
-                  "total":  4
+                  "autoClosed":  0,
+                  "total":  0
               },
     "recent":  [
-                   {
-                       "time":  "2026-11-10T20:35:57Z",
-                       "type":  "Help printing",
-                       "status":  "Completed",
-                       "state":  "done"
-                   },
-                   {
-                       "time":  "2026-11-10T19:45:25Z",
-                       "type":  "General question",
-                       "status":  "Canceled",
-                       "state":  "closed"
-                   },
-                   {
-                       "time":  "2026-11-10T17:30:25Z",
-                       "type":  "Help finding a book",
-                       "status":  "Canceled",
-                       "state":  "closed"
-                   },
-                   {
-                       "time":  "2026-11-10T14:29:31Z",
-                       "type":  "Research help",
-                       "status":  "Completed",
-                       "state":  "done"
-                   }
+
                ]
 }
