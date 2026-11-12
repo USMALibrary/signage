@@ -1,13 +1,19 @@
 ﻿{
-    "updated":  "2026-11-12T17:45:01Z",
+    "updated":  "2026-11-12T18:00:05Z",
     "today":  {
-                  "open":  0,
+                  "open":  1,
                   "completed":  1,
                   "noPatron":  0,
                   "autoClosed":  0,
-                  "total":  1
+                  "total":  2
               },
     "recent":  [
+                   {
+                       "time":  "2026-11-12T17:58:25Z",
+                       "type":  "General question",
+                       "status":  "New",
+                       "state":  "open"
+                   },
                    {
                        "time":  "2026-11-12T12:47:30Z",
                        "type":  "General question",
