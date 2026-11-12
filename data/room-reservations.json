@@ -1,19 +1,74 @@
 {
-  "updated": "2026-11-11T23:43:19.575042+00:00",
-  "date": "2026-11-11",
+  "updated": "2026-11-12T04:22:46.284330+00:00",
+  "date": "2026-11-12",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 1,
+  "count": 6,
   "bookings": [
     {
       "room": "JH 613 Haig Room Only",
       "category": "Sixth Floor & Haig Room",
-      "from": "2026-11-11T14:00:00-05:00",
-      "to": "2026-11-11T21:00:00-05:00",
-      "fromDisplay": "2:00 PM",
-      "toDisplay": "9:00 PM",
+      "from": "2026-11-12T07:00:00-05:00",
+      "to": "2026-11-12T14:00:00-05:00",
+      "fromDisplay": "7:00 AM",
+      "toDisplay": "2:00 PM",
       "title": "LTG Hal Moore Award Ceremony",
       "nickname": "LTG Hal Moore Award Ceremony",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-12T10:00:00-05:00",
+      "to": "2026-11-12T12:00:00-05:00",
+      "fromDisplay": "10:00 AM",
+      "toDisplay": "12:00 PM",
+      "title": "Library Director Meet and Greet",
+      "nickname": "Library Director Meet and Greet",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 302",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-12T12:30:00-05:00",
+      "to": "2026-11-12T14:45:00-05:00",
+      "fromDisplay": "12:30 PM",
+      "toDisplay": "2:45 PM",
+      "title": "HI498 Seminar",
+      "nickname": "HI498 Seminar",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 402",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-12T12:30:00-05:00",
+      "to": "2026-11-12T13:45:00-05:00",
+      "fromDisplay": "12:30 PM",
+      "toDisplay": "1:45 PM",
+      "title": "AI",
+      "nickname": "AI",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 513",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-12T12:30:00-05:00",
+      "to": "2026-11-12T14:45:00-05:00",
+      "fromDisplay": "12:30 PM",
+      "toDisplay": "2:45 PM",
+      "title": "HI498 Seminar",
+      "nickname": "HI498 Seminar",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 402",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-12T14:30:00-05:00",
+      "to": "2026-11-12T16:00:00-05:00",
+      "fromDisplay": "2:30 PM",
+      "toDisplay": "4:00 PM",
+      "title": "AI",
+      "nickname": "AI",
       "status": "Mediated Approved"
     }
   ]
