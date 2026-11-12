@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-12T07:01:36.287621+00:00",
+  "updated": "2026-11-12T18:09:55.327883+00:00",
   "date": "2026-11-12",
   "location": "Jefferson Hall",
   "lid": 7099,
@@ -42,11 +42,22 @@
       "room": "JH 402",
       "category": "Collaborative Rooms",
       "from": "2026-11-12T12:30:00-05:00",
-      "to": "2026-11-12T13:45:00-05:00",
+      "to": "2026-11-12T16:00:00-05:00",
       "fromDisplay": "12:30 PM",
-      "toDisplay": "1:45 PM",
+      "toDisplay": "4:00 PM",
       "title": "AI",
       "nickname": "AI",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 503",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-12T12:30:00-05:00",
+      "to": "2026-11-12T14:30:00-05:00",
+      "fromDisplay": "12:30 PM",
+      "toDisplay": "2:30 PM",
+      "title": "Cadet Make-Up Assignment",
+      "nickname": "Cadet Make-Up Assignment",
       "status": "Mediated Approved"
     },
     {
@@ -58,17 +69,6 @@
       "toDisplay": "2:45 PM",
       "title": "HI498 Seminar",
       "nickname": "HI498 Seminar",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 402",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-12T14:30:00-05:00",
-      "to": "2026-11-12T16:00:00-05:00",
-      "fromDisplay": "2:30 PM",
-      "toDisplay": "4:00 PM",
-      "title": "AI",
-      "nickname": "AI",
       "status": "Mediated Approved"
     }
   ]
