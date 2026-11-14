@@ -1,18 +1,13 @@
 {
-  "updated": "2026-11-13T18:20:26.112167+00:00",
-  "asOfDate": "2026-11-12",
+  "updated": "2026-11-14T16:49:19.122471+00:00",
+  "asOfDate": "2026-11-13",
   "month": {
     "label": "November 2026",
     "startDate": "2026-11-01",
-    "total": 2700,
-    "days": 12
+    "total": 2863,
+    "days": 13
   },
   "daily": [
-    {
-      "date": "2026-10-14",
-      "dateDisplay": "Oct 14",
-      "count": 189
-    },
     {
       "date": "2026-10-15",
       "dateDisplay": "Oct 15",
@@ -156,7 +151,12 @@
     {
       "date": "2026-11-12",
       "dateDisplay": "Nov 12",
-      "count": 303
+      "count": 374
+    },
+    {
+      "date": "2026-11-13",
+      "dateDisplay": "Nov 13",
+      "count": 92
     }
   ]
 }
