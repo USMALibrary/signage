@@ -1,8 +1,20 @@
 {
-  "updated": "2026-11-14T20:53:56.259061+00:00",
-  "date": "2026-11-14",
+  "updated": "2026-11-15T00:26:21.849019+00:00",
+  "date": "2026-11-15",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 0,
-  "bookings": []
+  "count": 1,
+  "bookings": [
+    {
+      "room": "*JH - Haig Room & All 6th Floor Spaces",
+      "category": "Sixth Floor & Haig Room",
+      "from": "2026-11-15T14:00:00-05:00",
+      "to": "2026-11-15T18:00:00-05:00",
+      "fromDisplay": "2:00 PM",
+      "toDisplay": "6:00 PM",
+      "title": "DEWL Opera Recital",
+      "nickname": "DEWL Opera Recital",
+      "status": "Mediated Approved"
+    }
+  ]
 }
