@@ -1,13 +1,18 @@
 ﻿{
-    "updated":  "2026-11-16T13:15:03Z",
+    "updated":  "2026-11-16T13:30:04Z",
     "today":  {
                   "open":  0,
-                  "completed":  0,
+                  "completed":  1,
                   "noPatron":  0,
                   "autoClosed":  0,
-                  "total":  0
+                  "total":  1
               },
     "recent":  [
-
+                   {
+                       "time":  "2026-11-16T13:16:54Z",
+                       "type":  "Help finding a book",
+                       "status":  "Completed",
+                       "state":  "done"
+                   }
                ]
 }
