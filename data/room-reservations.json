@@ -1,19 +1,140 @@
 {
-  "updated": "2026-11-15T21:40:19.383532+00:00",
-  "date": "2026-11-15",
+  "updated": "2026-11-16T01:26:05.037541+00:00",
+  "date": "2026-11-16",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 1,
+  "count": 12,
   "bookings": [
+    {
+      "room": "JH 423",
+      "category": "Classrooms",
+      "from": "2026-11-16T07:30:00-05:00",
+      "to": "2026-11-16T08:40:00-05:00",
+      "fromDisplay": "7:30 AM",
+      "toDisplay": "8:40 AM",
+      "title": "",
+      "nickname": "",
+      "status": "Confirmed"
+    },
+    {
+      "room": "JH 613 Haig Room Only",
+      "category": "Sixth Floor & Haig Room",
+      "from": "2026-11-16T08:15:00-05:00",
+      "to": "2026-11-16T09:30:00-05:00",
+      "fromDisplay": "8:15 AM",
+      "toDisplay": "9:30 AM",
+      "title": "DAD FY2027 Educator Visit",
+      "nickname": "DAD FY2027 Educator Visit",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 301 (Class of 1976)",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-16T09:00:00-05:00",
+      "to": "2026-11-16T11:45:00-05:00",
+      "fromDisplay": "9:00 AM",
+      "toDisplay": "11:45 AM",
+      "title": "DAD FY2027 Educator Visit",
+      "nickname": "DAD FY2027 Educator Visit",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 401 (Class of 1994)",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-16T09:00:00-05:00",
+      "to": "2026-11-16T11:45:00-05:00",
+      "fromDisplay": "9:00 AM",
+      "toDisplay": "11:45 AM",
+      "title": "DAD FY2027 Educator Visit",
+      "nickname": "DAD FY2027 Educator Visit",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 414",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-16T09:00:00-05:00",
+      "to": "2026-11-16T11:45:00-05:00",
+      "fromDisplay": "9:00 AM",
+      "toDisplay": "11:45 AM",
+      "title": "DAD FY2027 Educator Visit",
+      "nickname": "DAD FY2027 Educator Visit",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 423",
+      "category": "Classrooms",
+      "from": "2026-11-16T09:00:00-05:00",
+      "to": "2026-11-16T12:00:00-05:00",
+      "fromDisplay": "9:00 AM",
+      "toDisplay": "12:00 PM",
+      "title": "FY2027 Educator Visit (15-18 Nov)",
+      "nickname": "FY2027 Educator Visit (15-18 Nov)",
+      "status": "Confirmed"
+    },
+    {
+      "room": "JH 513",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-16T09:00:00-05:00",
+      "to": "2026-11-16T11:45:00-05:00",
+      "fromDisplay": "9:00 AM",
+      "toDisplay": "11:45 AM",
+      "title": "DAD FY2027 Educator Visit",
+      "nickname": "DAD FY2027 Educator Visit",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-16T09:00:00-05:00",
+      "to": "2026-11-16T11:45:00-05:00",
+      "fromDisplay": "9:00 AM",
+      "toDisplay": "11:45 AM",
+      "title": "DAD FY2027 Educator Visit",
+      "nickname": "DAD FY2027 Educator Visit",
+      "status": "Mediated Approved"
+    },
     {
       "room": "*JH - Haig Room & All 6th Floor Spaces",
       "category": "Sixth Floor & Haig Room",
-      "from": "2026-11-15T14:00:00-05:00",
-      "to": "2026-11-15T18:00:00-05:00",
+      "from": "2026-11-16T09:30:00-05:00",
+      "to": "2026-11-16T22:00:00-05:00",
+      "fromDisplay": "9:30 AM",
+      "toDisplay": "10:00 PM",
+      "title": "Protocol Event",
+      "nickname": "Protocol Event",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 301 (Class of 1976)",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-16T12:15:00-05:00",
+      "to": "2026-11-16T14:00:00-05:00",
+      "fromDisplay": "12:15 PM",
+      "toDisplay": "2:00 PM",
+      "title": "LCB Briefings PL300",
+      "nickname": "LCB Briefings PL300",
+      "status": "Mediated Tentative"
+    },
+    {
+      "room": "JH 401/402/403",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-16T12:45:00-05:00",
+      "to": "2026-11-16T15:00:00-05:00",
+      "fromDisplay": "12:45 PM",
+      "toDisplay": "3:00 PM",
+      "title": "DELPHI R&A with Dean and staff (possibly attended by Supe)",
+      "nickname": "DELPHI R&A with Dean and staff (possibly attended by Supe)",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-16T14:00:00-05:00",
+      "to": "2026-11-16T16:00:00-05:00",
       "fromDisplay": "2:00 PM",
-      "toDisplay": "6:00 PM",
-      "title": "DEWL Opera Recital",
-      "nickname": "DEWL Opera Recital",
+      "toDisplay": "4:00 PM",
+      "title": "Communications Class with Dr. Frank Luntz",
+      "nickname": "Communications Class with Dr. Frank Luntz",
       "status": "Mediated Approved"
     }
   ]
