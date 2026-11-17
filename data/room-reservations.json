@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-17T07:47:03.628581+00:00",
+  "updated": "2026-11-17T19:05:39.557512+00:00",
   "date": "2026-11-17",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 8,
+  "count": 9,
   "bookings": [
     {
       "room": "*JH - Haig Room & All 6th Floor Spaces",
@@ -69,6 +69,17 @@
       "toDisplay": "12:00 PM",
       "title": "HI108W WPR II",
       "nickname": "HI108W WPR II",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 401 (Class of 1994)",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-17T12:30:00-05:00",
+      "to": "2026-11-17T15:00:00-05:00",
+      "fromDisplay": "12:30 PM",
+      "toDisplay": "3:00 PM",
+      "title": "Working group",
+      "nickname": "Working group",
       "status": "Mediated Approved"
     },
     {
