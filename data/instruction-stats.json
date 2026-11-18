@@ -1,15 +1,25 @@
 {
-  "updated": "2026-11-17T19:04:59.598136+00:00",
+  "updated": "2026-11-18T01:34:44.943445+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-11-17",
-    "count": 0,
-    "sessions": [],
+    "date": "2026-11-18",
+    "count": 1,
+    "sessions": [
+      {
+        "title": "SS202 American Politics Block 3 Paper Informal Actors (Information Literacy)(Doug)(JH414)",
+        "start": "2026-11-18T20:00:00-05:00",
+        "end": "2026-11-18T20:40:00-05:00",
+        "startDisplay": "8:00 PM",
+        "endDisplay": "8:40 PM",
+        "location": "JH 414",
+        "status": "upcoming"
+      }
+    ],
     "next": {
       "title": "SS202 American Politics Block 3 Paper Informal Actors (Information Literacy)(Doug)(JH414)",
       "time": "8:00 PM",
       "date": "2026-11-18",
-      "dateDisplay": "Tomorrow",
+      "dateDisplay": "Today",
       "status": "upcoming"
     }
   },
@@ -20,6 +30,6 @@
   "semester": {
     "label": "Fall 2026",
     "startDate": "2026-07-01",
-    "count": 147
+    "count": 148
   }
 }
