@@ -125,7 +125,18 @@
     color: var(--gold);
   }
 
-  .panel-icon { font-size: 18px; opacity: 0.6; }
+  .panel-subtitle {
+    display: block;
+    font-family: 'Open Sans', 'Segoe UI', Arial, sans-serif;
+    font-size: 11px; font-weight: 300;
+    letter-spacing: 1px; text-transform: none;
+    color: var(--muted);
+    line-height: 1.35;
+    margin-top: 3px;
+    max-width: 520px;
+  }
+
+  .panel-icon { font-size: 18px; opacity: 0.6; flex-shrink: 0; }
 
   .panel-body {
     flex: 1;
@@ -588,7 +599,10 @@
   <!-- 6. INSTRUCTION SESSIONS -->
   <div class="panel">
     <div class="panel-header">
-      <span class="panel-title">Instruction</span>
+      <div>
+        <span class="panel-title">Instruction Calendar Events</span>
+        <span class="panel-subtitle">All events on the library instruction calendar, including tours and briefings.</span>
+      </div>
       <span class="panel-icon">🎓</span>
     </div>
     <div class="panel-body">
