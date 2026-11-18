@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-18T07:14:19.735694+00:00",
+  "updated": "2026-11-18T18:47:02.050190+00:00",
   "date": "2026-11-18",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 11,
+  "count": 12,
   "bookings": [
     {
       "room": "JH 423",
@@ -80,6 +80,17 @@
       "toDisplay": "4:00 PM",
       "title": "Communications Class with Dr. Frank Luntz",
       "nickname": "Communications Class with Dr. Frank Luntz",
+      "status": "Mediated Approved"
+    },
+    {
+      "room": "JH 503",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-18T15:00:00-05:00",
+      "to": "2026-11-18T16:00:00-05:00",
+      "fromDisplay": "3:00 PM",
+      "toDisplay": "4:00 PM",
+      "title": "DELPHI Meeting",
+      "nickname": "DELPHI Meeting",
       "status": "Mediated Approved"
     },
     {
