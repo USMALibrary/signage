@@ -58,5 +58,11 @@
   "sessions": 250,
   "bots": 34,
   "human": 216
+ },
+ {
+  "date": "2026-11-19",
+  "sessions": 159,
+  "bots": 25,
+  "human": 134
  }
 ]

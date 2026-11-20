@@ -1,11 +1,11 @@
 {
-  "updated": "2026-11-19T19:00:40.349101+00:00",
-  "asOfDate": "2026-11-18",
-  "yesterday": 216,
+  "updated": "2026-11-20T18:38:04.465127+00:00",
+  "asOfDate": "2026-11-19",
+  "yesterday": 134,
   "month": {
     "label": "November 2026",
-    "total": 2044,
-    "days": 10
+    "total": 2178,
+    "days": 11
   },
   "daily": [
     {
@@ -57,6 +57,11 @@
       "date": "2026-11-18",
       "dateDisplay": "Nov 18",
       "count": 216
+    },
+    {
+      "date": "2026-11-19",
+      "dateDisplay": "Nov 19",
+      "count": 134
     }
   ]
 }
