@@ -1,70 +1,70 @@
 {
-  "updated": "2026-11-21T17:50:56.721445+00:00",
+  "updated": "2026-11-22T18:11:03.950056+00:00",
   "asOfMonth": "2026-10",
   "month": {
     "label": "Oct 2026",
-    "total": 92
+    "total": 4723
   },
   "monthly": [
     {
       "month": "2025-11",
       "monthDisplay": "Nov 2025",
-      "count": 862
+      "count": 2285
     },
     {
       "month": "2025-12",
       "monthDisplay": "Dec 2025",
-      "count": 412
+      "count": 1905
     },
     {
       "month": "2026-01",
       "monthDisplay": "Jan 2026",
-      "count": 442
+      "count": 5417
     },
     {
       "month": "2026-02",
       "monthDisplay": "Feb 2026",
-      "count": 846
+      "count": 5115
     },
     {
       "month": "2026-03",
       "monthDisplay": "Mar 2026",
-      "count": 741
+      "count": 4521
     },
     {
       "month": "2026-04",
       "monthDisplay": "Apr 2026",
-      "count": 499
+      "count": 3217
     },
     {
       "month": "2026-05",
       "monthDisplay": "May 2026",
-      "count": 266
+      "count": 2076
     },
     {
       "month": "2026-06",
       "monthDisplay": "Jun 2026",
-      "count": 116
+      "count": 326
     },
     {
       "month": "2026-07",
       "monthDisplay": "Jul 2026",
-      "count": 170
+      "count": 293
     },
     {
       "month": "2026-08",
       "monthDisplay": "Aug 2026",
-      "count": 274
+      "count": 1703
     },
     {
       "month": "2026-09",
       "monthDisplay": "Sep 2026",
-      "count": 83
+      "count": 2613
     },
     {
       "month": "2026-10",
       "monthDisplay": "Oct 2026",
-      "count": 92
+      "count": 4723
     }
   ]
 }
