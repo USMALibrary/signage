@@ -1,19 +1,30 @@
 {
-  "updated": "2026-11-22T22:50:51.024354+00:00",
-  "date": "2026-11-22",
+  "updated": "2026-11-23T03:13:55.537161+00:00",
+  "date": "2026-11-23",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 1,
+  "count": 2,
   "bookings": [
     {
-      "room": "JH 613 Haig Room Only",
-      "category": "Sixth Floor & Haig Room",
-      "from": "2026-11-22T14:00:00-05:00",
-      "to": "2026-11-22T19:00:00-05:00",
+      "room": "JH 423",
+      "category": "Classrooms",
+      "from": "2026-11-23T07:30:00-05:00",
+      "to": "2026-11-23T08:40:00-05:00",
+      "fromDisplay": "7:30 AM",
+      "toDisplay": "8:40 AM",
+      "title": "",
+      "nickname": "",
+      "status": "Confirmed"
+    },
+    {
+      "room": "JH 514 (Class of 1985)",
+      "category": "Collaborative Rooms",
+      "from": "2026-11-23T14:00:00-05:00",
+      "to": "2026-11-23T16:00:00-05:00",
       "fromDisplay": "2:00 PM",
-      "toDisplay": "7:00 PM",
-      "title": "Piano Mentorship Program",
-      "nickname": "Piano Mentorship Program",
+      "toDisplay": "4:00 PM",
+      "title": "Communications Class with Dr. Frank Luntz",
+      "nickname": "Communications Class with Dr. Frank Luntz",
       "status": "Mediated Approved"
     }
   ]
