@@ -1,11 +1,17 @@
 {
-  "updated": "2026-11-23T21:59:11.692072+00:00",
+  "updated": "2026-11-24T05:54:14.604735+00:00",
   "calendarId": 20048,
   "today": {
-    "date": "2026-11-23",
+    "date": "2026-11-24",
     "count": 0,
     "sessions": [],
-    "next": null
+    "next": {
+      "title": "EN101 - ASC Instruction (Brown)(Susan)(JH431A)",
+      "time": "7:40 AM",
+      "date": "2026-12-08",
+      "dateDisplay": "Tue Dec 8",
+      "status": "upcoming"
+    }
   },
   "thisWeek": {
     "startDate": "2026-11-23",
