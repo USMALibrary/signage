@@ -1,30 +1,30 @@
 {
-  "updated": "2026-11-23T21:59:24.729282+00:00",
-  "date": "2026-11-23",
+  "updated": "2026-11-24T05:55:04.333203+00:00",
+  "date": "2026-11-24",
   "location": "Jefferson Hall",
   "lid": 7099,
   "count": 2,
   "bookings": [
     {
-      "room": "JH 423",
-      "category": "Classrooms",
-      "from": "2026-11-23T07:30:00-05:00",
-      "to": "2026-11-23T08:40:00-05:00",
-      "fromDisplay": "7:30 AM",
-      "toDisplay": "8:40 AM",
-      "title": "",
-      "nickname": "",
-      "status": "Confirmed"
+      "room": "JH 314C",
+      "category": "Library Staff Rooms",
+      "from": "2026-11-24T13:00:00-05:00",
+      "to": "2026-11-24T14:00:00-05:00",
+      "fromDisplay": "1:00 PM",
+      "toDisplay": "2:00 PM",
+      "title": "Leadership Meeting",
+      "nickname": "Leadership Meeting",
+      "status": "Mediated Approved"
     },
     {
-      "room": "JH 514 (Class of 1985)",
+      "room": "JH 302",
       "category": "Collaborative Rooms",
-      "from": "2026-11-23T14:00:00-05:00",
-      "to": "2026-11-23T16:00:00-05:00",
-      "fromDisplay": "2:00 PM",
-      "toDisplay": "4:00 PM",
-      "title": "Communications Class with Dr. Frank Luntz",
-      "nickname": "Communications Class with Dr. Frank Luntz",
+      "from": "2026-11-24T14:15:00-05:00",
+      "to": "2026-11-24T15:45:00-05:00",
+      "fromDisplay": "2:15 PM",
+      "toDisplay": "3:45 PM",
+      "title": "Med School Interview",
+      "nickname": "Med School Interview",
       "status": "Mediated Approved"
     }
   ]
