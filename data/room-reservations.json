@@ -1,31 +1,20 @@
 {
-  "updated": "2026-11-24T20:36:03.242973+00:00",
-  "date": "2026-11-24",
+  "updated": "2026-11-25T03:42:19.576672+00:00",
+  "date": "2026-11-25",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 2,
+  "count": 1,
   "bookings": [
     {
-      "room": "JH 314C",
-      "category": "Library Staff Rooms",
-      "from": "2026-11-24T13:00:00-05:00",
-      "to": "2026-11-24T14:00:00-05:00",
-      "fromDisplay": "1:00 PM",
-      "toDisplay": "2:00 PM",
-      "title": "Leadership Meeting",
-      "nickname": "Leadership Meeting",
-      "status": "Mediated Approved"
-    },
-    {
-      "room": "JH 302",
-      "category": "Collaborative Rooms",
-      "from": "2026-11-24T14:15:00-05:00",
-      "to": "2026-11-24T15:45:00-05:00",
-      "fromDisplay": "2:15 PM",
-      "toDisplay": "3:45 PM",
-      "title": "Med School Interview",
-      "nickname": "Med School Interview",
-      "status": "Mediated Approved"
+      "room": "JH 423",
+      "category": "Classrooms",
+      "from": "2026-11-25T07:30:00-05:00",
+      "to": "2026-11-25T08:40:00-05:00",
+      "fromDisplay": "7:30 AM",
+      "toDisplay": "8:40 AM",
+      "title": "",
+      "nickname": "",
+      "status": "Confirmed"
     }
   ]
 }
