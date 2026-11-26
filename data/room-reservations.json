@@ -1,20 +1,8 @@
 {
-  "updated": "2026-11-25T19:52:37.079349+00:00",
-  "date": "2026-11-25",
+  "updated": "2026-11-26T02:28:59.269590+00:00",
+  "date": "2026-11-26",
   "location": "Jefferson Hall",
   "lid": 7099,
-  "count": 1,
-  "bookings": [
-    {
-      "room": "JH 423",
-      "category": "Classrooms",
-      "from": "2026-11-25T07:30:00-05:00",
-      "to": "2026-11-25T08:40:00-05:00",
-      "fromDisplay": "7:30 AM",
-      "toDisplay": "8:40 AM",
-      "title": "",
-      "nickname": "",
-      "status": "Confirmed"
-    }
-  ]
+  "count": 0,
+  "bookings": []
 }
